@@ -1,0 +1,226 @@
+$brand-color-1: #dc3545;
+$brand-color-2: #17a2b8;
+$brand-color-3: #ffc107;
+$brand-color-4: #007bff;
+$brand-color-5: #28a745;
+$brand-color-6: #32325d;
+$backgroud-color-1: #f6f6f6;
+
+
+
+.sub-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+}
+
+.subside-bar {
+      box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+      font-weight: 300;
+      position: relative;
+
+      .subside-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+
+            .sub-logo {
+                  display: block;
+
+                  img {
+                        width: 100%;
+                  }
+            }
+
+            .subnav-toggle {
+                  display: block;
+                  padding: 0.5rem;
+            }
+      }
+
+      .subside-bottom {
+            display: none;
+
+            .sub-nav {
+                  .subnav-ul {
+                        .subnav-item {
+                              .subnav-link {
+                                    display: block;
+                                    padding: 0.7rem;
+                                    color: #ffffff;
+                                    background-color: $brand-color-3;
+                                    transition: all 0.3s ease-in;
+
+                                    i,
+                                    svg {
+                                          transition: all 0.3s ease-in;
+                                    }
+
+                                    &:hover {
+                                          background-color: $brand-color-1;
+                                          color: #ffffff;
+                                          padding-left: 1rem;
+
+                                          i,
+                                          svg {
+                                                color: #ffffff !important;
+                                          }
+                                    }
+                              }
+                        }
+                  }
+            }
+      }
+}
+
+.submain-bar {
+      flex: 2;
+
+      .mainbar-header {
+            box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+            padding: 1rem;
+
+            .mainbar-header-title {
+                  font-size: 2rem;
+                  font-weight: 700;
+                  color: $brand-color-1;
+                  transition: all 0.3s ease;
+                  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+
+                  &:hover {
+                        letter-spacing: 0.2rem;
+                        color: #163877;
+                  }
+            }
+      }
+}
+
+.submob-active {
+      position: absolute;
+      display: block !important;
+      left: 0;
+      z-index: 2;
+      width: 100%;
+}
+
+#toggleicon {
+      font-size: 1.5rem;
+      color: $brand-color-1;
+}
+
+@media (min-width: 768px) {
+      .sub-container {
+            margin: auto;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            border-radius: 10px;
+            outline: none;
+
+            // Sub left bar
+            .subside-bar {
+                  flex: 0.5;
+                  padding: 0rem 0.5rem;
+
+                  .subside-header {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .subnav-toggle {
+                              display: none;
+                        }
+                  }
+
+                  .subside-bottom {
+                        display: block;
+
+                        .sub-nav {
+                              .subnav-ul {
+                                    .subnav-item {
+                                          .subnav-link {
+                                                display: block;
+                                                padding: 0.7rem;
+                                                margin-bottom: 0.3rem;
+                                                color: #ffffff;
+                                                border-radius: 5px;
+                                                background-color: $brand-color-6;
+                                                transition: all 0.3s ease-in;
+
+                                                i,
+                                                svg {
+                                                      transition: all 0.3s ease-in;
+                                                }
+
+                                                &:hover {
+                                                      background-color: $brand-color-1;
+                                                      color: #ffffff;
+                                                      padding-left: 1rem;
+
+                                                      i,
+                                                      svg {
+                                                            color: #ffffff !important;
+                                                      }
+                                                }
+                                          }
+                                    }
+                              }
+                        }
+                  }
+            }
+
+            // Sub main bar
+            .submain-bar {
+                  flex: 2;
+                  overflow: hidden;
+                  position: relative;
+                  height: 100%;
+
+                  .mainbar-header {
+                        box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+                        padding: 1rem;
+
+                        .mainbar-header-title {
+                              font-size: 2rem;
+                              font-weight: 700;
+                              color: $brand-color-1;
+                              transition: all 0.3s ease;
+                              font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+
+                              &:hover {
+                                    letter-spacing: 0.2rem;
+                                    color: #163877;
+                              }
+                        }
+                  }
+
+                  .mainbar-bottom {
+                        padding: 1rem;
+                        height: auto;
+                        position: relative;
+                        height: 100%;
+
+                        .mainbar-home {
+                              height: 100%;
+                              overflow-y: scroll;
+                              overflow-x: hidden;
+
+                              .submb-right {
+                                    .ngo-chairman {
+                                          .chairman-info {
+                                                .chairman-name {
+                                                      font-weight: 600;
+                                                      font-size: 1.2rem;
+                                                      color: #163877;
+                                                }
+                                          }
+                                    }
+                              }
+                        }
+                  }
+            }
+      }
+}

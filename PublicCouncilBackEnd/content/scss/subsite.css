@@ -1,0 +1,182 @@
+.sub-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+}
+
+.subside-bar {
+  box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+  font-weight: 300;
+  position: relative;
+}
+
+.subside-bar .subside-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.subside-bar .subside-header .sub-logo {
+  display: block;
+}
+
+.subside-bar .subside-header .sub-logo img {
+  width: 100%;
+}
+
+.subside-bar .subside-header .subnav-toggle {
+  display: block;
+  padding: 0.5rem;
+}
+
+.subside-bar .subside-bottom {
+  display: none;
+}
+
+.subside-bar .subside-bottom .sub-nav .subnav-ul .subnav-item .subnav-link {
+  display: block;
+  padding: 0.7rem;
+  color: #ffffff;
+  background-color: #ffc107;
+  transition: all 0.3s ease-in;
+}
+
+.subside-bar .subside-bottom .sub-nav .subnav-ul .subnav-item .subnav-link i,
+.subside-bar .subside-bottom .sub-nav .subnav-ul .subnav-item .subnav-link svg {
+  transition: all 0.3s ease-in;
+}
+
+.subside-bar .subside-bottom .sub-nav .subnav-ul .subnav-item .subnav-link:hover {
+  background-color: #dc3545;
+  color: #ffffff;
+  padding-left: 1rem;
+}
+
+.subside-bar .subside-bottom .sub-nav .subnav-ul .subnav-item .subnav-link:hover i,
+.subside-bar .subside-bottom .sub-nav .subnav-ul .subnav-item .subnav-link:hover svg {
+  color: #ffffff !important;
+}
+
+.submain-bar {
+  flex: 2;
+}
+
+.submain-bar .mainbar-header {
+  box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+  padding: 1rem;
+}
+
+.submain-bar .mainbar-header .mainbar-header-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #dc3545;
+  transition: all 0.3s ease;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.submain-bar .mainbar-header .mainbar-header-title:hover {
+  letter-spacing: 0.2rem;
+  color: #163877;
+}
+
+.submob-active {
+  position: absolute;
+  display: block !important;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+}
+
+#toggleicon {
+  font-size: 1.5rem;
+  color: #dc3545;
+}
+
+@media (min-width: 768px) {
+  .sub-container {
+    margin: auto;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    outline: none;
+  }
+  .sub-container .subside-bar {
+    flex: 0.5;
+    padding: 0rem 0.5rem;
+  }
+  .sub-container .subside-bar .subside-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .sub-container .subside-bar .subside-header .subnav-toggle {
+    display: none;
+  }
+  .sub-container .subside-bar .subside-bottom {
+    display: block;
+  }
+  .sub-container .subside-bar .subside-bottom .sub-nav .subnav-ul .subnav-item .subnav-link {
+    display: block;
+    padding: 0.7rem;
+    margin-bottom: 0.3rem;
+    color: #ffffff;
+    border-radius: 5px;
+    background-color: #32325d;
+    transition: all 0.3s ease-in;
+  }
+  .sub-container .subside-bar .subside-bottom .sub-nav .subnav-ul .subnav-item .subnav-link i,
+  .sub-container .subside-bar .subside-bottom .sub-nav .subnav-ul .subnav-item .subnav-link svg {
+    transition: all 0.3s ease-in;
+  }
+  .sub-container .subside-bar .subside-bottom .sub-nav .subnav-ul .subnav-item .subnav-link:hover {
+    background-color: #dc3545;
+    color: #ffffff;
+    padding-left: 1rem;
+  }
+  .sub-container .subside-bar .subside-bottom .sub-nav .subnav-ul .subnav-item .subnav-link:hover i,
+  .sub-container .subside-bar .subside-bottom .sub-nav .subnav-ul .subnav-item .subnav-link:hover svg {
+    color: #ffffff !important;
+  }
+  .sub-container .submain-bar {
+    flex: 2;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+  }
+  .sub-container .submain-bar .mainbar-header {
+    box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+    padding: 1rem;
+  }
+  .sub-container .submain-bar .mainbar-header .mainbar-header-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #dc3545;
+    transition: all 0.3s ease;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+  .sub-container .submain-bar .mainbar-header .mainbar-header-title:hover {
+    letter-spacing: 0.2rem;
+    color: #163877;
+  }
+  .sub-container .submain-bar .mainbar-bottom {
+    padding: 1rem;
+    height: auto;
+    position: relative;
+    height: 100%;
+  }
+  .sub-container .submain-bar .mainbar-bottom .mainbar-home {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .sub-container .submain-bar .mainbar-bottom .mainbar-home .submb-right .ngo-chairman .chairman-info .chairman-name {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #163877;
+  }
+}
+/*# sourceMappingURL=subsite.css.map */
