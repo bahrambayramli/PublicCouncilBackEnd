@@ -10,6 +10,83 @@ namespace PublicCouncilBackEnd
 {
     public class SQLFUNC
     {
+
+        public static DataTable GetNavigations(string language,bool isdelete,bool isactive)
+        {
+            SqlDataAdapter getNavigations = new SqlDataAdapter(); 
+
+            switch (language)
+            {
+                case "az":
+                    {
+                    getNavigations = new SqlDataAdapter(new SqlCommand(@"SELECT
+                                                                                       NAV_AZ ,              
+                                                                                       NAV_LINK_AZ,
+                                                                                       NAV_VALUE,
+                                                                                       NAV_ORDER,
+                                                                                       ISDELETE,
+                                                                                       ISACTIVE
+                                                                                  FROM PC_NAV
+                                                                                  WHERE ISDELETE=@ISDELETE AND
+                                                                                        ISACTIVE=@ISACTIVE
+                                                                                 ORDER BY NAV_ORDER ASC"));
+                        break;
+                    }
+                case "en":
+                    {
+
+                        getNavigations = new SqlDataAdapter(new SqlCommand(@"SELECT 
+                                                                                     
+                                                                                       NAV_EN,
+                                                                                       NAV_LINK_EN,                                                                                   
+                                                                                       NAV_VALUE,
+                                                                                       NAV_ORDER,
+                                                                                       ISDELETE,
+                                                                                       ISACTIVE
+                                                                                  FROM PC_NAV
+                                                                                  WHERE ISDELETE=@ISDELETE AND
+                                                                                        ISACTIVE=@ISACTIVE
+                                                                                 ORDER BY NAV_ORDER ASC"));
+                        break;
+                    }
+                case "ru":
+                    {
+                        getNavigations = new SqlDataAdapter(new SqlCommand(@"SELECT                   
+                                                                                       NAV_RU ,                                                                                  
+                                                                                       NAV_LINK_RU,
+                                                                                       NAV_VALUE,
+                                                                                       NAV_ORDER,
+                                                                                       ISDELETE,
+                                                                                       ISACTIVE
+                                                                                  FROM PC_NAV
+                                                                                  WHERE ISDELETE=@ISDELETE AND
+                                                                                        ISACTIVE=@ISACTIVE
+                                                                                  ORDER BY NAV_ORDER ASC"));
+                        break;
+                    }
+                default:
+                    {
+                        getNavigations = new SqlDataAdapter(new SqlCommand(@"SELECT 
+                                                                                       NAV_AZ,                                                                                     
+                                                                                       NAV_LINK_AZ,
+                                                                                       NAV_VALUE,
+                                                                                       NAV_ORDER,
+                                                                                       ISDELETE,
+                                                                                       ISACTIVE
+                                                                                  FROM PC_NAV
+                                                                                  WHERE ISDELETE=@ISDELETE AND
+                                                                                        ISACTIVE=@ISACTIVE
+                                                                                 ORDER BY NAV_ORDER ASC"));
+                        break;
+                    }
+            }
+
+            getNavigations.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = isdelete;
+            getNavigations.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = isactive;
+            return SQL.SELECT(getNavigations);
+
+        }
+
         public static void GetSectionsData(string lang, string category, string operation, ListView LS_AZ, ListView LS_EN)
         {
             SqlDataAdapter getdata = new SqlDataAdapter();

@@ -69,7 +69,6 @@
                 </div>
             </div>
 
-
             <div class="header-middle bg-gradient-secondary d-none d-md-block">
                 <div class="site-container">
                     <div class="container-fluid py-2 m-0">
@@ -138,32 +137,35 @@
                                         </div>
                                     </div>
                                     <ul class="navbar-nav w-100 d-flex justify-content-between">
-                                        <li class="nav-item site-nav-item">
-                                            <a class="nav-link" href="./pages/news.html">Xəbərlər</a>
-                                        </li>
-                                        <li class="nav-item site-nav-item">
-                                            <a class="nav-link" href="./pages/announcments.html">Elanlar</a>
-                                        </li>
-                                        <li class="nav-item site-nav-item">
-                                            <a class="nav-link" href="./pages/election.html">Seçki </a>
-                                        </li>
-                                        <li class="nav-item site-nav-item">
-                                            <a class="nav-link" href="./pages/legislation.html">Qanunvericilik </a>
-                                        </li>
-                                        <li class="nav-item site-nav-item">
-                                            <a class="nav-link" href="./pages/publications.html">Nəşrlər </a>
-                                        </li>
-                                        <li class="nav-item site-nav-item">
-                                            <a class="nav-link" href="./pages/publications.html">Hesabatlar </a>
-                                        </li>
-                                        <li class="nav-item site-nav-item">
-                                            <a class="nav-link" href="./pages//multimedia.html">Video </a>
-                                        </li>
-                                        <li class="nav-item site-nav-item">
-                                            <a class="nav-link bg-red pc-link" href="./pages/councils.html">İctimai Şuralar
-                                            </a>
-                                        </li>
+                                        <asp:ListView ID="NAV_AZ" runat="server">
+
+                                            <ItemTemplate>
+                                                <li class="nav-item site-nav-item">
+                                                    <a class="nav-link" href="<%#Eval("NAV_LINK_AZ")%>"><%#Eval("NAV_AZ")%></a>
+                                                </li>
+                                            </ItemTemplate>
+
+                                        </asp:ListView>
+                                        <asp:ListView ID="NAV_EN" runat="server">
+
+                                            <ItemTemplate>
+                                                <li class="nav-item site-nav-item">
+                                                    <a class="nav-link" href="<%#Eval("NAV_LINK_EN")%>"><%#Eval("NAV_EN")%></a>
+                                                </li>
+                                            </ItemTemplate>
+
+                                        </asp:ListView>
+                                        <asp:ListView ID="NAV_RU" runat="server">
+
+                                            <ItemTemplate>
+                                                <li class="nav-item site-nav-item">
+                                                    <a class="nav-link" href="<%#Eval("NAV_LINK_RU")%>"><%#Eval("NAV_RU")%></a>
+                                                </li>
+                                            </ItemTemplate>
+
+                                        </asp:ListView>
                                     </ul>
+
                                 </div>
                             </div>
                         </nav>

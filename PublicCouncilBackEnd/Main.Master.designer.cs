@@ -33,6 +33,33 @@ namespace PublicCouncilBackEnd
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// NAV_AZ control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView NAV_AZ;
+
+        /// <summary>
+        /// NAV_EN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView NAV_EN;
+
+        /// <summary>
+        /// NAV_RU control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView NAV_RU;
+
+        /// <summary>
         /// MainScriptManager control.
         /// </summary>
         /// <remarks>
