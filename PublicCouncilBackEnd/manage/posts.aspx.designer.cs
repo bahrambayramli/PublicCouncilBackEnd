@@ -11,43 +11,34 @@ namespace PublicCouncilBackEnd.manage
 {
 
 
-    public partial class Admin
+    public partial class WebForm2
     {
 
         /// <summary>
-        /// head control.
+        /// PostsUpdatePanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.UpdatePanel PostsUpdatePanel;
 
         /// <summary>
-        /// form1 control.
+        /// new_post control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.LinkButton new_post;
 
         /// <summary>
-        /// ManageScriptManager control.
+        /// PostsList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ManageScriptManager;
-
-        /// <summary>
-        /// managelayout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder managelayout;
+        protected global::System.Web.UI.WebControls.GridView PostsList;
     }
 }

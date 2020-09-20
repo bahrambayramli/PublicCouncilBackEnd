@@ -47,14 +47,18 @@ namespace PublicCouncilBackEnd
 
             //Admin Panel routes
 
-            //routes.MapPageRoute("dashboard", "adminpanel/dashboard/", "~/adminpanel/dashboard.aspx");
+            routes.MapPageRoute("dashboard", "manage/dashboard/", "~/manage/dashboard.aspx");
+            routes.MapPageRoute("posts", "manage/posts/", "~/manage/posts.aspx");
+            routes.MapPageRoute("postdetail", "adminpanel/postdetail/", "~/adminpanel/postdetail.aspx");
+
+
             //routes.MapPageRoute("logo", "adminpanel/logo/", "~/adminpanel/logo.aspx");
             //routes.MapPageRoute("logonew", "adminpanel/logodetails/", "~/adminpanel/logodetails.aspx");
             //routes.MapPageRoute("logoedit", "adminpanel/logodetails/", "~/adminpanel/logodetails.aspx");
             //routes.MapPageRoute("users", "adminpanel/users/", "~/adminpanel/users.aspx");
             //routes.MapPageRoute("adversting", "adminpanel/adversting/", "~/adminpanel/adversting.aspx");
-            //routes.MapPageRoute("newslist", "adminpanel/news/", "~/adminpanel/news.aspx");
-            //routes.MapPageRoute("detailsnew", "adminpanel/details/", "~/adminpanel/details.aspx");
+
+
             //routes.MapPageRoute("admindetails", "adminpanel/details/{newID}", "~/adminpanel/details.aspx");
             //routes.MapPageRoute("partners", "adminpanel/partners/", "~/adminpanel/partners.aspx");
             //routes.MapPageRoute("partnersnews", "adminpanel/partnersdetail/", "~/adminpanel/partnersdetail.aspx");
