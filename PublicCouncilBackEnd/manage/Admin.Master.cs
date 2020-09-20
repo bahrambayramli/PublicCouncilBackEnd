@@ -11,7 +11,7 @@ namespace PublicCouncilBackEnd.manage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["USER_ID"] = "1";
         }
     }
 }

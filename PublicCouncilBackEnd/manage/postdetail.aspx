@@ -18,6 +18,9 @@
     </style>
     <script src="/scripts/ckeditor/ckeditor.js"></script>
     <script src="/scripts/ckfinder/ckfinder.js"></script>
+  
+
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="managelayout" runat="server">
     <div class="card my-md-2">
@@ -81,7 +84,8 @@
                             <div class="form-group">
                                   <asp:Label ID="labelTime" runat="server" Text=""></asp:Label>
                                
-                                <asp:TextBox ID="post_date" runat="server" CssClass="form-control" ></asp:TextBox>
+                                <asp:TextBox ID="post_date" runat="server" CssClass="datetimepicker form-control" ></asp:TextBox>
+
                             </div>
                         </div>
                     </div>
@@ -466,6 +470,32 @@
         </div>
     </div>
     <script>
+        $(function () {
+            $('.datetimepicker').datetimepicker({
+                format: 'DD/MM/YYYY HH:mm',
+                icons: {
+                    time: "fa fa-clock",
+                    date: "fa fa-calendar-day",
+                    up: "fa fa-chevron-up",
+                    down: "fa fa-chevron-down",
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    today: 'fa fa-screenshot',
+                    clear: 'fa fa-trash',
+                    close: 'fa fa-remove'
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let newsDate = document.getElementById("managelayout_post_date");
+            let hiddenDate = document.getElementById("managelayout_labelTime");
+            newsDate.value = hiddenDate.innerText;
+
+        });
+    </script>
+    <script>
         document.addEventListener("DOMContentLoaded", function () {
 
             const inputFile = document.getElementById("managelayout_inpFile");
@@ -523,12 +553,5 @@
             htmlEncodeOutput: true
         });
     </script>
-    <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                let newsDate = document.getElementById("adminLayout_news_date");
-                let hiddenDate = document.getElementById("adminLayout_labelTime");
-                newsDate.value = hiddenDate.innerText;
-
-            });
-        </script>
+    
 </asp:Content>

@@ -48,8 +48,8 @@ namespace PublicCouncilBackEnd
             //Admin Panel routes
 
             routes.MapPageRoute("dashboard", "manage/dashboard/", "~/manage/dashboard.aspx");
-            routes.MapPageRoute("posts", "manage/posts/", "~/manage/posts.aspx");
-            routes.MapPageRoute("postdetail", "adminpanel/postdetail/", "~/adminpanel/postdetail.aspx");
+            routes.MapPageRoute("adminposts", "manage/posts/", "~/manage/posts.aspx");
+            routes.MapPageRoute("adminpostdetail", "manage/postdetail/", "~/manage/postdetail.aspx");
 
 
             //routes.MapPageRoute("logo", "adminpanel/logo/", "~/adminpanel/logo.aspx");
