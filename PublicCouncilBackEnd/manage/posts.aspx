@@ -46,15 +46,6 @@
                             <asp:BoundField DataField="POST_SEOEN" HeaderText="Başlıq En">
                                 <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="500px" />
                             </asp:BoundField>
-                            <asp:BoundField DataField="POST_SEORU" HeaderText="Başlıq Ru">
-                                <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="500px" />
-                            </asp:BoundField>
-                            <asp:BoundField DataField="POST_SEOTR" HeaderText="Başlıq Tr">
-                                <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="500px" />
-                            </asp:BoundField>
-                            <asp:BoundField DataField="POST_SEOFR" HeaderText="Başlıq Fr">
-                                <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="500px" />
-                            </asp:BoundField>
                             <asp:BoundField DataField="POST_SITECATEGORYAZ" HeaderText="Bölmə" />
                             <asp:BoundField DataField="POST_SITESUBCATEGORYAZ" HeaderText="Alt bölmə" />
                             <asp:BoundField DataField="POST_DATE" HeaderText="Tarix" />

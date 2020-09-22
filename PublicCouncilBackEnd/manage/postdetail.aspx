@@ -32,7 +32,7 @@
                         <p class="h3">Yeni post</p>
                     </div>
                     <div class="col-6 text-right">
-                        <asp:LinkButton ID="back" runat="server" CssClass="btn btn-danger btn-sm">
+                        <asp:LinkButton ID="back" runat="server" CssClass="btn btn-danger btn-sm" OnClick="back_Click">
                             Geri
                         </asp:LinkButton>
                     </div>

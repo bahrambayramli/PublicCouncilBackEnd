@@ -81,50 +81,52 @@ namespace PublicCouncilBackEnd.manage
         #region(Methods)
 
         #region(CRUD)
-        private void GetNews(string POST_ID)
+        private void GetNews(string USER_ID, string POST_ID)
         {
 
-            SqlDataAdapter getPost = new SqlDataAdapter(new SqlCommand(@"SELECT
-	                                                                            DATA_ID,
-                                                                                USER_ID,
-
-                                                                                POST_AZ_TITLE,
-                                                                                POST_EN_TITLE,
+            SqlDataAdapter getPost = new SqlDataAdapter(new SqlCommand(@"SELECT 
+                                                                          DATA_ID,
+                                                                          USER_ID,
+                                                                          ISACTIVE,
+                                                                          ISDELETE,
+                                                                          POST_AZ_TITLE,
+                                                                          POST_EN_TITLE,
                                                                          
-
-                                                                                POST_SEOAZ,
-                                                                                POST_SEOEN,
-
-
-                                                                                POST_AZ_TOPIC,
-                                                                                POST_EN_TOPIC,
-                                                                                POST_RU_TOPIC,
-                                                                                POST_TR_TOPIC,
-                                                                                POST_FR_TOPIC,
-
-                                                                                POST_AZ_VIEW,
-                                                                                POST_EN_VIEW,
-                                                                                POST_RU_VIEW,
-                                                                                POST_TR_VIEW,
-                                                                                POST_FR_VIEW,
-
-                                                                                POST_CATEGORY,
-                                                                                POST_SUBCATEGORY,
-
-                                                                                NEWS_IMG,
-                                                                                NEWS_VIDEO,
-                                                                                CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
-                                                                                POST_TYPE,
-                                                                                POST_SERIAL,
-                                                                                ISACTIVE,
-                                                                                ISDELETE
-
-                                                                                FROM PC_POST
+                                                                          POST_AZ_SUBTITLE,
+                                                                          POST_EN_SUBTITLE,
+                                                                         
+                                                                          POST_AZ_TOPIC,
+                                                                          POST_EN_TOPIC,
+                                                                        
+                                                                          POST_AZ_VIEW,
+                                                                          POST_EN_VIEW,
+                                                                       
+                                                                          POST_CATEGORY,
+                                                                          POST_SUBCATEGORY,
+                                                                          POST_IMG,
+                                                                          CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                          POST_TYPE,
+                                                                          POST_SERIAL,
+                                                                          POST_VIDEO,
+                                                                         
+                                                                          POST_SEOAZ,
+                                                                          POST_SEOEN,
+                                                                       
+                                                                          POST_VIEWCOUNT,
+                                                                          POST_SITECATEGORYAZ,
+                                                                          POST_SITECATEGORYEN,
+                                                                         
+                                                                          POST_SITESUBCATEGORYAZ,
+                                                                          POST_SITESUBCATEGORYEN
+                                                                        
+                                                                     FROM  PC_POSTS
                                                                                                         WHERE DATA_ID  =    @DATA_ID      AND
+                                                                                                              USER_ID  =    @USER_ID      AND
                                                                                                               ISACTIVE =    @ISACTIVE     AND
                                                                                                               ISDELETE =    @ISDELETE
                                                                           "));
 
+            getPost.SelectCommand.Parameters.AddWithValue("@USER_ID", SqlDbType.Int).Value = USER_ID;
             getPost.SelectCommand.Parameters.AddWithValue("@DATA_ID", SqlDbType.Int).Value = POST_ID;
             getPost.SelectCommand.Parameters.AddWithValue("@ISACTIVE", SqlDbType.Bit).Value = true;
             getPost.SelectCommand.Parameters.AddWithValue("@ISDELETE", SqlDbType.Bit).Value = false;
@@ -171,7 +173,7 @@ namespace PublicCouncilBackEnd.manage
                 }
             }
 
-            type_list.SelectedItem.Text = dataTable.Rows[0]["NEWS_TYPE"].ToString();
+            type_list.SelectedItem.Text = dataTable.Rows[0]["POST_TYPE"].ToString();
 
             posttitle_az.Text = dataTable.Rows[0]["POST_AZ_TITLE"].ToString();
             posttitle_en.Text = dataTable.Rows[0]["POST_EN_TITLE"].ToString();
@@ -221,7 +223,7 @@ namespace PublicCouncilBackEnd.manage
             string picName = SetName(".jpg");
             string serial = MakeSerial();
 
-            SqlCommand insertdata = new SqlCommand(@"INSERT INTO DATA_NEWS
+            SqlCommand insertdata = new SqlCommand(@"INSERT INTO PC_POSTS
                                                                             (
                                                                                 USER_ID,
                                                                                 POST_AZ_TITLE,
@@ -294,25 +296,15 @@ namespace PublicCouncilBackEnd.manage
                                                                             )");
 
             insertdata.Parameters.Add("@USER_ID", SqlDbType.Int).Value = userid;
-
             insertdata.Parameters.Add("@POST_AZ_TITLE", SqlDbType.NVarChar).Value = posttitle_az.Text;
             insertdata.Parameters.Add("@POST_EN_TITLE", SqlDbType.NVarChar).Value = posttitle_en.Text;
-           
-
-            insertdata.Parameters.Add("@NEWS_SE0AZ", SqlDbType.NVarChar).Value = postseo_az.Text;
-            insertdata.Parameters.Add("@NEWS_SE0EN", SqlDbType.NVarChar).Value = postseo_en.Text;
-           
-
+            insertdata.Parameters.Add("@POST_SE0AZ", SqlDbType.NVarChar).Value = postseo_az.Text;
+            insertdata.Parameters.Add("@POST_SE0EN", SqlDbType.NVarChar).Value = postseo_en.Text;
             insertdata.Parameters.Add("@POST_AZ_SUBTITLE", SqlDbType.NVarChar).Value = "";
             insertdata.Parameters.Add("@POST_EN_SUBTITLE", SqlDbType.NVarChar).Value = "";
-           
-
             insertdata.Parameters.Add("@POST_AZ_TOPIC", SqlDbType.NVarChar).Value = post_az.Text;
             insertdata.Parameters.Add("@POST_EN_TOPIC", SqlDbType.NVarChar).Value = post_en.Text;
-           
-
             insertdata.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = category_list.SelectedItem.Value;
-
 
             Session["subcategory"] = string.Empty;
             try
@@ -353,7 +345,7 @@ namespace PublicCouncilBackEnd.manage
                                                                                     DATA_ID,
                                                                                     SUBNAV_AZ,
                                                                                     SUBNAV_EN
-                                                                                    FROM  DATA_NAVSUB
+                                                                                    FROM  PC_NAVSUB
                                                                                     WHERE 
                                                                                     NAV_VALUE = @NAV_VALUE                    AND 
                                                                                     SUBNAV_VALUE = @SUBNAV_VALUE              AND 
@@ -548,10 +540,10 @@ namespace PublicCouncilBackEnd.manage
 
         private void UpdateData(string NEWSID, string userid)
         {
-            string serial = Session["NEWSSERIAL"] as string;
+            string serial = Session["POSTSERIAL"] as string;
 
 
-            SqlCommand updatedata = new SqlCommand(@"UPDATE DATA_NEWS SET
+            SqlCommand updatedata = new SqlCommand(@"UPDATE PC_POSTS SET
                                                                             
                                                                                 POST_AZ_TITLE     =   @POST_AZ_TITLE,
 		                                                                        POST_EN_TITLE     =   @POST_EN_TITLE,
@@ -588,8 +580,8 @@ namespace PublicCouncilBackEnd.manage
 
             updatedata.Parameters.Add("@DATA_ID", SqlDbType.Int).Value = NEWSID;
 
-            updatedata.Parameters.Add("@POST_posttitle_az", SqlDbType.NVarChar).Value = posttitle_az.Text;
-            updatedata.Parameters.Add("@POST_posttitle_en", SqlDbType.NVarChar).Value = posttitle_en.Text;
+            updatedata.Parameters.Add("@POST_AZ_TITLE", SqlDbType.NVarChar).Value = posttitle_az.Text;
+            updatedata.Parameters.Add("@POST_EN_TITLE", SqlDbType.NVarChar).Value = posttitle_en.Text;
 
 
 
@@ -683,10 +675,8 @@ namespace PublicCouncilBackEnd.manage
             SqlDataAdapter getsubNav = new SqlDataAdapter(new SqlCommand(@" SELECT               
                                                                                     DATA_ID,
                                                                                     SUBNAV_AZ,
-                                                                                    SUBNAV_EN,
-                                                                                    SUBNAV_RU,
-                                                                                    SUBNAV_TR,
-                                                                                    SUBNAV_FR
+                                                                                    SUBNAV_EN
+                                                                                    
                                                                                     FROM  PC_NAVSUB
                                                                                     WHERE 
                                                                                     NAV_VALUE = @NAV_VALUE                    AND 
@@ -923,18 +913,19 @@ namespace PublicCouncilBackEnd.manage
         {
 
             SqlDataAdapter subimages = new SqlDataAdapter(new SqlCommand(@"SELECT  ROW_NUMBER() OVER(ORDER BY DATA_ID DESC) AS '#' , 
-                                                                                     DATA_IMGGALERY.DATA_ID,
-                                                                                     DATA_IMGGALERY.USER_ID,
-                                                                                     DATA_IMGGALERY.NEWS_SERIAL,
-                                                                                     DATA_IMGGALERY.NEWS_IMG_NAME
+                                                                                     DATA_ID,
+                                                                                     USER_ID,
+                                                                                     POST_SERIAL,
+                                                                                     POST_IMG_NAME
 
-                                                                                     FROM DATA_IMGGALERY WHERE  ISACTIVE    = @ISACTIVE AND 
-                                                                                                                ISDELETE    = @ISDELETE AND 
-                                                                                                                NEWS_SERIAL = @NEWS_SERIAL"));
+                                                                                     FROM PC_IMGGALERY
+                                                                                                   WHERE  ISACTIVE    = @ISACTIVE AND 
+                                                                                                          ISDELETE    = @ISDELETE AND 
+                                                                                                          POST_SERIAL = @POST_SERIAL"));
 
             subimages.SelectCommand.Parameters.AddWithValue("@ISACTIVE", SqlDbType.Bit).Value = true;
             subimages.SelectCommand.Parameters.AddWithValue("@ISDELETE", SqlDbType.Bit).Value = false;
-            subimages.SelectCommand.Parameters.AddWithValue("@NEWS_SERIAL", SqlDbType.NVarChar).Value = NEWSSERIAL;
+            subimages.SelectCommand.Parameters.AddWithValue("@POST_SERIAL", SqlDbType.NVarChar).Value = NEWSSERIAL;
 
 
             subImageList.DataSource = SQL.SELECT(subimages);
@@ -1004,7 +995,7 @@ namespace PublicCouncilBackEnd.manage
                                                                             DOC_DEFAULTNAME,
                                                                             USER_ID,
                                                                             POST_SERIAL
-                                                                      FROM  DATA_NEWSDOCS
+                                                                      FROM  PC_POSTDOCS
                                                                       WHERE 
                                                                             ISDELETE=@ISDELETE       AND
                                                                             ISACTIVE=@ISACTIVE       AND
@@ -1141,7 +1132,7 @@ namespace PublicCouncilBackEnd.manage
                 {
                     try
                     {
-                        GetNews(Page.RouteData.Values["newID"] as string);
+                        GetNews(Session["USER_ID"] as string,Session["POSTID"] as string);
                     }
                     catch (Exception ex)
                     {
@@ -1215,6 +1206,13 @@ namespace PublicCouncilBackEnd.manage
         protected void category_list_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetSubCategory(category_list.SelectedValue);
+        }
+
+        protected void back_Click(object sender, EventArgs e)
+        {
+            Session["POST"] = null;
+            Session["POSTID"] = null;
+            Response.Redirect("/manage/posts");
         }
     }
 }

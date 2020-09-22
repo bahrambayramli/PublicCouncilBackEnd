@@ -212,6 +212,7 @@
     <Content Include="manage\dashboard.aspx" />
     <Content Include="manage\posts.aspx" />
     <Content Include="manage\postdetail.aspx" />
+    <Content Include="manage\logo.aspx" />
     <Content Include="scripts\ckeditor\adapters\jquery.js" />
     <Content Include="scripts\ckeditor\CHANGES.html" />
     <Content Include="scripts\ckeditor\ckeditor.asp" />
@@ -3894,6 +3895,13 @@
     </Compile>
     <Compile Include="manage\postdetail.aspx.designer.cs">
       <DependentUpon>postdetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\logo.aspx.cs">
+      <DependentUpon>logo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\logo.aspx.designer.cs">
+      <DependentUpon>logo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\Crypto.cs" />
     <Compile Include="Model\error.cs" />
