@@ -63,7 +63,7 @@ namespace PublicCouncilBackEnd.manage
             Response.Redirect("/manage/postdetail");
         }
 
-        protected void deletePost_Click(object sender, EventArgs e)
+        protected void delete_post_Click(object sender, EventArgs e)
         {
             //int rowIndex = ((GridViewRow)((Control)sender).NamingContainer).RowIndex;
             try
@@ -72,13 +72,14 @@ namespace PublicCouncilBackEnd.manage
                 //int registrantId = int.Parse(NewsList.Rows[0].Cells[1].Text);
                 string id = PostsList.Rows[rowIndex].Cells[1].Text;
                 DeleteData(id);
-                
+
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
             }
         }
+
 
         #region(Post List)
         protected void PostsList_RowCreated(object sender, GridViewRowEventArgs e)
@@ -106,10 +107,11 @@ namespace PublicCouncilBackEnd.manage
             Session["POSTID"] = PostsList.SelectedRow.Cells[1].Text ;
             Response.Redirect("/manage/postdetail");
         }
+
+
+
         #endregion
 
-
-
-
+       
     }
 }

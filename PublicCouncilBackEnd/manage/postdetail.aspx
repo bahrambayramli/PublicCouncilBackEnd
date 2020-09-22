@@ -23,6 +23,7 @@
     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="managelayout" runat="server">
+
     <div class="card my-md-2">
         <!-- Postdetail header case -->
         <div class="card-header">
@@ -469,6 +470,7 @@
             </div>
         </div>
     </div>
+
     <script>
         $(function () {
             $('.datetimepicker').datetimepicker({

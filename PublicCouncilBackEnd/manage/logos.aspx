@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manage/Admin.Master" AutoEventWireup="true" CodeBehind="posts.aspx.cs" Inherits="PublicCouncilBackEnd.manage.WebForm2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manage/Admin.Master" AutoEventWireup="true" CodeBehind="logos.aspx.cs" Inherits="PublicCouncilBackEnd.manage.WebForm4" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="managelayout" runat="server">
-    <asp:UpdatePanel ID="PostsUpdatePanel" runat="server">
+<asp:UpdatePanel ID="LogoListPanel" runat="server">
         <ContentTemplate>
             <div class="card my-md-2">
                 <!-- Card header -->
@@ -13,8 +13,8 @@
                                 <h3 class="mb-0">Postlar</h3>
                             </div>
                             <div class="col-12 col-md-6 text-right">
-                                <asp:LinkButton ID="new_post" runat="server" CssClass="btn btn-primary btn-sm btn-round" OnClick="new_post_Click">
-                                        Yeni post
+                                <asp:LinkButton ID="new_logo" runat="server" CssClass="btn btn-primary btn-sm btn-round" OnClick="new_logo_Click">
+                                        Yeni Logo
                                 </asp:LinkButton>
                             </div>
                         </div>
@@ -22,40 +22,43 @@
                 </div>
                 <div class="table-responsive py-2">
                     <asp:GridView
-                        ID="PostsList"
+                        ID="LogoList"
                         runat="server"
                         Width="100%"
                         AutoGenerateColumns="False"
                         CssClass="table"
-                        OnRowCreated="PostsList_RowCreated"
+                        OnRowCreated="LogoList_RowCreated"
                         CellPadding="4"
                         ForeColor="#333333"
                         GridLines="None"
                         AllowPaging="True"
-                        OnPageIndexChanging="PostsList_PageIndexChanging"
-                        OnSelectedIndexChanged="PostsList_SelectedIndexChanged">
+                        OnPageIndexChanging="LogoList_PageIndexChanging"
+                        OnSelectedIndexChanged="LogoList_SelectedIndexChanged">
                         <AlternatingRowStyle BackColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
 
                         <Columns>
                             <asp:BoundField DataField="#" HeaderText="#" />
                             <asp:BoundField DataField="DATA_ID" HeaderText="DATA_ID" />
-                            <asp:BoundField DataField="POST_SEOAZ" HeaderText="Başlıq Az">
-                                <ControlStyle Width="500px" />
-                                <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="500px" />
+                            <asp:BoundField DataField="LOGO_SERIAL" HeaderText="LOGO_SERIAL" />
+                            <asp:BoundField DataField="USER_ID" HeaderText="USER_ID" />
+                            <asp:BoundField DataField="LOGO_TITLE" HeaderText="Logo">
+                                <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="80%"></ItemStyle>
                             </asp:BoundField>
-                            <asp:BoundField DataField="POST_SEOEN" HeaderText="Başlıq En">
-                                <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="500px" />
-                            </asp:BoundField>
-                            <asp:BoundField DataField="POST_SITECATEGORYAZ" HeaderText="Bölmə" />
-                            <asp:BoundField DataField="POST_SITESUBCATEGORYAZ" HeaderText="Alt bölmə" />
-                            <asp:BoundField DataField="POST_DATE" HeaderText="Tarix" />
+                            <asp:ImageField
+                                ControlStyle-CssClass="d-block"
+                                DataImageUrlField="LOGO_IMG"
+                                DataImageUrlFormatString="~/Images/logos/{0}"
+                                HeaderText="Şəkil">
+                                <ControlStyle CssClass="d-block" />
+                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="10%"></ItemStyle>
+                            </asp:ImageField>
                             <asp:CommandField SelectText="Seç" ShowSelectButton="True" ButtonType="Button">
                                 <ControlStyle ForeColor="White" CssClass="btn btn-primary btn-sm" />
                                 <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="32px" />
                             </asp:CommandField>
                             <asp:TemplateField ShowHeader="False">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="delete_post" runat="server" OnClientClick="return confirm('Silməyə əminsiz?'); " OnClick="delete_post_Click" CausesValidation="False" CommandName="Delete" Text="Sil"></asp:LinkButton>
+                                    <asp:LinkButton ID="delete_logo" runat="server" OnClientClick="return confirm('Silməyə əminsiz?'); " OnClick="delete_logo_Click" CausesValidation="False" CommandName="Delete" Text="Sil"></asp:LinkButton>
                                 </ItemTemplate>
                                 <ControlStyle CssClass="btn btn-danger btn-sm" />
                             </asp:TemplateField>

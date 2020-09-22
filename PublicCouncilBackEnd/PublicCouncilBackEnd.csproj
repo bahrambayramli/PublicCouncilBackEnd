@@ -212,7 +212,8 @@
     <Content Include="manage\dashboard.aspx" />
     <Content Include="manage\posts.aspx" />
     <Content Include="manage\postdetail.aspx" />
-    <Content Include="manage\logo.aspx" />
+    <Content Include="manage\logos.aspx" />
+    <Content Include="manage\logodetail.aspx" />
     <Content Include="scripts\ckeditor\adapters\jquery.js" />
     <Content Include="scripts\ckeditor\CHANGES.html" />
     <Content Include="scripts\ckeditor\ckeditor.asp" />
@@ -3896,12 +3897,19 @@
     <Compile Include="manage\postdetail.aspx.designer.cs">
       <DependentUpon>postdetail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="manage\logo.aspx.cs">
-      <DependentUpon>logo.aspx</DependentUpon>
+    <Compile Include="manage\logos.aspx.cs">
+      <DependentUpon>logos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="manage\logo.aspx.designer.cs">
-      <DependentUpon>logo.aspx</DependentUpon>
+    <Compile Include="manage\logos.aspx.designer.cs">
+      <DependentUpon>logos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\logodetail.aspx.cs">
+      <DependentUpon>logodetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\logodetail.aspx.designer.cs">
+      <DependentUpon>logodetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\Crypto.cs" />
     <Compile Include="Model\error.cs" />

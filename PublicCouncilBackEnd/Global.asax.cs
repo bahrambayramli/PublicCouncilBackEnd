@@ -51,6 +51,7 @@ namespace PublicCouncilBackEnd
             routes.MapPageRoute("manageposts", "manage/posts/", "~/manage/posts.aspx");
             routes.MapPageRoute("managepostdetail", "manage/postdetail/", "~/manage/postdetail.aspx");
             routes.MapPageRoute("managelogo", "manage/logo/", "~/manage/logo.aspx");
+            routes.MapPageRoute("managelogodetail", "manage/logodetail/", "~/manage/logodetail.aspx");
 
             //routes.MapPageRoute("logonew", "adminpanel/logodetails/", "~/adminpanel/logodetails.aspx");
             //routes.MapPageRoute("logoedit", "adminpanel/logodetails/", "~/adminpanel/logodetails.aspx");
