@@ -11,52 +11,34 @@ namespace PublicCouncilBackEnd.manage
 {
 
 
-    public partial class WebForm5
+    public partial class WebForm6
     {
 
         /// <summary>
-        /// logodetail_back control.
+        /// PostsUpdatePanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton logodetail_back;
+        protected global::System.Web.UI.UpdatePanel PostsUpdatePanel;
 
         /// <summary>
-        /// logoname control.
+        /// new_partner control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox logoname;
+        protected global::System.Web.UI.WebControls.LinkButton new_partner;
 
         /// <summary>
-        /// logoImage control.
+        /// PartnersList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image logoImage;
-
-        /// <summary>
-        /// logoFile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload logoFile;
-
-        /// <summary>
-        /// logoConfirm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button logoConfirm;
+        protected global::System.Web.UI.WebControls.GridView PartnersList;
     }
 }

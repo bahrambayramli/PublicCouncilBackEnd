@@ -214,6 +214,8 @@
     <Content Include="manage\postdetail.aspx" />
     <Content Include="manage\logos.aspx" />
     <Content Include="manage\logodetail.aspx" />
+    <Content Include="manage\partners.aspx" />
+    <Content Include="manage\partnerdetail.aspx" />
     <Content Include="scripts\ckeditor\adapters\jquery.js" />
     <Content Include="scripts\ckeditor\CHANGES.html" />
     <Content Include="scripts\ckeditor\ckeditor.asp" />
@@ -3911,6 +3913,20 @@
     <Compile Include="manage\logodetail.aspx.designer.cs">
       <DependentUpon>logodetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="manage\partners.aspx.cs">
+      <DependentUpon>partners.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\partners.aspx.designer.cs">
+      <DependentUpon>partners.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\partnerdetail.aspx.cs">
+      <DependentUpon>partnerdetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\partnerdetail.aspx.designer.cs">
+      <DependentUpon>partnerdetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Model\Crypto.cs" />
     <Compile Include="Model\error.cs" />
     <Compile Include="Model\Helper.cs" />
@@ -4113,6 +4129,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="images\logos\" />
     <Folder Include="images\subimages\" />
   </ItemGroup>
   <PropertyGroup>

@@ -50,7 +50,7 @@ namespace PublicCouncilBackEnd
             routes.MapPageRoute("managedashboard", "manage/dashboard/", "~/manage/dashboard.aspx");
             routes.MapPageRoute("manageposts", "manage/posts/", "~/manage/posts.aspx");
             routes.MapPageRoute("managepostdetail", "manage/postdetail/", "~/manage/postdetail.aspx");
-            routes.MapPageRoute("managelogo", "manage/logo/", "~/manage/logo.aspx");
+            routes.MapPageRoute("managelogos", "manage/logos/", "~/manage/logos.aspx");
             routes.MapPageRoute("managelogodetail", "manage/logodetail/", "~/manage/logodetail.aspx");
 
             //routes.MapPageRoute("logonew", "adminpanel/logodetails/", "~/adminpanel/logodetails.aspx");

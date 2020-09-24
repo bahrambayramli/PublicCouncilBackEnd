@@ -60,7 +60,7 @@ namespace PublicCouncilBackEnd.manage
         protected void new_logo_Click(object sender, EventArgs e)
         {
             Session["LOGO"] = null;
-            Response.Redirect("/manage/logodetails");
+            Response.Redirect("/manage/logodetail");
         }
 
         protected void delete_logo_Click(object sender, EventArgs e)
@@ -98,7 +98,7 @@ namespace PublicCouncilBackEnd.manage
         {
             Session["LOGO"] = "SELECTED";
             Session["LOGO_ID"] = LogoList.SelectedRow.Cells[1].Text;
-            Response.Redirect("/adminpanel/logodetails");
+            Response.Redirect("/manage/logodetail");
         }
 
         #endregion

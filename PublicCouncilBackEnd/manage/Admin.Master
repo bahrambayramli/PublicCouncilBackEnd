@@ -70,7 +70,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <asp:HyperLink ID="manageLogo" runat="server" CssClass="nav-link" NavigateUrl="/manageLogo">
+                                <asp:HyperLink ID="manageLogo" runat="server" CssClass="nav-link" NavigateUrl="/manage/logos">
                                      <i class="ni ni-ungroup text-orange"></i>
                                     <span class="nav-link-text">Logo</span>
                                 </asp:HyperLink>
@@ -105,9 +105,12 @@
                         <ul class="navbar-nav mb-md-3">
                             <li class="nav-item">
                                 <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
+                                    
+                                </a>
+                                <asp:LinkButton ID="manageExit" runat="server" CssClass="nav-link" OnClick="manageExit_Click">
                                     <i class="ni ni-user-run mr-2"></i>
                                     <span class="nav-link-text">çixiş</span>
-                                </a>
+                                </asp:LinkButton>
                             </li>
                         </ul>
                     </div>
@@ -169,7 +172,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <!-- Avatar -->
-                                                    <img alt="Image placeholder" src="../../assets/img/theme/team-1.jpg" class="avatar rounded-circle">
+                                                    <img alt="Image placeholder" src="" class="avatar rounded-circle">
                                                 </div>
                                                 <div class="col ml--2">
                                                     <div class="d-flex justify-content-between align-items-center">
@@ -188,7 +191,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <!-- Avatar -->
-                                                    <img alt="Image placeholder" src="../../assets/img/theme/team-2.jpg" class="avatar rounded-circle">
+                                                    <img alt="Image placeholder" src="" class="avatar rounded-circle">
                                                 </div>
                                                 <div class="col ml--2">
                                                     <div class="d-flex justify-content-between align-items-center">
@@ -207,7 +210,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <!-- Avatar -->
-                                                    <img alt="Image placeholder" src="../../assets/img/theme/team-3.jpg" class="avatar rounded-circle">
+                                                    <img alt="Image placeholder" src="" class="avatar rounded-circle">
                                                 </div>
                                                 <div class="col ml--2">
                                                     <div class="d-flex justify-content-between align-items-center">
@@ -226,7 +229,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <!-- Avatar -->
-                                                    <img alt="Image placeholder" src="../../assets/img/theme/team-4.jpg" class="avatar rounded-circle">
+                                                    <img alt="Image placeholder" src="" class="avatar rounded-circle">
                                                 </div>
                                                 <div class="col ml--2">
                                                     <div class="d-flex justify-content-between align-items-center">
@@ -245,7 +248,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <!-- Avatar -->
-                                                    <img alt="Image placeholder" src="../../assets/img/theme/team-5.jpg" class="avatar rounded-circle">
+                                                    <img alt="Image placeholder" src="" class="avatar rounded-circle">
                                                 </div>
                                                 <div class="col ml--2">
                                                     <div class="d-flex justify-content-between align-items-center">

@@ -13,5 +13,11 @@ namespace PublicCouncilBackEnd.manage
         {
             Session["USER_ID"] = "1";
         }
+
+        protected void manageExit_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("/login");
+        }
     }
 }

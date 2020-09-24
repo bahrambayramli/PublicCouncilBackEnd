@@ -11,52 +11,52 @@ namespace PublicCouncilBackEnd.manage
 {
 
 
-    public partial class WebForm5
+    public partial class WebForm7
     {
 
         /// <summary>
-        /// logodetail_back control.
+        /// partnerdetail_back control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton logodetail_back;
+        protected global::System.Web.UI.WebControls.LinkButton partnerdetail_back;
 
         /// <summary>
-        /// logoname control.
+        /// partnername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox logoname;
+        protected global::System.Web.UI.WebControls.TextBox partnername;
 
         /// <summary>
-        /// logoImage control.
+        /// partnerImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image logoImage;
+        protected global::System.Web.UI.WebControls.Image partnerImage;
 
         /// <summary>
-        /// logoFile control.
+        /// partnerFile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload logoFile;
+        protected global::System.Web.UI.WebControls.FileUpload partnerFile;
 
         /// <summary>
-        /// logoConfirm control.
+        /// partnerConfirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button logoConfirm;
+        protected global::System.Web.UI.WebControls.Button partnerConfirm;
     }
 }
