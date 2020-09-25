@@ -55,7 +55,8 @@ namespace PublicCouncilBackEnd.manage
         protected void new_partner_Click(object sender, EventArgs e)
         {
             Session["PARTNER"] = null;
-            Response.Redirect("/manage/pertnerdetail");
+            Session["PARTNER_ID"] = null;
+            Response.Redirect("/manage/partnerdetail");
         }
 
         protected void delete_partner_Click(object sender, EventArgs e)
@@ -93,7 +94,8 @@ namespace PublicCouncilBackEnd.manage
             Session["PARTNER_ID"] = PartnersList.SelectedRow.Cells[1].Text;
             Response.Redirect("/manage/partnerdetail");
         }
+
         #endregion
-      
+
     }
 }

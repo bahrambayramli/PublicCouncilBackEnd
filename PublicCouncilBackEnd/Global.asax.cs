@@ -53,15 +53,16 @@ namespace PublicCouncilBackEnd
             routes.MapPageRoute("managelogos", "manage/logos/", "~/manage/logos.aspx");
             routes.MapPageRoute("managelogodetail", "manage/logodetail/", "~/manage/logodetail.aspx");
 
-            //routes.MapPageRoute("logonew", "adminpanel/logodetails/", "~/adminpanel/logodetails.aspx");
-            //routes.MapPageRoute("logoedit", "adminpanel/logodetails/", "~/adminpanel/logodetails.aspx");
-            //routes.MapPageRoute("users", "adminpanel/users/", "~/adminpanel/users.aspx");
-            //routes.MapPageRoute("adversting", "adminpanel/adversting/", "~/adminpanel/adversting.aspx");
+            routes.MapPageRoute("managepartners", "manage/partners/", "~/manage/partners.aspx");
+            routes.MapPageRoute("managepartnerdetail", "manage/partnerdetail/", "~/manage/partnerdetail.aspx");
+
+
+            ////routes.MapPageRoute("users", "adminpanel/users/", "~/adminpanel/users.aspx");
+            ////routes.MapPageRoute("adversting", "adminpanel/adversting/", "~/adminpanel/adversting.aspx");
 
 
             //routes.MapPageRoute("admindetails", "adminpanel/details/{newID}", "~/adminpanel/details.aspx");
-            //routes.MapPageRoute("partners", "adminpanel/partners/", "~/adminpanel/partners.aspx");
-            //routes.MapPageRoute("partnersnews", "adminpanel/partnersdetail/", "~/adminpanel/partnersdetail.aspx");
+
             //routes.MapPageRoute("partnersedit", "adminpanel/partnersdetail/{id}", "~/adminpanel/partnersdetail.aspx");
             //routes.MapPageRoute("pages", "adminpanel/pages/", "~/adminpanel/pages.aspx");
             //routes.MapPageRoute("usersprofile", "adminpanel/usersprofile/", "~/adminpanel/usersprofile.aspx");

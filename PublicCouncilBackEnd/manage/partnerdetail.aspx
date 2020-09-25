@@ -34,10 +34,16 @@
 
                 <!-- logo name  -->
                 <div class="row mb-2">
-                    <div class="col-12">
+                    <div class="col-6">
                         <div class="form-roup">
                             <label for="managelayout_partnername" class="h3">Logo ad</label>
                             <asp:TextBox ID="partnername" runat="server" CssClass="form-control"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-roup">
+                            <label for="managelayout_partnerLink" class="h3">Logo ad</label>
+                            <asp:TextBox ID="partnerLink" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
                 </div>

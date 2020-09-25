@@ -33,6 +33,15 @@ namespace PublicCouncilBackEnd.manage
         protected global::System.Web.UI.WebControls.TextBox partnername;
 
         /// <summary>
+        /// partnerLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox partnerLink;
+
+        /// <summary>
         /// partnerImage control.
         /// </summary>
         /// <remarks>
