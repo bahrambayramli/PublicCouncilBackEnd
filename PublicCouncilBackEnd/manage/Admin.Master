@@ -84,14 +84,14 @@
                                 </asp:HyperLink>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../manage/partners.html">
-                                    <i class="ni ni-building text-info"></i>
+                                <asp:HyperLink ID="HyperLink1" runat="server" CssClass="nav-link" NavigateUrl="/manage/sponsors">
+                                     <i class="ni ni-building text-warning"></i>
                                     <span class="nav-link-text">Sponsorlar</span>
-                                </a>
+                                </asp:HyperLink>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="../../pages/charts.html">
+                                <a class="nav-link" href="">
                                     <i class="ni ni-chart-pie-35 text-info"></i>
                                     <span class="nav-link-text">İctimai şura</span>
                                 </a>

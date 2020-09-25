@@ -10,7 +10,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-12 col-md-6">
-                                <h3 class="mb-0">Tərəfdaşlar</h3>
+                                <h3 class="mb-0">Sponsorlar</h3>
                             </div>
                             <div class="col-12 col-md-6 text-right">
                                 <asp:LinkButton ID="new_sponsor" runat="server" CssClass="btn btn-primary btn-sm btn-round" OnClick="new_sponsor_Click">
@@ -34,8 +34,8 @@
                         <Columns>
                             <asp:BoundField DataField="#" HeaderText="#" />
                             <asp:BoundField DataField="DATA_ID" HeaderText="DATA_ID" />
-                            <asp:BoundField DataField="SPONSOR_TITLE" HeaderText="Tərəfdaş" />
-                            <asp:HyperLinkField DataNavigateUrlFields="PARTNERS_LINK" Target="_blank" DataTextField="SPONSOR_LINK" HeaderText="Link">
+                            <asp:BoundField DataField="SPONSOR_TITLE" HeaderText="Sponsor" />
+                            <asp:HyperLinkField DataNavigateUrlFields="SPONSOR_LINK" Target="_blank" DataTextField="SPONSOR_LINK" HeaderText="Link">
                                 <ItemStyle CssClass="d-block" HorizontalAlign="Center" VerticalAlign="Middle" />
                             </asp:HyperLinkField>
                             <asp:CommandField SelectText="Seç" ShowSelectButton="True" ButtonType="Button">

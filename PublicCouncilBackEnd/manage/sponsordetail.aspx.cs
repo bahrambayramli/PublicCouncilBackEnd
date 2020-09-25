@@ -45,7 +45,7 @@ namespace PublicCouncilBackEnd.manage
             NeticeImage.Save(Server.MapPath("/Images/" + imgName), System.Drawing.Imaging.ImageFormat.Jpeg);//Jpeg formatina kecirdirem
             NeticeImage.Dispose();
         }
-        #region( CRUD SQL FUNCTIONS)
+        #region( CRUD  FUNCTIONS)
         private void GetPartners(string PARTNER_ID)
         {
             SqlDataAdapter getPartners = new SqlDataAdapter(new SqlCommand(@"SELECT 
@@ -163,12 +163,34 @@ namespace PublicCouncilBackEnd.manage
 
         protected void sponsordetail_back_Click(object sender, EventArgs e)
         {
-
+            Session["SPONSOR"] = null;
+            Session["SPONSOR_ID"] = null;
+            Response.Redirect("/manage/sponsors");
         }
 
         protected void sponsorConfirm_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (Session["SPONSOR"] as string == "SELECTED")
+                {
 
+                    UpdateSponsor(Session["SPONSOR_ID"] as string);
+                }
+                else
+                {
+                    InsertSponsor();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Debug.WriteLine(ex.Message);
+            }
+
+            Session["SPONSOR"] = null;
+            Session["SPONSOR_ID"] = null;
+            Response.Redirect("/manage/sponsors");
         }
     }
 }

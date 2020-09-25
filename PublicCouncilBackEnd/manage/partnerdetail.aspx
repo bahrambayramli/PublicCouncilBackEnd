@@ -28,27 +28,27 @@
                 </div>
             </div>
         </div>
-        <!-- Logo deatil body case -->
+        <!-- Partner deatil body case -->
         <div class="card-body">
             <div class="container-fluid" style="padding: 0!important;">
 
-                <!-- logo name  -->
+                <!-- Partner name  -->
                 <div class="row mb-2">
                     <div class="col-6">
                         <div class="form-roup">
-                            <label for="managelayout_partnername" class="h3">Logo ad</label>
+                            <label for="managelayout_partnername" class="h3">Tərəfdaş ad</label>
                             <asp:TextBox ID="partnername" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-roup">
-                            <label for="managelayout_partnerLink" class="h3">Logo ad</label>
+                            <label for="managelayout_partnerLink" class="h3">Tərəfdaş link</label>
                             <asp:TextBox ID="partnerLink" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
                 </div>
 
-                <!-- logo image and file input  -->
+                <!-- Partner image and file input  -->
                 <div class="row mb-2">
                     <div class="col-6">
                         <asp:Image ID="partnerImage" runat="server" CssClass="w-100" ImageUrl="~/Images/social-media-image.png" />

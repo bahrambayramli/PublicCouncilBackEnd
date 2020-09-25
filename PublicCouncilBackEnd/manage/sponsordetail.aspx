@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manage/Admin.Master" AutoEventWireup="true" CodeBehind="sponsordetail.aspx.cs" Inherits="PublicCouncilBackEnd.manage.WebForm9" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        #managelayout_partnerFile {
+        #managelayout_sponsorFile {
             display: none;
         }
 
-        #managelayout_partnerActive {
+        #managelayout_sponsorActive {
             width: 30px;
             height: 30px;
         }
@@ -18,7 +18,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-6">
-                        <p class="h3">Yeni Tərəfdaş</p>
+                        <p class="h3">Yeni Sponsor</p>
                     </div>
                     <div class="col-6 text-right">
                         <asp:LinkButton ID="sponsordetail_back" runat="server" CssClass="btn btn-danger btn-sm" OnClick="sponsordetail_back_Click">
@@ -32,30 +32,30 @@
         <div class="card-body">
             <div class="container-fluid" style="padding: 0!important;">
 
-                <!-- logo name  -->
+                <!-- Sponsor name  -->
                 <div class="row mb-2">
                     <div class="col-6">
                         <div class="form-roup">
-                            <label for="managelayout_sponsorname" class="h3">Logo ad</label>
+                            <label for="managelayout_sponsorname" class="h3">Sponsor ad</label>
                             <asp:TextBox ID="sponsorname" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-roup">
-                            <label for="managelayout_sponsorLink" class="h3">Logo ad</label>
+                            <label for="managelayout_sponsorLink" class="h3">Sponsor link</label>
                             <asp:TextBox ID="sponsorLink" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
                 </div>
 
-                <!-- logo image and file input  -->
+                <!-- Sponsor image and file input  -->
                 <div class="row mb-2">
                     <div class="col-6">
                         <asp:Image ID="sponsorImage" runat="server" CssClass="w-100" ImageUrl="~/Images/social-media-image.png" />
                     </div>
                     <div class="col-6">
                         <asp:FileUpload ID="sponsorFile" runat="server" accept=".png,.jpeg,.jpg,.tif" />
-                        <div class="container-fluid">
+                        <div class="container-fluid" style="padding:0!important">
                             <div class="row">
                                 <div class="col-12">
                                     <input class="form-control" type="text" value="fayl seçilməyib" id="customFile">
