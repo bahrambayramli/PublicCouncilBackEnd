@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manage/Admin.Master" AutoEventWireup="true" CodeBehind="partnerdetail.aspx.cs" Inherits="PublicCouncilBackEnd.manage.WebForm7" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manage/Admin.Master" AutoEventWireup="true" CodeBehind="sponsordetail.aspx.cs" Inherits="PublicCouncilBackEnd.manage.WebForm9" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <style>
+    <style>
         #managelayout_partnerFile {
             display: none;
         }
@@ -12,7 +12,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="managelayout" runat="server">
-    <div class="card my-md-2">
+        <div class="card my-md-2">
         <!-- Logo header case -->
         <div class="card-header">
             <div class="container-fluid">
@@ -21,7 +21,7 @@
                         <p class="h3">Yeni Tərəfdaş</p>
                     </div>
                     <div class="col-6 text-right">
-                        <asp:LinkButton ID="partnerdetail_back" runat="server" CssClass="btn btn-danger btn-sm" OnClick="partnerdetail_back_Click">
+                        <asp:LinkButton ID="sponsordetail_back" runat="server" CssClass="btn btn-danger btn-sm" OnClick="sponsordetail_back_Click">
                             Geri
                         </asp:LinkButton>
                     </div>
@@ -36,14 +36,14 @@
                 <div class="row mb-2">
                     <div class="col-6">
                         <div class="form-roup">
-                            <label for="managelayout_partnername" class="h3">Logo ad</label>
-                            <asp:TextBox ID="partnername" runat="server" CssClass="form-control"></asp:TextBox>
+                            <label for="managelayout_sponsorname" class="h3">Logo ad</label>
+                            <asp:TextBox ID="sponsorname" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-roup">
-                            <label for="managelayout_partnerLink" class="h3">Logo ad</label>
-                            <asp:TextBox ID="partnerLink" runat="server" CssClass="form-control"></asp:TextBox>
+                            <label for="managelayout_sponsorLink" class="h3">Logo ad</label>
+                            <asp:TextBox ID="sponsorLink" runat="server" CssClass="form-control"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -51,10 +51,10 @@
                 <!-- logo image and file input  -->
                 <div class="row mb-2">
                     <div class="col-6">
-                        <asp:Image ID="partnerImage" runat="server" CssClass="w-100" ImageUrl="~/Images/social-media-image.png" />
+                        <asp:Image ID="sponsorImage" runat="server" CssClass="w-100" ImageUrl="~/Images/social-media-image.png" />
                     </div>
                     <div class="col-6">
-                        <asp:FileUpload ID="partnerFile" runat="server" accept=".png,.jpeg,.jpg,.tif" />
+                        <asp:FileUpload ID="sponsorFile" runat="server" accept=".png,.jpeg,.jpg,.tif" />
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-12">
@@ -71,7 +71,7 @@
                 <!-- logo Apply  -->
                 <div class="row">
                     <div class="col-12 text-center my-2">
-                        <asp:Button ID="partnerConfirm" runat="server" Text="Təsdiq et" CssClass="btn btn-round btn-success" OnClick="partnerConfirm_Click" />
+                        <asp:Button ID="sponsorConfirm" runat="server" Text="Təsdiq et" CssClass="btn btn-round btn-success" OnClick="sponsorConfirm_Click" />
                     </div>
                 </div>
 
@@ -82,11 +82,11 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
 
-            const inputFile = document.getElementById("managelayout_partnerFile");
+            const inputFile = document.getElementById("managelayout_sponsorFile");
             const customFile = document.getElementById("customFile");
             const buttonFile = document.getElementById("btnFile");
 
-            let mainimg = document.getElementById("managelayout_partnerImage");
+            let mainimg = document.getElementById("managelayout_sponsorImage");
 
             buttonFile.addEventListener("click", function (e) {
                 e.preventDefault();

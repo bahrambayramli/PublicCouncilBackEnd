@@ -216,6 +216,8 @@
     <Content Include="manage\logodetail.aspx" />
     <Content Include="manage\partners.aspx" />
     <Content Include="manage\partnerdetail.aspx" />
+    <Content Include="manage\sponsors.aspx" />
+    <Content Include="manage\sponsordetail.aspx" />
     <Content Include="scripts\ckeditor\adapters\jquery.js" />
     <Content Include="scripts\ckeditor\CHANGES.html" />
     <Content Include="scripts\ckeditor\ckeditor.asp" />
@@ -3926,6 +3928,20 @@
     </Compile>
     <Compile Include="manage\partnerdetail.aspx.designer.cs">
       <DependentUpon>partnerdetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\sponsors.aspx.cs">
+      <DependentUpon>sponsors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\sponsors.aspx.designer.cs">
+      <DependentUpon>sponsors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\sponsordetail.aspx.cs">
+      <DependentUpon>sponsordetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\sponsordetail.aspx.designer.cs">
+      <DependentUpon>sponsordetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\Crypto.cs" />
     <Compile Include="Model\error.cs" />
