@@ -45,6 +45,7 @@ namespace PublicCouncilBackEnd.manage
             NeticeImage.Save(Server.MapPath("/Images/" + imgName), System.Drawing.Imaging.ImageFormat.Jpeg);//Jpeg formatina kecirdirem
             NeticeImage.Dispose();
         }
+
         #region( CRUD  FUNCTIONS)
         private void GetPartners(string PARTNER_ID)
         {

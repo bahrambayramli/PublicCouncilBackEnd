@@ -1,4 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manage/Admin.Master" AutoEventWireup="true" CodeBehind="partnerdetail.aspx.cs" Inherits="PublicCouncilBackEnd.manage.WebForm7" %>
+﻿<%@ Page Title="" 
+    Language="C#"
+    MasterPageFile="~/manage/Admin.Master" 
+    AutoEventWireup="true" 
+    CodeBehind="partnerdetail.aspx.cs" 
+    Inherits="PublicCouncilBackEnd.manage.WebForm7" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
         <style>
         #managelayout_partnerFile {
@@ -11,7 +17,9 @@
         }
     </style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="managelayout" runat="server">
+
     <div class="card my-md-2">
         <!-- Logo header case -->
         <div class="card-header">

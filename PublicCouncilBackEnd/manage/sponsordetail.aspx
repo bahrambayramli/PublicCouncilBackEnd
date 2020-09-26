@@ -1,4 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manage/Admin.Master" AutoEventWireup="true" CodeBehind="sponsordetail.aspx.cs" Inherits="PublicCouncilBackEnd.manage.WebForm9" %>
+﻿<%@ Page Title="" 
+    Language="C#"
+    MasterPageFile="~/manage/Admin.Master" 
+    AutoEventWireup="true" 
+    CodeBehind="sponsordetail.aspx.cs" 
+    Inherits="PublicCouncilBackEnd.manage.WebForm9" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         #managelayout_sponsorFile {
@@ -11,9 +17,12 @@
         }
     </style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="managelayout" runat="server">
-        <div class="card my-md-2">
-        <!-- Logo header case -->
+
+    <div class="card my-md-2">
+
+        <!-- Sponsor header case -->
         <div class="card-header">
             <div class="container-fluid">
                 <div class="row">
@@ -28,7 +37,7 @@
                 </div>
             </div>
         </div>
-        <!-- Logo deatil body case -->
+        <!-- Sponsor deatil body case -->
         <div class="card-body">
             <div class="container-fluid" style="padding: 0!important;">
 
@@ -55,7 +64,7 @@
                     </div>
                     <div class="col-6">
                         <asp:FileUpload ID="sponsorFile" runat="server" accept=".png,.jpeg,.jpg,.tif" />
-                        <div class="container-fluid" style="padding:0!important">
+                        <div class="container-fluid" style="padding: 0!important">
                             <div class="row">
                                 <div class="col-12">
                                     <input class="form-control" type="text" value="fayl seçilməyib" id="customFile">
@@ -77,6 +86,7 @@
 
             </div>
         </div>
+
     </div>
 
     <script>
@@ -115,4 +125,5 @@
             });
         });
     </script>
+
 </asp:Content>
