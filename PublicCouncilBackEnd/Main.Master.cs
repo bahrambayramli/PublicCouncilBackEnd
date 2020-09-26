@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,7 +11,7 @@ namespace PublicCouncilBackEnd
 {
     public partial class Main : System.Web.UI.MasterPage
     {
-        public void GetNavigations(string lang)
+        private void GetNavigations(string lang)
         {
             switch (lang)
             {
@@ -39,13 +41,23 @@ namespace PublicCouncilBackEnd
                     }
             }
         }
-
+       
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            DataTable dtLogo = new DataTable();
+            dtLogo = SQLFUNC.GetLogo("1", false, true);
 
-            GetNavigations(Page.RouteData.Values["LANGUAGE"] as string);
+            LogoMobile.DataSource = dtLogo;
+            LogoMobile.DataBind();
 
+            LogoMobile2.DataSource = dtLogo;
+            LogoMobile2.DataBind();
+
+            LogoDesktop.DataSource = dtLogo;
+            LogoDesktop.DataBind();
+
+            GetNavigations(Page.RouteData.Values["language"] as string);
 
         }
     }

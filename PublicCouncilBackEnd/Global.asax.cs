@@ -37,14 +37,6 @@ namespace PublicCouncilBackEnd
 
 
 
-
-
-
-
-
-
-
-
             //Admin Panel routes
 
             routes.MapPageRoute("managedashboard", "manage/dashboard/", "~/manage/dashboard.aspx");

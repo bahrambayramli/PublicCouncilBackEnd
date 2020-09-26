@@ -10,6 +10,27 @@ namespace PublicCouncilBackEnd
 {
     public class SQLFUNC
     {
+        public static DataTable GetLogo(string USER_ID,bool ISDELETE,bool ISACTIVE)
+        {
+          
+            SqlDataAdapter getLogo = new SqlDataAdapter(new SqlCommand(@"SELECT TOP 1
+                                                                                  LOGO_TITLE,
+                                                                                  LOGO_IMG
+                                                                             FROM PC_SITELOGOS
+                                                                             WHERE USER_ID  = @USER_ID  AND
+                                                                                   ISDELETE = @ISDELETE AND
+                                                                                   ISACTIVE = @ISACTIVE
+          "));
+
+
+            getLogo.SelectCommand.Parameters.Add("@USER_ID", SqlDbType.Int).Value = USER_ID;
+            getLogo.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
+            getLogo.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = ISACTIVE;
+
+            return SQL.SELECT(getLogo);
+
+        }
+
 
         public static DataTable GetNavigations(string language,bool isdelete,bool isactive)
         {
@@ -175,6 +196,7 @@ namespace PublicCouncilBackEnd
                     }
             }
         }
+
         public static void GetSectionsData(string lang, string category, string subcategory, string operation, ListView LS_AZ, ListView LS_EN) 
         {
             SqlDataAdapter getdata = new SqlDataAdapter();
@@ -320,6 +342,7 @@ namespace PublicCouncilBackEnd
                     }
             }
         }
+
         public static void GetSectionsData(string lang, string category, string subcategory, string operation, string count, ListView LS_AZ, ListView LS_EN)
         {
             SqlDataAdapter getdata = new SqlDataAdapter();

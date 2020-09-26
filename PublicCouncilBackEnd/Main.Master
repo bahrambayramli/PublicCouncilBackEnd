@@ -74,9 +74,16 @@
                     <div class="container-fluid py-2 m-0">
                         <div class="row align-items-center justify-content-between">
                             <div class="col-6">
-                                <a href="#" class="d-block">
-                                    <img class="rounded shadow-sm w-25" src="./images/Logo/Logo1.jpeg" alt="">
-                                </a>
+                                <asp:ListView ID="LogoDesktop" runat="server">
+                                    <LayoutTemplate>
+                                        <a href="/home/az" class="d-block">
+                                            <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                                        </a>
+                                    </LayoutTemplate>
+                                    <ItemTemplate>
+                                        <img class="rounded shadow-sm w-25" src="/images/logos/<%#Eval("LOGO_IMG")%>" alt="<%#Eval("LOGO_TITLE") %>">
+                                    </ItemTemplate>
+                                </asp:ListView>
                             </div>
                             <div class="col-6">
                                 <div class="container-fluid">
@@ -111,9 +118,18 @@
                     <div class="site-nav">
                         <nav class="navbar py-2 navbar-expand-lg navbar-dark px-0 ">
                             <div class="container-fluid px-0">
-                                <a class="navbar-brand pl-2 pl-md-0 mr-lg-5 d-md-none" href="#">
-                                    <img class="logo-normal rounded site-logo" src="./images/Logo/Logo1.jpeg">
-                                </a>
+
+                                <asp:ListView ID="LogoMobile" runat="server">
+                                    <LayoutTemplate>
+                                        <a class="navbar-brand pl-2 pl-md-0 mr-lg-5 d-md-none" href="/home/az" >
+                                            <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                                        </a>
+                                    </LayoutTemplate>
+                                    <ItemTemplate>
+                                        <img class="logo-normal rounded site-logo" src="/images/logos/<%#Eval("LOGO_IMG")%>" alt="<%#Eval("LOGO_TITLE") %>">
+                                    </ItemTemplate>
+                                </asp:ListView>
+
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-primary"
                                     aria-controls="navbar-primary" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
@@ -122,9 +138,18 @@
                                     <div class="navbar-collapse-header">
                                         <div class="row">
                                             <div class="col-6 collapse-brand">
-                                                <a href="./index.html">
-                                                    <img src="./images/Logo/Logo1.jpeg">
-                                                </a>
+
+                                                <asp:ListView ID="LogoMobile2" runat="server">
+                                                    <LayoutTemplate>
+                                                        <a  href="/home/az">
+                                                            <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                                                        </a>
+                                                    </LayoutTemplate>
+                                                    <ItemTemplate>
+                                                        <img  src="/images/logos/<%#Eval("LOGO_IMG")%>" alt="<%#Eval("LOGO_TITLE") %>">
+                                                    </ItemTemplate>
+                                                </asp:ListView>
+
                                             </div>
                                             <div class="col-6 collapse-close">
                                                 <button type="button" class="navbar-toggler" data-toggle="collapse"
