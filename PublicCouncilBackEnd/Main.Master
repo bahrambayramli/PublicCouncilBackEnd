@@ -33,7 +33,7 @@
 </head>
 <body>
 
-    <form id="form1" runat="server">
+    <form id="form1" runat="server"> 
 
         <!-- Start Header  -->
         <header class="header bg-gradient-default shadow">
@@ -220,93 +220,45 @@
 
                             <!-- public council elections -->
                             <section class="right-posts mb-2">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col p-0">
-                                            <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white">
-                                                <i class="far fa-flag mr-2"></i>
-                                                İctimai şuraya seçkilər
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12 mb-2 px-0">
-                                            <div class="owl-carousel owl-theme owl-elections overflow-hidden rounded">
-                                                <div class="slider-item">
-                                                    <img src="images/test/ilhameliyev.jpg" alt="" />
-                                                    <div class="slider-caption">
-                                                        <span class="btn btn-danger text-white btn-sm slider-time ">
-                                                            <i class="far fa-calendar-alt"></i>
-                                                            05/09/2020/12:12
-                                                        </span>
-                                                        <h2 class="slider-title">Lorem ipsum dolor sit amet.
-                                                        </h2>
-                                                        <a class="caption-link" title="" href="#"></a>
-                                                    </div>
-
-
+                                <asp:ListView ID="COUNCILELECTION_AZ" runat="server">
+                                    <LayoutTemplate>
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col p-0">
+                                                    <a href="/posts/az" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white">
+                                                        <i class="far fa-flag mr-2"></i>
+                                                        İctimai şuraya seçkilər
+                                                    </a>
                                                 </div>
-                                                <div class="slider-item">
-                                                    <img src="images/test/ilhameliyev.jpg" alt="" />
-                                                    <div class="slider-caption">
-                                                        <span class="btn btn-danger text-white btn-sm slider-time ">
-                                                            <i class="far fa-calendar-alt"></i>
-                                                            05/09/2020/12:12
-                                                        </span>
-                                                        <h2 class="slider-title">Lorem ipsum dolor sit amet.
-                                                        </h2>
-                                                        <a class="caption-link" title="" href="#"></a>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12 mb-2 px-0">
+                                                    <div class="owl-carousel owl-theme owl-elections overflow-hidden rounded">
+                                                        <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                                                     </div>
-
-
-                                                </div>
-                                                <div class="slider-item">
-                                                    <img src="images/test/ilhameliyev.jpg" alt="" />
-                                                    <div class="slider-caption">
-                                                        <span class="btn btn-danger text-white btn-sm slider-time ">
-                                                            <i class="far fa-calendar-alt"></i>
-                                                            05/09/2020/12:12
-                                                        </span>
-                                                        <h2 class="slider-title">Lorem ipsum dolor sit amet.
-                                                        </h2>
-                                                        <a class="caption-link" title="" href="#"></a>
-                                                    </div>
-
-
-                                                </div>
-                                                <div class="slider-item">
-                                                    <img src="images/test/ilhameliyev.jpg" alt="" />
-                                                    <div class="slider-caption">
-                                                        <span class="btn btn-danger text-white btn-sm slider-time ">
-                                                            <i class="far fa-calendar-alt"></i>
-                                                            05/09/2020/12:12
-                                                        </span>
-                                                        <h2 class="slider-title">Lorem ipsum dolor sit amet.
-                                                        </h2>
-                                                        <a class="caption-link" title="" href="#"></a>
-                                                    </div>
-
-
-                                                </div>
-                                                <div class="slider-item">
-                                                    <img src="images/test/ilhameliyev.jpg" alt="" />
-                                                    <div class="slider-caption">
-                                                        <span class="btn btn-danger text-white btn-sm slider-time ">
-                                                            <i class="far fa-calendar-alt"></i>
-                                                            05/09/2020/12:12
-                                                        </span>
-                                                        <h2 class="slider-title">Lorem ipsum dolor sit amet.
-                                                        </h2>
-                                                        <a class="caption-link" title="" href="#"></a>
-                                                    </div>
-
-
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    </LayoutTemplate>
+                                    <ItemTemplate>
+                                        <div class="slider-item">
+                                            <img src=" <%#Eval("")%>" alt="<%#Eval("")%>" />
+                                            <div class="slider-caption">
+                                                <span class="btn btn-danger text-white btn-sm slider-time ">
+                                                    <i class="far fa-calendar-alt"></i>
+                                                   <%#Eval("")%>
+                                                </span>
+                                                <h2 class="slider-title">
+                                                    <%#Eval("")%>
+                                                </h2>
+                                                <a class="caption-link" title="<%#Eval("")%>" href="<%#Eval("")%>"></a>
+                                            </div>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:ListView>
                             </section>
+
+                           
 
                             <!-- public council announcments -->
                             <section class="right-posts mb-2">
