@@ -8,51 +8,56 @@
         <div class="container-fluid p-0">
             <div class="row">
                 <div class="col col-12 col-md-8 pr-md-1">
-                    <div class="main-slider">
-                        <div class="owl-main owl-carousel owl-theme rounded overflow-hidden">
+                    <asp:ListView ID="MAINSLIDER_AZ" runat="server">
+                        <LayoutTemplate>
+                            <div class="main-slider">
+                                <div class="owl-main owl-carousel owl-theme rounded overflow-hidden">
+                                    <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                                </div>
+                            </div>
+                        </LayoutTemplate>
+                        <ItemTemplate>
                             <div class="slider-item">
-                                <img src="images/test/ilhameliyev.jpg" alt="" />
+                                <img src="images/<%#Eval("POST_IMG")%>" alt="/<%#Eval("POST_SEOAZ")%>" />
                                 <div class="slider-caption">
                                     <span class="btn btn-sm btn-round slider-time bg-white text-default ">
                                         <i class="far fa-calendar-alt"></i>
-                                        05/09/2020/12:12
+                                        <%#Eval("POST_DATE")%>
                                     </span>
-                                    <h2 class="slider-title">Lorem ipsum dolor sit amet.
+                                    <h2 class="slider-title">
+                                       <%#Eval("POST_AZ_TITLE")%>
                                     </h2>
-                                    <a class="caption-link" title="" href="#"></a>
+                                    <a class="caption-link"  href="/details/az/<%#Eval("DATA_ID")%>"  title="<%#Eval("POST_SEOAZ")%>"></a>
                                 </div>
-
-
                             </div>
+                        </ItemTemplate>
+                    </asp:ListView>
+
+                    <asp:ListView ID="MAINSLIDER_EN" runat="server">
+                        <LayoutTemplate>
+                            <div class="main-slider">
+                                <div class="owl-main owl-carousel owl-theme rounded overflow-hidden">
+                                    <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                                </div>
+                            </div>
+                        </LayoutTemplate>
+                        <ItemTemplate>
                             <div class="slider-item">
-                                <img src="images/test/ilhameliyev.jpg" alt="" />
+                                <img src="/images/<%#Eval("POST_IMG")%>" alt="/<%#Eval("POST_SEOEN")%>" />
                                 <div class="slider-caption">
-                                    <span class="btn btn-sm btn-round slider-time bg-white text-default">
+                                    <span class="btn btn-sm btn-round slider-time bg-white text-default ">
                                         <i class="far fa-calendar-alt"></i>
-                                        05/09/2020/12:12
+                                        <%#Eval("POST_DATE")%>
                                     </span>
-                                    <h2 class="slider-title">Lorem ipsum dolor sit amet.
+                                    <h2 class="slider-title">
+                                       <%#Eval("POST_EN_TITLE")%>
                                     </h2>
-                                    <a class="caption-link" title="" href="#"></a>
+                                    <a class="caption-link"  href="/details/az/<%#Eval("DATA_ID")%>"  title="<%#Eval("POST_SEOEN")%>"></a>
                                 </div>
-
                             </div>
-                            <div class="slider-item">
-                                <img src="images/test/ilhameliyev.jpg" alt="" />
-                                <div class="slider-caption">
-                                    <span class="btn btn-sm btn-round slider-time bg-white text-default">
-                                        <i class="far fa-calendar-alt"></i>
-                                        05/09/2020/12:12
-                                    </span>
-                                    <h2 class="slider-title">Lorem ipsum dolor sit amet.
-                                    </h2>
-                                    <a class="caption-link" title="" href="#"></a>
-                                </div>
+                        </ItemTemplate>
+                    </asp:ListView>
 
-
-                            </div>
-                        </div>
-                    </div>
                     <script>
                         $(".owl-main").owlCarousel({
                             loop: true,
@@ -73,101 +78,106 @@
                         });
                     </script>
                 </div>
+
                 <div class="col col-12 col-md-4 pl-md-0">
-                    <div class="owl-carousel owl-right-top rounded overflow-hidden d-none d-md-block">
-                        <div class="slider-item">
-                            <img src="images/test/ilhameliyev.jpg" alt="" />
-                            <div class="slider-caption">
-                                <span class="slider-time btn btn-outline-warning btn-sm btn-round">
-                                    <i class="far fa-calendar-alt"></i>
-                                    05/09/2020/12:12
-                                </span>
-                                <h3 class="slider-title">Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </h3>
-                                <a class="caption-link" title="" href="#"></a>
+
+                    <asp:ListView ID="RIGHTTOP_AZ" runat="server">
+                        <LayoutTemplate>
+                            <div class="owl-carousel owl-right-top rounded overflow-hidden d-none d-md-block">
+                                <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                             </div>
-
-
-                        </div>
-                        <div class="slider-item">
-                            <img src="images/test/ilhameliyev.jpg" alt="" />
-                            <div class="slider-caption">
-                                <span class="slider-time btn btn-outline-warning btn-sm btn-round">
-                                    <i class="far fa-calendar-alt"></i>
-                                    05/09/2020/12:12
-                                </span>
-                                <h3 class="slider-title">Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </h3>
-                                <a class="caption-link" title="" href="#"></a>
+                        </LayoutTemplate>
+                        <ItemTemplate>
+                            <div class="slider-item">
+                                <img src="images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>" />
+                                <div class="slider-caption">
+                                    <span class="slider-time btn btn-outline-warning btn-sm btn-round">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <%#Eval("POST_DATE")%>
+                                    </span>
+                                    <h3 class="slider-title">
+                                        <%#Eval("POST_TITLE_AZ")%>
+                                    </h3>
+                                    <a class="caption-link" title=""<%#Eval("POST_SEOAZ")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
+                                </div>
                             </div>
-
-
-                        </div>
-                        <div class="slider-item">
-                            <img src="images/test/ilhameliyev.jpg" alt="" />
-                            <div class="slider-caption">
-                                <span class="slider-time btn btn-outline-warning btn-sm btn-round">
-                                    <i class="far fa-calendar-alt"></i>
-                                    05/09/2020/12:12
-                                </span>
-                                <h3 class="slider-title">Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </h3>
-                                <a class="caption-link" title="" href="#"></a>
+                        </ItemTemplate>
+                    </asp:ListView>
+                    <asp:ListView ID="RIGHTTOP_EN" runat="server">
+                        <LayoutTemplate>
+                            <div class="owl-carousel owl-right-top rounded overflow-hidden d-none d-md-block">
+                                <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                             </div>
-
-
-                        </div>
-                    </div>
-                    <div
-                        class="owl-carousel owl-theme  mt-md-2 owl-right-bottom rounded overflow-hidden d-none d-md-block">
-                        <div class="slider-item">
-                            <img src="images/test/ilhameliyev.jpg" alt="" />
-                            <div class="slider-caption">
-                                <span class="slider-time btn btn-outline-warning btn-sm btn-round">
-                                    <i class="far fa-calendar-alt"></i>
-                                    05/09/2020/12:12
-                                </span>
-                                <h3 class="slider-title">Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </h3>
-                                <a class="caption-link" title="" href="#"></a>
+                        </LayoutTemplate>
+                        <ItemTemplate>
+                            <div class="slider-item">
+                                <img src="images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
+                                <div class="slider-caption">
+                                    <span class="slider-time btn btn-outline-warning btn-sm btn-round">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <%#Eval("POST_DATE")%>
+                                    </span>
+                                    <h3 class="slider-title">
+                                        <%#Eval("POST_TITLE_EN")%>
+                                    </h3>
+                                    <a class="caption-link" title=""<%#Eval("POST_SEOEN")%>" href="/details/en/<%#Eval("DATA_ID")%>"></a>
+                                </div>
                             </div>
+                        </ItemTemplate>
+                    </asp:ListView>
 
-
-                        </div>
-                        <div class="slider-item">
-                            <img src="images/test/ilhameliyev.jpg" alt="" />
-                            <div class="slider-caption">
-                                <span class="slider-time btn btn-outline-warning btn-sm btn-round">
-                                    <i class="far fa-calendar-alt"></i>
-                                    05/09/2020/12:12
-                                </span>
-                                <h3 class="slider-title">Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </h3>
-                                <a class="caption-link" title="" href="#"></a>
+                    <asp:ListView ID="RIGHTBOTTOM_AZ" runat="server">
+                        <LayoutTemplate>
+                            <div class="owl-carousel owl-theme  mt-md-2 owl-right-bottom rounded overflow-hidden d-none d-md-block">
+                                <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                             </div>
-
-
-                        </div>
-                        <div class="slider-item">
-                            <img src="images/test/ilhameliyev.jpg" alt="" />
-                            <div class="slider-caption">
-                                <span class="slider-time btn btn-outline-warning btn-sm btn-round">
-                                    <i class="far fa-calendar-alt"></i>
-                                    05/09/2020/12:12
-                                </span>
-                                <h3 class="slider-title">Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </h3>
-                                <a class="caption-link" title="" href="#"></a>
+                        </LayoutTemplate>
+                        <ItemTemplate>
+                            <div class="slider-item">
+                                <img src="images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>" />
+                                <div class="slider-caption">
+                                    <span class="slider-time btn btn-outline-warning btn-sm btn-round">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <%#Eval("POST_DATE")%>
+                                    </span>
+                                    <h3 class="slider-title">
+                                        <%#Eval("POST_TITLE_AZ")%>
+                                    </h3>
+                                    <a class="caption-link" title=""<%#Eval("POST_SEOAZ")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
+                                </div>
                             </div>
-
-
-                        </div>
-                    </div>
+                        </ItemTemplate>
+                    </asp:ListView>
+                    <asp:ListView ID="RIGHTBOTTOM_EN" runat="server">
+                        <LayoutTemplate>
+                            <div class="owl-carousel owl-theme  mt-md-2 owl-right-bottom rounded overflow-hidden d-none d-md-block">
+                                <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                            </div>
+                        </LayoutTemplate>
+                        <ItemTemplate>
+                            <div class="slider-item">
+                                <img src="images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
+                                <div class="slider-caption">
+                                    <span class="slider-time btn btn-outline-warning btn-sm btn-round">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <%#Eval("POST_DATE")%>
+                                    </span>
+                                    <h3 class="slider-title">
+                                        <%#Eval("POST_TITLE_EN")%>
+                                    </h3>
+                                    <a class="caption-link" title=""<%#Eval("POST_SEOEN")%>" href="/details/en/<%#Eval("DATA_ID")%>"></a>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:ListView>
 
                 </div>
+
             </div>
         </div>
     </section>
+
+    
 
     <!-- Start  Posts  -->
     <section class="site-posts mb-2">

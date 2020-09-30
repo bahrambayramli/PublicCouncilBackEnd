@@ -45,6 +45,7 @@ namespace PublicCouncilBackEnd.manage
             NeticeImage.Save(Server.MapPath("/Images/" + imgName), System.Drawing.Imaging.ImageFormat.Jpeg);//Jpeg formatina kecirdirem
             NeticeImage.Dispose();
         }
+
         #region(SQL FUNCTIONS)
         private void GetPartners(string PARTNER_ID)
         {
@@ -143,6 +144,7 @@ namespace PublicCouncilBackEnd.manage
 
         }
         #endregion
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

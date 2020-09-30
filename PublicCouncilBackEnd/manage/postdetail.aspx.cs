@@ -1127,7 +1127,6 @@ namespace PublicCouncilBackEnd.manage
                     Response.Write(ex.Message);
                 }
 
-
                 if (Session["POST"] as string == "SELECTED")
                 {
                     try

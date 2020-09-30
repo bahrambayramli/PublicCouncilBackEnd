@@ -42,8 +42,7 @@ namespace PublicCouncilBackEnd
             }
         }
        
-
-        protected void Page_Load(object sender, EventArgs e)
+        private void GetLogo()
         {
             DataTable dtLogo = new DataTable();
             dtLogo = SQLFUNC.GetLogo("1", false, true);
@@ -56,8 +55,19 @@ namespace PublicCouncilBackEnd
 
             LogoDesktop.DataSource = dtLogo;
             LogoDesktop.DataBind();
+        }
+
+      
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+            GetLogo();
 
             GetNavigations(Page.RouteData.Values["language"] as string);
+
+         
+          
 
         }
     }
