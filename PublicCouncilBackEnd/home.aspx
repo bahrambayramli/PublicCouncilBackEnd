@@ -7,6 +7,7 @@
     <section class="site-sliders mb-3">
         <div class="container-fluid p-0">
             <div class="row">
+
                 <div class="col col-12 col-md-8 pr-md-1">
                     <asp:ListView ID="MAINSLIDER_AZ" runat="server">
                         <LayoutTemplate>
@@ -18,11 +19,11 @@
                         </LayoutTemplate>
                         <ItemTemplate>
                             <div class="slider-item">
-                                <img src="images/<%#Eval("POST_IMG")%>" alt="/<%#Eval("POST_SEOAZ")%>" />
+                                <img src="/images/<%#Eval("POST_IMG")%>" alt="/<%#Eval("POST_SEOAZ")%>" />
                                 <div class="slider-caption">
                                     <span class="btn btn-sm btn-round slider-time bg-white text-default ">
                                         <i class="far fa-calendar-alt"></i>
-                                        <%#Eval("POST_DATE")%>
+                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                     </span>
                                     <h2 class="slider-title">
                                        <%#Eval("POST_AZ_TITLE")%>
@@ -43,11 +44,11 @@
                         </LayoutTemplate>
                         <ItemTemplate>
                             <div class="slider-item">
-                                <img src="/images/<%#Eval("POST_IMG")%>" alt="/<%#Eval("POST_SEOEN")%>" />
+                                <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
                                 <div class="slider-caption">
                                     <span class="btn btn-sm btn-round slider-time bg-white text-default ">
                                         <i class="far fa-calendar-alt"></i>
-                                        <%#Eval("POST_DATE")%>
+                                        <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                     </span>
                                     <h2 class="slider-title">
                                        <%#Eval("POST_EN_TITLE")%>
@@ -88,17 +89,18 @@
                             </div>
                         </LayoutTemplate>
                         <ItemTemplate>
+
                             <div class="slider-item">
-                                <img src="images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>" />
+                                <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>" />
                                 <div class="slider-caption">
                                     <span class="slider-time btn btn-outline-warning btn-sm btn-round">
                                         <i class="far fa-calendar-alt"></i>
-                                        <%#Eval("POST_DATE")%>
+                                        <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                     </span>
                                     <h3 class="slider-title">
-                                        <%#Eval("POST_TITLE_AZ")%>
+                                        <%#Eval("POST_SEOAZ")%>
                                     </h3>
-                                    <a class="caption-link" title=""<%#Eval("POST_SEOAZ")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
+                                     <a class="caption-link" title="<%#Eval("POST_SEOAZ")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
                                 </div>
                             </div>
                         </ItemTemplate>
@@ -111,16 +113,16 @@
                         </LayoutTemplate>
                         <ItemTemplate>
                             <div class="slider-item">
-                                <img src="images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
+                                <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
                                 <div class="slider-caption">
                                     <span class="slider-time btn btn-outline-warning btn-sm btn-round">
                                         <i class="far fa-calendar-alt"></i>
-                                        <%#Eval("POST_DATE")%>
+                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                     </span>
                                     <h3 class="slider-title">
-                                        <%#Eval("POST_TITLE_EN")%>
+                                       <%#Eval("POST_SEOEN")%>
                                     </h3>
-                                    <a class="caption-link" title=""<%#Eval("POST_SEOEN")%>" href="/details/en/<%#Eval("DATA_ID")%>"></a>
+                                     <a class="caption-link" title="<%#Eval("POST_SEOEN")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
                                 </div>
                             </div>
                         </ItemTemplate>
@@ -133,17 +135,18 @@
                             </div>
                         </LayoutTemplate>
                         <ItemTemplate>
+
                             <div class="slider-item">
-                                <img src="images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>" />
+                                <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>" alt="<%#Eval("POST_SEOAZ")%>" />
                                 <div class="slider-caption">
                                     <span class="slider-time btn btn-outline-warning btn-sm btn-round">
                                         <i class="far fa-calendar-alt"></i>
-                                        <%#Eval("POST_DATE")%>
+                                        <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                     </span>
                                     <h3 class="slider-title">
-                                        <%#Eval("POST_TITLE_AZ")%>
+                                      <%#Eval("POST_SEOAZ")%>
                                     </h3>
-                                    <a class="caption-link" title=""<%#Eval("POST_SEOAZ")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
+                                     <a class="caption-link" title="<%#Eval("POST_SEOAZ")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
                                 </div>
                             </div>
                         </ItemTemplate>
@@ -156,16 +159,16 @@
                         </LayoutTemplate>
                         <ItemTemplate>
                             <div class="slider-item">
-                                <img src="images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
+                                <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
                                 <div class="slider-caption">
                                     <span class="slider-time btn btn-outline-warning btn-sm btn-round">
                                         <i class="far fa-calendar-alt"></i>
-                                        <%#Eval("POST_DATE")%>
+                                        <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                     </span>
                                     <h3 class="slider-title">
-                                        <%#Eval("POST_TITLE_EN")%>
+                                        <%#Eval("POST_SEOEN")%>
                                     </h3>
-                                    <a class="caption-link" title=""<%#Eval("POST_SEOEN")%>" href="/details/en/<%#Eval("DATA_ID")%>"></a>
+                                     <a class="caption-link" title="<%#Eval("POST_SEOEN")%>" href="/details/en/<%#Eval("DATA_ID")%>"></a>
                                 </div>
                             </div>
                         </ItemTemplate>
@@ -177,328 +180,239 @@
         </div>
     </section>
 
-    
-
     <!-- Start  Posts  -->
     <section class="site-posts mb-2">
-        <div class="container-fluid p-0">
-            <div class="row">
-                <div class="col">
-                    <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
-                        <i class="far fa-newspaper mr-2"></i>
-                        Xəbərlər
-                    </a>
+        <asp:ListView ID="SIMPLEPOSTS_AZ" runat="server">
+            <LayoutTemplate>
+                <div class="container-fluid p-0">
+                    <div class="row">
+                        <div class="col">
+                            <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
+                                <i class="far fa-newspaper mr-2"></i>
+                                Xəbərlər
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+
+                    </div>
                 </div>
-            </div>
-            <div class="row">
+            </LayoutTemplate>
+            <ItemTemplate>
                 <article class="col-md-4 d-flex align-items-stretch">
 
-                    <div class="card mb-3 rounded post overflow-hidden" href="#">
+                    <div class="card mb-3 rounded post overflow-hidden">
                         <div class="post-header overflow-hidden">
-                            <a href="#" class="d-block">
-                                <img src="./images/test/ilhameliyev.jpg" class="post-img" alt="">
+                            <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block" title="">
+                                <img src="/images/<%#Eval("POST_IMG")%>" class="post-img" alt="<%#Eval("POST_SEOAZ")%>">
                             </a>
                         </div>
                         <div class="d-flex justify-content-between py-2 px-2">
-                            <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="#">Xeberler</a>
-                            <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">05/09/2020
-                                                        15:15</a>
+                            <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/posts/az">
+                                <%#Eval("POST_SITECATEGORYAZ")%>
+                            </a>
+                            <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="<%#Eval("DATA_ID")%>">
+                                <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
+                            </a>
                         </div>
                         <div class="card-body px-3 pt-0 font-weight-300">
-                            Some quick example text to build on the card title and make up
-                                                    the
-                                                    bulk
-                                                    of the card's content.
-
+                            <%#Eval("POST_AZ_TITLE")%>
                         </div>
                     </div>
 
                 </article>
+            </ItemTemplate>
+        </asp:ListView>
+
+        <asp:ListView ID="SIMPLEPOSTS_EN" runat="server">
+            <LayoutTemplate>
+                <div class="container-fluid p-0">
+                    <div class="row">
+                        <div class="col">
+                            <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
+                                <i class="far fa-newspaper mr-2"></i>
+                                News
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+
+                    </div>
+                </div>
+            </LayoutTemplate>
+            <ItemTemplate>
                 <article class="col-md-4 d-flex align-items-stretch">
 
-                    <div class="card mb-3 rounded post overflow-hidden" href="#">
+                    <div class="card mb-3 rounded post overflow-hidden">
                         <div class="post-header overflow-hidden">
-                            <a href="#" class="d-block">
-                                <img src="./images/test/ilhameliyev.jpg" class="post-img" alt="">
+                            <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block" title="">
+                                <img src="/images/<%#Eval("POST_IMG")%>" class="post-img" alt="<%#Eval("POST_SEOEN")%>">
                             </a>
                         </div>
                         <div class="d-flex justify-content-between py-2 px-2">
-                            <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="#">Xeberler</a>
-                            <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">05/09/2020
-                                                        15:15</a>
+                            <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/posts/az">
+                                <%#Eval("POST_SITECATEGORYEN")%>
+                            </a>
+                            <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="<%#Eval("DATA_ID")%>">
+                                <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
+                            </a>
                         </div>
                         <div class="card-body px-3 pt-0 font-weight-300">
-                            Some quick example text to build on the card title and make up
-                                                    the
-                                                    bulk
-                                                    of the card's content.
-
+                            <%#Eval("POST_EN_TITLE")%>
                         </div>
                     </div>
 
                 </article>
-                <article class="col-md-4 d-flex align-items-stretch">
-
-                    <div class="card mb-3 rounded post overflow-hidden" href="#">
-                        <div class="post-header overflow-hidden">
-                            <a href="#" class="d-block">
-                                <img src="./images/test/ilhameliyev.jpg" class="post-img" alt="">
-                            </a>
-                        </div>
-                        <div class="d-flex justify-content-between py-2 px-2">
-                            <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="#">Xeberler</a>
-                            <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">05/09/2020
-                                                        15:15</a>
-                        </div>
-                        <div class="card-body px-3 pt-0 font-weight-300">
-                            Some quick example text to build on the card title and make up
-                                                    the
-                                                    bulk
-                                                    of the card's content.
-
-                        </div>
-                    </div>
-
-                </article>
-                <article class="col-md-4 d-flex align-items-stretch">
-
-                    <div class="card mb-3 rounded post overflow-hidden" href="#">
-                        <div class="post-header overflow-hidden">
-                            <a href="#" class="d-block">
-                                <img src="./images/test/ilhameliyev.jpg" class="post-img" alt="">
-                            </a>
-                        </div>
-                        <div class="d-flex justify-content-between py-2 px-2">
-                            <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="#">Xeberler</a>
-                            <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">05/09/2020
-                                                        15:15</a>
-                        </div>
-                        <div class="card-body px-3 pt-0 font-weight-300">
-                            Some quick example text to build on the card title and make up
-                                                    the
-                                                    bulk
-                                                    of the card's content.
-
-                        </div>
-                    </div>
-
-                </article>
-                <article class="col-md-4 d-flex align-items-stretch">
-
-                    <div class="card mb-3 rounded post overflow-hidden" href="#">
-                        <div class="post-header overflow-hidden">
-                            <a href="#" class="d-block">
-                                <img src="./images/test/ilhameliyev.jpg" class="post-img" alt="">
-                            </a>
-                        </div>
-                        <div class="d-flex justify-content-between py-2 px-2">
-                            <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="#">Xeberler</a>
-                            <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">05/09/2020
-                                                        15:15</a>
-                        </div>
-                        <div class="card-body px-3 pt-0 font-weight-300">
-                            Some quick example text to build on the card title and make up
-                                                    the
-                                                    bulk
-                                                    of the card's content.
-
-                        </div>
-                    </div>
-
-                </article>
-                <article class="col-md-4 d-flex align-items-stretch">
-
-                    <div class="card mb-3 rounded post overflow-hidden" href="#">
-                        <div class="post-header overflow-hidden">
-                            <a href="#" class="d-block">
-                                <img src="./images/test/ilhameliyev.jpg" class="post-img" alt="">
-                            </a>
-                        </div>
-                        <div class="d-flex justify-content-between py-2 px-2">
-                            <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="#">Xeberler</a>
-                            <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">05/09/2020
-                                                        15:15</a>
-                        </div>
-                        <div class="card-body px-3 pt-0 font-weight-300">
-                            Some quick example text to build on the card title and make up
-                                                    the
-                                                    bulk
-                                                    of the card's content.
-
-                        </div>
-                    </div>
-
-                </article>
-            </div>
-        </div>
+            </ItemTemplate>
+        </asp:ListView>
     </section>
 
      <!-- All  Posts  -->
     <section class="all-news text-center mb-2">
-        <a href="#" class="btn btn-warning btn-round  text-uppercase">bütün Xeberler
-        </a>
+        <asp:LinkButton ID="allPosts" runat="server" CssClass="btn btn-warning btn-round  text-uppercase">
+            bütün Xeberler
+        </asp:LinkButton>
     </section>
 
     <!-- Publications -->
     <section class="site-posts mb-2">
-        <div class="container-fluid p-0">
-            <div class="row">
-                <div class="col">
-                    <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
-                        <i class="fas fa-scroll mr-2"></i>
-                        Nəşrlər
-                    </a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="owl-carousel publications rounded overflow-hidden">
-                        <div class="publication-item">
-                            <a href="#" class="rounded overflow-hidden">
-                                <img class="publication-img" src="./images/test/boton_chorek.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="publication-item">
-                            <a href="#" class="rounded overflow-hidden">
-                                <img class="publication-img" src="./images/test/boton_chorek.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="publication-item">
-                            <a href="#" class="rounded overflow-hidden">
-                                <img class="publication-img" src="./images/test/boton_chorek.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="publication-item">
-                            <a href="#" class="rounded overflow-hidden">
-                                <img class="publication-img" src="./images/test/boton_chorek.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="publication-item">
-                            <a href="#" class="rounded overflow-hidden">
-                                <img class="publication-img" src="./images/test/boton_chorek.jpg" alt="">
-                            </a>
-                        </div>
-                        <div class="publication-item">
-                            <a href="#" class="rounded overflow-hidden">
-                                <img class="publication-img" src="./images/test/boton_chorek.jpg" alt="">
+        <asp:ListView ID="PUBLICATIONS_AZ" runat="server">
+            <LayoutTemplate>
+                <div class="container-fluid p-0">
+                    <div class="row">
+                        <div class="col">
+                            <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
+                                <i class="fas fa-scroll mr-2"></i>
+                                Nəşrlər
                             </a>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="owl-carousel publications rounded overflow-hidden">
+                                <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </LayoutTemplate>
+            <ItemTemplate>
+                <div class="publication-item">
+                    <a class="rounded overflow-hidden" href="/details/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOAZ")%>" >
+                        <img class="publication-img" src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>">
+                    </a>
+                </div>
+            </ItemTemplate>
+        </asp:ListView>
+        <asp:ListView ID="PUBLICATIONS_EN" runat="server">
+            <LayoutTemplate>
+                <div class="container-fluid p-0">
+                    <div class="row">
+                        <div class="col">
+                            <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
+                                <i class="fas fa-scroll mr-2"></i>
+                               Publications
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="owl-carousel publications rounded overflow-hidden">
+                                <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </LayoutTemplate>
+            <ItemTemplate>
+                <div class="publication-item">
+                    <a class="rounded overflow-hidden" href="/details/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOEN")%>" >
+                        <img class="publication-img" src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>">
+                    </a>
+                </div>
+            </ItemTemplate>
+        </asp:ListView>
     </section>
 
     <!-- Reports -->
     <section class="site-posts mb-2">
-        <div class="container-fluid p-0">
-            <div class="row">
-                <div class="col">
-                    <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
-                        <i class="far fa-flag mr-2"></i>
-                        hesabatlar
-                    </a>
+      
+
+        <asp:ListView ID="REPORTS_AZ" runat="server">
+            <LayoutTemplate>
+                <div class="container-fluid p-0">
+                    <div class="row">
+                        <div class="col">
+                            <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
+                                <i class="far fa-flag mr-2"></i>
+                                hesabatlar
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
+            </LayoutTemplate>
+            <ItemTemplate>
                 <article class="col-md-6 d-flex align-items-stretch">
 
-                    <div class="irem btn btn-outline-default my-1">
-                        <div class="container-fluid row">
-                            <div class="col-3">
-                                07/09/2020 15:15
-                            </div>
-                            <div class="col-9 text-left">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius
-                                                        id unde et ut
-                                                        similique aliquid?
+                    <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block irem btn btn-outline-default my-1" title="<%#Eval("POST_SEOAZ") %>">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-3">
+                                    <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
+                                </div>
+                                <div class="col-9 text-left">
+                                    <%#Eval("POST_AZ_TITLE") %>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
 
                 </article>
+            </ItemTemplate>
+        </asp:ListView>
+        <asp:ListView ID="REPORTS_EN" runat="server">
+            <LayoutTemplate>
+                <div class="container-fluid p-0">
+                    <div class="row">
+                        <div class="col">
+                            <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
+                                <i class="far fa-flag mr-2"></i>
+                                reports
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                    </div>
+                </div>
+            </LayoutTemplate>
+            <ItemTemplate>
                 <article class="col-md-6 d-flex align-items-stretch">
 
-                    <div class="irem btn btn-outline-default my-1">
-                        <div class="container-fluid row">
-                            <div class="col-3">
-                                07/09/2020 15:15
+                    <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block irem btn btn-outline-default my-1" title="<%#Eval("POST_SEOEN") %>">
+                        <div class="container-fluid">
+                            <div class="row">
+                                  <div class="col-3">
+                              <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                             </div>
                             <div class="col-9 text-left">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius
-                                                        id unde et ut
-                                                        similique aliquid?
+                                <%#Eval("POST_SEOEN") %>
                             </div>
+                            </div>
+                          
                         </div>
-                    </div>
+                    </a>
 
                 </article>
-                <article class="col-md-6 d-flex align-items-stretch">
-
-                    <div class="irem btn btn-outline-default my-1">
-                        <div class="container-fluid row">
-                            <div class="col-3">
-                                07/09/2020 15:15
-                            </div>
-                            <div class="col-9 text-left">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius
-                                                        id unde et ut
-                                                        similique aliquid?
-                            </div>
-                        </div>
-                    </div>
-
-                </article>
-                <article class="col-md-6 d-flex align-items-stretch">
-
-                    <div class="irem btn btn-outline-default my-1">
-                        <div class="container-fluid row">
-                            <div class="col-3">
-                                07/09/2020 15:15
-                            </div>
-                            <div class="col-9 text-left">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius
-                                                        id unde et ut
-                                                        similique aliquid?
-                            </div>
-                        </div>
-                    </div>
-
-                </article>
-                <article class="col-md-6 d-flex align-items-stretch">
-
-                    <div class="irem btn btn-outline-default my-1">
-                        <div class="container-fluid row">
-                            <div class="col-3">
-                                07/09/2020 15:15
-                            </div>
-                            <div class="col-9 text-left">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius
-                                                        id unde et ut
-                                                        similique aliquid?
-                            </div>
-                        </div>
-                    </div>
-
-                </article>
-                <article class="col-md-6 d-flex align-items-stretch">
-
-                    <div class="irem btn btn-outline-default my-1">
-                        <div class="container-fluid row">
-                            <div class="col-3">
-                                07/09/2020 15:15
-                            </div>
-                            <div class="col-9 text-left">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius
-                                                        id unde et ut
-                                                        similique aliquid?
-                            </div>
-                        </div>
-                    </div>
-
-                </article>
-            </div>
-        </div>
+            </ItemTemplate>
+        </asp:ListView>
     </section>
 
 </asp:Content>

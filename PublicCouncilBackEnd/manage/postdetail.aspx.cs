@@ -255,6 +255,7 @@ namespace PublicCouncilBackEnd.manage
 		                                                                        POST_DATE,
 		                                                                        POST_TYPE,
 		                                                                        POST_SERIAL,
+                                                                                POST_AUTHOR,
                                                                                 POST_VIEWCOUNT,
 		                                                                        ISACTIVE,
 		                                                                        ISDELETE
@@ -290,6 +291,7 @@ namespace PublicCouncilBackEnd.manage
 		                                                                        @POST_DATE,
 		                                                                        @POST_TYPE,
 		                                                                        @POST_SERIAL,
+                                                                                @POST_AUTHOR,
                                                                                 @POST_VIEWCOUNT,
 		                                                                        @ISACTIVE,
 		                                                                        @ISDELETE
@@ -404,6 +406,7 @@ namespace PublicCouncilBackEnd.manage
             insertdata.Parameters.Add("@POST_DATE", SqlDbType.DateTime).Value = DT.ToString();
             insertdata.Parameters.Add("@POST_TYPE", SqlDbType.NVarChar).Value = type_list.SelectedItem.Text;
             insertdata.Parameters.Add("@POST_SERIAL", SqlDbType.NVarChar).Value = serial;
+            insertdata.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = Session["POST_AUTHOR"] as string;
             insertdata.Parameters.Add("@POST_VIEWCOUNT", SqlDbType.Int).Value = 0;
             insertdata.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
             insertdata.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;

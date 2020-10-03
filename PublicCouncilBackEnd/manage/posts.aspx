@@ -62,9 +62,9 @@
                         </Columns>
 
                         <EditRowStyle BackColor="#2461BF" HorizontalAlign="Center" VerticalAlign="Middle" />
-                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <FooterStyle BackColor="#003366" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="White" Font-Bold="True" ForeColor="#9900CC" HorizontalAlign="Center" VerticalAlign="Middle" />
-                        <PagerStyle BackColor="#A641B9" ForeColor="White" HorizontalAlign="Center" Font-Size="Large" VerticalAlign="Middle" />
+                        <PagerStyle BackColor="#003366" ForeColor="White" HorizontalAlign="Center" Font-Size="Large" VerticalAlign="Middle" CssClass="p-0" />
                         <RowStyle BackColor="#EFF3FB" HorizontalAlign="Center" VerticalAlign="Middle" />
                         <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
                         <SortedAscendingCellStyle BackColor="#F5F7FB" />
