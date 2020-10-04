@@ -242,16 +242,54 @@
                                     </LayoutTemplate>
                                     <ItemTemplate>
                                         <div class="slider-item">
-                                            <img src=" <%#Eval("")%>" alt="<%#Eval("")%>" />
+                                            <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>" />
                                             <div class="slider-caption">
                                                 <span class="btn btn-danger text-white btn-sm slider-time ">
                                                     <i class="far fa-calendar-alt"></i>
-                                                   <%#Eval("")%>
+                                                   <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                                 </span>
                                                 <h2 class="slider-title">
-                                                    <%#Eval("")%>
+                                                    <%#Eval("POST_SEOAZ")%>
                                                 </h2>
-                                                <a class="caption-link" title="<%#Eval("")%>" href="<%#Eval("")%>"></a>
+                                                <a class="caption-link" title="<%#Eval("POST_SEOAZ")%>" href="/details/az/<%#Eval("DATA_ID")%>">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:ListView>
+
+                                <asp:ListView ID="COUNCILELECTION_EN" runat="server">
+                                    <LayoutTemplate>
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col p-0">
+                                                    <a href="/posts/az" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white">
+                                                        <i class="far fa-flag mr-2"></i>
+                                                       Elections to the Public Council
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12 mb-2 px-0">
+                                                    <div class="owl-carousel owl-theme owl-elections overflow-hidden rounded">
+                                                        <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </LayoutTemplate>
+                                    <ItemTemplate>
+                                        <div class="slider-item">
+                                            <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
+                                            <div class="slider-caption">
+                                                <span class="btn btn-danger text-white btn-sm slider-time ">
+                                                    <i class="far fa-calendar-alt"></i>
+                                                    <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
+                                                </span>
+                                                <h2 class="slider-title">
+                                                    <%#Eval("POST_SEOEN")%>
+                                                </h2>
+                                                <a class="caption-link" title="<%#Eval("POST_SEOEN")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
                                             </div>
                                         </div>
                                     </ItemTemplate>
@@ -262,224 +300,162 @@
 
                             <!-- public council announcments -->
                             <section class="right-posts mb-2">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col p-0">
-                                            <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white">
-                                                <i class="fas fa-bullhorn mr-2"></i>
-                                                Elanlar
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12 mb-2 px-0">
-                                            <div class="owl-carousel owl-theme owl-elections overflow-hidden rounded">
-                                                <div class="slider-item">
-                                                    <img src="images/test/ilhameliyev.jpg" alt="" />
-                                                    <div class="slider-caption">
-                                                        <span class="btn btn-danger text-white btn-sm slider-time ">
-                                                            <i class="far fa-calendar-alt"></i>
-                                                            05/09/2020/12:12
-                                                        </span>
-                                                        <h2 class="slider-title">Lorem ipsum dolor sit amet.
-                                                        </h2>
-                                                        <a class="caption-link" title="" href="#"></a>
-                                                    </div>
-
-
+                                <asp:ListView ID="ANNOUNCMENTS_AZ" runat="server">
+                                    <LayoutTemplate>
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col p-0">
+                                                    <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white">
+                                                        <i class="fas fa-bullhorn mr-2"></i>
+                                                        Elanlar
+                                                    </a>
                                                 </div>
-                                                <div class="slider-item">
-                                                    <img src="images/test/ilhameliyev.jpg" alt="" />
-                                                    <div class="slider-caption">
-                                                        <span class="btn btn-danger text-white btn-sm slider-time ">
-                                                            <i class="far fa-calendar-alt"></i>
-                                                            05/09/2020/12:12
-                                                        </span>
-                                                        <h2 class="slider-title">Lorem ipsum dolor sit amet.
-                                                        </h2>
-                                                        <a class="caption-link" title="" href="#"></a>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12 mb-2 px-0">
+                                                    <div class="owl-carousel owl-theme owl-elections overflow-hidden rounded">
+                                                        <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                                                     </div>
-
-
-                                                </div>
-                                                <div class="slider-item">
-                                                    <img src="images/test/ilhameliyev.jpg" alt="" />
-                                                    <div class="slider-caption">
-                                                        <span class="btn btn-danger text-white btn-sm slider-time ">
-                                                            <i class="far fa-calendar-alt"></i>
-                                                            05/09/2020/12:12
-                                                        </span>
-                                                        <h2 class="slider-title">Lorem ipsum dolor sit amet.
-                                                        </h2>
-                                                        <a class="caption-link" title="" href="#"></a>
-                                                    </div>
-
-
-                                                </div>
-                                                <div class="slider-item">
-                                                    <img src="images/test/ilhameliyev.jpg" alt="" />
-                                                    <div class="slider-caption">
-                                                        <span class="btn btn-danger text-white btn-sm slider-time ">
-                                                            <i class="far fa-calendar-alt"></i>
-                                                            05/09/2020/12:12
-                                                        </span>
-                                                        <h2 class="slider-title">Lorem ipsum dolor sit amet.
-                                                        </h2>
-                                                        <a class="caption-link" title="" href="#"></a>
-                                                    </div>
-
-
-                                                </div>
-                                                <div class="slider-item">
-                                                    <img src="images/test/ilhameliyev.jpg" alt="" />
-                                                    <div class="slider-caption">
-                                                        <span class="btn btn-danger text-white btn-sm slider-time ">
-                                                            <i class="far fa-calendar-alt"></i>
-                                                            05/09/2020/12:12
-                                                        </span>
-                                                        <h2 class="slider-title">Lorem ipsum dolor sit amet.
-                                                        </h2>
-                                                        <a class="caption-link" title="" href="#"></a>
-                                                    </div>
-
-
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    </LayoutTemplate>
+                                    <ItemTemplate>
+                                        <div class="slider-item">
+                                            <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>" />
+                                            <div class="slider-caption">
+                                                <span class="btn btn-danger text-white btn-sm slider-time ">
+                                                    <i class="far fa-calendar-alt"></i>
+                                                     <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
+                                                </span>
+                                                <h2 class="slider-title">
+                                                    <%#Eval("POST_SEOAZ")%>
+                                                </h2>
+                                                <a class="caption-link" title="<%#Eval("POST_SEOAZ")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
+                                            </div>
+
+
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:ListView>
+                                <asp:ListView ID="ANNOUNCMENTS_EN" runat="server">
+                                    <LayoutTemplate>
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col p-0">
+                                                    <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white">
+                                                        <i class="fas fa-bullhorn mr-2"></i>
+                                                        Elanlar
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12 mb-2 px-0">
+                                                    <div class="owl-carousel owl-theme owl-elections overflow-hidden rounded">
+                                                        <asp:PlaceHolder ID="itemplacehoder" runat="server"></asp:PlaceHolder>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </LayoutTemplate>
+                                    <ItemTemplate>
+                                        <div class="slider-item">
+                                            <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
+                                            <div class="slider-caption">
+                                                <span class="btn btn-danger text-white btn-sm slider-time ">
+                                                    <i class="far fa-calendar-alt"></i>
+                                                     <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
+                                                </span>
+                                                <h2 class="slider-title">
+                                                    <%#Eval("POST_SEOEN")%>
+                                                </h2>
+                                                <a class="caption-link" title="<%#Eval("POST_SEOEN")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
+                                            </div>
+
+
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:ListView>
                             </section>
 
                             <!--public council latest news-  -->
                             <section class="right-posts mb-2">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <div class="col p-0">
-                                            <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white  text-capitalize">
-                                                <i class="far fa-newspaper mr-2"></i>
-                                                son Xəbərlər
-                                            </a>
+                                <asp:ListView ID="LATEST_AZ" runat="server">
+                                    <LayoutTemplate>
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col p-0">
+                                                    <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white  text-capitalize">
+                                                        <i class="far fa-newspaper mr-2"></i>
+                                                        son Xəbərlər
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col p-0 bg-white p-2 latest-posts ">
+                                                    <ul id="latestpostlist" class="latest-post-list">
+                                                        <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col p-0 bg-white p-2 latest-posts ">
-                                            <ul id="latestpostlist" class="latest-post-list">
-                                                <li>
-                                                    <article>
-                                                        <a class="latest-title" href="#">
-                                                            <p>
-                                                                Türkiyədə dollar bütün dövrlərin - REKORDUNU YENİLƏDİ - SON QİYMƏT
-                                                            </p>
-                                                        </a>
-                                                        <div class="d-flex justify-content-between align-items-center my-1">
-                                                            <a class="btn btn-sm btn-outline-default btn-round" href="#">xeberler</a>
-                                                            <a class="btn btn-sm btn-outline-danger btn-round" href="#">10/09/2020
-                                                                15:15</a>
-                                                        </div>
-                                                    </article>
-                                                </li>
-                                                <li>
-                                                    <article>
-                                                        <a class="latest-title" href="#">
-                                                            <p>
-                                                                Türkiyədə dollar bütün dövrlərin - REKORDUNU YENİLƏDİ - SON QİYMƏT
-                                                            </p>
-                                                        </a>
-                                                        <div class="d-flex justify-content-between align-items-center my-1">
-                                                            <a class="btn btn-sm btn-outline-default btn-round" href="#">xeberler</a>
-                                                            <a class="btn btn-sm btn-outline-danger btn-round" href="#">10/09/2020
-                                                                15:15</a>
-                                                        </div>
-                                                    </article>
-                                                </li>
-                                                <li>
-                                                    <article>
-                                                        <a class="latest-title" href="#">
-                                                            <p>
-                                                                Türkiyədə dollar bütün dövrlərin - REKORDUNU YENİLƏDİ - SON QİYMƏT
-                                                            </p>
-                                                        </a>
-                                                        <div class="d-flex justify-content-between align-items-center my-1">
-                                                            <a class="btn btn-sm btn-outline-default btn-round" href="#">xeberler</a>
-                                                            <a class="btn btn-sm btn-outline-danger btn-round" href="#">10/09/2020
-                                                                15:15</a>
-                                                        </div>
-                                                    </article>
-                                                </li>
-                                                <li>
-                                                    <article>
-                                                        <a class="latest-title" href="#">
-                                                            <p>
-                                                                Türkiyədə dollar bütün dövrlərin - REKORDUNU YENİLƏDİ - SON QİYMƏT
-                                                            </p>
-                                                        </a>
-                                                        <div class="d-flex justify-content-between align-items-center my-1">
-                                                            <a class="btn btn-sm btn-outline-default btn-round" href="#">xeberler</a>
-                                                            <a class="btn btn-sm btn-outline-danger btn-round" href="#">10/09/2020
-                                                                15:15</a>
-                                                        </div>
-                                                    </article>
-                                                </li>
-                                                <li>
-                                                    <article>
-                                                        <a class="latest-title" href="#">
-                                                            <p>
-                                                                Türkiyədə dollar bütün dövrlərin - REKORDUNU YENİLƏDİ - SON QİYMƏT
-                                                            </p>
-                                                        </a>
-                                                        <div class="d-flex justify-content-between align-items-center my-1">
-                                                            <a class="btn btn-sm btn-outline-default btn-round" href="#">xeberler</a>
-                                                            <a class="btn btn-sm btn-outline-danger btn-round" href="#">10/09/2020
-                                                                15:15</a>
-                                                        </div>
-                                                    </article>
-                                                </li>
-                                                <li>
-                                                    <article>
-                                                        <a class="latest-title" href="#">
-                                                            <p>
-                                                                Türkiyədə dollar bütün dövrlərin - REKORDUNU YENİLƏDİ - SON QİYMƏT
-                                                            </p>
-                                                        </a>
-                                                        <div class="d-flex justify-content-between align-items-center my-1">
-                                                            <a class="btn btn-sm btn-outline-default btn-round" href="#">xeberler</a>
-                                                            <a class="btn btn-sm btn-outline-danger btn-round" href="#">10/09/2020
-                                                                15:15</a>
-                                                        </div>
-                                                    </article>
-                                                </li>
-                                                <li>
-                                                    <article>
-                                                        <a class="latest-title" href="#">
-                                                            <p>
-                                                                Türkiyədə dollar bütün dövrlərin - REKORDUNU YENİLƏDİ - SON QİYMƏT
-                                                            </p>
-                                                        </a>
-                                                        <div class="d-flex justify-content-between align-items-center my-1">
-                                                            <a class="btn btn-sm btn-outline-default btn-round" href="#">xeberler</a>
-                                                            <a class="btn btn-sm btn-outline-danger btn-round" href="#">10/09/2020
-                                                                15:15</a>
-                                                        </div>
-                                                    </article>
-                                                </li>
-                                                <li>
-                                                    <article>
-                                                        <a class="latest-title" href="#">
-                                                            <p>
-                                                                Türkiyədə dollar bütün dövrlərin - REKORDUNU YENİLƏDİ - SON QİYMƏT
-                                                            </p>
-                                                        </a>
-                                                        <div class="d-flex justify-content-between align-items-center my-1">
-                                                            <a class="btn btn-sm btn-outline-default btn-round" href="#">xeberler</a>
-                                                            <a class="btn btn-sm btn-outline-danger btn-round" href="#">10/09/2020
-                                                                15:15</a>
-                                                        </div>
-                                                    </article>
-                                                </li>
-                                            </ul>
+                                    </LayoutTemplate>
+                                    <ItemTemplate>
+                                        <li>
+                                            <article>
+                                                <a class="latest-title" href="#" title="">
+                                                  <%#Eval("POST_AZ_TITLE")%>
+                                                </a>
+                                                <div class="d-flex justify-content-between align-items-center my-1">
+                                                    <a class="btn btn-sm btn-outline-default btn-round" href="/posts/az">
+                                                        xeberler
+                                                          
+                                                    </a>
+                                                    <a class="btn btn-sm btn-outline-danger btn-round" href="#">
+                                                        <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
+                                                    </a>
+                                                </div>
+                                            </article>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:ListView>
+                                <asp:ListView ID="LATEST_EN" runat="server">
+                                    <LayoutTemplate>
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col p-0">
+                                                    <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white  text-capitalize">
+                                                        <i class="far fa-newspaper mr-2"></i>
+                                                        latest news
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col p-0 bg-white p-2 latest-posts ">
+                                                    <ul id="latestpostlist" class="latest-post-list">
+                                                        <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    </LayoutTemplate>
+                                    <ItemTemplate>
+                                        <li>
+                                            <article>
+                                                <a class="latest-title" href="#" title="">
+                                                    <%#Eval("POST_EN_TITLE")%>
+                                                </a>
+                                                <div class="d-flex justify-content-between align-items-center my-1">
+                                                    <a class="btn btn-sm btn-outline-default btn-round" href="/posts/en">News
+                                                    </a>
+                                                    <a class="btn btn-sm btn-outline-danger btn-round" href="#">
+                                                        <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
+                                                    </a>
+                                                </div>
+                                            </article>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:ListView>
                             </section>
 
 
@@ -490,124 +466,86 @@
 
                 <!-- Videos -->
                 <section class="site-post mb-2">
-                    <div class="row">
-                        <div class="col">
-                            <a href="#"
-                                class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase"
-                                style="font-size: 2rem;">Videolar
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="owl-carousel owl-video rounded overflow-hidden">
-                                <div class="publication-item">
-                                    <a href="#" class="rounded overflow-hidden">
-                                        <img class="publication-img" src="./images/test/ilhameliyev.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="publication-item">
-                                    <a href="#" class="rounded overflow-hidden">
-                                        <img class="publication-img" src="./images/test/boton_chorek.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="publication-item">
-                                    <a href="#" class="rounded overflow-hidden">
-                                        <img class="publication-img" src="./images/test/mainphoto.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="publication-item">
-                                    <a href="#" class="rounded overflow-hidden">
-                                        <img class="publication-img" src="./images/test/koronovirus.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="publication-item">
-                                    <a href="#" class="rounded overflow-hidden">
-                                        <img class="publication-img" src="./images/test/boton_chorek.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="publication-item">
-                                    <a href="#" class="rounded overflow-hidden">
-                                        <img class="publication-img" src="./images/test/boton_chorek.jpg" alt="">
+                    <asp:ListView ID="VIDEOS_AZ" runat="server">
+                        <LayoutTemplate>
+                            <div class="row">
+                                <div class="col">
+                                    <a href="#"
+                                        class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase"
+                                        style="font-size: 2rem;">
+                                        Videolar
                                     </a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="owl-carousel owl-video rounded overflow-hidden">
+                                        <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                                    </div>
+                                </div>
+                            </div>
+                        </LayoutTemplate>
+                        <ItemTemplate>
+                            <div class="publication-item">
+                                <a href="/deatils/az/<%#Eval("DATA_ID")%>"  class="rounded overflow-hidden" title="<%#Eval("POST_SEOAZ") %>">
+                                    <img class="publication-img" src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>">
+                                </a>
+                            </div>
+                        </ItemTemplate>
+                    </asp:ListView>
+                    <asp:ListView ID="VIDEOS_EN" runat="server">
+                        <LayoutTemplate>
+                            <div class="row">
+                                <div class="col">
+                                    <a href="#"
+                                        class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase"
+                                        style="font-size: 2rem;">Videos
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="owl-carousel owl-video rounded overflow-hidden">
+                                        <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                                    </div>
+                                </div>
+                            </div>
+                        </LayoutTemplate>
+                        <ItemTemplate>
+                            <div class="publication-item">
+                                <a href="/deatils/az/<%#Eval("DATA_ID")%>" class="rounded overflow-hidden" title="<%#Eval("POST_SEOEN") %>">
+                                    <img class="publication-img" src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>">
+                                </a>
+                            </div>
+                        </ItemTemplate>
+                    </asp:ListView>
                 </section>
 
                 <!-- Partnes -->
                 <section class="site-post mb-2">
-                    <div class="row">
-                        <div class="col">
-                            <a href="#"
-                                class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase"
-                                style="font-size: 2rem;">tərəfdaşlar
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-3 col-md-2">
-                            <div class="mb-2 rounded overflow-hidden shadow">
-                                <img class="rounded" src="./images/test/ilhameliyev.jpg" alt="">
+
+                    <asp:ListView ID="PARTNERS" runat="server">
+                        <LayoutTemplate>
+                            <div class="row">
+                                <div class="col">
+                                    <a href="#"
+                                        class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase"
+                                        style="font-size: 2rem;">tərəfdaşlar
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-3 col-md-2">
-                            <div class="mb-2 rounded overflow-hidden shadow">
-                                <img class="rounded" src="./images/test/koronovirus.jpg" alt="">
+                            <div class="row">
+                                <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>                      
                             </div>
-                        </div>
-                        <div class="col-3 col-md-2">
-                            <div class="mb-2 rounded overflow-hidden shadow">
-                                <img class="rounded" src="./images/test/mainphoto.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-3 col-md-2">
-                            <div class="mb-2 rounded overflow-hidden shadow">
-                                <img class="rounded" src="./images/test/ilhameliyev.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-3 col-md-2">
-                            <div class="mb-2 rounded overflow-hidden shadow">
-                                <img class="rounded" src="./images/test/koronovirus.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-3 col-md-2">
-                            <div class="mb-2 rounded overflow-hidden shadow">
-                                <img class="rounded" src="./images/test/mainphoto.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-3 col-md-2">
-                            <div class="mb-2 rounded overflow-hidden shadow">
-                                <img class="rounded" src="./images/test/ilhameliyev.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-3 col-md-2">
-                            <div class="mb-2 rounded overflow-hidden shadow">
-                                <img class="rounded" src="./images/test/boton_chorek.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-3 col-md-2">
-                            <div class="mb-2 rounded overflow-hidden shadow">
-                                <img class="rounded" src="./images/test/mainphoto.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-3 col-md-2">
-                            <div class="mb-2 rounded overflow-hidden shadow">
-                                <img class="rounded" src="./images/test/ilhameliyev.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-3 col-md-2">
-                            <div class="mb-2 rounded overflow-hidden shadow">
-                                <img class="rounded" src="./images/test/boton_chorek.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col-3 col-md-2">
-                            <div class="mb-2 rounded overflow-hidden shadow">
-                                <img class="rounded" src="./images/test/boton_chorek.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
+                        </LayoutTemplate>
+                        <ItemTemplate>
+                            <div class="col-3 col-md-2">
+                                    <a href="<%#Eval("PARTNERS_LINK")%>" target="_blank" class="mb-2 rounded overflow-hidden shadow">
+                                        <img class="rounded" src="/images/<%#Eval("PARTNERS_IMG")%>" alt="<%#Eval("PARTNERS_TITLE")%>">
+                                    </a>
+                                </div>
+                        </ItemTemplate>
+                    </asp:ListView>
                 </section>
 
             </div>

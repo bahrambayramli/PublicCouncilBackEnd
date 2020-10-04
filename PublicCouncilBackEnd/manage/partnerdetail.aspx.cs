@@ -101,7 +101,7 @@ namespace PublicCouncilBackEnd.manage
             insertPartner.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
             insertPartner.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
             SQL.COMMAND(insertPartner);
-            MadeImage(partnerFile, picName, 140, 70);
+            MadeImage(partnerFile, picName, 450, 300);
             Session["PARTNER"] = null;
            
 
@@ -126,7 +126,7 @@ namespace PublicCouncilBackEnd.manage
             {
                 string picName = Helper.SetName(".jpg");
                 update.Parameters.Add("@PARTNERS_IMG", SqlDbType.NVarChar).Value = picName;
-                MadeImage(partnerFile, picName, 140, 70);
+                MadeImage(partnerFile, picName, 450, 300);
             }
             else
             {

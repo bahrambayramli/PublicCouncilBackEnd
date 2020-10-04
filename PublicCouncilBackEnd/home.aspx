@@ -340,8 +340,6 @@
 
     <!-- Reports -->
     <section class="site-posts mb-2">
-      
-
         <asp:ListView ID="REPORTS_AZ" runat="server">
             <LayoutTemplate>
                 <div class="container-fluid p-0">
