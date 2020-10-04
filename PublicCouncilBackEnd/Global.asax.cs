@@ -33,7 +33,7 @@ namespace PublicCouncilBackEnd
             routes.MapPageRoute("multimedia", "multimedia/{language}", "~/multimedia.aspx");
             routes.MapPageRoute("multimediaRoute", "multimedia/{directory}/{language}", "~/multimedia.aspx");
             routes.MapPageRoute("announcments", "announcments/{language}", "~/announcments.aspx");
-            routes.MapPageRoute("details", "details/{language}/{id}", "~/details.aspx");
+            routes.MapPageRoute("details", "details/{language}/{postid}", "~/details.aspx");
 
 
 

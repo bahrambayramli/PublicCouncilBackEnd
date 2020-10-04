@@ -1474,6 +1474,7 @@
     <Content Include="scripts\core\jquery.min.js" />
     <Content Include="scripts\core\popper.min.js" />
     <Content Include="scripts\jquery-nice-scroll.js" />
+    <Content Include="scripts\jquery.fancybox.min.js" />
     <Content Include="scripts\material-dashboard.js" />
     <Content Include="scripts\material-dashboard.min.js" />
     <Content Include="scripts\material-kit.min.js" />

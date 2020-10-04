@@ -345,14 +345,14 @@
                                                 <div class="col p-0">
                                                     <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white">
                                                         <i class="fas fa-bullhorn mr-2"></i>
-                                                        Elanlar
+                                                        Announcement
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-12 mb-2 px-0">
                                                     <div class="owl-carousel owl-theme owl-elections overflow-hidden rounded">
-                                                        <asp:PlaceHolder ID="itemplacehoder" runat="server"></asp:PlaceHolder>
+                                                        <asp:PlaceHolder ID="itemplaceholder" runat="server"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -403,7 +403,7 @@
                                     <ItemTemplate>
                                         <li>
                                             <article>
-                                                <a class="latest-title" href="#" title="">
+                                                <a class="latest-title" href="/details/az/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOAZ")%>">
                                                   <%#Eval("POST_AZ_TITLE")%>
                                                 </a>
                                                 <div class="d-flex justify-content-between align-items-center my-1">
@@ -442,7 +442,7 @@
                                     <ItemTemplate>
                                         <li>
                                             <article>
-                                                <a class="latest-title" href="#" title="">
+                                                <a class="latest-title" href="/details/en/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOEN")%>">
                                                     <%#Eval("POST_EN_TITLE")%>
                                                 </a>
                                                 <div class="d-flex justify-content-between align-items-center my-1">

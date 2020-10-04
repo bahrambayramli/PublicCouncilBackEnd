@@ -501,9 +501,9 @@ namespace PublicCouncilBackEnd.manage
 
 
                     string docname = SetName(uploadFile);
-                    postedFile.SaveAs(Server.MapPath("/Uploads/" + docname));
+                    postedFile.SaveAs(Server.MapPath("/uploads/" + docname));
 
-                    SqlCommand insertdocs = new SqlCommand(@"INSERT INTO PC_POSTSDOCS
+                    SqlCommand insertdocs = new SqlCommand(@"INSERT INTO PC_POSTDOCS
                                                                 ( 
                                                                  ISDELETE,
                                                                  ISACTIVE,
