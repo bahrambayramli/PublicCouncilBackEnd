@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="PublicCouncilBackEnd.Main" %>
+﻿ <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="PublicCouncilBackEnd.Main" %>
 <%@ Import Namespace= "System.Web.Optimization" %>  
 <!DOCTYPE html>
 

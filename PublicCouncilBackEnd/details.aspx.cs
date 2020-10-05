@@ -139,7 +139,7 @@ namespace PublicCouncilBackEnd
         private void GetPostImages(string POSTSERIAL)
         {
             SqlDataAdapter getimages = new SqlDataAdapter(new SqlCommand(@"SELECT POST_IMG_NAME
-                                                                                            FROM DATA_IMGGALERY
+                                                                                            FROM PC_IMGGALERY
                                                                                                  WHERE POST_SERIAL = @POST_SERIAL"));
             getimages.SelectCommand.Parameters.Add("@POST_SERIAL", SqlDbType.NVarChar).Value = POSTSERIAL;
 
@@ -168,7 +168,7 @@ namespace PublicCouncilBackEnd
         }
         private void GetPostVideos(string POSTERIAL)
         {
-            SqlDataAdapter getvideos = new SqlDataAdapter(new SqlCommand(@"SELECT POST_VIDEO_FRAME FROM DATA_VIDEOGALERY WHERE POST_SERIAL=@POST_SERIAL"));
+            SqlDataAdapter getvideos = new SqlDataAdapter(new SqlCommand(@"SELECT POST_VIDEO_FRAME FROM PC_VIDEOGALERY WHERE POST_SERIAL=@POST_SERIAL"));
             getvideos.SelectCommand.Parameters.AddWithValue("@POST_SERIAL", POSTERIAL);
             if (Convert.ToString(Page.RouteData.Values["LANGUAGE"]).ToLower() == "az")
             {
@@ -241,6 +241,21 @@ namespace PublicCouncilBackEnd
             try
             {
                 GetPost(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Page.RouteData.Values["postid"] as string);
+
+                if (Convert.ToString(Page.RouteData.Values["language"]).ToLower() == "az")
+                {
+                   
+                    shareName.Text = "<span class='h5 text-default'>Paylaş</span>";
+                }
+                else if (Convert.ToString(Page.RouteData.Values["language"]).ToLower() == "en")
+                {
+                   
+                    shareName.Text = "<span class='h5 text-default'>Share</span>";
+                }
+                else
+                {
+                    shareName.Text = "<span class='h5 text-default'>Paylaş</span>";
+                }
             }
             catch
             {
@@ -248,10 +263,12 @@ namespace PublicCouncilBackEnd
                 if (Convert.ToString(Page.RouteData.Values["language"]).ToLower() == "az")
                 {
                     Response.Redirect("/home/az");
+                  
                 }
                 else if (Convert.ToString(Page.RouteData.Values["language"]).ToLower() == "en")
                 {
                     Response.Redirect("/home/en");
+                   
                 }
                 else
                 {

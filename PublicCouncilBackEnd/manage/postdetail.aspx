@@ -2,25 +2,25 @@
 
 <%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <style>
-/*        label {
-            font-size: 1.2rem !important;
-        }*/
+    <style>
+        img{
+            display:block;
+            width:100%;
+        }
         .content {
             margin: 0 !important;
         }
+
         #managelayout_inpFile,
         #managelayout_subFile,
         #managelayout_labelTime,
-        #managelayout__docsupload{
+        #managelayout__docsupload,
+        #managelayout_subImgUpload {
             display: none;
         }
     </style>
     <script src="/scripts/ckeditor/ckeditor.js"></script>
     <script src="/scripts/ckfinder/ckfinder.js"></script>
-  
-
-    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="managelayout" runat="server">
 
@@ -43,6 +43,7 @@
         <!-- Post deatil body case -->
         <div class="card-body">
             <div class="container-fluid" style="padding: 0!important;">
+
                 <!-- Category and subcategory -->
                 <asp:UpdatePanel ID="NAVPANEL" runat="server" class="row">
                     <ContentTemplate>
@@ -234,19 +235,23 @@
                                                                     OnRowCreated="subImageList_RowCreated"
                                                                     PageSize="5" AllowPaging="True"
                                                                     AutoGenerateColumns="False"
-                                                                    GridLines="none">
+                                                                    GridLines="None">
                                                                     <Columns>
                                                                         <asp:BoundField DataField="#" HeaderText="#"></asp:BoundField>
-                                                                        <asp:BoundField DataField="DATA_ID" HeaderText="DATA_ID"></asp:BoundField>
+                                                                        <asp:BoundField DataField="DATA_ID" HeaderText="DATA_ID">
+                                                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="65%" />
+                                                                        </asp:BoundField>
                                                                         <asp:BoundField DataField="USER_ID" HeaderText="USER_ID"></asp:BoundField>
                                                                         <asp:BoundField DataField="POST_SERIAL" HeaderText="POST_SERIAL"></asp:BoundField>
                                                                         <asp:BoundField DataField="POST_IMG_NAME" HeaderText="POST_IMG_NAME"></asp:BoundField>
+
                                                                         <asp:ImageField
-                                                                            DataImageUrlField="NEWS_IMG_NAME"
-                                                                            DataImageUrlFormatString="~/Images/subimages/{0}"
+                                                                            DataImageUrlField="POST_IMG_NAME"
+                                                                            DataImageUrlFormatString="~/images/subimages/{0}"
                                                                             HeaderText="Şəkil">
-                                                                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="20%"></ItemStyle>
-                                                                        </asp:ImageField> 
+                                                                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="25%"></ItemStyle>
+                                                                        </asp:ImageField>
+
                                                                         <asp:CommandField SelectText="Seç" ShowSelectButton="True" ButtonType="Button">
                                                                             <ControlStyle ForeColor="White" CssClass="btn btn-primary btn-sm" />
                                                                             <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="32px" />
@@ -261,8 +266,9 @@
                                                                                     CommandName="Delete"
                                                                                     Text="Sil"></asp:LinkButton>
                                                                             </ItemTemplate>
-                                                                            <ControlStyle CssClass="btn btn-danger btn-sm" />
+                                                                            <ControlStyle CssClass="btn btn-danger btn-sm w-25" />
                                                                         </asp:TemplateField>
+
                                                                     </Columns>
                                                                 </asp:GridView>
                                                             </ContentTemplate>
@@ -271,7 +277,9 @@
                                                     <div class="col-6">
                                                         <asp:FileUpload ID="subImgUpload" runat="server" accept=".png,.jpeg,.jpg,.tif" AllowMultiple="true" />
                                                         <input class="form-control" type="text" value="fayl seçilməyib" id="customFileSub">
-                                                        <button class="btn btn-facebook" id="btnFileSub">Fayl yüklə</button>
+                                                        <div class="text-right my-2">
+                                                            <button class="btn btn-facebook" id="btnFileSub">Fayl yüklə</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -287,23 +295,17 @@
                 <div class="row">
                     <div class="col-12 border mb-2">
                         <div class="form-group">
-                            <label for="" class="h4 text-primary">Şəkil</label>
+                            <label for="" class="h4 text-primary">Video</label>
                             <div class="nav-wrapper">
                                 <ul class="nav nav-pills nav-fill flex-column flex-md-row"
                                     id="tabs-icons-text" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab" href="#mainvideo" role="tab"
-                                            aria-controls="tabs-icons-text-1"
-                                            aria-selected="true">
+                                        <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab" href="#mainvideo" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true">
                                             Video
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link mb-sm-3 mb-md-0"
-                                            id="tabs-icons-text-2-tab" data-toggle="tab"
-                                            href="#videogalery" role="tab"
-                                            aria-controls="tabs-icons-text-2"
-                                            aria-selected="false">
+                                        <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-2-tab" data-toggle="tab" href="#videogalery" role="tab" aria-controls="tabs-icons-text-2" aria-selected="false">
                                             Video Galery
                                         </a>
                                     </li>
@@ -313,10 +315,7 @@
                             <div class="card shadow">
                                 <div class="card-body p-0">
                                     <div class="tab-content" id="myTabContent">
-                                        <div class="tab-pane fade show active"
-                                            id="mainvideo" role="tabpanel"
-                                            aria-labelledby="tabs-icons-text-1-tab">
-
+                                        <div class="tab-pane fade show active" id="mainvideo" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
                                             <div class="container-fluid" style="padding: 0 !important;">
                                                 <div class="row">
                                                     <div class="col-6">
@@ -333,15 +332,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
-                                        <div class="tab-pane fade" id="videogalery"
-                                            role="tabpanel"
-                                            aria-labelledby="tabs-icons-text-2-tab">
-
+                                        <div class="tab-pane fade" id="videogalery" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
                                             <asp:UpdatePanel ID="VideoGaleryUpdatePanel" runat="server" class="container-fluid" style="padding:0!important">
                                                 <ContentTemplate>
-
                                                     <div class="row">
                                                         <div class="col-12 col-md-6">
                                                             <asp:ListBox
@@ -360,10 +354,8 @@
                                                             <asp:Button ID="videogalery_edit" runat="server" Text="Dəyiş" CssClass="btn btn-warning btn-sm my-2" OnClick="videogalery_edit_Click" />
                                                         </div>
                                                     </div>
-
                                                 </ContentTemplate>
                                             </asp:UpdatePanel>
-
                                         </div>
                                     </div>
                                 </div>
@@ -378,27 +370,18 @@
                         <div class="form-group">
                             <label for="" class="h4 text-primary">Bölmə</label>
                             <div class="nav-wrapper">
-                                <ul class="nav nav-pills nav-fill flex-column flex-md-row"
-                                    id="tabs-icons-text" role="tablist">
+                                <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link mb-sm-3 mb-md-0 active"
-                                            id="tabs-icons-text-1-tab" data-toggle="tab"
-                                            href="#documents" role="tab"
-                                            aria-controls="tabs-icons-text-1"
-                                            aria-selected="true">Sənəd</a>
+                                        <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab" href="#documents" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true">Sənəd
+                                        </a>
                                     </li>
-
-
                                 </ul>
                             </div>
                             <div class="card shadow">
                                 <div class="card-body p-0">
                                     <div class="tab-content" id="myTabContent">
-                                        <div class="tab-pane fade show active"
-                                            id="documents" role="tabpanel"
-                                            aria-labelledby="tabs-icons-text-1-tab">
-
-                                            <div class="conatiner-fluid" style="padding:0!important">
+                                        <div class="tab-pane fade show active" id="documents" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
+                                            <div class="conatiner-fluid" style="padding: 0!important">
                                                 <div class="row">
                                                     <div class="col-12 col-md-6">
                                                         <div class="form-group text-left">
@@ -426,10 +409,10 @@
                                                                                 <asp:TemplateField ShowHeader="False">
                                                                                     <ItemTemplate>
                                                                                         <asp:LinkButton ID="deletePostDocs"
-                                                                                            runat="server" OnClientClick="return confirm('Silməyə əminsiz?'); " 
+                                                                                            runat="server" OnClientClick="return confirm('Silməyə əminsiz?'); "
                                                                                             OnClick="deletePostDocs_Click"
                                                                                             CausesValidation="False"
-                                                                                            CommandName="Delete" 
+                                                                                            CommandName="Delete"
                                                                                             Text="Sil"></asp:LinkButton>
                                                                                     </ItemTemplate>
                                                                                     <ControlStyle CssClass="btn btn-danger btn-sm" />
@@ -444,14 +427,15 @@
                                                             </asp:UpdatePanel>
                                                         </div>
                                                     </div>
-                                                    <div class="col-12 col-md-6 text-right">
+                                                    <div class="col-12 col-md-6">
                                                         <asp:FileUpload ID="_docsupload" runat="server" AllowMultiple="true" accept=".pdf,.doc,.docx,.xls,.rtf" />
                                                         <input class="form-control" type="text" value="fayl" id="customFiles">
-                                                        <button class="btn btn-facebook" id="btnFiles">Əlavə et</button>
+                                                        <div class="text-right my-2">
+                                                            <button class="btn btn-facebook" id="btnFiles">Əlavə et</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -504,7 +488,7 @@
             const customFile = document.getElementById("customFile");
             const buttonFile = document.getElementById("btnFile");
 
-            const inputFileSub = document.getElementById("managelayout_subFile");
+            const inputFileSub = document.getElementById("managelayout_subImgUpload");
             const customFileSub = document.getElementById("customFileSuv");
             const buttonFileSub = document.getElementById("btnFileSub");
 

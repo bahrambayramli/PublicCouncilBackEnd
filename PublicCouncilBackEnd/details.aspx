@@ -1,10 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="details.aspx.cs" Inherits="PublicCouncilBackEnd.WebForm9" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5ee9f4b108ecd500128ef9b7&cms=sop' async='async'></script>
+    <link href="/content/css/jquery.fancybox.min.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
     <!-- Start News Details  -->
-    <section id="postdetails" class="post-details bg-white rounded p-2">
+    <section id="postdetails" class="post-details bg-white rounded p-2 mb-6">
 
         <div class="post-img overflow-hidden rounded shadow-sm">
             <asp:Image ID="postImage" runat="server" />
@@ -39,7 +40,7 @@
 
         <div class="post-title my-2">
             <h2>
-                    <asp:Literal ID="postTitle" runat="server"></asp:Literal>
+               <asp:Literal ID="postTitle" runat="server"></asp:Literal>
             </h2>
         </div>
 
@@ -50,30 +51,31 @@
         <div class="post-fotos my-2">
             <asp:ListView ID="POST_IMGGALERYAZ" runat="server">
                 <LayoutTemplate>
-                    <div class="container-fluid p-0">
+                    <div class="container-fluid">
                         <div class="row">
                             <div class="col-12">
                                 <h5 class="text-danger">Fotolar</h5>
                             </div>
                         </div>
                         <div class="row">
-                            <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                            <asp:PlaceHolder ID="itemplaceholder" runat="server"/>
                         </div>
                     </div>
                 </LayoutTemplate>
                 <ItemTemplate>
                     <div class="col-12 col-sm-6 col-md-3 col-xl-3 p-0">
-                        <div class="sub-image">
+                        <div class="sub-image p-1">
                             <a href="/Images/subimages/<%#Eval("POST_IMG_NAME")%>" data-fancybox="gallery" data-caption="">
-                                <img class="" src="/Images/subimages/<%#Eval("POST_IMG_NAME")%>" alt="" />
+                                <img class="rounded shadow-sm" src="/Images/subimages/<%#Eval("POST_IMG_NAME")%>" alt="" />
                             </a>
                         </div>
                     </div>
                 </ItemTemplate>
             </asp:ListView>
+
             <asp:ListView ID="POST_IMGGALERYEN" runat="server">
                 <LayoutTemplate>
-                    <div class="container-fluid p-0">
+                    <div class="container-fluid">
                         <div class="row">
                             <div class="col-12">
                                 <h5 class="text-danger">Photos</h5>
@@ -86,9 +88,9 @@
                 </LayoutTemplate>
                 <ItemTemplate>
                     <div class="col-12 col-sm-6 col-md-3 col-xl-3 p-0">
-                        <div class="sub-image">
+                        <div class="sub-image p-1">
                             <a href="/Images/subimages/<%#Eval("POST_IMG_NAME")%>" data-fancybox="gallery" data-caption="">
-                                <img class="" src="/Images/subimages/<%#Eval("POST_IMG_NAME")%>" alt="" />
+                                <img class="rounded shadow-sm" src="/Images/subimages/<%#Eval("POST_IMG_NAME")%>" alt="" />
                             </a>
                         </div>
                     </div>
@@ -142,7 +144,7 @@
         <div class="post-documents my-2">
             <asp:ListView ID="POST_DOCUMENTSAZ" runat="server">
                 <LayoutTemplate>
-                    <div class="container-fluid p-0">
+                    <div class="container-fluid">
                         <div class="row">
                             <div class="col-12">
                                 <h5 class="text-danger">Sənədlər</h5>
@@ -191,7 +193,10 @@
         </div>
         <div class="post-share my-2">
              <hr class="my-2 w-100"/>
-            <div class="my-md-2">
+            <div class="my-md-1">
+                <asp:Literal ID="shareName" runat="server"></asp:Literal>
+            </div>
+            <div class="my-md-1">
                 <div class="sharethis-inline-share-buttons post-share-div"></div>
             </div>
         </div>
@@ -203,13 +208,7 @@
                     autoStart: true
                 }
             });
-            $('[data-fancybox]').fancybox({
-                toolbar: false,
-                smallBtn: true,
-                iframe: {
-                    preload: false
-                }
-            })
+          
         </script>
     </section>
 </asp:Content>

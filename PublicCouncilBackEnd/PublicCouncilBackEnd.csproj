@@ -182,6 +182,7 @@
     <Content Include="content\css\argon-design-system.min.css" />
     <Content Include="content\css\argon.css" />
     <Content Include="content\css\argon.min.css" />
+    <Content Include="content\css\jquery.fancybox.min.css" />
     <Content Include="content\css\material-dashboard-rtl.css" />
     <Content Include="content\css\material-dashboard.css" />
     <Content Include="content\css\material-dashboard.min.css" />

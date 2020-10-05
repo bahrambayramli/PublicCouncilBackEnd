@@ -72,7 +72,7 @@ namespace PublicCouncilBackEnd.manage
 
 
             Bitmap NeticeImage = new Bitmap(orginal, W, H);
-            NeticeImage.Save(Server.MapPath("~/Images/subimages/" + name), System.Drawing.Imaging.ImageFormat.Jpeg);//Jpeg formatina kecirdirem
+            NeticeImage.Save(Server.MapPath("~/images/subimages/" + name), System.Drawing.Imaging.ImageFormat.Jpeg);//Jpeg formatina kecirdirem
             NeticeImage.Dispose();
         }
 
@@ -452,7 +452,7 @@ namespace PublicCouncilBackEnd.manage
                                                                     @ISACTIVE
                                                                     )");
 
-                    insertsubimgs.Parameters.Add("@USER_ID", SqlDbType.Bit).Value = userid;
+                    insertsubimgs.Parameters.Add("@USER_ID", SqlDbType.Int).Value = userid;
 
                     insertsubimgs.Parameters.Add("@POST_SERIAL", SqlDbType.NVarChar).Value = serial;
                     insertsubimgs.Parameters.Add("@POST_IMG_NAME", SqlDbType.NVarChar).Value = subPicName;
@@ -753,7 +753,7 @@ namespace PublicCouncilBackEnd.manage
                                                                     )
                                                                     ");
 
-                    insertsubimgs.Parameters.Add("@USER_ID", SqlDbType.Bit).Value = userid;
+                    insertsubimgs.Parameters.Add("@USER_ID", SqlDbType.Int).Value = userid;
 
                     insertsubimgs.Parameters.Add("@POST_SERIAL", SqlDbType.NVarChar).Value = serial;
                     insertsubimgs.Parameters.Add("@POST_IMG_NAME", SqlDbType.NVarChar).Value = subPicName;
@@ -912,7 +912,7 @@ namespace PublicCouncilBackEnd.manage
 
         }
 
-        private void GetSubImages(string NEWSSERIAL)
+        private void GetSubImages(string POST_SERIAL)
         {
 
             SqlDataAdapter subimages = new SqlDataAdapter(new SqlCommand(@"SELECT  ROW_NUMBER() OVER(ORDER BY DATA_ID DESC) AS '#' , 
@@ -928,7 +928,7 @@ namespace PublicCouncilBackEnd.manage
 
             subimages.SelectCommand.Parameters.AddWithValue("@ISACTIVE", SqlDbType.Bit).Value = true;
             subimages.SelectCommand.Parameters.AddWithValue("@ISDELETE", SqlDbType.Bit).Value = false;
-            subimages.SelectCommand.Parameters.AddWithValue("@POST_SERIAL", SqlDbType.NVarChar).Value = NEWSSERIAL;
+            subimages.SelectCommand.Parameters.AddWithValue("@POST_SERIAL", SqlDbType.NVarChar).Value = POST_SERIAL;
 
 
             subImageList.DataSource = SQL.SELECT(subimages);
@@ -959,9 +959,9 @@ namespace PublicCouncilBackEnd.manage
 
             insertVideos.Parameters.Add("@USER_ID", SqlDbType.Int).Value = USERID;
 
-            insertVideos.Parameters.Add("@NEWS_SERIAL", SqlDbType.NVarChar).Value = SERIAL;
-            insertVideos.Parameters.Add("@POST_VIDEO_NAME", SqlDbType.NVarChar).Value = VIDEONAME.Replace(" ", string.Empty).Replace(".", string.Empty); ;
-            insertVideos.Parameters.Add("@POST_VIDEO_FRAME", SqlDbType.NVarChar).Value = VIDEOFRAME.Replace(" ", string.Empty).Replace(".", string.Empty); ;
+            insertVideos.Parameters.Add("@POST_SERIAL", SqlDbType.NVarChar).Value = SERIAL;
+            insertVideos.Parameters.Add("@POST_VIDEO_NAME", SqlDbType.NVarChar).Value = VIDEONAME.Replace(" ", string.Empty).Replace(".", string.Empty);
+            insertVideos.Parameters.Add("@POST_VIDEO_FRAME", SqlDbType.NVarChar).Value = VIDEOFRAME.Replace(" ", string.Empty);
 
             insertVideos.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
             insertVideos.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
@@ -1030,10 +1030,16 @@ namespace PublicCouncilBackEnd.manage
 
 
         #region(Post Sub images)
-        //INCOMPLETE
+        //COMPLETED
         protected void deletePostSubImage_Click(object sender, EventArgs e)
         {
 
+            SqlCommand deleteImg = new SqlCommand(@"Update PC_IMGGALERY SET ISDELETE=@ISDELETE,ISACTIVE=@ISACTIVE WHERE DATA_ID = @DATA_ID");
+            deleteImg.Parameters.Add("@DATA_ID", SqlDbType.Int).Value = subImageList.Rows[((GridViewRow)((Control)sender).NamingContainer).RowIndex].Cells[1].Text;
+            deleteImg.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = false;
+            deleteImg.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = true;
+            SQL.COMMAND(deleteImg);
+            GetSubImages(Session["POSTSERIAL"] as string);
         }
         //COMPLETED
         protected void subImageList_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -1068,13 +1074,9 @@ namespace PublicCouncilBackEnd.manage
         {
             if (Session["POST"] as string == "SELECTED")
             {
-                if (videogalery_list.Items.Count > 0)
-                {
-                    for (int i = 0; i < videogalery_list.Items.Count; i++)
-                    {
-                        InsertVideoGalery(Session["USER_ID"] as string, Session["POSTSERIAL"] as string, videogalery_list.Items[i].Text, string.Empty);
-                    }
-                }
+                videogalery_list.Items.Add(videogalery_text.Text);
+                InsertVideoGalery(Session["USER_ID"] as string, Session["POSTSERIAL"] as string, videogalery_text.Text, string.Empty);
+               
             }
             else
             {
@@ -1092,17 +1094,27 @@ namespace PublicCouncilBackEnd.manage
 
         protected void post_docs_list_RowCreated(object sender, GridViewRowEventArgs e)
         {
-
+            if (e.Row.RowType == DataControlRowType.Pager) { return; }
+            try { e.Row.Cells[1].Visible = false; } catch { }
+            try { e.Row.Cells[2].Visible = false; } catch { }
+            try { e.Row.Cells[3].Visible = false; } catch { }
+          //  try { e.Row.Cells[4].Visible = false; } catch { }
         }
 
         protected void post_docs_list_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-
+            post_docs_list.PageIndex = e.NewPageIndex;
+            GetDocs(Session["POSTSERIAL"] as string);
         }
 
         protected void deletePostDocs_Click(object sender, EventArgs e)
         {
-
+            SqlCommand deleteImg = new SqlCommand(@"Update PC_POSTDOCS SET ISDELETE=@ISDELETE,ISACTIVE=@ISACTIVE WHERE DATA_ID = @DATA_ID");
+            deleteImg.Parameters.Add("@DATA_ID", SqlDbType.Int).Value = post_docs_list.Rows[((GridViewRow)((Control)sender).NamingContainer).RowIndex].Cells[1].Text;
+            deleteImg.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = false;
+            deleteImg.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = true;
+            SQL.COMMAND(deleteImg);
+            GetSubImages(Session["POSTSERIAL"] as string);
         }
         #endregion
 
