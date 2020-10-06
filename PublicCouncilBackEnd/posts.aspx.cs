@@ -151,6 +151,7 @@ namespace PublicCouncilBackEnd
                 case "az":
                     {
                         postsName.Text = "Xəbərlər";
+                       
                         break;
                     }
                 case "en":

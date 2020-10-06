@@ -21,7 +21,9 @@
                                     </a>
                                 </div>
                                 <div class="d-flex justify-content-between py-2 px-2">
-                                    <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/posts/az">Xeberler</a>
+                                    <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/posts/az">
+                                         <%#Eval("POST_SITECATEGORYAZ")%>
+                                    </a>
                                     <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                     </a>
@@ -45,7 +47,9 @@
                                     </a>
                                 </div>
                                 <div class="d-flex justify-content-between py-2 px-2">
-                                    <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/posts/az">Xeberler</a>
+                                    <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/posts/az">
+                                         <%#Eval("POST_SITECATEGORYEN")%>
+                                    </a>
                                     <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                     </a>
