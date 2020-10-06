@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace PublicCouncilBackEnd
 {
-    public partial class WebForm2 : System.Web.UI.Page
+    public partial class WebForm3 : System.Web.UI.Page
     {
         private void GetPosts(string LANGUAGE, string POST_CATEGORY, bool POST_ISDELETE, bool POST_ISACTIVE, string POST_AUTHOR, ListView LSV_AZ, ListView LSV_EN)
         {
@@ -143,19 +143,19 @@ namespace PublicCouncilBackEnd
 
             }
         }
-       
+
         protected void Page_Load(object sender, EventArgs e)
         {
             switch (Convert.ToString(Page.RouteData.Values["language"]).ToLower())
             {
                 case "az":
                     {
-                        postsName.Text = "Xəbərlər";
+                        postsName.Text = "Elanlar";
                         break;
                     }
                 case "en":
                     {
-                        postsName.Text = "News";
+                        postsName.Text = "announcements";
                         break;
                     }
                 default:
@@ -163,9 +163,8 @@ namespace PublicCouncilBackEnd
                         postsName.Text = "Xəbərlər";
                         break;
                     }
-                   
             }
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "news", false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
+            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "announcements", false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
         }
 
         protected void POSTLIST_AZ_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
@@ -183,7 +182,7 @@ namespace PublicCouncilBackEnd
                 POSTLIST_AZ.Visible = false;
                 DataPager_EN.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
             }
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "news", false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
+            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "announcements", false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
         }
 
         protected void POSTLIST_EN_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
@@ -202,7 +201,7 @@ namespace PublicCouncilBackEnd
                 DataPager_EN.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
             }
 
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "news", false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
+            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "announcements", false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
 
 
         }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="posts.aspx.cs" Inherits="PublicCouncilBackEnd.WebForm2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="announcements.aspx.cs" Inherits="PublicCouncilBackEnd.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
@@ -94,11 +94,11 @@
                                     ButtonCssClass="btn btn-primary btn-sm"
                                     RenderDisabledButtonsAsLabels="False" Visible="True" PreviousPageText="Previous" />
                                 <asp:NumericPagerField
-                                     CurrentPageLabelCssClass="page-link page-link btn btn-primary btn-sm rounded"
+                                    CurrentPageLabelCssClass="page-link page-link btn btn-primary btn-sm rounded"
                                     NumericButtonCssClass="page-link btn btn-danger btn-sm rounded"
                                     NextPreviousButtonCssClass="page-item" PreviousPageText="..." NextPageText="..." ButtonCount="5" />
                                 <asp:NextPreviousPagerField
-                                     ButtonType="Link"
+                                    ButtonType="Link"
                                     ShowLastPageButton="False"
                                     ShowNextPageButton="True"
                                     ShowPreviousPageButton="False"

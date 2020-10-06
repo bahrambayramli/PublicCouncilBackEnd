@@ -3855,7 +3855,7 @@
     <Content Include="Web.config" />
     <Content Include="home.aspx" />
     <Content Include="posts.aspx" />
-    <Content Include="announcments.aspx" />
+    <Content Include="announcements.aspx" />
     <Content Include="elections.aspx" />
     <Content Include="legislation.aspx" />
     <Content Include="publications.aspx" />
@@ -3974,12 +3974,12 @@
     <Compile Include="posts.aspx.designer.cs">
       <DependentUpon>posts.aspx</DependentUpon>
     </Compile>
-    <Compile Include="announcments.aspx.cs">
-      <DependentUpon>announcments.aspx</DependentUpon>
+    <Compile Include="announcements.aspx.cs">
+      <DependentUpon>announcements.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="announcments.aspx.designer.cs">
-      <DependentUpon>announcments.aspx</DependentUpon>
+    <Compile Include="announcements.aspx.designer.cs">
+      <DependentUpon>announcements.aspx</DependentUpon>
     </Compile>
     <Compile Include="elections.aspx.cs">
       <DependentUpon>elections.aspx</DependentUpon>
