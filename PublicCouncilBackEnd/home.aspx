@@ -359,7 +359,7 @@
             <ItemTemplate>
                 <article class="col-md-6 d-flex align-items-stretch">
 
-                    <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block irem btn btn-outline-default my-1" title="<%#Eval("POST_SEOAZ") %>">
+                    <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block irem btn btn-outline-default my-1 w-100" title="<%#Eval("POST_SEOAZ") %>">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-3">
@@ -394,7 +394,7 @@
             <ItemTemplate>
                 <article class="col-md-6 d-flex align-items-stretch">
 
-                    <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block irem btn btn-outline-default my-1" title="<%#Eval("POST_SEOEN") %>">
+                    <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block irem btn btn-outline-default my-1 w-100" title="<%#Eval("POST_SEOEN") %>">
                         <div class="container-fluid">
                             <div class="row">
                                   <div class="col-3">
