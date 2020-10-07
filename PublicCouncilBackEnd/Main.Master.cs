@@ -449,17 +449,17 @@ namespace PublicCouncilBackEnd
                         {
                             getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
                                                                                                         DATA_ID,
-                                                                                                        POST_AZ_TITLE,
-                                                                                                        POST_AZ_TOPIC,
+                                                                                                        POST_EN_TITLE,
+                                                                                                        POST_EN_TOPIC,
                                                                                                         POST_CATEGORY,
                                                                                             	        POST_SUBCATEGORY,
-                                                                                            	        POST_SITECATEGORYAZ,
-                                                                                                        POST_SITESUBCATEGORYAZ,
+                                                                                            	        POST_SITECATEGORYEN,
+                                                                                                        POST_SITESUBCATEGORYEN,
                                                                                                         POST_SUBCATEGORY,
                                                                                                         POST_IMG,
                                                                                                         CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
                                                                                                         POST_TYPE,
-                                                                                                        POST_SEOAZ,
+                                                                                                        POST_SEOEN,
                                                                                                         POST_AUTHOR
                                                                                             FROM        PC_POSTS
 
@@ -468,7 +468,7 @@ namespace PublicCouncilBackEnd
                                                                                                         POST_CATEGORY       = @POST_CATEGORY     AND
                                                                                                         POST_SUBCATEGORY    = @POST_SUBCATEGORY  AND
                                                                                                         POST_TYPE           = @POST_TYPE         AND
-                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW      AND
+                                                                                                        POST_EN_VIEW        = @POST_EN_VIEW      AND
                                                                                                         POST_AUTHOR         = @POST_AUTHOR
                                                                                                         ORDER BY POST_DATE DESC"));
                             getPost.SelectCommand.Parameters.Add("@POST_SUBCATEGORY", SqlDbType.NVarChar).Value = POST_SUBCATEGORY;

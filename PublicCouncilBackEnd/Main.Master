@@ -513,7 +513,7 @@
                         </LayoutTemplate>
                         <ItemTemplate>
                             <div class="publication-item">
-                                <a href="/deatils/az/<%#Eval("DATA_ID")%>" class="rounded overflow-hidden" title="<%#Eval("POST_SEOEN") %>">
+                                <a href="/deatils/en/<%#Eval("DATA_ID")%>" class="rounded overflow-hidden" title="<%#Eval("POST_SEOEN") %>">
                                     <img class="publication-img" src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>">
                                 </a>
                             </div>
