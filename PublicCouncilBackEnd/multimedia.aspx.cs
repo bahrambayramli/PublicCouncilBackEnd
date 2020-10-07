@@ -82,7 +82,7 @@ namespace PublicCouncilBackEnd
                                                                                                         ISACTIVE            = @ISACTIVE         AND
                                                                                                         POST_CATEGORY       = @POST_CATEGORY    AND      
                                                                                                         
-                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW     AND
+                                                                                                        POST_EN_VIEW        = @POST_EN_VIEW     AND
                                                                                                         POST_AUTHOR         = @POST_AUTHOR
 
                                                                                                         ORDER BY POST_DATE DESC
@@ -218,7 +218,7 @@ namespace PublicCouncilBackEnd
                                                                                                         ISACTIVE            = @ISACTIVE         AND
                                                                                                         POST_CATEGORY       = @POST_CATEGORY    AND      
                                                                                                         POST_SUBCATEGORY    = @POST_SUBCATEGORY AND 
-                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW     AND
+                                                                                                        POST_EN_VIEW        = @POST_EN_VIEW     AND
                                                                                                         POST_AUTHOR         = @POST_AUTHOR
 
                                                                                                         ORDER BY POST_DATE DESC
