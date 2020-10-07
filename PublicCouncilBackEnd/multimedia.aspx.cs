@@ -285,16 +285,7 @@ namespace PublicCouncilBackEnd
 
             }
 
-            if (string.IsNullOrEmpty(Page.RouteData.Values["directory"] as string))
-            {
-                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "legislation", false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
-
-            }
-            else
-            {
-                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "legislation", Page.RouteData.Values["directory"] as string, false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
-
-            }
+          
         }
 
 
@@ -304,21 +295,42 @@ namespace PublicCouncilBackEnd
             {
                 case "az":
                     {
-                        postsName.Text = "qanunvericilik";
+                        postsName.Text = "Multimedia";
+                        postPhoto.Text = "Foto";
+                        postPhoto.NavigateUrl = "/multimedia/photo/az";
+                        postVideo.Text = "Video";
+                        postVideo.NavigateUrl = "/multimedia/video/az";
                         break;
                     }
                 case "en":
                     {
-                        postsName.Text = "legislations";
+                        postsName.Text = "multimedias";
+                        postPhoto.Text = "Photo";
+                        postPhoto.NavigateUrl = "/multimedia/photo/en";
+                        postVideo.Text = "Video";
+                        postVideo.NavigateUrl = "/multimedia/video/en";
                         break;
                     }
                 default:
                     {
-                        postsName.Text = "qanunvericilik";
+                        postsName.Text = "multimedia";
+                        postPhoto.Text = "Foto";
+                        postPhoto.NavigateUrl = "/multimedia/photo/az";
+                        postVideo.Text = "Video";
+                        postVideo.NavigateUrl = "/multimedia/video/az";
                         break;
                     }
             }
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "legislation", false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
+            if (string.IsNullOrEmpty(Page.RouteData.Values["directory"] as string))
+            {
+                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "multimedia", false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
+
+            }
+            else
+            {
+                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "multimedia", Page.RouteData.Values["directory"] as string, false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
+
+            }
         }
 
         protected void POSTLIST_AZ_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
@@ -338,12 +350,12 @@ namespace PublicCouncilBackEnd
             }
             if(string.IsNullOrEmpty(Page.RouteData.Values["directory"] as string))
             {
-                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "legislation",  false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
+                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "multimedia",  false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
 
             }
             else
             {
-                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "legislation", Page.RouteData.Values["directory"] as string, false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
+                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "multimedia", Page.RouteData.Values["directory"] as string, false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
 
             }
         }
@@ -366,12 +378,12 @@ namespace PublicCouncilBackEnd
 
             if (string.IsNullOrEmpty(Page.RouteData.Values["directory"] as string))
             {
-                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "legislation", false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
+                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "multimedia", false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
 
             }
             else
             {
-                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "legislation", Page.RouteData.Values["directory"] as string, false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
+                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "multimedia", Page.RouteData.Values["directory"] as string, false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
 
             }
 
