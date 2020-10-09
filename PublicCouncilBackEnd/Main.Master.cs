@@ -602,5 +602,20 @@ namespace PublicCouncilBackEnd
             GetPosts(Session["language"] as string, "5", "multimedia", "video", "Sadə", false, true, "admin", VIDEOS_AZ, VIDEOS_EN);
             GetPartners("12", false, true, PARTNERS);
         }
+
+        protected void langAZ_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.RawUrl.Replace("/en", "/az"));
+        }
+
+        protected void langEN_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.RawUrl.Replace("/az", "/en"));
+        }
+
+        protected void signIN_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

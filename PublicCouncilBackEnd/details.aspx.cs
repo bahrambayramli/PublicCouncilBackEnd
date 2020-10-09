@@ -54,7 +54,7 @@ namespace PublicCouncilBackEnd
 
 
                         Page.Title = DT.Rows[0]["POST_SEOAZ"].ToString();
-                        postTitle.Text = $"<p class='h2'>{DT.Rows[0]["POST_SEOAZ"].ToString()}</p>";
+                        postTitle.Text = DT.Rows[0]["POST_SEOAZ"].ToString();
                         postDate.Text = DT.Rows[0]["POST_DATE"].ToString().Substring(0, DT.Rows[0]["POST_DATE"].ToString().Length - 3).Replace("/", ".");
 
                         postImage.ImageUrl = $"/Images/{ DT.Rows[0]["POST_IMG"].ToString()}";
@@ -70,31 +70,36 @@ namespace PublicCouncilBackEnd
                 case "en":
                     {
 
-                        getdata = new SqlDataAdapter(new SqlCommand(@"SELECT  DATA_ID,POST_SERIAL, POST_EN_TITLE, POST_IMG,  POST_DATE FROM DATA_POST 
+                        getdata = new SqlDataAdapter(new SqlCommand(@"SELECT DATA_ID, POST_SERIAL, POST_EN_TITLE, POST_SEOEN, POST_SITECATEGORYEN, POST_EN_TOPIC, POST_IMG, POST_DATE ,POST_VIEWCOUNT  FROM PC_POSTS 
 
-                                                                                                                WHERE ISACTIVE      = @ISACTIVE                AND 
-                                                                                                                      ISDELETE      = @ISDELETE                AND 
-                                                                                                                      POST_EN_VIEW  = @POST_EN_VIEW            "));
-                        Page.Title = SQL.SELECT(getdata).Rows[0]["POST_EN_TITLE"].ToString();
-                        postTitle.Text = SQL.SELECT(getdata).Rows[0]["POST_EN_TITLE"].ToString();
-                        postDate.Text = SQL.SELECT(getdata).Rows[0]["POST_DATE"].ToString()
-                                        .Substring(0, SQL.SELECT(getdata).Rows[0]["POST_DATE"].ToString().Length - 3).Replace("/", ".");
-
-                        postImage.ImageUrl = $"/Images/{ SQL.SELECT(getdata).Rows[0]["POST_IMG"].ToString()}";
-
-
+                                                                                                                WHERE ISACTIVE     = @ISACTIVE                AND 
+                                                                                                                      ISDELETE     = @ISDELETE                AND 
+                                                                                                                      POST_EN_VIEW = @POST_EN_VIEW            AND   
+                                                                                                                      DATA_ID=@DATA_ID"));
+                        getdata.SelectCommand.Parameters.Add("@DATA_ID", SqlDbType.Int).Value = ID;
                         getdata.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
                         getdata.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
                         getdata.SelectCommand.Parameters.Add("@POST_EN_VIEW", SqlDbType.Bit).Value = true;
-                        GetPostImages(SQL.SELECT(getdata).Rows[0]["POST_SERIAL"].ToString());
-                        GetPostVideos(SQL.SELECT(getdata).Rows[0]["POST_SERIAL"].ToString());
-                        GetDocs(SQL.SELECT(getdata).Rows[0]["POST_SERIAL"].ToString());
 
 
+                        DataTable DT = SQL.SELECT(getdata);
+
+
+
+                        Page.Title = DT.Rows[0]["POST_SEOEN"].ToString();
+                        postTitle.Text = DT.Rows[0]["POST_SEOEN"].ToString();
+                        postDate.Text = DT.Rows[0]["POST_DATE"].ToString().Substring(0, DT.Rows[0]["POST_DATE"].ToString().Length - 3).Replace("/", ".");
+
+                        postImage.ImageUrl = $"/Images/{ DT.Rows[0]["POST_IMG"].ToString()}";
+                        postAbout.Text = DT.Rows[0]["POST_EN_TOPIC"].ToString();
+                        postCategory.Text = DT.Rows[0]["POST_SITECATEGORYEN"].ToString();
+                        postCount.Text = DT.Rows[0]["POST_VIEWCOUNT"].ToString();
+                        GetPostImages(DT.Rows[0]["POST_SERIAL"].ToString());
+                        GetPostVideos(DT.Rows[0]["POST_SERIAL"].ToString());
+                        GetDocs(DT.Rows[0]["POST_SERIAL"].ToString());
                         getdata = null;
                         break;
                     }
-
                 default:
                     {
 
@@ -259,21 +264,21 @@ namespace PublicCouncilBackEnd
             }
             catch
             {
-
-                if (Convert.ToString(Page.RouteData.Values["language"]).ToLower() == "az")
-                {
-                    Response.Redirect("/home/az");
+                //string aa = Convert.ToString(Page.RouteData.Values["language"]).ToLower();
+                //if (Convert.ToString(Page.RouteData.Values["language"]).ToLower() == "az")
+                //{
+                //    Response.Redirect("/home/az");
                   
-                }
-                else if (Convert.ToString(Page.RouteData.Values["language"]).ToLower() == "en")
-                {
-                    Response.Redirect("/home/en");
+                //}
+                //else if (Convert.ToString(Page.RouteData.Values["language"]).ToLower() == "en")
+                //{
+                //    Response.Redirect("/home/en");
                    
-                }
-                else
-                {
-                    Response.Redirect("/home/az");
-                }
+                //}
+                //else
+                //{
+                //    Response.Redirect("/home/az");
+                //}
             }
         }
     }

@@ -53,7 +53,7 @@
                                     <h2 class="slider-title">
                                        <%#Eval("POST_EN_TITLE")%>
                                     </h2>
-                                    <a class="caption-link"  href="/details/az/<%#Eval("DATA_ID")%>"  title="<%#Eval("POST_SEOEN")%>"></a>
+                                    <a class="caption-link"  href="/details/en/<%#Eval("DATA_ID")%>"  title="<%#Eval("POST_SEOEN")%>"></a>
                                 </div>
                             </div>
                         </ItemTemplate>
@@ -122,7 +122,7 @@
                                     <h3 class="slider-title">
                                        <%#Eval("POST_SEOEN")%>
                                     </h3>
-                                     <a class="caption-link" title="<%#Eval("POST_SEOEN")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
+                                     <a class="caption-link" title="<%#Eval("POST_SEOEN")%>" href="/details/en/<%#Eval("DATA_ID")%>"></a>
                                 </div>
                             </div>
                         </ItemTemplate>
@@ -194,15 +194,12 @@
                         </div>
                     </div>
                     <div class="row">
-
                         <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
-
                     </div>
                 </div>
             </LayoutTemplate>
             <ItemTemplate>
                 <article class="col-md-4 d-flex align-items-stretch">
-
                     <div class="card mb-3 rounded post overflow-hidden">
                         <div class="post-header overflow-hidden">
                             <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block" title="">
@@ -221,7 +218,6 @@
                             <%#Eval("POST_AZ_TITLE")%>
                         </div>
                     </div>
-
                 </article>
             </ItemTemplate>
         </asp:ListView>
@@ -238,18 +234,15 @@
                         </div>
                     </div>
                     <div class="row">
-
                         <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
-
                     </div>
                 </div>
             </LayoutTemplate>
             <ItemTemplate>
                 <article class="col-md-4 d-flex align-items-stretch">
-
                     <div class="card mb-3 rounded post overflow-hidden">
                         <div class="post-header overflow-hidden">
-                            <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block" title="">
+                            <a href="/details/en/<%#Eval("DATA_ID")%>" class="d-block" title="">
                                 <img src="/images/<%#Eval("POST_IMG")%>" class="post-img" alt="<%#Eval("POST_SEOEN")%>">
                             </a>
                         </div>
@@ -265,7 +258,6 @@
                             <%#Eval("POST_EN_TITLE")%>
                         </div>
                     </div>
-
                 </article>
             </ItemTemplate>
         </asp:ListView>
@@ -302,7 +294,7 @@
             </LayoutTemplate>
             <ItemTemplate>
                 <div class="publication-item">
-                    <a class="rounded overflow-hidden" href="/details/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOAZ")%>" >
+                    <a class="rounded overflow-hidden" href="/details/az/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOAZ")%>">
                         <img class="publication-img" src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>">
                     </a>
                 </div>
@@ -330,7 +322,7 @@
             </LayoutTemplate>
             <ItemTemplate>
                 <div class="publication-item">
-                    <a class="rounded overflow-hidden" href="/details/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOEN")%>" >
+                    <a class="rounded overflow-hidden" href="/details/en/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOEN")%>" >
                         <img class="publication-img" src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>">
                     </a>
                 </div>
@@ -394,7 +386,7 @@
             <ItemTemplate>
                 <article class="col-md-6 d-flex align-items-stretch">
 
-                    <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block irem btn btn-outline-default my-1 w-100" title="<%#Eval("POST_SEOEN") %>">
+                    <a href="/details/en/<%#Eval("DATA_ID")%>" class="d-block irem btn btn-outline-default my-1 w-100" title="<%#Eval("POST_SEOEN") %>">
                         <div class="container-fluid">
                             <div class="row">
                                   <div class="col-3">
