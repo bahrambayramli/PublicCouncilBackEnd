@@ -584,6 +584,11 @@ namespace PublicCouncilBackEnd
             LSV.DataSource = SQL.SELECT(getPartners);
             LSV.DataBind();
         }
+        
+        private void GetSponsors()
+        {
+
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -601,6 +606,25 @@ namespace PublicCouncilBackEnd
 
             GetPosts(Session["language"] as string, "5", "multimedia", "video", "Sadə", false, true, "admin", VIDEOS_AZ, VIDEOS_EN);
             GetPartners("12", false, true, PARTNERS);
+
+            switch (Session["language"]as string)
+            {
+                case "az":
+                    {
+                        signIN.Text = "Daxil ol";
+                        break;
+                    }
+                case "en":
+                    {
+                        signIN.Text = "Sign in";
+                        break;
+                    }
+               default:
+                    {
+                        signIN.Text = "Daxil ol";
+                        break;
+                    }
+            }
         }
 
         protected void langAZ_Click(object sender, EventArgs e)

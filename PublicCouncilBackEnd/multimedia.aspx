@@ -36,7 +36,7 @@
                                     </a>
                                 </div>
                                 <div class="d-flex justify-content-between py-2 px-2">
-                                    <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/posts/az">
+                                    <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/multimedia/az">
                                         <%#Eval("POST_SITECATEGORYAZ")%>
                                     </a>
                                     <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">
@@ -62,7 +62,7 @@
                                     </a>
                                 </div>
                                 <div class="d-flex justify-content-between py-2 px-2">
-                                    <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/posts/az">
+                                    <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/multimedia/en">
                                         <%#Eval("POST_SITECATEGORYEN")%>
                                     </a>
                                     <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">
