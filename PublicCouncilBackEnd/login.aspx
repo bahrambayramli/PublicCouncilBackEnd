@@ -50,7 +50,7 @@
                                     <asp:Button ID="btnLogin" 
                                         runat="server" 
                                         Text="Daxil ol" 
-                                        CssClass="btn btn-primary my-4 btn-round" 
+                                        CssClass="btn btn-default my-4 btn-round" 
                                         OnClick="btnLogin_Click"  />
                                 </div>
 

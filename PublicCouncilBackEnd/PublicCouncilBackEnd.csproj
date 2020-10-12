@@ -206,6 +206,7 @@
     <Content Include="images\adv3.png" />
     <Content Include="images\Logo\Logo1.jpeg" />
     <Content Include="images\Logo\Logo2.jpeg" />
+    <Content Include="images\sdefaultimage.png" />
     <Content Include="images\social-media-image.png" />
     <Content Include="images\test\boton_chorek.jpg" />
     <Content Include="images\test\bus.jpg" />
