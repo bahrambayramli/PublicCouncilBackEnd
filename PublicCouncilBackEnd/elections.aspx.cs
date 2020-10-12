@@ -29,7 +29,7 @@ namespace PublicCouncilBackEnd
                                                                                             	        POST_SITECATEGORYAZ,
                                                                                                         POST_SITESUBCATEGORYAZ,
                                                                                                         POST_IMG,
-                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_DATE,
                                                                                                         POST_SEOAZ,
                                                                                                         POST_AUTHOR
                                                                                             FROM        PC_POSTS
@@ -71,7 +71,7 @@ namespace PublicCouncilBackEnd
                                                                                             	        POST_SITECATEGORYEN,
                                                                                                         POST_SITESUBCATEGORYEN,
                                                                                                         POST_IMG,
-                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_DATE,
                                                                                                         POST_SEOEN,
                                                                                                         POST_AUTHOR
                                                                                             FROM        PC_POSTS
@@ -112,7 +112,7 @@ namespace PublicCouncilBackEnd
                                                                                             	        POST_SITECATEGORYAZ,
                                                                                                         POST_SITESUBCATEGORYAZ,
                                                                                                         POST_IMG,
-                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_DATE,
                                                                                                         POST_SEOAZ,
                                                                                                         POST_AUTHOR
                                                                                             FROM        PC_POSTS

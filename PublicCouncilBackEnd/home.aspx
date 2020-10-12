@@ -201,7 +201,7 @@
                 </div>
             </LayoutTemplate>
             <ItemTemplate>
-                <article class="col-12 col-md-6 col-xl-6 d-flex align-items-stretch">
+                <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch">
                     <div class="card mb-3 rounded post overflow-hidden">
                         <div class="post-header overflow-hidden">
                             <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block" title="">
@@ -241,7 +241,7 @@
                 </div>
             </LayoutTemplate>
             <ItemTemplate>
-                <article class="col-12 col-md-6 col-xl-6 d-flex align-items-stretch">
+                <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch">
                     <div class="card mb-3 rounded post overflow-hidden">
                         <div class="post-header overflow-hidden">
                             <a href="/details/en/<%#Eval("DATA_ID")%>" class="d-block" title="">

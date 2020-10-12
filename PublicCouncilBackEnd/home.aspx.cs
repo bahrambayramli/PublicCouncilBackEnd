@@ -33,7 +33,7 @@ namespace PublicCouncilBackEnd
                                                                                                         POST_SITESUBCATEGORYAZ,
                                                                                                         POST_SUBCATEGORY,
                                                                                                         POST_IMG,
-                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_DATE,
                                                                                                         POST_TYPE,
                                                                                                         POST_SEOAZ,
                                                                                                         POST_AUTHOR
@@ -61,7 +61,7 @@ namespace PublicCouncilBackEnd
                                                                                                         POST_SITESUBCATEGORYAZ,
                                                                                                         POST_SUBCATEGORY,
                                                                                                         POST_IMG,
-                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                       POST_DATE,
                                                                                                         POST_TYPE,
                                                                                                         POST_SEOAZ,
                                                                                                         POST_AUTHOR
@@ -109,7 +109,7 @@ namespace PublicCouncilBackEnd
                                                                                                         POST_SITESUBCATEGORYEN,
                                                                                                         POST_SUBCATEGORY,
                                                                                                         POST_IMG,
-                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                       POST_DATE,
                                                                                                         POST_TYPE,
                                                                                                         POST_SEOEN,
                                                                                                         POST_AUTHOR
@@ -136,7 +136,7 @@ namespace PublicCouncilBackEnd
                                                                                                         POST_SITESUBCATEGORYAZ,
                                                                                                         POST_SUBCATEGORY,
                                                                                                         POST_IMG,
-                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                       POST_DATE,
                                                                                                         POST_TYPE,
                                                                                                         POST_SEOAZ,
                                                                                                         POST_AUTHOR
@@ -184,7 +184,7 @@ namespace PublicCouncilBackEnd
                                                                                                         POST_SITESUBCATEGORYAZ,
                                                                                                         POST_SUBCATEGORY,
                                                                                                         POST_IMG,
-                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                       POST_DATE,
                                                                                                         POST_TYPE,
                                                                                                         POST_SEOAZ,
                                                                                                         POST_AUTHOR
@@ -212,7 +212,7 @@ namespace PublicCouncilBackEnd
                                                                                                         POST_SITESUBCATEGORYAZ,
                                                                                                         POST_SUBCATEGORY,
                                                                                                         POST_IMG,
-                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                       POST_DATE,
                                                                                                         POST_TYPE,
                                                                                                         POST_SEOAZ,
                                                                                                         POST_AUTHOR
