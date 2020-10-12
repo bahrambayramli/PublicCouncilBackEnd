@@ -69,6 +69,15 @@ namespace PublicCouncilBackEnd
         protected global::System.Web.UI.WebControls.ListView LogoDesktop;
 
         /// <summary>
+        /// SPONSORS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView SPONSORS;
+
+        /// <summary>
         /// LogoMobile control.
         /// </summary>
         /// <remarks>
@@ -204,12 +213,21 @@ namespace PublicCouncilBackEnd
         protected global::System.Web.UI.WebControls.ListView VIDEOS_EN;
 
         /// <summary>
-        /// PARTNERS control.
+        /// PARTNERS_AZ control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView PARTNERS;
+        protected global::System.Web.UI.WebControls.ListView PARTNERS_AZ;
+
+        /// <summary>
+        /// PARTNERS_EN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView PARTNERS_EN;
     }
 }

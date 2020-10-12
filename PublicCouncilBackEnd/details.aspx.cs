@@ -51,7 +51,14 @@ namespace PublicCouncilBackEnd
 
                         DataTable DT = SQL.SELECT(getdata);
 
-
+                        if (DT.Rows[0]["POST_SITECATEGORYAZ"].ToString().ToLower() == "qanunvericilik")
+                        {
+                            postImage.Visible = false;
+                            postCategory.Visible = false;
+                            postDateLink.Visible = false;
+                            postCountLink.Visible = false;
+                        }
+                      
 
                         Page.Title = DT.Rows[0]["POST_SEOAZ"].ToString();
                         postTitle.Text = DT.Rows[0]["POST_SEOAZ"].ToString();

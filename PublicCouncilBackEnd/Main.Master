@@ -10,7 +10,7 @@
     <meta keywords="Public Council">
 
     <title>İctimai şura</title>
-     <link rel="icon" href="/Images/Logo/Logo1.jpeg" type="image/gif" sizes="80x80">
+    <link rel="icon" href="/Images/Logo/Logo1.jpeg" type="image/gif" sizes="80x80">
 
     <!-- STYLES -->
     <link href="/content/css/argon-design-system.min.css" rel="stylesheet" />
@@ -89,25 +89,19 @@
                             <div class="col-6">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-4">
-                                            <a href="#" class="d-block">
-                                                <img class="rounded shadow-sm" src="./images/adv3.png" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="col-4">
-                                            <a href="#" class="d-block">
-                                                <img class="rounded shadow-sm" src="./images/adv2.png" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="col-4">
-                                            <a href="#" class="d-block">
-                                                <img class="rounded shadow-sm" src="./images/adv3.png" alt="">
-                                            </a>
-                                        </div>
+                                        <asp:ListView ID="SPONSORS" runat="server">
+                                            
+                                            <ItemTemplate>
+                                                <div class="col-4">
+                                                    <a href="<%#Eval("SPONSOR_LINK")%>" target="_blank" class="d-block">
+                                                        <img class="rounded shadow-sm" src="/images/<%#Eval("SPONSOR_IMG")%>" alt="<%#Eval("SPONSOR_LINK")%>">
+                                                    </a>
+                                                </div>
+                                            </ItemTemplate>
+                                        </asp:ListView>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
 
                     </div>
@@ -522,13 +516,35 @@
                 <!-- Partnes -->
                 <section class="site-post mb-2">
 
-                    <asp:ListView ID="PARTNERS" runat="server">
+                    <asp:ListView ID="PARTNERS_AZ" runat="server">
                         <LayoutTemplate>
                             <div class="row">
                                 <div class="col">
                                     <a href="#"
                                         class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase"
                                         style="font-size: 2rem;">tərəfdaşlar
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                            </div>
+                        </LayoutTemplate>
+                        <ItemTemplate>
+                            <div class="col-3 col-md-2">
+                                <a href="<%#Eval("PARTNERS_LINK")%>" target="_blank" class="mb-2 rounded overflow-hidden shadow">
+                                    <img class="rounded" src="/images/<%#Eval("PARTNERS_IMG")%>" alt="<%#Eval("PARTNERS_TITLE")%>">
+                                </a>
+                            </div>
+                        </ItemTemplate>
+                    </asp:ListView>
+                    <asp:ListView ID="PARTNERS_EN" runat="server">
+                        <LayoutTemplate>
+                            <div class="row">
+                                <div class="col">
+                                    <a href="#"
+                                        class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase"
+                                        style="font-size: 2rem;">partners
                                     </a>
                                 </div>
                             </div>

@@ -12,53 +12,21 @@
             <div class="row">
                 <asp:ListView ID="POSTLIST_AZ" runat="server" OnPagePropertiesChanging="POSTLIST_AZ_PagePropertiesChanging">
                     <ItemTemplate>
-                        <article class="col-6 col-md-4 d-flex align-items-stretch">
-
-                            <div class="card mb-3 rounded post overflow-hidden">
-                                <div class="post-header overflow-hidden">
-                                    <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block">
-                                        <img src="/images/<%#Eval("POST_IMG")%>" class="post-img" alt="<%#Eval("POST_SEOAZ")%>">
-                                    </a>
-                                </div>
-                                <div class="d-flex justify-content-between py-2 px-2">
-                                    <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/legislation/az">
-                                        <%#Eval("POST_SITECATEGORYAZ")%>
-                                    </a>
-                                    <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">
-                                        <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
-                                    </a>
-                                </div>
-                                <div class="card-body px-3 pt-0 font-weight-300">
-                                    <%#Eval("POST_AZ_TITLE")%>
-                                </div>
-                            </div>
-
-                        </article>
+                        <article class="col-12 d-flex align-items-stretch border-danger">
+                            <a href="/details/az/<%#Eval("DATA_ID")%>" class="shadow p-2 mb-3 rounded d-block text-default h5 w-100 text-wrap" title="<%#Eval("POST_SEOAZ")%>"
+                                style="border-left: 4px solid #32325d;">
+                                <%#Eval("POST_SEOAZ")%>
+                            </a>
+                        </article> 
                     </ItemTemplate>
                 </asp:ListView>
                 <asp:ListView ID="POSTLIST_EN" runat="server" OnPagePropertiesChanging="POSTLIST_EN_PagePropertiesChanging">
                     <ItemTemplate>
-                        <article class="col-6 col-md-4 d-flex align-items-stretch">
-
-                            <div class="card mb-3 rounded post overflow-hidden">
-                                <div class="post-header overflow-hidden">
-                                    <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block">
-                                        <img src="/images/<%#Eval("POST_IMG")%>" class="post-img" alt="<%#Eval("POST_SEOEN")%>">
-                                    </a>
-                                </div>
-                                <div class="d-flex justify-content-between py-2 px-2">
-                                    <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/legislation/en">
-                                        <%#Eval("POST_SITECATEGORYEN")%>
-                                    </a>
-                                    <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">
-                                        <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
-                                    </a>
-                                </div>
-                                <div class="card-body px-3 pt-0 font-weight-300">
-                                    <%#Eval("POST_EN_TITLE")%>
-                                </div>
-                            </div>
-
+                        <article class="col-12 d-flex align-items-stretch border-danger">
+                            <a href="/details/en/<%#Eval("DATA_ID")%>" class="shadow p-2 mb-3 rounded d-block text-default h5 w-100 text-wrap" title="<%#Eval("POST_SEOEN")%>"
+                                style="border-left: 4px solid #32325d;">
+                                <%#Eval("POST_SEOEN")%>
+                            </a>
                         </article>
                     </ItemTemplate>
                 </asp:ListView>

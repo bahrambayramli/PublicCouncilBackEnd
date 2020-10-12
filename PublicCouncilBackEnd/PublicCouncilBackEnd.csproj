@@ -3865,6 +3865,8 @@
     <Content Include="reports.aspx" />
     <Content Include="multimedia.aspx" />
     <Content Include="details.aspx" />
+    <Content Include="login.aspx" />
+    <Content Include="register.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -4025,6 +4027,20 @@
     </Compile>
     <Compile Include="details.aspx.designer.cs">
       <DependentUpon>details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

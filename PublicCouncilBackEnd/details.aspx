@@ -15,7 +15,7 @@
             
             <asp:HyperLink ID="postCategory" runat="server" CssClass="btn btn-sm btn-outline-default btn-round"></asp:HyperLink>
 
-            <a class="btn btn-sm btn-outline-danger btn-round" href="#">
+            <asp:HyperLink ID="postDateLink" runat="server" CssClass="btn btn-sm btn-outline-danger btn-round">
                 <svg class="mr-2" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-clock-history"
                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -25,8 +25,9 @@
                         d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z" />
                 </svg>
                 <asp:Literal ID="postDate" runat="server"></asp:Literal>
-            </a>
-            <a class="btn btn-sm btn-outline-warning btn-round" href="#">
+            </asp:HyperLink>
+
+            <asp:HyperLink ID="postCountLink" runat="server" CssClass="btn btn-sm btn-outline-warning btn-round">
                 <svg class="mr-2" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye" fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
@@ -35,7 +36,7 @@
                         d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                 </svg>
                 <asp:Literal ID="postCount" runat="server"></asp:Literal>
-            </a>
+            </asp:HyperLink>
         </div>
 
         <div class="post-title my-2">

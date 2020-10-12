@@ -36,7 +36,8 @@ namespace PublicCouncilBackEnd
           
             routes.MapPageRoute("details", "details/{language}/{postid}", "~/details.aspx");
 
-
+            routes.MapPageRoute("login", "login/", "~/login.aspx");
+            routes.MapPageRoute("register", "register/", "~/register.aspx");
 
             //Admin Panel routes
 

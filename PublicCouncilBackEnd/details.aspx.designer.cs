@@ -33,6 +33,15 @@ namespace PublicCouncilBackEnd
         protected global::System.Web.UI.WebControls.HyperLink postCategory;
 
         /// <summary>
+        /// postDateLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink postDateLink;
+
+        /// <summary>
         /// postDate control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace PublicCouncilBackEnd
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal postDate;
+
+        /// <summary>
+        /// postCountLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink postCountLink;
 
         /// <summary>
         /// postCount control.
