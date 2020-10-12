@@ -9,6 +9,7 @@
             <div class="row">
 
                 <div class="col col-12 col-md-8 pr-md-1">
+
                     <asp:ListView ID="MAINSLIDER_AZ" runat="server">
                         <LayoutTemplate>
                             <div class="main-slider">
@@ -78,6 +79,7 @@
                             autoplaySpeed: 2000,
                         });
                     </script>
+
                 </div>
 
                 <div class="col col-12 col-md-4 pl-md-0">
@@ -199,7 +201,7 @@
                 </div>
             </LayoutTemplate>
             <ItemTemplate>
-                <article class="col-md-4 d-flex align-items-stretch">
+                <article class="col-12 col-md-6 col-xl-6 d-flex align-items-stretch">
                     <div class="card mb-3 rounded post overflow-hidden">
                         <div class="post-header overflow-hidden">
                             <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block" title="">
@@ -239,7 +241,7 @@
                 </div>
             </LayoutTemplate>
             <ItemTemplate>
-                <article class="col-md-4 d-flex align-items-stretch">
+                <article class="col-12 col-md-6 col-xl-6 d-flex align-items-stretch">
                     <div class="card mb-3 rounded post overflow-hidden">
                         <div class="post-header overflow-hidden">
                             <a href="/details/en/<%#Eval("DATA_ID")%>" class="d-block" title="">

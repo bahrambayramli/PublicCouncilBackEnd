@@ -12,7 +12,7 @@
             <div class="row">
                 <asp:ListView ID="POSTLIST_AZ" runat="server" OnPagePropertiesChanging="POSTLIST_AZ_PagePropertiesChanging">
                     <ItemTemplate>
-                        <article class="col-md-6 d-flex align-items-stretch">
+                        <article class="col-12 col-md-6 d-flex align-items-stretch">
 
                             <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block irem btn btn-outline-default my-1 w-100" title="<%#Eval("POST_SEOAZ") %>">
                                 <div class="container-fluid">
@@ -32,7 +32,7 @@
                 </asp:ListView>
                 <asp:ListView ID="POSTLIST_EN" runat="server" OnPagePropertiesChanging="POSTLIST_EN_PagePropertiesChanging">
                     <ItemTemplate>
-                        <article class="col-md-6 d-flex align-items-stretch">
+                        <article class="col-12 col-md-6 d-flex align-items-stretch">
 
                             <a href="/details/en/<%#Eval("DATA_ID")%>" class="d-block irem btn btn-outline-default my-1 w-100" title="<%#Eval("POST_SEOEN") %>">
                                 <div class="container-fluid">

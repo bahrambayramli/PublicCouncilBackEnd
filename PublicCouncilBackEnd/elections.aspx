@@ -12,7 +12,7 @@
             <div class="row">
                 <asp:ListView ID="POSTLIST_AZ" runat="server" OnPagePropertiesChanging="POSTLIST_AZ_PagePropertiesChanging">
                     <ItemTemplate>
-                        <article class="col-6 col-md-4 d-flex align-items-stretch">
+                        <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch">
 
                             <div class="card mb-3 rounded post overflow-hidden">
                                 <div class="post-header overflow-hidden">
@@ -38,7 +38,7 @@
                 </asp:ListView>
                 <asp:ListView ID="POSTLIST_EN" runat="server" OnPagePropertiesChanging="POSTLIST_EN_PagePropertiesChanging">
                     <ItemTemplate>
-                        <article class="col-6 col-md-4 d-flex align-items-stretch">
+                        <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch">
 
                             <div class="card mb-3 rounded post overflow-hidden">
                                 <div class="post-header overflow-hidden">

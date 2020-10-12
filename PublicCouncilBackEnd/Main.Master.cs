@@ -725,7 +725,7 @@ namespace PublicCouncilBackEnd
 
         protected void signIN_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/register");
+            Response.Redirect("/login");
         }
     }
 }
