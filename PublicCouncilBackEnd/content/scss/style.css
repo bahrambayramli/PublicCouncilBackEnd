@@ -80,8 +80,8 @@ img {
       .main .content-side .site-sliders .owl-right-top .slider-item .slider-caption .slider-title p,
       .main .content-side .site-sliders .owl-right-bottom .slider-item .slider-caption .slider-title p {
         color: #fff;
-        font-size: 1.76rem;
-        font-weight: 700;
+        font-size: 1.1rem;
+        font-weight: 600;
         margin: 0;
         padding: 0; }
     .main .content-side .site-sliders .owl-main .slider-item .slider-caption .caption-link,
@@ -188,6 +188,7 @@ img {
       font-size: 0.9rem;
       font-weight: 600; }
 
+/*@media (min-width: 576px) {}*/
 @media (min-width: 768px) {
   img {
     display: block;
@@ -452,3 +453,9 @@ img {
         font-size: 0.9rem;
         font-weight: 600;
         word-break: break-word; } }
+
+/*@media (min-width: 992px) {}
+
+@media (min-width: 1200px) {}
+
+@media (min-width: 1400px) {}*/

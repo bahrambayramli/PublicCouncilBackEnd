@@ -106,8 +106,8 @@ img {
 
                             p {
                                 color: #fff;
-                                font-size: 1.76rem;
-                                font-weight: 700;
+                                font-size: 1.1rem;
+                                font-weight: 600;
                                 margin: 0;
                                 padding: 0;
                             }
@@ -271,7 +271,7 @@ img {
     }
 }
 
-@media (min-width: 576px) {}
+/*@media (min-width: 576px) {}*/
 
 @media (min-width: 768px) {
   img {
@@ -305,7 +305,8 @@ img {
     }
   }
 
-    .main {
+  .main {
+
         .content-side {
             .site-sliders {
                 // .main-slider {
@@ -534,8 +535,6 @@ img {
                     }
                 }
             }
-
-           
         }
 
         .right-side {
@@ -656,8 +655,8 @@ img {
     }
 }
 
-@media (min-width: 992px) {}
+/*@media (min-width: 992px) {}
 
 @media (min-width: 1200px) {}
 
-@media (min-width: 1400px) {}
+@media (min-width: 1400px) {}*/

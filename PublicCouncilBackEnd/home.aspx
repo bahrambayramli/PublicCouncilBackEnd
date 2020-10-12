@@ -24,12 +24,12 @@
                                 <div class="slider-caption">
                                     <span class="btn btn-sm btn-round slider-time bg-white text-default ">
                                         <i class="far fa-calendar-alt"></i>
-                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
+                                        <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                     </span>
                                     <h2 class="slider-title">
-                                       <%#Eval("POST_AZ_TITLE")%>
+                                        <%#Eval("POST_AZ_TITLE")%>
                                     </h2>
-                                    <a class="caption-link"  href="/details/az/<%#Eval("DATA_ID")%>"  title="<%#Eval("POST_SEOAZ")%>"></a>
+                                    <a class="caption-link" href="/details/az/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOAZ")%>"></a>
                                 </div>
                             </div>
                         </ItemTemplate>
