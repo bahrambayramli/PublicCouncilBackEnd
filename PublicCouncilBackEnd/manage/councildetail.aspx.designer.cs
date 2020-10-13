@@ -24,6 +24,15 @@ namespace PublicCouncilBackEnd.manage
         protected global::System.Web.UI.WebControls.DropDownList inputISACTIVE;
 
         /// <summary>
+        /// inputMembershipType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList inputMembershipType;
+
+        /// <summary>
         /// inputLoginName control.
         /// </summary>
         /// <remarks>
@@ -132,13 +141,22 @@ namespace PublicCouncilBackEnd.manage
         protected global::System.Web.UI.WebControls.DropDownList inputCity;
 
         /// <summary>
-        /// logoUpload control.
+        /// logoImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload logoUpload;
+        protected global::System.Web.UI.WebControls.Image logoImage;
+
+        /// <summary>
+        /// logoFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload logoFile;
 
         /// <summary>
         /// btnConfirm control.

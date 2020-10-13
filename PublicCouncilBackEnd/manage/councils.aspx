@@ -13,9 +13,9 @@
                                 <h3 class="mb-0">İctimai şuralar</h3>
                             </div>
                             <div class="col-12 col-md-6 text-right">
-                                <%--<asp:LinkButton ID="new_pc" runat="server" CssClass="btn btn-primary btn-sm btn-round" >
+                                <asp:LinkButton ID="new_pc" runat="server" CssClass="btn btn-primary btn-sm btn-round" OnClick="new_pc_Click" >
                                         Yeni şura
-                                </asp:LinkButton>--%>
+                                </asp:LinkButton>
                             </div>
                         </div>
                     </div>
@@ -39,6 +39,8 @@
                         <Columns>
                             <asp:BoundField DataField="#" HeaderText="#" />
                             <asp:BoundField DataField="USER_ID" HeaderText="ID" />
+                             <asp:BoundField DataField="USER_SERIAL" HeaderText="USER_SERIAL" />
+
                             <asp:BoundField DataField="USER_NAME" HeaderText="Ad">
                                 <ControlStyle Width="500px" />
                                 <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="500px" />

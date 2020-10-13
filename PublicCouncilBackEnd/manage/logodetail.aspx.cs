@@ -197,7 +197,7 @@ namespace PublicCouncilBackEnd.manage
 
         protected void logoConfirm_Click(object sender, EventArgs e)
         {
-            if (Session["POST"] as string == "SELECTED")
+            if (Session["LOGO"] as string == "SELECTED")
             {
                 UpdateLogo(Session["LOGO_ID"] as string, Session["USER_ID"] as string);
             }

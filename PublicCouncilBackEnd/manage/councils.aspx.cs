@@ -19,6 +19,7 @@ namespace PublicCouncilBackEnd.manage
             SqlDataAdapter getPC = new SqlDataAdapter(new SqlCommand(@"SELECT 
                                                                               ROW_NUMBER() OVER(ORDER BY CREATED_DATE DESC) AS '#' ,
                                                                               USER_ID,
+                                                                              USER_SERIAL,
                                                                               USER_NAME,
                                                                               USER_SURNAME,
                                                                               PC_NAME,
@@ -62,6 +63,7 @@ namespace PublicCouncilBackEnd.manage
             if (e.Row.RowType == DataControlRowType.Pager) { return; }
 
             try { e.Row.Cells[1].Visible = false; } catch { }
+            try { e.Row.Cells[2].Visible = false; } catch { }
             try { e.Row.Cells[7].Visible = false; } catch { }
         }
 
@@ -75,6 +77,7 @@ namespace PublicCouncilBackEnd.manage
         {
             Session["PC"] = "SELECTED";
             Session["PC_ID"] = PCLists.SelectedRow.Cells[1].Text;
+            Session["PC_SERIAL"] = PCLists.SelectedRow.Cells[2].Text;
             Response.Redirect("/manage/councildetail");
         }
 
@@ -93,6 +96,13 @@ namespace PublicCouncilBackEnd.manage
             {
                 Debug.WriteLine(ex.Message);
             }
+        }
+
+        protected void new_pc_Click(object sender, EventArgs e)
+        {
+            Session["PC"]     =  null;
+            Session["PC_ID"]  =  null;
+            Response.Redirect("/manage/councildetail");
         }
     }
 }
