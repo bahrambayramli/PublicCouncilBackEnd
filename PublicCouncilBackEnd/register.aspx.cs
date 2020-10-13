@@ -79,7 +79,6 @@ namespace PublicCouncilBackEnd
                                                          PC_WEBADDRESS,
                                                          PC_COUNTRY,
                                                          PC_CITY,
-                                                        
                                                          CREATED_DATE,
                                                          PC_CATEGORY
 	                                                    )
@@ -207,5 +206,7 @@ namespace PublicCouncilBackEnd
             InsertUser();
             Response.Redirect("/login");
         }
+
+      
     }
 }

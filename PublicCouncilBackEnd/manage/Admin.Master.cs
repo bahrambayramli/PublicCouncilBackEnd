@@ -21,24 +21,26 @@ namespace PublicCouncilBackEnd.manage
             {
                 pcnameLink.NavigateUrl = "http://publiccouncil.ml";
                 pcNameText.Text = "publiccouncil.ml";
-              //  _ngoprofile.Visible = false;
+              
 
             }
             else if (Session["USER_MEMBERSHIP_TYPE"] as string == "user")
             {
                 pcnameLink.NavigateUrl = $"http://{ Session["USER_PCDOMAIN"] as string}.publiccouncil.ml";
                 pcNameText.Text = ($"{Session["USER_PCDOMAIN"] as string}.publiccouncil.ml").ToLower();
-                //.Visible = false;
+                
                 managepartners.Visible = false;
                 managesponsors.Visible = false;
                 managepcouncils.Visible = false;
+               
             }
             else
             {
-               // _adversting.Visible = false;
+               
                 managepartners.Visible = false;
                 managesponsors.Visible = false;
                 managepcouncils.Visible = false;
+              
             }
 
             userName.Text = $"{Session["USER_NAME"] as string} {Session["USER_SURNAME"]}";
