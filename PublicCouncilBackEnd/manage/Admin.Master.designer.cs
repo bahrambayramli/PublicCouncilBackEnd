@@ -33,6 +33,24 @@ namespace PublicCouncilBackEnd.manage
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// pcnameLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink pcnameLink;
+
+        /// <summary>
+        /// pcNameText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal pcNameText;
+
+        /// <summary>
         /// manageDashboard control.
         /// </summary>
         /// <remarks>
@@ -69,13 +87,22 @@ namespace PublicCouncilBackEnd.manage
         protected global::System.Web.UI.WebControls.HyperLink managepartners;
 
         /// <summary>
-        /// HyperLink1 control.
+        /// managesponsors control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.HyperLink managesponsors;
+
+        /// <summary>
+        /// managepcouncils control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink managepcouncils;
 
         /// <summary>
         /// manageExit control.
@@ -85,6 +112,15 @@ namespace PublicCouncilBackEnd.manage
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton manageExit;
+
+        /// <summary>
+        /// userName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal userName;
 
         /// <summary>
         /// ManageScriptManager control.

@@ -204,6 +204,7 @@
     <Content Include="images\adv1.png" />
     <Content Include="images\adv2.png" />
     <Content Include="images\adv3.png" />
+    <Content Include="images\avatar.png" />
     <Content Include="images\Logo\Logo1.jpeg" />
     <Content Include="images\Logo\Logo2.jpeg" />
     <Content Include="images\sdefaultimage.png" />

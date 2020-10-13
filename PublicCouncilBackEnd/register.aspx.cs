@@ -14,7 +14,7 @@ namespace PublicCouncilBackEnd
     {
 
         #region(SQL FUNCTIONS)
-        public bool CheckAccount(string login, string subdomain,bool ISDELETE)
+        private bool CheckAccount(string login, string subdomain,bool ISDELETE)
         {
 
             SqlDataAdapter checkAccount = new SqlDataAdapter(new SqlCommand(@"
@@ -48,8 +48,12 @@ namespace PublicCouncilBackEnd
 
 
         }
-
-        public void InsertUser()
+        private string GetDate()
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter(new SqlCommand("SELECT FORMAT (SYSDATETIME() ,'dd/MM/yyyy HH:mm' ) as DataTime"));
+            return SQL.SELECT(adapter).Rows[0]["DataTime"].ToString();
+        }
+        private void InsertUser()
         {
             Session["user_register_serial"] = Helper.MakeSerial();
 
@@ -74,8 +78,8 @@ namespace PublicCouncilBackEnd
                                                          PC_EMAIL,
                                                          PC_WEBADDRESS,
                                                          PC_COUNTRY,
-                                                         PC_CITY
-                                                         PC_ADDRESS,
+                                                         PC_CITY,
+                                                        
                                                          CREATED_DATE,
                                                          PC_CATEGORY
 	                                                    )
@@ -84,7 +88,6 @@ namespace PublicCouncilBackEnd
 		                                                 @ISDELETE,
                                                          @ISACTIVE,
                                                          @ISONLINE,
-                                                         @MONTHLY,
                                                          @USER_MEMBERSHIP,
                                                          @USER_MEMBERSHIP_TYPE,
                                                          @USER_LOGIN,
@@ -92,20 +95,15 @@ namespace PublicCouncilBackEnd
                                                          @USER_SERIAL,
                                                          @USER_PCDOMAIN,
                                                          @USER_NAME,
-                                                         @USER_SURNAME,
-                                                         @USER_BIRTHDATE,
+                                                         @USER_SURNAME,                                                      
                                                          @USER_MOBILE,
-                                                         @USER_GENDER,
                                                          @PC_NAME,
-                                                         @PC_ACTIVITY,
                                                          @PC_TELEPHONE,
                                                          @PC_EMAIL,
                                                          @PC_WEBADDRESS,
                                                          @PC_COUNTRY,
-                                                         @PC_CITY
-                                                         @PC_ADDRESS,
-                                                         @PC_SERVICES,
-                                                         @PC_ABOUT,
+                                                         @PC_CITY,
+                                                         
                                                          @CREATED_DATE,
                                                          @PC_CATEGORY
                                                         
@@ -114,12 +112,32 @@ namespace PublicCouncilBackEnd
             insertUser.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
             insertUser.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = false;
             insertUser.Parameters.Add("@ISONLINE", SqlDbType.Bit).Value = false;
+
+            insertUser.Parameters.Add("@USER_MEMBERSHIP", SqlDbType.NVarChar).Value = "pc";
+            insertUser.Parameters.Add("@USER_MEMBERSHIP_TYPE", SqlDbType.NVarChar).Value = "user";
+            insertUser.Parameters.Add("@USER_LOGIN", SqlDbType.NVarChar).Value = inputLoginName.Text;
+            insertUser.Parameters.Add("@USER_PASSWORD", SqlDbType.NVarChar).Value = Crypto.MD5crypt(inputPassword.Text);
+            insertUser.Parameters.Add("@USER_SERIAL", SqlDbType.NVarChar).Value = Session["user_register_serial"] as string;
+            insertUser.Parameters.Add("@USER_PCDOMAIN", SqlDbType.NVarChar).Value = inputPCdomain.Text;
+            insertUser.Parameters.Add("@USER_NAME", SqlDbType.NVarChar).Value = inputName.Text;
+            insertUser.Parameters.Add("@USER_SURNAME", SqlDbType.NVarChar).Value = inputSurname.Text;
+            insertUser.Parameters.Add("@PC_NAME", SqlDbType.NVarChar).Value = inputPCname.Text;
            
+            insertUser.Parameters.Add("@PC_TELEPHONE", SqlDbType.NVarChar).Value = inputTelephone.Text;
+            insertUser.Parameters.Add("@USER_MOBILE", SqlDbType.NVarChar).Value = inputMobile.Text;
+            insertUser.Parameters.Add("@PC_EMAIL", SqlDbType.NVarChar).Value = inputEmail.Text;
+            insertUser.Parameters.Add("@PC_WEBADDRESS", SqlDbType.NVarChar).Value = inputWeb.Text;
+            insertUser.Parameters.Add("@PC_COUNTRY", SqlDbType.NVarChar).Value = "Azərbaycan";
+            insertUser.Parameters.Add("@PC_CITY", SqlDbType.NVarChar).Value = inputCity.SelectedItem.Text;
+           
+            DateTime createdDate = DateTime.ParseExact(GetDate(), "dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
+            insertUser.Parameters.Add("@CREATED_DATE", SqlDbType.Date).Value = createdDate.ToString(); ;
+            insertUser.Parameters.Add("@PC_CATEGORY", SqlDbType.NVarChar).Value = categorySelect.SelectedValue;
+           
+
 
             SQL.COMMAND(insertUser);
             #endregion
-
-            
 
             #region(Logo Upload)
             //Logo upload
@@ -186,7 +204,7 @@ namespace PublicCouncilBackEnd
                 return;
             }
 
-
+            InsertUser();
             Response.Redirect("/login");
         }
     }

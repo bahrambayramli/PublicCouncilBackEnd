@@ -53,8 +53,16 @@
                 <div class="navbar-inner">
                     <!-- Collapse -->
                     <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+                      
                         <!-- Nav items -->
                         <ul class="navbar-nav">
+                            <li class="nav-item">
+                                 <asp:HyperLink ID="pcnameLink" runat="server" CssClass="nav-link justify-content-center">
+                                    <span class="nav-link-text text-uppercase text-primary font-weight-600">
+                                        <asp:Literal ID="pcNameText" runat="server"></asp:Literal>
+                                    </span>
+                                 </asp:HyperLink>
+                            </li>
                             <li class="nav-item">
                                 <asp:HyperLink ID="manageDashboard" runat="server" CssClass="nav-link" NavigateUrl="/manage/dashboard">
                                     <i class="ni ni-shop text-primary"></i>
@@ -84,18 +92,19 @@
                                 </asp:HyperLink>
                             </li>
                             <li class="nav-item">
-                                <asp:HyperLink ID="HyperLink1" runat="server" CssClass="nav-link" NavigateUrl="/manage/sponsors">
+                                <asp:HyperLink ID="managesponsors" runat="server" CssClass="nav-link" NavigateUrl="/manage/sponsors">
                                      <i class="ni ni-building text-warning"></i>
                                     <span class="nav-link-text">Sponsorlar</span>
                                 </asp:HyperLink>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="">
+                                <asp:HyperLink ID="managepcouncils" runat="server" CssClass="nav-link" NavigateUrl="/manage/councils">
                                     <i class="ni ni-chart-pie-35 text-info"></i>
-                                    <span class="nav-link-text">İctimai şura</span>
-                                </a>
+                                    <span class="nav-link-text">İctimai şuralar</span>
+                                </asp:HyperLink>
                             </li>
+
 
 
 
@@ -105,9 +114,6 @@
                         <!-- exit -->
                         <ul class="navbar-nav mb-md-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
-                                    
-                                </a>
                                 <asp:LinkButton ID="manageExit" runat="server" CssClass="nav-link" OnClick="manageExit_Click">
                                     <i class="ni ni-user-run mr-2"></i>
                                     <span class="nav-link-text">çixiş</span>
@@ -276,11 +282,13 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link p-0 pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <div class="media align-items-center">
-                                        <span class="avatar avatar-sm rounded-circle">
-                                            <img alt="Image placeholder" src="../images/test/ilhameliyev.jpg">
+                                        <span class="avatar avatar-sm rounded-circle mr-1" style="width:40px;height:40px">
+                                            <img alt="Image placeholder" src="/images/avatar.png">
                                         </span>
                                         <div class="media-body ml-2 d-none d-lg-block">
-                                            <span class="mb-0 text-sm  font-weight-bold">İstifadəçi</span>
+                                            <span class="mb-0 text-sm  font-weight-bold">
+                                                <asp:Literal ID="userName" runat="server"></asp:Literal>
+                                            </span>
                                         </div>
                                     </div>
                                 </a>
