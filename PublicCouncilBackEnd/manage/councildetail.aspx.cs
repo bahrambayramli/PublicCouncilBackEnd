@@ -237,7 +237,7 @@ namespace PublicCouncilBackEnd.manage
             insertUser.Parameters.Add("@ISONLINE", SqlDbType.Bit).Value = false;
 
             insertUser.Parameters.Add("@USER_MEMBERSHIP", SqlDbType.NVarChar).Value = "pc";
-            insertUser.Parameters.Add("@USER_MEMBERSHIP_TYPE", SqlDbType.NVarChar).Value = "user";
+            insertUser.Parameters.Add("@USER_MEMBERSHIP_TYPE", SqlDbType.NVarChar).Value = inputMembershipType.SelectedValue;
             insertUser.Parameters.Add("@USER_LOGIN", SqlDbType.NVarChar).Value = inputLoginName.Text;
             insertUser.Parameters.Add("@USER_PASSWORD", SqlDbType.NVarChar).Value = Crypto.MD5crypt(inputPassword.Text);
             insertUser.Parameters.Add("@USER_SERIAL", SqlDbType.NVarChar).Value = Session["NEW_USER_SERIAL"] as string;
@@ -264,7 +264,6 @@ namespace PublicCouncilBackEnd.manage
 
             InsertLogo(Session["NEW_USER_SERIAL"] as string);
         }
-
         private void UpdateUser(string USER_SERIAL,string USER_ID)
         {
            
@@ -308,7 +307,7 @@ namespace PublicCouncilBackEnd.manage
                                                          USER_MEMBERSHIP       = @USER_MEMBERSHIP       ,
                                                          USER_MEMBERSHIP_TYPE  = @USER_MEMBERSHIP_TYPE  ,
                                                          USER_LOGIN            = @USER_LOGIN            ,
-                                                         USER_PASSWORD         = @USER_PASSWORD         ,
+                                                        
                                                        
                                                          USER_PCDOMAIN         = @USER_PCDOMAIN         ,
                                                          USER_NAME             = @USER_NAME             ,
@@ -321,7 +320,7 @@ namespace PublicCouncilBackEnd.manage
                                                          PC_CITY               = @PC_CITY               ,                                                       
                                                          PC_CATEGORY           = @PC_CATEGORY
 	                                                    
-                                                         WHERE ISER_ID = @USER_ID
+                                                         WHERE USER_ID = @USER_ID
                                                         
 	                                                	   ");
             }
@@ -534,7 +533,11 @@ namespace PublicCouncilBackEnd.manage
             if (Session["PC"] as string == "SELECTED")
             {
 
-                UpdateUser(Session["PC_SERIAL"] as string, Session["PC_ID"] as string);
+               
+                
+                    UpdateUser(Session["PC_SERIAL"] as string, Session["PC_ID"] as string);
+                
+              
 
             }
             else

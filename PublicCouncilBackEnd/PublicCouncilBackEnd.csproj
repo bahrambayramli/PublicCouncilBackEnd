@@ -452,6 +452,7 @@
   <ItemGroup>
     <Folder Include="images\logos\" />
     <Folder Include="images\subimages\" />
+    <Folder Include="Logs\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

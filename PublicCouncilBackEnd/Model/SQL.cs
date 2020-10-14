@@ -28,7 +28,7 @@ namespace PublicCouncilBackEnd
             }
             catch (Exception ex)
             {
-               // Log.LogCreator(@"C:\inetpub\qhtaz\Logs\logs.txt",ex.Message);
+                Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", ex.Message);
                 Debug.WriteLine(ex.Message);
             }
             finally
@@ -58,8 +58,8 @@ namespace PublicCouncilBackEnd
 
             catch (Exception ex)
             {
-         
 
+                Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", ex.Message);
                 Debug.WriteLine(ex.Message);
 
             }

@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manage/Admin.Master" AutoEventWireup="true" CodeBehind="councildetail.aspx.cs" Inherits="PublicCouncilBackEnd.manage.WebForm11" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <style>
+    <style>
         #managelayout_logoFile {
             display: none;
         }
@@ -12,6 +12,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="managelayout" runat="server">
+
     <div class="card my-md-2">
         <div class="card-header">
             Ətraflı
@@ -203,7 +204,7 @@
                         <div class="container-fluid" style="padding: 0!important">
                             <div class="row">
                                 <div class="col-6">
-                                    <asp:Image ID="logoImage" runat="server" CssClass="w-100" ImageUrl="~/Images/avatar.png" />
+                                    <asp:Image ID="logoImage" runat="server" CssClass="w-100" ImageUrl="~/Images/social-media-image.png" />
                                 </div>
                                 <div class="col-6">
                                     <asp:FileUpload ID="logoFile" runat="server" accept=".png,.jpeg,.jpg,.tif" />
@@ -268,4 +269,5 @@
             });
         });
     </script>
+
 </asp:Content>
