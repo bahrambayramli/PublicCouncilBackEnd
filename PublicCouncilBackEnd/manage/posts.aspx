@@ -1,5 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manage/Admin.Master" AutoEventWireup="true" CodeBehind="posts.aspx.cs" Inherits="PublicCouncilBackEnd.manage.WebForm2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .table td, .table th{
+            white-space:normal;
+            padding:1rem;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="managelayout" runat="server">
     <asp:UpdatePanel ID="PostsUpdatePanel" runat="server">
@@ -40,11 +46,11 @@
                             <asp:BoundField DataField="#" HeaderText="#" />
                             <asp:BoundField DataField="DATA_ID" HeaderText="DATA_ID" />
                             <asp:BoundField DataField="POST_SEOAZ" HeaderText="Başlıq Az">
-                                <ControlStyle Width="500px" />
-                                <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="500px" />
+                                <ControlStyle Width="600px" />
+                                <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="600px" />
                             </asp:BoundField>
                             <asp:BoundField DataField="POST_SEOEN" HeaderText="Başlıq En">
-                                <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="500px" />
+                                <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="600px" />
                             </asp:BoundField>
                             <asp:BoundField DataField="POST_SITECATEGORYAZ" HeaderText="Bölmə" />
                             <asp:BoundField DataField="POST_SITESUBCATEGORYAZ" HeaderText="Alt bölmə" />

@@ -20,7 +20,7 @@ namespace PublicCouncilBackEnd.manage
         1.SEO TITLE USED FOR ANCHOR LINK AND ITS USED TO SHOW NEWS TITLE IN ADMIN NEWS LIST ASPX FILE
 
        */
-
+      
 
         #region(Image Maker)
 
@@ -406,7 +406,7 @@ namespace PublicCouncilBackEnd.manage
             insertdata.Parameters.Add("@POST_DATE", SqlDbType.DateTime).Value = DT.ToString();
             insertdata.Parameters.Add("@POST_TYPE", SqlDbType.NVarChar).Value = type_list.SelectedItem.Text;
             insertdata.Parameters.Add("@POST_SERIAL", SqlDbType.NVarChar).Value = serial;
-            insertdata.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = Session["POST_AUTHOR"] as string;
+            insertdata.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = GetAuthor(pcSelectList.SelectedValue);
             insertdata.Parameters.Add("@POST_VIEWCOUNT", SqlDbType.Int).Value = 0;
             insertdata.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
             insertdata.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
@@ -1026,6 +1026,16 @@ namespace PublicCouncilBackEnd.manage
             GetDocs(Session["NEWSSERIAL"] as string);
 
         }
+
+        private string GetAuthor(string USER_ID)
+        {
+            SqlDataAdapter getUserPCdomainName = new SqlDataAdapter(new SqlCommand("SELECT USER_PCDOMAIN FROM PC_USERS WHERE USER_ID=@USER_ID"));
+
+            getUserPCdomainName.SelectCommand.Parameters.Add("@USER_ID", SqlDbType.Int).Value = USER_ID;
+
+
+            return SQL.SELECT(getUserPCdomainName).Rows[0]["USER_PCDOMAIN"].ToString() ;
+        }
         #endregion
 
 
@@ -1203,7 +1213,7 @@ namespace PublicCouncilBackEnd.manage
             {
                 try
                 {
-                    InsertData(Session["USER_ID"] as string);
+                    InsertData(pcSelectList.SelectedValue);
                 }
                 catch (Exception ex)
                 {
