@@ -34,7 +34,7 @@ namespace PublicCouncilBackEnd.manage
                                                                                                             WHERE
                                                                                                            
                                                                                                             ISACTIVE =@ISACTIVE AND
-                                                                                                            ISDELETE =@ISDELETE"));
+                                                                                                            ISDELETE =@ISDELETE "));
               
             }
            
@@ -82,8 +82,6 @@ namespace PublicCouncilBackEnd.manage
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-            
             GetPosts(pcSelectList.SelectedValue);
         }
 
@@ -153,6 +151,60 @@ namespace PublicCouncilBackEnd.manage
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            string search = "";
+            search = search + " AND POST_SEOAZ like  @POST_SEOAZ";
+
+            SqlDataAdapter getnews = new SqlDataAdapter();
+            if (string.IsNullOrEmpty(pcSelectList.SelectedValue) || pcSelectList.SelectedValue == "1")
+            {
+                getnews = new SqlDataAdapter(
+                                   new SqlCommand(@"SELECT  
+                                                       ROW_NUMBER() OVER(ORDER BY POST_DATE DESC) AS '#' ,
+	                                                                                                  DATA_ID,
+	                                                                                                  USER_ID,
+                                                                                                      POST_SEOAZ,
+                                                                                                      POST_SEOEN,
+                                                                                                      POST_SITECATEGORYAZ,
+                                                                                                      POST_SITESUBCATEGORYAZ,
+                                                                                                      POST_DATE
+                                                                                                     
+                                                                                                      FROM PC_POSTS 
+                                                                                                            WHERE
+                                                                                                           
+                                                                                                            ISACTIVE =@ISACTIVE AND
+                                                                                                            ISDELETE =@ISDELETE  AND 1=1 " + search));
+
+            }
+
+            else
+            {
+                getnews = new SqlDataAdapter(
+                                   new SqlCommand(@"SELECT  
+                                                       ROW_NUMBER() OVER(ORDER BY POST_DATE DESC) AS '#' ,
+	                                                                                                  DATA_ID,
+	                                                                                                  USER_ID,
+                                                                                                      POST_SEOAZ,
+                                                                                                      POST_SEOEN,
+                                                                                                      POST_SITECATEGORYAZ,
+                                                                                                      POST_SITESUBCATEGORYAZ,
+                                                                                                      POST_DATE
+                                                                                                     
+                                                                                                      FROM PC_POSTS 
+                                                                                                            WHERE
+                                                                                                            USER_ID = @USER_ID AND
+                                                                                                            ISACTIVE =@ISACTIVE AND
+                                                                                                            ISDELETE =@ISDELETE AND 1=1 " + search));
+                getnews.SelectCommand.Parameters.Add("@USER_ID", SqlDbType.Int).Value = pcSelectList.SelectedValue;
+            }
+
+            getnews.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
+            getnews.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
+            getnews.SelectCommand.Parameters.Add("@POST_SEOAZ", SqlDbType.NVarChar).Value = "%"+ inputSearch.Text+ "%";
+
+            PostsList.DataSource = SQL.SELECT(getnews);
+            PostsList.DataBind();
+
+            search = null;
 
         }
 

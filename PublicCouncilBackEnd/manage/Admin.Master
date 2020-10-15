@@ -23,6 +23,13 @@
     <script src="/scripts/core/jquery.min.js"></script>
     <script src="/scripts/vendor/moment/moment.js"></script>
     <script src="/scripts/plugins/bootstrap-datetimepicker.min.js"></script>
+     <!-- INTERNAL STYLES -->
+    <style>
+        .table td, .table th {
+            white-space: normal;
+            padding: 0.5rem !important;
+        }
+    </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
