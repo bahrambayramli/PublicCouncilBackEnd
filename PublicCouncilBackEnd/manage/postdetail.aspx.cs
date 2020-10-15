@@ -21,7 +21,6 @@ namespace PublicCouncilBackEnd.manage
 
        */
       
-
         #region(Image Maker)
 
         public void MadeImageForBanner(FileUpload fl, string imgName)
@@ -1048,7 +1047,6 @@ namespace PublicCouncilBackEnd.manage
         }
         #endregion
 
-
         #region(Post Sub images)
         //COMPLETED
         protected void deletePostSubImage_Click(object sender, EventArgs e)
@@ -1212,6 +1210,11 @@ namespace PublicCouncilBackEnd.manage
             }
         }
 
+        protected void category_list_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetSubCategory(category_list.SelectedValue);
+        }
+
         protected void postConfirm_Click(object sender, EventArgs e)
         {
             if (Session["POST"] as string == "SELECTED")
@@ -1246,11 +1249,6 @@ namespace PublicCouncilBackEnd.manage
             Session["POSTID"] = null;
             Session["POST_USER_ID"] = null;
             Response.Redirect("/manage/posts");
-        }
-
-        protected void category_list_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            GetSubCategory(category_list.SelectedValue);
         }
 
         protected void back_Click(object sender, EventArgs e)
