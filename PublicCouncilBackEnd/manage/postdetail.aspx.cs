@@ -562,13 +562,14 @@ namespace PublicCouncilBackEnd.manage
 
         }
 
-        private void UpdateData(string NEWSID, string userid)
+        private void UpdateData(string POST_ID, string USER_ID)
         {
             string serial = Session["POSTSERIAL"] as string;
 
 
             SqlCommand updatedata = new SqlCommand(@"UPDATE PC_POSTS SET
                                                                             
+                                                                                USER_ID           =   @USER_ID,
                                                                                 POST_AZ_TITLE     =   @POST_AZ_TITLE,
 		                                                                        POST_EN_TITLE     =   @POST_EN_TITLE,
 		                                                                        
@@ -602,25 +603,16 @@ namespace PublicCouncilBackEnd.manage
 		                                                                        POST_TYPE         =   @POST_TYPE
 		                                                                                                                  WHERE DATA_ID = @DATA_ID");
 
-            updatedata.Parameters.Add("@DATA_ID", SqlDbType.Int).Value = NEWSID;
-
+            updatedata.Parameters.Add("@DATA_ID", SqlDbType.Int).Value = POST_ID;
+            updatedata.Parameters.Add("@USER_ID", SqlDbType.Int).Value = USER_ID;
             updatedata.Parameters.Add("@POST_AZ_TITLE", SqlDbType.NVarChar).Value = posttitle_az.Text;
             updatedata.Parameters.Add("@POST_EN_TITLE", SqlDbType.NVarChar).Value = posttitle_en.Text;
-
-
-
             updatedata.Parameters.Add("@POST_SEOAZ", SqlDbType.NVarChar).Value = postseo_az.Text;
             updatedata.Parameters.Add("@POST_SEOEN", SqlDbType.NVarChar).Value = postseo_en.Text;
-
-
             updatedata.Parameters.Add("@POST_AZ_SUBTITLE", SqlDbType.NVarChar).Value = "";
             updatedata.Parameters.Add("@POST_EN_SUBTITLE", SqlDbType.NVarChar).Value = "";
-         
-
             updatedata.Parameters.Add("@POST_AZ_TOPIC", SqlDbType.NVarChar).Value = post_az.Text;
             updatedata.Parameters.Add("@POST_EN_TOPIC", SqlDbType.NVarChar).Value = post_en.Text;
-           
-
             updatedata.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = category_list.SelectedItem.Value;
             Session["subcategory"] = string.Empty;
             try
@@ -633,7 +625,7 @@ namespace PublicCouncilBackEnd.manage
 
             }
             updatedata.Parameters.Add("@POST_SUBCATEGORY", SqlDbType.NVarChar).Value = Session["subcategory"] as string;
-
+           
 
             if (inpFile.HasFile)
             {
@@ -647,7 +639,6 @@ namespace PublicCouncilBackEnd.manage
 
                 updatedata.Parameters.Add("@POST_IMG", SqlDbType.NVarChar).Value = mainImageName;
             }
-
             if (az_view.SelectedItem.Text.ToLower() == "bəli")
             {
                 updatedata.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
@@ -656,7 +647,6 @@ namespace PublicCouncilBackEnd.manage
             {
                 updatedata.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = false;
             }
-
             if (en_view.SelectedItem.Text.ToLower() == "bəli")
             {
                 updatedata.Parameters.Add("@POST_EN_VIEW", SqlDbType.Bit).Value = true;
@@ -666,12 +656,8 @@ namespace PublicCouncilBackEnd.manage
                 updatedata.Parameters.Add("@POST_EN_VIEW", SqlDbType.Bit).Value = false;
             }
 
-         
-
             DateTime DT = DateTime.ParseExact(post_date.Text, "dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
-
             updatedata.Parameters.Add("@POST_DATE", SqlDbType.DateTime).Value = DT.ToString();
-
             updatedata.Parameters.Add("@POST_TYPE", SqlDbType.NVarChar).Value = type_list.SelectedItem.Text;
 
             //select nav querry
@@ -685,12 +671,8 @@ namespace PublicCouncilBackEnd.manage
                                                                                 FROM  PC_NAV WHERE NAV_VALUE = @NAV_VALUE	AND 
                                                                            					   ISDELETE  = 'False'          AND
                                                                            					   ISACTIVE  = 'True'"));
-
             getNav.SelectCommand.Parameters.Add("@NAV_VALUE", SqlDbType.NVarChar).Value = category_list.SelectedValue;
-
             DataTable NAVDB = SQL.SELECT(getNav);
-
-
             updatedata.Parameters.Add("@POST_SITECATEGORYAZ", SqlDbType.NVarChar).Value = NAVDB.Rows[0]["NAV_AZ"].ToString();
             updatedata.Parameters.Add("@POST_SITECATEGORYEN", SqlDbType.NVarChar).Value = NAVDB.Rows[0]["NAV_EN"].ToString();
             
@@ -707,13 +689,9 @@ namespace PublicCouncilBackEnd.manage
                                                                                     SUBNAV_VALUE = @SUBNAV_VALUE              AND 
                                                                            			ISDELETE  = 'FALSE'                       AND
                                                                            			ISACTIVE  = 'TRUE'"));
-
             getsubNav.SelectCommand.Parameters.Add("@NAV_VALUE", SqlDbType.NVarChar).Value = category_list.SelectedValue;
             getsubNav.SelectCommand.Parameters.Add("@SUBNAV_VALUE", SqlDbType.NVarChar).Value = subcategory_list.SelectedValue;
-
             DataTable SUBNAVDB = SQL.SELECT(getsubNav);
-
-
             if (SUBNAVDB.Rows.Count > 0)
             {
                 updatedata.Parameters.Add("@POST_SITESUBCATEGORYAZ", SqlDbType.NVarChar).Value = SUBNAVDB.Rows[0]["SUBNAV_AZ"].ToString();
@@ -727,16 +705,11 @@ namespace PublicCouncilBackEnd.manage
                
             }
 
-
-
-
-            //---------------------------------------------------------------------------------------------------------------------------------//
-
-
+          
 
             SQL.COMMAND(updatedata);
 
-
+           //---------------------------------------------------------------------------------------------------------------------------------//
             if (subImgUpload.HasFiles)
             {
 
@@ -774,7 +747,7 @@ namespace PublicCouncilBackEnd.manage
                                                                     )
                                                                     ");
 
-                    insertsubimgs.Parameters.Add("@USER_ID", SqlDbType.Int).Value = userid;
+                    insertsubimgs.Parameters.Add("@USER_ID", SqlDbType.Int).Value = USER_ID;
 
                     insertsubimgs.Parameters.Add("@POST_SERIAL", SqlDbType.NVarChar).Value = serial;
                     insertsubimgs.Parameters.Add("@POST_IMG_NAME", SqlDbType.NVarChar).Value = subPicName;
@@ -803,7 +776,7 @@ namespace PublicCouncilBackEnd.manage
 
                     updateVideo.Parameters.Add("@POST_VIDEO_FRAME", SqlDbType.NVarChar).Value = videogalery_list.Items[i].Text.Replace(" ", string.Empty).Replace(".", string.Empty);
                     updateVideo.Parameters.Add("@POST_VIDEO_NAME", SqlDbType.NVarChar).Value = string.Empty;
-                    updateVideo.Parameters.Add("@USER_ID", SqlDbType.Int).Value = 1;
+                    updateVideo.Parameters.Add("@USER_ID", SqlDbType.Int).Value = USER_ID;
                     updateVideo.Parameters.Add("@POST_SERIAL", SqlDbType.NVarChar).Value = Session["POSTSERIAL"] as string;
                     updateVideo.Parameters.Add("@DATA_ID", SqlDbType.Int).Value = videogalery_list.Items[i].Value;
 
@@ -861,7 +834,7 @@ namespace PublicCouncilBackEnd.manage
                     insertdocs.Parameters.Add("@DOC_NAME", SqlDbType.NVarChar).Value = docname;
                     insertdocs.Parameters.Add("@DOC_DEFAULTNAME", SqlDbType.NVarChar).Value = postedFile.FileName;
 
-                    insertdocs.Parameters.Add("@USER_ID", SqlDbType.Int).Value = userid;
+                    insertdocs.Parameters.Add("@USER_ID", SqlDbType.Int).Value = USER_ID;
                     insertdocs.Parameters.Add("@POST_SERIAL", SqlDbType.NVarChar).Value = serial;
                     SQL.COMMAND(insertdocs);
 
@@ -1236,7 +1209,7 @@ namespace PublicCouncilBackEnd.manage
             {
                 try
                 {
-                    UpdateData(Session["POSTID"] as string, Session["POST_USER_ID"] as string);
+                    UpdateData(Session["POSTID"] as string, pcSelectList.SelectedValue);
 
                 }
                 catch (Exception ex)
