@@ -570,6 +570,7 @@ namespace PublicCouncilBackEnd.manage
             SqlCommand updatedata = new SqlCommand(@"UPDATE PC_POSTS SET
                                                                             
                                                                                 USER_ID           =   @USER_ID,
+                                                                                POST_AUTHOR       =   @POST_AUTHOR,
                                                                                 POST_AZ_TITLE     =   @POST_AZ_TITLE,
 		                                                                        POST_EN_TITLE     =   @POST_EN_TITLE,
 		                                                                        
@@ -605,6 +606,7 @@ namespace PublicCouncilBackEnd.manage
 
             updatedata.Parameters.Add("@DATA_ID", SqlDbType.Int).Value = POST_ID;
             updatedata.Parameters.Add("@USER_ID", SqlDbType.Int).Value = USER_ID;
+            updatedata.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = GetAuthor(USER_ID);
             updatedata.Parameters.Add("@POST_AZ_TITLE", SqlDbType.NVarChar).Value = posttitle_az.Text;
             updatedata.Parameters.Add("@POST_EN_TITLE", SqlDbType.NVarChar).Value = posttitle_en.Text;
             updatedata.Parameters.Add("@POST_SEOAZ", SqlDbType.NVarChar).Value = postseo_az.Text;
