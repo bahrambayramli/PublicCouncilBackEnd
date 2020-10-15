@@ -14,12 +14,37 @@ namespace PublicCouncilBackEnd.manage
     {
 
         #region(SQL FUNCTIONS)
-        private void GetNews(string USERID)
+        private void GetPosts(string USER_ID)
         {
-            SqlDataAdapter getnews = new SqlDataAdapter(
-                                     new SqlCommand(@"SELECT  
+            SqlDataAdapter getnews = new SqlDataAdapter();
+            if (string.IsNullOrEmpty(USER_ID)||USER_ID=="1")
+            {
+                getnews = new SqlDataAdapter(
+                                   new SqlCommand(@"SELECT  
                                                        ROW_NUMBER() OVER(ORDER BY POST_DATE DESC) AS '#' ,
 	                                                                                                  DATA_ID,
+	                                                                                                  USER_ID,
+                                                                                                      POST_SEOAZ,
+                                                                                                      POST_SEOEN,
+                                                                                                      POST_SITECATEGORYAZ,
+                                                                                                      POST_SITESUBCATEGORYAZ,
+                                                                                                      POST_DATE
+                                                                                                     
+                                                                                                      FROM PC_POSTS 
+                                                                                                            WHERE
+                                                                                                           
+                                                                                                            ISACTIVE =@ISACTIVE AND
+                                                                                                            ISDELETE =@ISDELETE"));
+              
+            }
+           
+            else
+            {
+                getnews = new SqlDataAdapter(
+                                   new SqlCommand(@"SELECT  
+                                                       ROW_NUMBER() OVER(ORDER BY POST_DATE DESC) AS '#' ,
+	                                                                                                  DATA_ID,
+	                                                                                                  USER_ID,
                                                                                                       POST_SEOAZ,
                                                                                                       POST_SEOEN,
                                                                                                       POST_SITECATEGORYAZ,
@@ -31,7 +56,11 @@ namespace PublicCouncilBackEnd.manage
                                                                                                             USER_ID = @USER_ID AND
                                                                                                             ISACTIVE =@ISACTIVE AND
                                                                                                             ISDELETE =@ISDELETE"));
-            getnews.SelectCommand.Parameters.Add("@USER_ID", SqlDbType.Int).Value = USERID;
+                getnews.SelectCommand.Parameters.Add("@USER_ID", SqlDbType.Int).Value = USER_ID;
+            }
+
+           
+            
             getnews.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
             getnews.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
 
@@ -46,14 +75,16 @@ namespace PublicCouncilBackEnd.manage
             deletenews.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = false;
             deletenews.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = true;
             SQL.COMMAND(deletenews);
-            GetNews(Session["USER_ID"] as string);
+            GetPosts(pcSelectList.SelectedValue);
 
         }
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetNews(Session["USER_ID"] as string);
+           
+            
+            GetPosts(pcSelectList.SelectedValue);
         }
 
         protected void new_post_Click(object sender, EventArgs e)
@@ -87,8 +118,9 @@ namespace PublicCouncilBackEnd.manage
             if (e.Row.RowType == DataControlRowType.Pager) { return; }
 
             try { e.Row.Cells[1].Visible = false; } catch { }
-            try { e.Row.Cells[2].Visible = true; } catch { }
-            try { e.Row.Cells[3].Visible = false; } catch { }
+            try { e.Row.Cells[2].Visible = false; } catch { }
+            try { e.Row.Cells[3].Visible = true; } catch { }
+            try { e.Row.Cells[4].Visible = false; } catch { }
 
 
         }
@@ -98,20 +130,35 @@ namespace PublicCouncilBackEnd.manage
 
             PostsList.PageIndex = e.NewPageIndex;
             
-            GetNews(Session["USER_ID"] as string);
+            GetPosts(pcSelectList.SelectedValue);
         }
 
         protected void PostsList_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["POST"] = "SELECTED";
             Session["POSTID"] = PostsList.SelectedRow.Cells[1].Text ;
+            Session["POST_USER_ID"] = PostsList.SelectedRow.Cells[2].Text;
             Response.Redirect("/manage/postdetail");
         }
 
 
 
+
         #endregion
 
-       
+        protected void pcSelectList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetPosts(pcSelectList.SelectedValue);
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnGetAll_Click(object sender, EventArgs e)
+        {
+            GetPosts("");
+        }
     }
 }

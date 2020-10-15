@@ -81,12 +81,13 @@ namespace PublicCouncilBackEnd.manage
         #region(Methods)
 
         #region(CRUD)
-        private void GetNews(string USER_ID, string POST_ID)
+        private void GetNews(string USER_ID, string POST_ID) 
         {
 
             SqlDataAdapter getPost = new SqlDataAdapter(new SqlCommand(@"SELECT 
                                                                           DATA_ID,
                                                                           USER_ID,
+                                                                          POST_AUTHOR,
                                                                           ISACTIVE,
                                                                           ISDELETE,
                                                                           POST_AZ_TITLE,
@@ -164,6 +165,26 @@ namespace PublicCouncilBackEnd.manage
                     try
                     {
                         subcategory_list.Items.FindByValue(item.Value.ToString()).Selected = true;
+                    }
+                    catch (Exception ex)
+                    {
+
+                        Debug.WriteLine(ex.Message);
+                    }
+                }
+            }
+
+
+
+            GetPcLists();
+
+            foreach (ListItem item in pcSelectList.Items)
+            {
+                if (item.Value.ToString() == dataTable.Rows[0]["USER_ID"].ToString())
+                {
+                    try
+                    {
+                        pcSelectList.Items.FindByValue(item.Value.ToString()).Selected = true;
                     }
                     catch (Exception ex)
                     {
@@ -912,6 +933,22 @@ namespace PublicCouncilBackEnd.manage
 
         }
 
+
+        private void GetPcLists()
+        {
+            SqlDataAdapter getPC = new SqlDataAdapter(new SqlCommand("SELECT USER_ID, PC_NAME FROM PC_USERS WHERE ISACTIVE = @ISACTIVE AND ISDELETE = @ISDELETE"));
+
+            getPC.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
+            getPC.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
+
+            pcSelectList.DataSource =  SQL.SELECT(getPC);
+
+            pcSelectList.DataValueField = "USER_ID";
+            pcSelectList.DataTextField = "PC_NAME";
+
+            pcSelectList.DataBind();
+        }
+
         private void GetSubImages(string POST_SERIAL)
         {
 
@@ -1156,7 +1193,7 @@ namespace PublicCouncilBackEnd.manage
                 {
                     try
                     {
-                        GetNews(Session["USER_ID"] as string,Session["POSTID"] as string);
+                        GetNews(Session["POST_USER_ID"] as string,Session["POSTID"] as string);
                     }
                     catch (Exception ex)
                     {
@@ -1199,7 +1236,7 @@ namespace PublicCouncilBackEnd.manage
             {
                 try
                 {
-                    UpdateData(Session["POSTID"] as string, Session["USER_ID"] as string);
+                    UpdateData(Session["POSTID"] as string, Session["POST_USER_ID"] as string);
 
                 }
                 catch (Exception ex)
@@ -1224,6 +1261,8 @@ namespace PublicCouncilBackEnd.manage
             }
 
             Session["POST"] = "NONE";
+            Session["POSTID"] = null;
+            Session["POST_USER_ID"] = null;
             Response.Redirect("/manage/posts");
         }
 

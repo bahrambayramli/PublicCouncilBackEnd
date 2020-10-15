@@ -48,13 +48,10 @@
                     <div class="col-12">
                         <div class="form-group">
                             <label for="managelayout_pcSelectList">Təşkilat</label>
-                            <asp:DropDownList ID="pcSelectList" runat="server" CssClass="form-control" DataSourceID="SqlDataSource1" DataTextField="PC_NAME" DataValueField="USER_ID"></asp:DropDownList>
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:pc %>" SelectCommand="SELECT USER_ID, PC_NAME FROM PC_USERS WHERE (ISACTIVE = @ISACTIVE) AND (ISDELETE = @ISDELETE)">
-                                <SelectParameters>
-                                    <asp:QueryStringParameter Name="ISACTIVE" QueryStringField="true" Type="Boolean" DefaultValue="true" />
-                                    <asp:QueryStringParameter Name="ISDELETE" QueryStringField="false" Type="Boolean" DefaultValue="false" />
-                                </SelectParameters>
-                            </asp:SqlDataSource>
+                            <asp:DropDownList ID="pcSelectList" runat="server" CssClass="form-control">
+
+                            </asp:DropDownList>
+                           
                         </div>
                     </div>
                 </div>
