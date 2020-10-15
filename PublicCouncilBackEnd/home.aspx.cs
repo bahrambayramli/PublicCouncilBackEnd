@@ -184,7 +184,7 @@ namespace PublicCouncilBackEnd
                                                                                                         POST_SITESUBCATEGORYAZ,
                                                                                                         POST_SUBCATEGORY,
                                                                                                         POST_IMG,
-                                                                                                       POST_DATE,
+                                                                                                        POST_DATE,
                                                                                                         POST_TYPE,
                                                                                                         POST_SEOAZ,
                                                                                                         POST_AUTHOR
@@ -212,7 +212,7 @@ namespace PublicCouncilBackEnd
                                                                                                         POST_SITESUBCATEGORYAZ,
                                                                                                         POST_SUBCATEGORY,
                                                                                                         POST_IMG,
-                                                                                                       POST_DATE,
+                                                                                                        POST_DATE,
                                                                                                         POST_TYPE,
                                                                                                         POST_SEOAZ,
                                                                                                         POST_AUTHOR

@@ -174,8 +174,6 @@ namespace PublicCouncilBackEnd.manage
                 }
             }
 
-
-
             GetPcLists();
 
             foreach (ListItem item in pcSelectList.Items)
@@ -1164,6 +1162,15 @@ namespace PublicCouncilBackEnd.manage
                     Response.Write(ex.Message);
                 }
 
+                try
+                {
+                    GetPcLists();
+                }
+                catch(Exception ex)
+                {
+                    Response.Write(ex.Message);
+                }
+
                 if (Session["POST"] as string == "SELECTED")
                 {
                     try
@@ -1248,8 +1255,10 @@ namespace PublicCouncilBackEnd.manage
 
         protected void back_Click(object sender, EventArgs e)
         {
+
             Session["POST"] = null;
             Session["POSTID"] = null;
+            Session["POST_USER_ID"] = null;
             Response.Redirect("/manage/posts");
         }
     }
