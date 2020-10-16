@@ -7,12 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace PublicCouncilBackEnd.subsite
 {
-    public partial class Subdomain : System.Web.UI.MasterPage
+    public partial class WebForm1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            LogoDesktop.DataSource = SQLFUNC.GetLogo("1", false, true);
-            LogoDesktop.DataBind();
+
         }
     }
 }

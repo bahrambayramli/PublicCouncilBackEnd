@@ -90,7 +90,7 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                         <asp:ListView ID="SPONSORS" runat="server">
-                                            
+
                                             <ItemTemplate>
                                                 <div class="col-4">
                                                     <a href="<%#Eval("SPONSOR_LINK")%>" target="_blank" class="d-block">
@@ -113,7 +113,6 @@
                     <div class="site-nav">
                         <nav class="navbar py-2 navbar-expand-lg navbar-dark px-0 ">
                             <div class="container-fluid px-0">
-
                                 <asp:ListView ID="LogoMobile" runat="server">
                                     <LayoutTemplate>
                                         <a class="navbar-brand pl-2 pl-md-0 mr-lg-5 d-md-none" href="/home/az">
@@ -129,6 +128,7 @@
                                     aria-controls="navbar-primary" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
+
                                 <div class="collapse navbar-collapse" id="navbar-primary">
                                     <div class="navbar-collapse-header">
                                         <div class="row">

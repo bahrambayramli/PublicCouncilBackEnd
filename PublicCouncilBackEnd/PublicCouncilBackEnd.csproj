@@ -226,6 +226,7 @@
     <Content Include="manage\sponsordetail.aspx" />
     <Content Include="manage\councils.aspx" />
     <Content Include="manage\councildetail.aspx" />
+    <Content Include="subsite\home.aspx" />
     <Content Include="Web.config" />
     <Content Include="home.aspx" />
     <Content Include="posts.aspx" />
@@ -426,6 +427,13 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="subsite\home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="subsite\home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

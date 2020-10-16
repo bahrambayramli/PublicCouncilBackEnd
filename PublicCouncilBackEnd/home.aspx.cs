@@ -247,16 +247,24 @@ namespace PublicCouncilBackEnd
        
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            
+            if (HttpContext.Current.Request.Url.ToString().Contains(".publiccouncil.ml") && 
+               !HttpContext.Current.Request.Url.ToString().Contains("www.public.ml"))
+            {
+                Session["ngosubsite"] =
+                     HttpContext.Current.Request.Url.ToString()
+                    .Substring(0, HttpContext.Current.Request.Url.ToString().IndexOf("."))
+                    .Replace("http://", string.Empty);
+
+                    Response.Redirect("/site/home/az");
+            }
+
             GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "","Əsas", false, true, "admin",MAINSLIDER_AZ,MAINSLIDER_EN);
-
             GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "","Sağ yuxarı", false, true, "admin", RIGHTTOP_AZ, RIGHTTOP_EN);
-
             GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "","Sağ aşağı",false, true, "admin", RIGHTBOTTOM_AZ, RIGHTBOTTOM_EN);
-
             GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "", "Sağ aşağı", false, true, "admin", RIGHTBOTTOM_AZ, RIGHTBOTTOM_EN);
-
             GetPosts(Page.RouteData.Values["language"] as string, "6", "news", "", "Sadə", false, true, "admin", SIMPLEPOSTS_AZ, SIMPLEPOSTS_EN);
-
             switch (Page.RouteData.Values["language"] as string)
             {
                 case "az":
@@ -279,9 +287,7 @@ namespace PublicCouncilBackEnd
                     }
                    
             }
-
             GetPosts(Page.RouteData.Values["language"] as string, "6", "publications", "", "Sadə", false, true, "admin", PUBLICATIONS_AZ, PUBLICATIONS_EN);
-
             GetPosts(Page.RouteData.Values["language"] as string, "6", "reports", "", "Sadə", false, true, "admin", REPORTS_AZ, REPORTS_EN);
         }
     }
