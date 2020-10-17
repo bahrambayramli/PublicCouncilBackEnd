@@ -87,139 +87,84 @@
 
     <!-- Posts -->
     <section class="site-posts mb-2">
-        <div class="container-fluid p-0">
-            <div class="row">
-                <div class="col">
-                    <a href="#"
-                        class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
-                        <i class="far fa-newspaper mr-2"></i>
-                        Xəbərlər
-                    </a>
+        <asp:ListView ID="SIMPLEPOSTS_AZ" runat="server">
+            <LayoutTemplate>
+                <div class="container-fluid p-0">
+                    <div class="row">
+                        <div class="col">
+                            <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
+                                <i class="far fa-newspaper mr-2"></i>
+                                Xəbərlər
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <article class="col-md-6 d-flex align-items-stretch">
-
-                    <div class="card mb-3 rounded post overflow-hidden"
-                        href="#">
+            </LayoutTemplate>
+            <ItemTemplate>
+                <article class="col-12 col-md-6 d-flex align-items-stretch">
+                    <div class="card mb-3 rounded post overflow-hidden">
                         <div class="post-header overflow-hidden">
-                            <a href="#" class="d-block">
-                                <img src="../images/test/ilhameliyev.jpg"
-                                    class="post-img" alt="">
+                            <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block" title="">
+                                <img src="/images/<%#Eval("POST_IMG")%>" class="post-img" alt="<%#Eval("POST_SEOAZ")%>">
                             </a>
                         </div>
-                        <div
-                            class="d-flex justify-content-between py-2 px-2">
-                            <a class="btn btn-sm btn-outline-default btn-round shadow-sm"
-                                href="#">Xeberler</a>
-                            <a class="btn btn-sm btn-outline-danger btn-round shadow-sm"
-                                href="#">05/09/2020
-                                                                                                            15:15</a>
-                        </div>
-                        <div
-                            class="card-body px-3 pt-0 font-weight-300">
-                            Some quick example text to build on
-                                                                                                      the card title and make up
-                                                                                                      the
-                                                                                                      bulk
-                                                                                                      of the card's content.
-
-                        </div>
-                    </div>
-
-                </article>
-                <article class="col-md-6 d-flex align-items-stretch">
-
-                    <div class="card mb-3 rounded post overflow-hidden"
-                        href="#">
-                        <div class="post-header overflow-hidden">
-                            <a href="#" class="d-block">
-                                <img src="../images/test/ilhameliyev.jpg"
-                                    class="post-img" alt="">
+                        <div class="d-flex justify-content-between py-2 px-2">
+                            <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/posts/az">
+                                <%#Eval("POST_SITECATEGORYAZ")%>
+                            </a>
+                            <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="<%#Eval("DATA_ID")%>">
+                                <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                             </a>
                         </div>
-                        <div
-                            class="d-flex justify-content-between py-2 px-2">
-                            <a class="btn btn-sm btn-outline-default btn-round shadow-sm"
-                                href="#">Xeberler</a>
-                            <a class="btn btn-sm btn-outline-danger btn-round shadow-sm"
-                                href="#">05/09/2020
-                                                                                                            15:15</a>
-                        </div>
-                        <div
-                            class="card-body px-3 pt-0 font-weight-300">
-                            Some quick example text to build on
-                                                                                                      the card title and make up
-                                                                                                      the
-                                                                                                      bulk
-                                                                                                      of the card's content.
-
+                        <div class="card-body px-3 pt-0 font-weight-300">
+                            <%#Eval("POST_AZ_TITLE")%>
                         </div>
                     </div>
-
                 </article>
-                <article class="col-md-6 d-flex align-items-stretch">
+            </ItemTemplate>
+        </asp:ListView>
 
-                    <div class="card mb-3 rounded post overflow-hidden"
-                        href="#">
-                        <div class="post-header overflow-hidden">
-                            <a href="#" class="d-block">
-                                <img src="../images/test/ilhameliyev.jpg"
-                                    class="post-img" alt="">
+        <asp:ListView ID="SIMPLEPOSTS_EN" runat="server">
+            <LayoutTemplate>
+                <div class="container-fluid p-0">
+                    <div class="row">
+                        <div class="col">
+                            <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
+                                <i class="far fa-newspaper mr-2"></i>
+                                News
                             </a>
                         </div>
-                        <div
-                            class="d-flex justify-content-between py-2 px-2">
-                            <a class="btn btn-sm btn-outline-default btn-round shadow-sm"
-                                href="#">Xeberler</a>
-                            <a class="btn btn-sm btn-outline-danger btn-round shadow-sm"
-                                href="#">05/09/2020
-                                                                                                            15:15</a>
-                        </div>
-                        <div
-                            class="card-body px-3 pt-0 font-weight-300">
-                            Some quick example text to build on
-                                                                                                      the card title and make up
-                                                                                                      the
-                                                                                                      bulk
-                                                                                                      of the card's content.
-
-                        </div>
                     </div>
-
-                </article>
-                <article class="col-md-6 d-flex align-items-stretch">
-
-                    <div class="card mb-3 rounded post overflow-hidden"
-                        href="#">
+                    <div class="row">
+                        <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                    </div>
+                </div>
+            </LayoutTemplate>
+            <ItemTemplate>
+                <article class="col-12 col-md-6 d-flex align-items-stretch">
+                    <div class="card mb-3 rounded post overflow-hidden">
                         <div class="post-header overflow-hidden">
-                            <a href="#" class="d-block">
-                                <img src="../images/test/ilhameliyev.jpg"
-                                    class="post-img" alt="">
+                            <a href="/details/en/<%#Eval("DATA_ID")%>" class="d-block" title="">
+                                <img src="/images/<%#Eval("POST_IMG")%>" class="post-img" alt="<%#Eval("POST_SEOEN")%>">
                             </a>
                         </div>
-                        <div
-                            class="d-flex justify-content-between py-2 px-2">
-                            <a class="btn btn-sm btn-outline-default btn-round shadow-sm"
-                                href="#">Xeberler</a>
-                            <a class="btn btn-sm btn-outline-danger btn-round shadow-sm"
-                                href="#">05/09/2020
-                                                                                                            15:15</a>
+                        <div class="d-flex justify-content-between py-2 px-2">
+                            <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/posts/az">
+                                <%#Eval("POST_SITECATEGORYEN")%>
+                            </a>
+                            <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="<%#Eval("DATA_ID")%>">
+                                <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
+                            </a>
                         </div>
-                        <div
-                            class="card-body px-3 pt-0 font-weight-300">
-                            Some quick example text to build on
-                                                                                                      the card title and make up
-                                                                                                      the
-                                                                                                      bulk
-                                                                                                      of the card's content.
-
+                        <div class="card-body px-3 pt-0 font-weight-300">
+                            <%#Eval("POST_EN_TITLE")%>
                         </div>
                     </div>
-
                 </article>
-
-            </div>
-        </div>
+            </ItemTemplate>
+        </asp:ListView>
     </section>
 </asp:Content>

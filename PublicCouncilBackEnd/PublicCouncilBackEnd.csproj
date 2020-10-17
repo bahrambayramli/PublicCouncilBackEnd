@@ -199,6 +199,9 @@
       <DependentUpon>style.css</DependentUpon>
     </Content>
     <Content Include="content\scss\subsite.css" />
+    <Content Include="content\scss\subsite.min.css">
+      <DependentUpon>subsite.css</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="images\7000.jpg" />
     <Content Include="images\adv1.png" />

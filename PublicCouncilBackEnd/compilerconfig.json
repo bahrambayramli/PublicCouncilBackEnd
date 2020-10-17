@@ -2,5 +2,9 @@
   {
     "outputFile": "content/scss/style.css",
     "inputFile": "content/scss/style.scss"
+  },
+  {
+    "outputFile": "content/scss/subsite.css",
+    "inputFile": "content/scss/subsite.scss"
   }
 ]

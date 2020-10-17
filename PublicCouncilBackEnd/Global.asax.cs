@@ -67,7 +67,7 @@ namespace PublicCouncilBackEnd
 
 
             //Subdomain routes
-            //routes.MapPageRoute("ngohome", "site/home/{language}", "~/ngo/home.aspx");
+            routes.MapPageRoute("pchome", "site/home/{language}", "~/subsite/home.aspx");
             //routes.MapPageRoute("ngonews", "site/news/{language}", "~/ngo/news.aspx");
             //routes.MapPageRoute("ngoprojects", "site/projects/{language}", "~/ngo/projects.aspx");
             //routes.MapPageRoute("ngomultimedia", "site/multimedia/{language}", "~/ngo/multimedia.aspx");
@@ -100,7 +100,7 @@ namespace PublicCouncilBackEnd
 
         protected void Application_Error(object sender, EventArgs e)
         {
-
+           // Response.Write(e.ToString());
         }
 
         protected void Session_End(object sender, EventArgs e)

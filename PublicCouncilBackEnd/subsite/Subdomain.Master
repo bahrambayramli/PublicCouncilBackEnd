@@ -16,7 +16,7 @@
     <link href="/content/css/owl.carousel.min.css" rel="stylesheet" />
     <link href="/content/css/owl.theme.default.min.css" rel="stylesheet" />
     <link href="/content/scss/style.css" rel="stylesheet" />
-
+    <link href="/content/scss/subsite.css" rel="stylesheet" />
     <!-- FONTS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
@@ -25,6 +25,7 @@
     <!-- SCRIPTS -->
     <script src="/scripts/core/jquery.min.js"></script>
     <script src="/scripts/owl.carousel.js"></script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -70,12 +71,7 @@
                 <div class="site-container">
                     <div class="container-fluid py-2 m-0">
                         <div class="row align-items-center justify-content-between">
-                            <div class="col-3">
-                                <img class="rounded shadow-sm" src="../images/adv2.png" alt="">
-
-                            </div>
-
-                            <div class="col-3">
+                            <div class="col-6">
                                 <asp:ListView ID="LogoDesktop" runat="server">
                                     <LayoutTemplate>
                                         <a href="/home/az" class="d-block">
@@ -86,6 +82,22 @@
                                         <img class="rounded shadow-sm w-25" src="/images/logos/<%#Eval("LOGO_IMG")%>" alt="<%#Eval("LOGO_TITLE") %>">
                                     </ItemTemplate>
                                 </asp:ListView>
+                            </div>
+                            <div class="col-6">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <asp:ListView ID="SPONSORS" runat="server">
+
+                                            <ItemTemplate>
+                                                <div class="col-4">
+                                                    <a href="<%#Eval("SPONSOR_LINK")%>" target="_blank" class="d-block">
+                                                        <img class="rounded shadow-sm" src="/images/<%#Eval("SPONSOR_IMG")%>" alt="<%#Eval("SPONSOR_LINK")%>">
+                                                    </a>
+                                                </div>
+                                            </ItemTemplate>
+                                        </asp:ListView>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -103,68 +115,67 @@
 
                     <section id="subsidebar" class="subside-bar">
                         <div class="subside-header">
-                            <a class="sub-logo d-block text-center d-md-none" href="#">
-                                <img src="../images/Logo/Logo1.jpeg" alt="....">
-                            </a>
+                            <asp:ListView ID="logoPcMobile" runat="server">
+                                <LayoutTemplate>
+                                    <a href="#" class="d-block">
+                                        <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                                    </a>
+                                </LayoutTemplate>
+                                <ItemTemplate>
+                                    <img class="rounded shadow-sm" src="/images/logos/<%#Eval("LOGO_IMG")%>" alt="<%#Eval("LOGO_TITLE") %>">
+                                </ItemTemplate>
+                            </asp:ListView>
                             <div id="subnavtoggle" class="subnav-toggle">
                                 <i id="toggleicon" class="fas fa-bars"></i>
                             </div>
                         </div>
                         <div id="subsidebottom" class="subside-bottom">
                             <nav id="subnav" class="sub-nav">
+                                
+
                                 <ul id="subnavul" class="subnav-ul">
+
                                     <li class="subnav-item">
-                                        <a class="subnav-link" href="#">
-                                            <i class="fas fa-home text-danger mr-2"></i>
-                                            <span class="subnav-link-text">Baş səhifə</span>
-                                        </a>
+                                        <asp:HyperLink ID="_home" runat="server" CssClass="subnav-link">
+                                        </asp:HyperLink>
+                                    </li>
+                                    <li class="subnav-item">
+                                        <asp:HyperLink ID="_news" runat="server" CssClass="subnav-link">
+                                        </asp:HyperLink>
+                                    </li>
+                                    <li class="subnav-item">
+                                        <asp:HyperLink ID="_projects" runat="server" CssClass="subnav-link">
+                                        </asp:HyperLink>
+                                    </li>
+                                     <li class="subnav-item">
+                                        <asp:HyperLink ID="_legilations" runat="server" CssClass="subnav-link">
+                                        </asp:HyperLink>
+                                    </li>
+                                    <li class="subnav-item">
+                                        <asp:HyperLink ID="_reports" runat="server" CssClass="subnav-link">
+                                        </asp:HyperLink>
                                     </li>
                                     <li class="subnav-item">
 
-                                        <a class="nav-link subnav-link" href="#">
-                                            <i class="fas fa-newspaper text-danger mr-2"></i>
-                                            <span class="subnav-link-text">Xəbərlər</span>
-                                        </a>
+                                        <asp:HyperLink ID="_publications" runat="server" CssClass="subnav-link">
+                                        </asp:HyperLink>
+                                    </li>
+                                    <li class="subnav-item">
+                                        <asp:HyperLink ID="_multimedia" runat="server" CssClass="subnav-link">
+                                        </asp:HyperLink>
+                                    </li>
+                                    <%--<li class="subnav-item">
 
+                                        <asp:HyperLink ID="_aboutus" runat="server" CssClass="subnav-link">
+                                        </asp:HyperLink>
                                     </li>
                                     <li class="subnav-item">
-                                        <a class="nav-link subnav-link" href="#">
 
-                                            <i class="fas fa-project-diagram text-danger mr-2"></i>
-                                            <span class="subnav-link-text">Lahiyələr</span>
-                                        </a>
-                                    </li>
-                                    <li class="subnav-item">
-                                        <a class="nav-link subnav-link" href="#">
-                                            <i class="fas fa-flag text-danger mr-2"></i>
-                                            <span class="subnav-link-text">Hesabatlar</span>
-                                        </a>
-                                    </li>
-                                    <li class="subnav-item">
-                                        <a class="nav-link subnav-link" href="#">
-                                            <i class="fas fa-book-open text-danger mr-2"></i>
-                                            <span class="subnav-link-text">Nəşrlər</span>
-                                        </a>
-                                    </li>
-                                    <li class="subnav-item">
-                                        <a class="nav-link subnav-link" href="#">
-                                            <i class="fas fa-photo-video text-danger mr-2"></i>
-                                            <span class="subnav-link-text">Multimedia</span>
-                                        </a>
-                                    </li>
-                                    <li class="subnav-item">
-                                        <a class="nav-link subnav-link" href="#">
-                                            <i class="fas fa-address-card text-danger mr-2"></i>
-                                            <span class="subnav-link-text">Haqqımızda</span>
-                                        </a>
-                                    </li>
-                                    <li class="subnav-item">
-                                        <a class="nav-link subnav-link" href="#">
-                                            <i class="fas fa-globe text-danger mr-2"></i>
-                                            <span class="subnav-link-text">Əlaqə</span>
-                                        </a>
-                                    </li>
+                                        <asp:HyperLink ID="_contactus" runat="server" CssClass="subnav-link">
+                                        </asp:HyperLink>
+                                    </li>--%>
                                 </ul>
+                               
                             </nav>
                         </div>
                     </section>
@@ -172,7 +183,9 @@
                     <section id="submainbar" class="submain-bar">
 
                         <div class="mainbar-header d-md-none">
-                            <p class="text-center m-0 mainbar-header-title">İctimai şura</p>
+                            <p class="text-center m-0 mainbar-header-title">
+                                <asp:Literal ID="pcName" runat="server"></asp:Literal>
+                            </p>
                         </div>
 
                         <section class="mainbar-bottom ">

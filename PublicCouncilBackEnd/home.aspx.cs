@@ -249,10 +249,10 @@ namespace PublicCouncilBackEnd
         {
 
             
-            if (HttpContext.Current.Request.Url.ToString().Contains(".publiccouncil.ml") && 
-               !HttpContext.Current.Request.Url.ToString().Contains("www.public.ml"))
+            if (HttpContext.Current.Request.Url.ToString().Contains(".publiccouncil.ml") &&
+               !HttpContext.Current.Request.Url.ToString().Contains("www.publiccouncil.ml"))
             {
-                Session["ngosubsite"] =
+                Session["pcsubsite"] =
                      HttpContext.Current.Request.Url.ToString()
                     .Substring(0, HttpContext.Current.Request.Url.ToString().IndexOf("."))
                     .Replace("http://", string.Empty);
