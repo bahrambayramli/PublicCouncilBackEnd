@@ -218,6 +218,7 @@
     <Content Include="images\test\koronovirus.jpg" />
     <Content Include="images\test\mainphoto.jpg" />
     <Content Include="images\test\mehribanaliyeva.jpg" />
+    <Content Include="Logs\logs.txt" />
     <Content Include="manage\dashboard.aspx" />
     <Content Include="manage\posts.aspx" />
     <Content Include="manage\postdetail.aspx" />
@@ -511,7 +512,6 @@
   <ItemGroup>
     <Folder Include="images\logos\" />
     <Folder Include="images\subimages\" />
-    <Folder Include="Logs\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

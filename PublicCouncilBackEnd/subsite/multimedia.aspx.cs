@@ -296,27 +296,27 @@ namespace PublicCouncilBackEnd.subsite
                     {
                         postsName.Text = "Multimedia";
                         postPhoto.Text = "Foto";
-                        postPhoto.NavigateUrl = "/multimedia/photo/az";
+                        postPhoto.NavigateUrl = "/site/multimedia/photo/az";
                         postVideo.Text = "Video";
-                        postVideo.NavigateUrl = "/multimedia/video/az";
+                        postVideo.NavigateUrl = "/site/multimedia/video/az";
                         break;
                     }
                 case "en":
                     {
                         postsName.Text = "multimedias";
                         postPhoto.Text = "Photo";
-                        postPhoto.NavigateUrl = "/multimedia/photo/en";
+                        postPhoto.NavigateUrl = "/site/multimedia/photo/en";
                         postVideo.Text = "Video";
-                        postVideo.NavigateUrl = "/multimedia/video/en";
+                        postVideo.NavigateUrl = "/site/multimedia/video/en";
                         break;
                     }
                 default:
                     {
                         postsName.Text = "multimedia";
                         postPhoto.Text = "Foto";
-                        postPhoto.NavigateUrl = "/multimedia/photo/az";
+                        postPhoto.NavigateUrl = "/site/multimedia/photo/az";
                         postVideo.Text = "Video";
-                        postVideo.NavigateUrl = "/multimedia/video/az";
+                        postVideo.NavigateUrl = "/site/multimedia/video/az";
                         break;
                     }
             }

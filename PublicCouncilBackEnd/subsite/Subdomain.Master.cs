@@ -66,14 +66,28 @@ namespace PublicCouncilBackEnd.subsite
 
         private void Navigation()
         {
-            switch (Convert.ToString(Session["language"]).ToLower())
+            Label home = new Label();
+            Literal homeicon = new Literal();
+            Label news = new Label();
+            Literal newsicon = new Literal();
+            Label projects = new Label();
+            Literal projectsicon = new Literal();
+            Label legislation = new Label();
+            Literal legislationicon = new Literal();
+            Label publications = new Label();
+            Literal publicationsicon = new Literal();
+            Label reports = new Label();
+            Literal reportsicon = new Literal();
+            Label multimedia = new Label();
+            Literal multimediaicon = new Literal();
+
+            switch (Convert.ToString(Page.RouteData.Values["language"]).ToLower())
             {
                 case "az":
                     {
                         try
                         {
-                            Label home = new Label();
-                            Literal homeicon = new Literal();
+                          
                             home.Text = "ANA SƏHİFƏ";
                             home.CssClass = "subnav-link-text";
                             homeicon.Text = " <i class='fas fa-home text-danger mr-2'></i>";
@@ -81,8 +95,7 @@ namespace PublicCouncilBackEnd.subsite
                             _home.Controls.Add(home);
                             _home.NavigateUrl = "/site/home/az";
 
-                            Label news = new Label();
-                            Literal newsicon = new Literal();
+                          
                             news.Text = "XƏBƏRLƏR";
                             news.CssClass = "subnav-link-text";
                             newsicon.Text = " <i class='fas fa-newspaper text-danger mr-2'></i>";
@@ -90,8 +103,7 @@ namespace PublicCouncilBackEnd.subsite
                             _news.Controls.Add(news);
                             _news.NavigateUrl = "/site/posts/az";
 
-                            Label projects = new Label();
-                            Literal projectsicon = new Literal();
+                           
                             projects.Text = "ELANLAR";
                             projects.CssClass = "subnav-link-text";
                             projectsicon.Text = "<i class='fas fa-project-diagram text-danger mr-2'></i>";
@@ -99,8 +111,7 @@ namespace PublicCouncilBackEnd.subsite
                             _projects.Controls.Add(projects);
                             _projects.NavigateUrl = "/site/announcements/az";
 
-                            Label legislation = new Label();
-                            Literal legislationicon = new Literal();
+                           
                             legislation.Text = "QANUNVERİCİLİK";
                             legislation.CssClass = "subnav-link-text";
                             legislationicon.Text = " <i class='fas fa-gavel text-danger mr-2'></i>";
@@ -110,8 +121,7 @@ namespace PublicCouncilBackEnd.subsite
 
 
 
-                            Label publications = new Label();
-                            Literal publicationsicon = new Literal();
+                          
                             publications.Text = "NƏŞRLƏR";
                             publications.CssClass = "subnav-link-text";
                             publicationsicon.Text = " <i class='fas fa-book-open text-danger mr-2'></i>";
@@ -119,8 +129,7 @@ namespace PublicCouncilBackEnd.subsite
                             _publications.Controls.Add(publications);
                             _publications.NavigateUrl = "/site/publications/az";
 
-                            Label reports = new Label();
-                            Literal reportsicon = new Literal();
+                          
                             reports.Text = "HESABATLAR";
                             reports.CssClass = "subnav-link-text";
                             reportsicon.Text = " <i class='fas fa-flag text-danger mr-2'></i>";
@@ -128,8 +137,7 @@ namespace PublicCouncilBackEnd.subsite
                             _reports.Controls.Add(reports);
                             _reports.NavigateUrl = "/site/reports/az";
 
-                            Label multimedia = new Label();
-                            Literal multimediaicon = new Literal();
+                          
                             multimedia.Text = "MULTİMEDİA";
                             multimedia.CssClass = "subnav-link-text";
                             multimediaicon.Text = " <i class='fas fa-photo-video text-danger mr-2'></i>";
@@ -166,10 +174,8 @@ namespace PublicCouncilBackEnd.subsite
                 case "en":
                     {
 
-                        try
-                        {
-                            Label home = new Label();
-                            Literal homeicon = new Literal();
+
+                          
                             home.Text = "HOME";
                             home.CssClass = "subnav-link-text";
                             homeicon.Text = " <i class='fas fa-home text-danger mr-2'></i>";
@@ -177,8 +183,7 @@ namespace PublicCouncilBackEnd.subsite
                             _home.Controls.Add(home);
                             _home.NavigateUrl = "/site/home/en";
 
-                            Label news = new Label();
-                            Literal newsicon = new Literal();
+                           
                             news.Text = "NEWS";
                             news.CssClass = "subnav-link-text";
                             newsicon.Text = " <i class='fas fa-newspaper text-danger mr-2'></i>";
@@ -186,8 +191,7 @@ namespace PublicCouncilBackEnd.subsite
                             _news.Controls.Add(news);
                             _news.NavigateUrl = "/site/posts/en";
 
-                            Label projects = new Label();
-                            Literal projectsicon = new Literal();
+                           
                             projects.Text = "ANNOUNCEMENTS";
                             projects.CssClass = "subnav-link-text";
                             projectsicon.Text = "<i class='fas fa-project-diagram text-danger mr-2'></i>";
@@ -195,8 +199,7 @@ namespace PublicCouncilBackEnd.subsite
                             _projects.Controls.Add(projects);
                             _projects.NavigateUrl = "/site/announcements/en";
 
-                            Label legislation = new Label();
-                            Literal legislationicon = new Literal();
+                            
                             legislation.Text = "LEGISLATION";
                             legislation.CssClass = "subnav-link-text";
                             legislationicon.Text = " <i class='fas fa-gavel text-danger mr-2'></i>";
@@ -206,8 +209,7 @@ namespace PublicCouncilBackEnd.subsite
 
 
 
-                            Label publications = new Label();
-                            Literal publicationsicon = new Literal();
+                            
                             publications.Text = "PUBLICATIONS";
                             publications.CssClass = "subnav-link-text";
                             publicationsicon.Text = " <i class='fas fa-book-open text-danger mr-2'></i>";
@@ -215,8 +217,7 @@ namespace PublicCouncilBackEnd.subsite
                             _publications.Controls.Add(publications);
                             _publications.NavigateUrl = "/site/publications/en";
 
-                            Label reports = new Label();
-                            Literal reportsicon = new Literal();
+                         
                             reports.Text = "REPORTS";
                             reports.CssClass = "subnav-link-text";
                             reportsicon.Text = " <i class='fas fa-flag text-danger mr-2'></i>";
@@ -224,8 +225,7 @@ namespace PublicCouncilBackEnd.subsite
                             _reports.Controls.Add(reports);
                             _reports.NavigateUrl = "/site/reports/en";
 
-                            Label multimedia = new Label();
-                            Literal multimediaicon = new Literal();
+                         
                             multimedia.Text = "MULTIMEDIA";
                             multimedia.CssClass = "subnav-link-text";
                             multimediaicon.Text = " <i class='fas fa-photo-video text-danger mr-2'></i>";
@@ -250,21 +250,15 @@ namespace PublicCouncilBackEnd.subsite
                             //_contactus.Controls.Add(contactusicon);
                             //_contactus.Controls.Add(contactus);
                             //_contactus.NavigateUrl = "/site/contactus/az";
-
-                        }
-                        catch (Exception ex)
-                        {
-                            Response.Write(ex.Message);
-                            throw;
-                        }
+         
+                        
                         break;
                     }
                 default:
                     {
                         try
                         {
-                            Label home = new Label();
-                            Literal homeicon = new Literal();
+                        
                             home.Text = "ANA SƏHİFƏ";
                             home.CssClass = "subnav-link-text";
                             homeicon.Text = " <i class='fas fa-home text-danger mr-2'></i>";
@@ -272,8 +266,7 @@ namespace PublicCouncilBackEnd.subsite
                             _home.Controls.Add(home);
                             _home.NavigateUrl = "/site/home/az";
 
-                            Label news = new Label();
-                            Literal newsicon = new Literal();
+                         
                             news.Text = "XƏBƏRLƏR";
                             news.CssClass = "subnav-link-text";
                             newsicon.Text = " <i class='fas fa-newspaper text-danger mr-2'></i>";
@@ -281,8 +274,7 @@ namespace PublicCouncilBackEnd.subsite
                             _news.Controls.Add(news);
                             _news.NavigateUrl = "/site/posts/az";
 
-                            Label projects = new Label();
-                            Literal projectsicon = new Literal();
+                           
                             projects.Text = "ELANLAR";
                             projects.CssClass = "subnav-link-text";
                             projectsicon.Text = "<i class='fas fa-project-diagram text-danger mr-2'></i>";
@@ -290,8 +282,7 @@ namespace PublicCouncilBackEnd.subsite
                             _projects.Controls.Add(projects);
                             _projects.NavigateUrl = "/site/announcements/az";
 
-                            Label legislation = new Label();
-                            Literal legislationicon = new Literal();
+                           
                             legislation.Text = "QANUNVERİCİLİK";
                             legislation.CssClass = "subnav-link-text";
                             legislationicon.Text = " <i class='fas fa-gavel text-danger mr-2'></i>";
@@ -301,8 +292,7 @@ namespace PublicCouncilBackEnd.subsite
 
 
 
-                            Label publications = new Label();
-                            Literal publicationsicon = new Literal();
+                           
                             publications.Text = "NƏŞRLƏR";
                             publications.CssClass = "subnav-link-text";
                             publicationsicon.Text = " <i class='fas fa-book-open text-danger mr-2'></i>";
@@ -310,8 +300,7 @@ namespace PublicCouncilBackEnd.subsite
                             _publications.Controls.Add(publications);
                             _publications.NavigateUrl = "/site/publications/az";
 
-                            Label reports = new Label();
-                            Literal reportsicon = new Literal();
+                          
                             reports.Text = "HESABATLAR";
                             reports.CssClass = "subnav-link-text";
                             reportsicon.Text = " <i class='fas fa-flag text-danger mr-2'></i>";
@@ -319,14 +308,13 @@ namespace PublicCouncilBackEnd.subsite
                             _reports.Controls.Add(reports);
                             _reports.NavigateUrl = "/site/reports/az";
 
-                            Label multimedia = new Label();
-                            Literal multimediaicon = new Literal();
+                           
                             multimedia.Text = "MULTİMEDİA";
                             multimedia.CssClass = "subnav-link-text";
                             multimediaicon.Text = " <i class='fas fa-photo-video text-danger mr-2'></i>";
                             _multimedia.Controls.Add(multimediaicon);
                             _multimedia.Controls.Add(multimedia);
-                            _multimedia.NavigateUrl = "/site/multimedia/az";
+                            _multimedia.NavigateUrl = "/site/multimedia/az/az";
 
                             //Label aboutus = new Label();
                             //Literal aboutusicon = new Literal();
@@ -383,7 +371,9 @@ namespace PublicCouncilBackEnd.subsite
 
         private void SiteLanguage()
         {
-            switch (Session["language"] as string)
+
+           // string aaa = Session["language"] as string;
+            switch (Convert.ToString(Page.RouteData.Values["language"]).ToLower())
             {
                 case "az":
                     {
@@ -915,6 +905,7 @@ namespace PublicCouncilBackEnd.subsite
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             GetLogos();
             Navigation();
             SiteLanguage();
