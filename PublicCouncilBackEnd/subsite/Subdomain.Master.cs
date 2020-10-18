@@ -66,97 +66,296 @@ namespace PublicCouncilBackEnd.subsite
 
         private void Navigation()
         {
-            try
+            switch (Convert.ToString(Session["language"]).ToLower())
             {
-                Label home = new Label();
-                Literal homeicon = new Literal();
-                home.Text = "ANA SƏHİFƏ";
-                home.CssClass = "subnav-link-text";
-                homeicon.Text = " <i class='fas fa-home text-danger mr-2'></i>";
-                _home.Controls.Add(homeicon);
-                _home.Controls.Add(home);
-                _home.NavigateUrl = "/site/home/az";
+                case "az":
+                    {
+                        try
+                        {
+                            Label home = new Label();
+                            Literal homeicon = new Literal();
+                            home.Text = "ANA SƏHİFƏ";
+                            home.CssClass = "subnav-link-text";
+                            homeicon.Text = " <i class='fas fa-home text-danger mr-2'></i>";
+                            _home.Controls.Add(homeicon);
+                            _home.Controls.Add(home);
+                            _home.NavigateUrl = "/site/home/az";
 
-                Label news = new Label();
-                Literal newsicon = new Literal();
-                news.Text = "XƏBƏRLƏR";
-                news.CssClass = "subnav-link-text";
-                newsicon.Text = " <i class='fas fa-newspaper text-danger mr-2'></i>";
-                _news.Controls.Add(newsicon);
-                _news.Controls.Add(news);
-                _news.NavigateUrl = "/site/posts/az";
+                            Label news = new Label();
+                            Literal newsicon = new Literal();
+                            news.Text = "XƏBƏRLƏR";
+                            news.CssClass = "subnav-link-text";
+                            newsicon.Text = " <i class='fas fa-newspaper text-danger mr-2'></i>";
+                            _news.Controls.Add(newsicon);
+                            _news.Controls.Add(news);
+                            _news.NavigateUrl = "/site/posts/az";
 
-                Label projects = new Label();
-                Literal projectsicon = new Literal();
-                projects.Text = "ELANLAR";
-                projects.CssClass = "subnav-link-text";
-                projectsicon.Text = "<i class='fas fa-project-diagram text-danger mr-2'></i>";
-                _projects.Controls.Add(projectsicon);
-                _projects.Controls.Add(projects);
-                _projects.NavigateUrl = "/site/announcements/az";
+                            Label projects = new Label();
+                            Literal projectsicon = new Literal();
+                            projects.Text = "ELANLAR";
+                            projects.CssClass = "subnav-link-text";
+                            projectsicon.Text = "<i class='fas fa-project-diagram text-danger mr-2'></i>";
+                            _projects.Controls.Add(projectsicon);
+                            _projects.Controls.Add(projects);
+                            _projects.NavigateUrl = "/site/announcements/az";
 
-                Label legislation = new Label();
-                Literal legislationicon = new Literal();
-                legislation.Text = "QANUNVERİCİLİK";
-                legislation.CssClass = "subnav-link-text";
-                legislationicon.Text = " <i class='fas fa-gavel text-danger mr-2'></i>";
-                _legilations.Controls.Add(legislationicon);
-                _legilations.Controls.Add(legislation);
-                _legilations.NavigateUrl = "/site/legislation/az";
+                            Label legislation = new Label();
+                            Literal legislationicon = new Literal();
+                            legislation.Text = "QANUNVERİCİLİK";
+                            legislation.CssClass = "subnav-link-text";
+                            legislationicon.Text = " <i class='fas fa-gavel text-danger mr-2'></i>";
+                            _legilations.Controls.Add(legislationicon);
+                            _legilations.Controls.Add(legislation);
+                            _legilations.NavigateUrl = "/site/legislation/az";
 
 
 
-                Label publications = new Label();
-                Literal publicationsicon = new Literal();
-                publications.Text = "NƏŞRLƏR";
-                publications.CssClass = "subnav-link-text";
-                publicationsicon.Text = " <i class='fas fa-book-open text-danger mr-2'></i>";
-                _publications.Controls.Add(publicationsicon);
-                _publications.Controls.Add(publications);
-                _publications.NavigateUrl = "/site/publications/az";
+                            Label publications = new Label();
+                            Literal publicationsicon = new Literal();
+                            publications.Text = "NƏŞRLƏR";
+                            publications.CssClass = "subnav-link-text";
+                            publicationsicon.Text = " <i class='fas fa-book-open text-danger mr-2'></i>";
+                            _publications.Controls.Add(publicationsicon);
+                            _publications.Controls.Add(publications);
+                            _publications.NavigateUrl = "/site/publications/az";
 
-                Label reports = new Label();
-                Literal reportsicon = new Literal();
-                reports.Text = "HESABATLAR";
-                reports.CssClass = "subnav-link-text";
-                reportsicon.Text = " <i class='fas fa-flag text-danger mr-2'></i>";
-                _reports.Controls.Add(reportsicon);
-                _reports.Controls.Add(reports);
-                _reports.NavigateUrl = "/site/reports/az";
+                            Label reports = new Label();
+                            Literal reportsicon = new Literal();
+                            reports.Text = "HESABATLAR";
+                            reports.CssClass = "subnav-link-text";
+                            reportsicon.Text = " <i class='fas fa-flag text-danger mr-2'></i>";
+                            _reports.Controls.Add(reportsicon);
+                            _reports.Controls.Add(reports);
+                            _reports.NavigateUrl = "/site/reports/az";
 
-                Label multimedia = new Label();
-                Literal multimediaicon = new Literal();
-                multimedia.Text = "MULTİMEDİA";
-                multimedia.CssClass = "subnav-link-text";
-                multimediaicon.Text = " <i class='fas fa-photo-video text-danger mr-2'></i>";
-                _multimedia.Controls.Add(multimediaicon);
-                _multimedia.Controls.Add(multimedia);
-                _multimedia.NavigateUrl = "/site/multimedia/az";
+                            Label multimedia = new Label();
+                            Literal multimediaicon = new Literal();
+                            multimedia.Text = "MULTİMEDİA";
+                            multimedia.CssClass = "subnav-link-text";
+                            multimediaicon.Text = " <i class='fas fa-photo-video text-danger mr-2'></i>";
+                            _multimedia.Controls.Add(multimediaicon);
+                            _multimedia.Controls.Add(multimedia);
+                            _multimedia.NavigateUrl = "/site/multimedia/az";
 
-                //Label aboutus = new Label();
-                //Literal aboutusicon = new Literal();
-                //aboutus.Text = "HAQQIMIZDA";
-                //aboutus.CssClass = "subnav-link-text";
-                //aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2'></i>";
-                //_aboutus.Controls.Add(aboutusicon);
-                //_aboutus.Controls.Add(aboutus);
-                //_aboutus.NavigateUrl = "/site/aboutus/az";
+                            //Label aboutus = new Label();
+                            //Literal aboutusicon = new Literal();
+                            //aboutus.Text = "HAQQIMIZDA";
+                            //aboutus.CssClass = "subnav-link-text";
+                            //aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2'></i>";
+                            //_aboutus.Controls.Add(aboutusicon);
+                            //_aboutus.Controls.Add(aboutus);
+                            //_aboutus.NavigateUrl = "/site/aboutus/az";
 
-                //Label contactus = new Label();
-                //Literal contactusicon = new Literal();
-                //contactus.Text = "ƏLAQƏ";
-                //contactus.CssClass = "subnav-link-text";
-                //contactusicon.Text = " <i class='fas fa-globe text-danger mr-2'></i>";
-                //_contactus.Controls.Add(contactusicon);
-                //_contactus.Controls.Add(contactus);
-                //_contactus.NavigateUrl = "/site/contactus/az";
+                            //Label contactus = new Label();
+                            //Literal contactusicon = new Literal();
+                            //contactus.Text = "ƏLAQƏ";
+                            //contactus.CssClass = "subnav-link-text";
+                            //contactusicon.Text = " <i class='fas fa-globe text-danger mr-2'></i>";
+                            //_contactus.Controls.Add(contactusicon);
+                            //_contactus.Controls.Add(contactus);
+                            //_contactus.NavigateUrl = "/site/contactus/az";
 
+                        }
+                        catch (Exception ex)
+                        {
+                            Response.Write(ex.Message);
+                            throw;
+                        }
+                        break;
+                    }
+                case "en":
+                    {
+
+                        try
+                        {
+                            Label home = new Label();
+                            Literal homeicon = new Literal();
+                            home.Text = "HOME";
+                            home.CssClass = "subnav-link-text";
+                            homeicon.Text = " <i class='fas fa-home text-danger mr-2'></i>";
+                            _home.Controls.Add(homeicon);
+                            _home.Controls.Add(home);
+                            _home.NavigateUrl = "/site/home/en";
+
+                            Label news = new Label();
+                            Literal newsicon = new Literal();
+                            news.Text = "NEWS";
+                            news.CssClass = "subnav-link-text";
+                            newsicon.Text = " <i class='fas fa-newspaper text-danger mr-2'></i>";
+                            _news.Controls.Add(newsicon);
+                            _news.Controls.Add(news);
+                            _news.NavigateUrl = "/site/posts/en";
+
+                            Label projects = new Label();
+                            Literal projectsicon = new Literal();
+                            projects.Text = "ANNOUNCEMENTS";
+                            projects.CssClass = "subnav-link-text";
+                            projectsicon.Text = "<i class='fas fa-project-diagram text-danger mr-2'></i>";
+                            _projects.Controls.Add(projectsicon);
+                            _projects.Controls.Add(projects);
+                            _projects.NavigateUrl = "/site/announcements/en";
+
+                            Label legislation = new Label();
+                            Literal legislationicon = new Literal();
+                            legislation.Text = "LEGISLATION";
+                            legislation.CssClass = "subnav-link-text";
+                            legislationicon.Text = " <i class='fas fa-gavel text-danger mr-2'></i>";
+                            _legilations.Controls.Add(legislationicon);
+                            _legilations.Controls.Add(legislation);
+                            _legilations.NavigateUrl = "/site/legislation/en";
+
+
+
+                            Label publications = new Label();
+                            Literal publicationsicon = new Literal();
+                            publications.Text = "PUBLICATIONS";
+                            publications.CssClass = "subnav-link-text";
+                            publicationsicon.Text = " <i class='fas fa-book-open text-danger mr-2'></i>";
+                            _publications.Controls.Add(publicationsicon);
+                            _publications.Controls.Add(publications);
+                            _publications.NavigateUrl = "/site/publications/en";
+
+                            Label reports = new Label();
+                            Literal reportsicon = new Literal();
+                            reports.Text = "REPORTS";
+                            reports.CssClass = "subnav-link-text";
+                            reportsicon.Text = " <i class='fas fa-flag text-danger mr-2'></i>";
+                            _reports.Controls.Add(reportsicon);
+                            _reports.Controls.Add(reports);
+                            _reports.NavigateUrl = "/site/reports/en";
+
+                            Label multimedia = new Label();
+                            Literal multimediaicon = new Literal();
+                            multimedia.Text = "MULTIMEDIA";
+                            multimedia.CssClass = "subnav-link-text";
+                            multimediaicon.Text = " <i class='fas fa-photo-video text-danger mr-2'></i>";
+                            _multimedia.Controls.Add(multimediaicon);
+                            _multimedia.Controls.Add(multimedia);
+                            _multimedia.NavigateUrl = "/site/multimedia/en";
+
+                            //Label aboutus = new Label();
+                            //Literal aboutusicon = new Literal();
+                            //aboutus.Text = "HAQQIMIZDA";
+                            //aboutus.CssClass = "subnav-link-text";
+                            //aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2'></i>";
+                            //_aboutus.Controls.Add(aboutusicon);
+                            //_aboutus.Controls.Add(aboutus);
+                            //_aboutus.NavigateUrl = "/site/aboutus/az";
+
+                            //Label contactus = new Label();
+                            //Literal contactusicon = new Literal();
+                            //contactus.Text = "ƏLAQƏ";
+                            //contactus.CssClass = "subnav-link-text";
+                            //contactusicon.Text = " <i class='fas fa-globe text-danger mr-2'></i>";
+                            //_contactus.Controls.Add(contactusicon);
+                            //_contactus.Controls.Add(contactus);
+                            //_contactus.NavigateUrl = "/site/contactus/az";
+
+                        }
+                        catch (Exception ex)
+                        {
+                            Response.Write(ex.Message);
+                            throw;
+                        }
+                        break;
+                    }
+                default:
+                    {
+                        try
+                        {
+                            Label home = new Label();
+                            Literal homeicon = new Literal();
+                            home.Text = "ANA SƏHİFƏ";
+                            home.CssClass = "subnav-link-text";
+                            homeicon.Text = " <i class='fas fa-home text-danger mr-2'></i>";
+                            _home.Controls.Add(homeicon);
+                            _home.Controls.Add(home);
+                            _home.NavigateUrl = "/site/home/az";
+
+                            Label news = new Label();
+                            Literal newsicon = new Literal();
+                            news.Text = "XƏBƏRLƏR";
+                            news.CssClass = "subnav-link-text";
+                            newsicon.Text = " <i class='fas fa-newspaper text-danger mr-2'></i>";
+                            _news.Controls.Add(newsicon);
+                            _news.Controls.Add(news);
+                            _news.NavigateUrl = "/site/posts/az";
+
+                            Label projects = new Label();
+                            Literal projectsicon = new Literal();
+                            projects.Text = "ELANLAR";
+                            projects.CssClass = "subnav-link-text";
+                            projectsicon.Text = "<i class='fas fa-project-diagram text-danger mr-2'></i>";
+                            _projects.Controls.Add(projectsicon);
+                            _projects.Controls.Add(projects);
+                            _projects.NavigateUrl = "/site/announcements/az";
+
+                            Label legislation = new Label();
+                            Literal legislationicon = new Literal();
+                            legislation.Text = "QANUNVERİCİLİK";
+                            legislation.CssClass = "subnav-link-text";
+                            legislationicon.Text = " <i class='fas fa-gavel text-danger mr-2'></i>";
+                            _legilations.Controls.Add(legislationicon);
+                            _legilations.Controls.Add(legislation);
+                            _legilations.NavigateUrl = "/site/legislation/az";
+
+
+
+                            Label publications = new Label();
+                            Literal publicationsicon = new Literal();
+                            publications.Text = "NƏŞRLƏR";
+                            publications.CssClass = "subnav-link-text";
+                            publicationsicon.Text = " <i class='fas fa-book-open text-danger mr-2'></i>";
+                            _publications.Controls.Add(publicationsicon);
+                            _publications.Controls.Add(publications);
+                            _publications.NavigateUrl = "/site/publications/az";
+
+                            Label reports = new Label();
+                            Literal reportsicon = new Literal();
+                            reports.Text = "HESABATLAR";
+                            reports.CssClass = "subnav-link-text";
+                            reportsicon.Text = " <i class='fas fa-flag text-danger mr-2'></i>";
+                            _reports.Controls.Add(reportsicon);
+                            _reports.Controls.Add(reports);
+                            _reports.NavigateUrl = "/site/reports/az";
+
+                            Label multimedia = new Label();
+                            Literal multimediaicon = new Literal();
+                            multimedia.Text = "MULTİMEDİA";
+                            multimedia.CssClass = "subnav-link-text";
+                            multimediaicon.Text = " <i class='fas fa-photo-video text-danger mr-2'></i>";
+                            _multimedia.Controls.Add(multimediaicon);
+                            _multimedia.Controls.Add(multimedia);
+                            _multimedia.NavigateUrl = "/site/multimedia/az";
+
+                            //Label aboutus = new Label();
+                            //Literal aboutusicon = new Literal();
+                            //aboutus.Text = "HAQQIMIZDA";
+                            //aboutus.CssClass = "subnav-link-text";
+                            //aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2'></i>";
+                            //_aboutus.Controls.Add(aboutusicon);
+                            //_aboutus.Controls.Add(aboutus);
+                            //_aboutus.NavigateUrl = "/site/aboutus/az";
+
+                            //Label contactus = new Label();
+                            //Literal contactusicon = new Literal();
+                            //contactus.Text = "ƏLAQƏ";
+                            //contactus.CssClass = "subnav-link-text";
+                            //contactusicon.Text = " <i class='fas fa-globe text-danger mr-2'></i>";
+                            //_contactus.Controls.Add(contactusicon);
+                            //_contactus.Controls.Add(contactus);
+                            //_contactus.NavigateUrl = "/site/contactus/az";
+
+                        }
+                        catch (Exception ex)
+                        {
+                            Response.Write(ex.Message);
+                            throw;
+                        }
+                        break;
+                    }
             }
-            catch (Exception ex)
-            {
-                Response.Write(ex.Message);
-                throw;
-            }
+         
         }
 
         private void GetSponsors()
