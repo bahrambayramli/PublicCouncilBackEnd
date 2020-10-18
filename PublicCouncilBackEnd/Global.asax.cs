@@ -30,9 +30,14 @@ namespace PublicCouncilBackEnd
             routes.MapPageRoute("publications", "publications/{language}", "~/publications.aspx");
             routes.MapPageRoute("posts", "posts/{language}", "~/posts.aspx");
             routes.MapPageRoute("reports", "reports/{language}", "~/reports.aspx");
+            routes.MapPageRoute("announcements", "announcements/{language}", "~/announcements.aspx");
+
             routes.MapPageRoute("multimedia", "multimedia/{language}", "~/multimedia.aspx");
             routes.MapPageRoute("multimediaRoute", "multimedia/{directory}/{language}", "~/multimedia.aspx");
-            routes.MapPageRoute("announcements", "announcements/{language}", "~/announcements.aspx");
+
+            routes.MapPageRoute("councils", "councils/{language}", "~/councils.aspx");
+            routes.MapPageRoute("councilsroute", "councils/{directory}/{language}", "~/councils.aspx");
+
             routes.MapPageRoute("details", "details/{language}/{postid}", "~/details.aspx");
             routes.MapPageRoute("login", "login/", "~/login.aspx");
             routes.MapPageRoute("register", "register/", "~/register.aspx");

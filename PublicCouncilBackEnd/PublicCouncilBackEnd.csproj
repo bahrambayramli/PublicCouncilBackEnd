@@ -249,6 +249,7 @@
     <Content Include="details.aspx" />
     <Content Include="login.aspx" />
     <Content Include="register.aspx" />
+    <Content Include="councils.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -486,6 +487,13 @@
     </Compile>
     <Compile Include="subsite\multimedia.aspx.designer.cs">
       <DependentUpon>multimedia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="councils.aspx.cs">
+      <DependentUpon>councils.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="councils.aspx.designer.cs">
+      <DependentUpon>councils.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
