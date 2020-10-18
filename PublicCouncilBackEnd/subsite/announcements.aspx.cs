@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace PublicCouncilBackEnd
+namespace PublicCouncilBackEnd.subsite
 {
     public partial class WebForm3 : System.Web.UI.Page
     {
@@ -164,7 +164,7 @@ namespace PublicCouncilBackEnd
                         break;
                     }
             }
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "announcements", false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
+            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "announcements", false, true, Session["pcsubsite"] as string, POSTLIST_AZ, POSTLIST_EN);
         }
 
         protected void POSTLIST_AZ_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
@@ -182,7 +182,7 @@ namespace PublicCouncilBackEnd
                 POSTLIST_AZ.Visible = false;
                 DataPager_EN.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
             }
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "announcements", false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
+            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "announcements", false, true, Session["pcsubsite"] as string, POSTLIST_AZ, POSTLIST_EN);
         }
 
         protected void POSTLIST_EN_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
@@ -201,7 +201,7 @@ namespace PublicCouncilBackEnd
                 DataPager_EN.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
             }
 
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "announcements", false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
+            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "announcements", false, true, Session["pcsubsite"] as string, POSTLIST_AZ, POSTLIST_EN);
 
 
         }

@@ -22,8 +22,8 @@ namespace PublicCouncilBackEnd
 
         void RegisterRoutes(RouteCollection routes)
         {
-
-            //Site routes
+            #region(Site routes)
+            
             routes.MapPageRoute("home", "home/{language}", "~/home.aspx");
             routes.MapPageRoute("legislation", "legislation/{language}", "~/legislation.aspx");
             routes.MapPageRoute("elections", "elections/{language}", "~/elections.aspx");
@@ -33,12 +33,12 @@ namespace PublicCouncilBackEnd
             routes.MapPageRoute("multimedia", "multimedia/{language}", "~/multimedia.aspx");
             routes.MapPageRoute("multimediaRoute", "multimedia/{directory}/{language}", "~/multimedia.aspx");
             routes.MapPageRoute("announcements", "announcements/{language}", "~/announcements.aspx");
-          
             routes.MapPageRoute("details", "details/{language}/{postid}", "~/details.aspx");
-
             routes.MapPageRoute("login", "login/", "~/login.aspx");
             routes.MapPageRoute("register", "register/", "~/register.aspx");
+            #endregion
 
+            #region(Manage routes)
             //Admin Panel routes
 
             routes.MapPageRoute("managedashboard", "manage/dashboard/", "~/manage/dashboard.aspx");
@@ -46,41 +46,35 @@ namespace PublicCouncilBackEnd
             routes.MapPageRoute("managepostdetail", "manage/postdetail/", "~/manage/postdetail.aspx");
             routes.MapPageRoute("managelogos", "manage/logos/", "~/manage/logos.aspx");
             routes.MapPageRoute("managelogodetail", "manage/logodetail/", "~/manage/logodetail.aspx");
-
             routes.MapPageRoute("managepartners", "manage/partners/", "~/manage/partners.aspx");
             routes.MapPageRoute("managepartnerdetail", "manage/partnerdetail/", "~/manage/partnerdetail.aspx");
-
-
             routes.MapPageRoute("managesponsors", "manage/sponsors/", "~/manage/sponsors.aspx");
             routes.MapPageRoute("managesponsordetail", "manage/sponsordetail/", "~/manage/sponsordetail.aspx");
-
             routes.MapPageRoute("managecouncils", "manage/councils/", "~/manage/councils.aspx");
             routes.MapPageRoute("managecouncildetail", "manage/councildetail/", "~/manage/councildetail.aspx");
 
-
             //routes.MapPageRoute("admindetails", "adminpanel/details/{newID}", "~/adminpanel/details.aspx");
-
             //routes.MapPageRoute("partnersedit", "adminpanel/partnersdetail/{id}", "~/adminpanel/partnersdetail.aspx");
             //routes.MapPageRoute("pages", "adminpanel/pages/", "~/adminpanel/pages.aspx");
             //routes.MapPageRoute("usersprofile", "adminpanel/usersprofile/", "~/adminpanel/usersprofile.aspx");
 
+            #endregion
 
-
-            //Subdomain routes
+            #region(SubSite routes)
             routes.MapPageRoute("pchome", "site/home/{language}", "~/subsite/home.aspx");
-            //routes.MapPageRoute("ngonews", "site/news/{language}", "~/ngo/news.aspx");
-            //routes.MapPageRoute("ngoprojects", "site/projects/{language}", "~/ngo/projects.aspx");
-            //routes.MapPageRoute("ngomultimedia", "site/multimedia/{language}", "~/ngo/multimedia.aspx");
-            //routes.MapPageRoute("ngoreports", "site/reports/{language}", "~/ngo/reports.aspx");
+            routes.MapPageRoute("pcposts", "site/posts/{language}", "~/subsite/posts.aspx");
+            routes.MapPageRoute("pcannouncements", "site/announcements/{language}", "~/subsite/announcements.aspx");
+            routes.MapPageRoute("pclegislations", "site/legislation/{language}", "~/subsite/legislation.aspx");
+            routes.MapPageRoute("pcpublications", "site/publications/{language}", "~/subsite/publications.aspx");
+            routes.MapPageRoute("pcreports", "site/reports/{language}", "~/subsite/reports.aspx");
+            routes.MapPageRoute("pcmultimedia", "site/multimedia/{language}", "~/subsite/multimedia.aspx");
+            routes.MapPageRoute("pcmultimediaRoute", "multimedia/{directory}/{language}", "~/subsite/multimedia.aspx");
+
             //routes.MapPageRoute("ngoaboutus", "site/aboutus/{language}", "~/ngo/aboutus.aspx");
             //routes.MapPageRoute("ngocontactus", "site/contactus/{language}", "~/ngo/contactus.aspx");
             //routes.MapPageRoute("ngopublications", "site/publications/{language}", "~/ngo/publications.aspx");
+            #endregion
 
-
-
-            //routes.MapPageRoute("login", "login/", "~/login.aspx");
-            //routes.MapPageRoute("register", "register/", "~/register.aspx");
-            //routes.MapPageRoute("success", "success/", "~/success.aspx");
         }
 
         protected void Session_Start(object sender, EventArgs e)
@@ -100,7 +94,7 @@ namespace PublicCouncilBackEnd
 
         protected void Application_Error(object sender, EventArgs e)
         {
-           // Response.Write(e.ToString());
+           
         }
 
         protected void Session_End(object sender, EventArgs e)

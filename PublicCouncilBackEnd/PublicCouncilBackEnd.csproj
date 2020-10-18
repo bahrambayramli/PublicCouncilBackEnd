@@ -230,6 +230,12 @@
     <Content Include="manage\councils.aspx" />
     <Content Include="manage\councildetail.aspx" />
     <Content Include="subsite\home.aspx" />
+    <Content Include="subsite\posts.aspx" />
+    <Content Include="subsite\announcements.aspx" />
+    <Content Include="subsite\legislation.aspx" />
+    <Content Include="subsite\publications.aspx" />
+    <Content Include="subsite\reports.aspx" />
+    <Content Include="subsite\multimedia.aspx" />
     <Content Include="Web.config" />
     <Content Include="home.aspx" />
     <Content Include="posts.aspx" />
@@ -437,6 +443,48 @@
     </Compile>
     <Compile Include="subsite\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="subsite\posts.aspx.cs">
+      <DependentUpon>posts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="subsite\posts.aspx.designer.cs">
+      <DependentUpon>posts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="subsite\announcements.aspx.cs">
+      <DependentUpon>announcements.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="subsite\announcements.aspx.designer.cs">
+      <DependentUpon>announcements.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="subsite\legislation.aspx.cs">
+      <DependentUpon>legislation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="subsite\legislation.aspx.designer.cs">
+      <DependentUpon>legislation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="subsite\publications.aspx.cs">
+      <DependentUpon>publications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="subsite\publications.aspx.designer.cs">
+      <DependentUpon>publications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="subsite\reports.aspx.cs">
+      <DependentUpon>reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="subsite\reports.aspx.designer.cs">
+      <DependentUpon>reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="subsite\multimedia.aspx.cs">
+      <DependentUpon>multimedia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="subsite\multimedia.aspx.designer.cs">
+      <DependentUpon>multimedia.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

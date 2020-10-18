@@ -84,7 +84,7 @@ namespace PublicCouncilBackEnd.subsite
                 newsicon.Text = " <i class='fas fa-newspaper text-danger mr-2'></i>";
                 _news.Controls.Add(newsicon);
                 _news.Controls.Add(news);
-                _news.NavigateUrl = "/site/news/az";
+                _news.NavigateUrl = "/site/posts/az";
 
                 Label projects = new Label();
                 Literal projectsicon = new Literal();
@@ -93,7 +93,7 @@ namespace PublicCouncilBackEnd.subsite
                 projectsicon.Text = "<i class='fas fa-project-diagram text-danger mr-2'></i>";
                 _projects.Controls.Add(projectsicon);
                 _projects.Controls.Add(projects);
-                _projects.NavigateUrl = "/site/projects/az";
+                _projects.NavigateUrl = "/site/announcements/az";
 
                 Label legislation = new Label();
                 Literal legislationicon = new Literal();
@@ -102,7 +102,7 @@ namespace PublicCouncilBackEnd.subsite
                 legislationicon.Text = " <i class='fas fa-gavel text-danger mr-2'></i>";
                 _legilations.Controls.Add(legislationicon);
                 _legilations.Controls.Add(legislation);
-                _legilations.NavigateUrl = "/site/legislations/az";
+                _legilations.NavigateUrl = "/site/legislation/az";
 
 
 
@@ -204,12 +204,523 @@ namespace PublicCouncilBackEnd.subsite
             }
         }
 
+        private void GetPosts(string LANGUAGE, string POST_COUNT, string POST_CATEGORY, bool POST_ISDELETE, bool POST_ISACTIVE, string POST_AUTHOR, ListView LSV_AZ, ListView LSV_EN)
+        {
+            switch (LANGUAGE)
+            {
+                case "az":
+                    {
+                        LSV_EN.DataSource = null;
+                        LSV_EN.DataBind();
+
+
+                        SqlDataAdapter getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
+                                                                                                        DATA_ID,
+                                                                                                        POST_AZ_TITLE,
+                                                                                                        POST_CATEGORY,
+                                                                                            	        POST_SUBCATEGORY,
+                                                                                            	        POST_SITECATEGORYAZ,
+                                                                                                        POST_SITESUBCATEGORYAZ,
+                                                                                                        POST_IMG,
+                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_SEOAZ,
+                                                                                                        POST_AUTHOR
+                                                                                            FROM        PC_POSTS
+
+                                                                                            WHERE       ISDELETE            = @ISDELETE      AND
+                                                                                                        ISACTIVE            = @ISACTIVE      AND
+                                                                                                        POST_CATEGORY       = @POST_CATEGORY AND                                                                                                   
+                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW  AND
+                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+
+                                                                                                        ORDER BY POST_DATE DESC
+                                                                                                    "));
+
+
+
+                        getPost.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = POST_ISDELETE;
+                        getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
+                        getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
+                        getPost.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
+                        getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
+
+
+                        LSV_AZ.DataSource = SQL.SELECT(getPost);
+                        LSV_AZ.DataBind();
+
+                        break;
+                    }
+                case "en":
+                    {
+                        LSV_AZ.DataSource = null;
+                        LSV_AZ.DataBind();
+
+
+                        SqlDataAdapter getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
+                                                                                                        DATA_ID,
+                                                                                                        POST_EN_TITLE,
+                                                                                                        POST_CATEGORY,
+                                                                                            	        POST_SUBCATEGORY,
+                                                                                            	        POST_SITECATEGORYEN,
+                                                                                                        POST_SITESUBCATEGORYEN,
+                                                                                                        POST_IMG,
+                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_SEOEN,
+                                                                                                        POST_AUTHOR
+                                                                                            FROM        PC_POSTS
+
+                                                                                            WHERE       ISDELETE            = @ISDELETE      AND
+                                                                                                        ISACTIVE            = @ISACTIVE      AND
+                                                                                                        POST_CATEGORY       = @POST_CATEGORY AND                                                                                                   
+                                                                                                        POST_EN_VIEW        = @POST_EN_VIEW  AND
+                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+
+                                                                                                        ORDER BY POST_DATE DESC
+                                                                                                    "));
+
+
+
+                        getPost.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = POST_ISDELETE;
+                        getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
+                        getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
+                        getPost.SelectCommand.Parameters.Add("@POST_EN_VIEW", SqlDbType.Bit).Value = true;
+                        getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
+
+
+                        LSV_EN.DataSource = SQL.SELECT(getPost);
+                        LSV_EN.DataBind();
+                        break;
+                    }
+                default:
+                    {
+                        LSV_EN.DataSource = null;
+                        LSV_EN.DataBind();
+
+
+                        SqlDataAdapter getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
+                                                                                                        DATA_ID,
+                                                                                                        POST_AZ_TITLE,
+                                                                                                        POST_CATEGORY,
+                                                                                            	        POST_SUBCATEGORY,
+                                                                                            	        POST_SITECATEGORYAZ,
+                                                                                                        POST_SITESUBCATEGORYAZ,
+                                                                                                        POST_IMG,
+                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_SEOAZ,
+                                                                                                        POST_AUTHOR
+                                                                                            FROM        PC_POSTS
+
+                                                                                            WHERE       ISDELETE            = @ISDELETE      AND
+                                                                                                        ISACTIVE            = @ISACTIVE      AND
+                                                                                                        POST_CATEGORY       = @POST_CATEGORY AND                                                                                                   
+                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW  AND
+                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+
+                                                                                                        ORDER BY POST_DATE DESC
+                                                                                                    "));
+
+
+
+                        getPost.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = POST_ISDELETE;
+                        getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
+                        getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
+                        getPost.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
+                        getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
+
+
+                        LSV_AZ.DataSource = SQL.SELECT(getPost);
+                        LSV_AZ.DataBind();
+
+                        break;
+                    }
+
+            }
+        }
+
+        private void GetPosts(string LANGUAGE, string POST_COUNT, string POST_CATEGORY, string POST_TYPE, bool POST_ISDELETE, bool POST_ISACTIVE, string POST_AUTHOR, ListView LSV_AZ, ListView LSV_EN)
+        {
+            switch (LANGUAGE)
+            {
+                case "az":
+                    {
+                        LSV_EN.DataSource = null;
+                        LSV_EN.DataBind();
+
+
+                        SqlDataAdapter getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
+                                                                                                        DATA_ID,
+                                                                                                        POST_AZ_TITLE,
+                                                                                                        POST_CATEGORY,
+                                                                                            	        POST_SUBCATEGORY,
+                                                                                            	        POST_SITECATEGORYAZ,
+                                                                                                        POST_SITESUBCATEGORYAZ,
+                                                                                                        POST_IMG,
+                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_SEOAZ,
+                                                                                                        POST_AUTHOR
+                                                                                            FROM        PC_POSTS
+
+                                                                                            WHERE       ISDELETE            = @ISDELETE      AND
+                                                                                                        ISACTIVE            = @ISACTIVE      AND
+                                                                                                        POST_CATEGORY       = @POST_CATEGORY AND 
+                                                                                                        POST_TYPE           = @POST_TYPE     AND 
+                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW  AND
+                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+
+                                                                                                        ORDER BY POST_DATE DESC
+                                                                                                    "));
+
+
+
+                        getPost.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = POST_ISDELETE;
+                        getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
+                        getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
+                        getPost.SelectCommand.Parameters.Add("@POST_TYPE", SqlDbType.NVarChar).Value = POST_TYPE;
+                        getPost.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
+                        getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
+
+
+                        LSV_AZ.DataSource = SQL.SELECT(getPost);
+                        LSV_AZ.DataBind();
+
+                        break;
+                    }
+                case "en":
+                    {
+                        LSV_AZ.DataSource = null;
+                        LSV_AZ.DataBind();
+
+
+                        SqlDataAdapter getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
+                                                                                                        DATA_ID,
+                                                                                                        POST_EN_TITLE,
+                                                                                                        POST_CATEGORY,
+                                                                                            	        POST_SUBCATEGORY,
+                                                                                            	        POST_SITECATEGORYEN,
+                                                                                                        POST_SITESUBCATEGORYEN,
+                                                                                                        POST_IMG,
+                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_SEOEN,
+                                                                                                        POST_AUTHOR
+                                                                                            FROM        PC_POSTS
+
+                                                                                            WHERE       ISDELETE            = @ISDELETE      AND
+                                                                                                        ISACTIVE            = @ISACTIVE      AND
+                                                                                                        POST_CATEGORY       = @POST_CATEGORY AND  
+                                                                                                        POST_TYPE           = @POST_TYPE     AND 
+                                                                                                        POST_EN_VIEW        = @POST_EN_VIEW  AND
+                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+
+                                                                                                        ORDER BY POST_DATE DESC
+                                                                                                    "));
+
+
+
+                        getPost.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = POST_ISDELETE;
+                        getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
+                        getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
+                        getPost.SelectCommand.Parameters.Add("@POST_TYPE", SqlDbType.NVarChar).Value = POST_TYPE;
+                        getPost.SelectCommand.Parameters.Add("@POST_EN_VIEW", SqlDbType.Bit).Value = true;
+                        getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
+
+
+                        LSV_EN.DataSource = SQL.SELECT(getPost);
+                        LSV_EN.DataBind();
+                        break;
+                    }
+                default:
+                    {
+                        LSV_EN.DataSource = null;
+                        LSV_EN.DataBind();
+
+
+                        SqlDataAdapter getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
+                                                                                                        DATA_ID,
+                                                                                                        POST_AZ_TITLE,
+                                                                                                        POST_CATEGORY,
+                                                                                            	        POST_SUBCATEGORY,
+                                                                                            	        POST_SITECATEGORYAZ,
+                                                                                                        POST_SITESUBCATEGORYAZ,
+                                                                                                        POST_IMG,
+                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_SEOAZ,
+                                                                                                        POST_AUTHOR
+                                                                                            FROM        PC_POSTS
+
+                                                                                            WHERE       ISDELETE            = @ISDELETE      AND
+                                                                                                        ISACTIVE            = @ISACTIVE      AND
+                                                                                                        POST_CATEGORY       = @POST_CATEGORY AND 
+                                                                                                        POST_TYPE           = @POST_TYPE     AND 
+                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW  AND
+                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+
+                                                                                                        ORDER BY POST_DATE DESC
+                                                                                                    "));
+
+
+
+                        getPost.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = POST_ISDELETE;
+                        getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
+                        getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
+                        getPost.SelectCommand.Parameters.Add("@POST_TYPE", SqlDbType.NVarChar).Value = POST_TYPE;
+                        getPost.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
+                        getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
+
+
+                        LSV_AZ.DataSource = SQL.SELECT(getPost);
+                        LSV_AZ.DataBind();
+
+                        break;
+                    }
+
+            }
+        }
+
+        private void GetPosts(string LANGUAGE, string POST_COUNT, string POST_CATEGORY, string POST_SUBCATEGORY, string POST_TYPE, bool POST_ISDELETE, bool POST_ISACTIVE, string POST_AUTHOR, ListView LSV_AZ, ListView LSV_EN)
+        {
+            switch (LANGUAGE)
+            {
+                case "az":
+                    {
+                        LSV_EN.DataSource = null;
+                        LSV_EN.DataBind();
+
+
+                        SqlDataAdapter getPost = new SqlDataAdapter();
+                        if (string.IsNullOrEmpty(POST_SUBCATEGORY))
+                        {
+                            getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
+                                                                                                        DATA_ID,
+                                                                                                        POST_AZ_TITLE,
+                                                                                                        POST_AZ_TOPIC,
+                                                                                                        POST_CATEGORY,
+                                                                                            	        POST_SUBCATEGORY,
+                                                                                            	        POST_SITECATEGORYAZ,
+                                                                                                        POST_SITESUBCATEGORYAZ,
+                                                                                                        POST_SUBCATEGORY,
+                                                                                                        POST_IMG,
+                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_TYPE,
+                                                                                                        POST_SEOAZ,
+                                                                                                        POST_AUTHOR
+                                                                                            FROM        PC_POSTS
+
+                                                                                            WHERE       ISDELETE            = @ISDELETE      AND
+                                                                                                        ISACTIVE            = @ISACTIVE      AND
+                                                                                                        POST_CATEGORY       = @POST_CATEGORY AND
+                                                                                                        POST_TYPE           = @POST_TYPE     AND
+                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW  AND
+                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+
+                                                                                                        ORDER BY POST_DATE DESC
+                                                                                                    "));
+                        }
+                        else
+                        {
+                            getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
+                                                                                                        DATA_ID,
+                                                                                                        POST_AZ_TITLE,
+                                                                                                        POST_AZ_TOPIC,
+                                                                                                        POST_CATEGORY,
+                                                                                            	        POST_SUBCATEGORY,
+                                                                                            	        POST_SITECATEGORYAZ,
+                                                                                                        POST_SITESUBCATEGORYAZ,
+                                                                                                        POST_SUBCATEGORY,
+                                                                                                        POST_IMG,
+                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_TYPE,
+                                                                                                        POST_SEOAZ,
+                                                                                                        POST_AUTHOR
+                                                                                            FROM        PC_POSTS
+
+                                                                                            WHERE       ISDELETE            = @ISDELETE          AND
+                                                                                                        ISACTIVE            = @ISACTIVE          AND
+                                                                                                        POST_CATEGORY       = @POST_CATEGORY     AND
+                                                                                                        POST_SUBCATEGORY    = @POST_SUBCATEGORY  AND
+                                                                                                        POST_TYPE           = @POST_TYPE         AND
+                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW      AND
+                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+                                                                                                        ORDER BY POST_DATE DESC"));
+                            getPost.SelectCommand.Parameters.Add("@POST_SUBCATEGORY", SqlDbType.NVarChar).Value = POST_SUBCATEGORY;
+                        }
+
+                        getPost.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = POST_ISDELETE;
+                        getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
+                        getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
+                        getPost.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
+                        getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
+                        getPost.SelectCommand.Parameters.Add("@POST_TYPE", SqlDbType.NVarChar).Value = POST_TYPE;
+
+                        LSV_AZ.DataSource = SQL.SELECT(getPost);
+                        LSV_AZ.DataBind();
+
+                        break;
+                    }
+                case "en":
+                    {
+                        LSV_AZ.DataSource = null;
+                        LSV_AZ.DataBind();
+
+
+                        SqlDataAdapter getPost = new SqlDataAdapter();
+                        if (string.IsNullOrEmpty(POST_SUBCATEGORY))
+                        {
+                            getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
+                                                                                                        DATA_ID,
+                                                                                                        POST_EN_TITLE,
+                                                                                                        POST_EN_TOPIC,
+                                                                                                        POST_CATEGORY,
+                                                                                            	        POST_SUBCATEGORY,
+                                                                                            	        POST_SITECATEGORYEN,
+                                                                                                        POST_SITESUBCATEGORYEN,
+                                                                                                        POST_SUBCATEGORY,
+                                                                                                        POST_IMG,
+                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_TYPE,
+                                                                                                        POST_SEOEN,
+                                                                                                        POST_AUTHOR
+                                                                                            FROM        PC_POSTS
+
+                                                                                            WHERE       ISDELETE            = @ISDELETE      AND
+                                                                                                        ISACTIVE            = @ISACTIVE      AND
+                                                                                                        POST_CATEGORY       = @POST_CATEGORY AND
+                                                                                                        POST_TYPE           = @POST_TYPE     AND
+                                                                                                        POST_EN_VIEW        = @POST_EN_VIEW  AND
+                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+                                                                                                        
+                                                                                                        ORDER BY POST_DATE DESC"));
+                        }
+                        else
+                        {
+                            getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
+                                                                                                        DATA_ID,
+                                                                                                        POST_EN_TITLE,
+                                                                                                        POST_EN_TOPIC,
+                                                                                                        POST_CATEGORY,
+                                                                                            	        POST_SUBCATEGORY,
+                                                                                            	        POST_SITECATEGORYEN,
+                                                                                                        POST_SITESUBCATEGORYEN,
+                                                                                                        POST_SUBCATEGORY,
+                                                                                                        POST_IMG,
+                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_TYPE,
+                                                                                                        POST_SEOEN,
+                                                                                                        POST_AUTHOR
+                                                                                            FROM        PC_POSTS
+
+                                                                                            WHERE       ISDELETE            = @ISDELETE          AND
+                                                                                                        ISACTIVE            = @ISACTIVE          AND
+                                                                                                        POST_CATEGORY       = @POST_CATEGORY     AND
+                                                                                                        POST_SUBCATEGORY    = @POST_SUBCATEGORY  AND
+                                                                                                        POST_TYPE           = @POST_TYPE         AND
+                                                                                                        POST_EN_VIEW        = @POST_EN_VIEW      AND
+                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+                                                                                                        ORDER BY POST_DATE DESC"));
+                            getPost.SelectCommand.Parameters.Add("@POST_SUBCATEGORY", SqlDbType.NVarChar).Value = POST_SUBCATEGORY;
+                        }
+
+                        getPost.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = POST_ISDELETE;
+                        getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
+                        getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
+                        getPost.SelectCommand.Parameters.Add("@POST_EN_VIEW", SqlDbType.Bit).Value = true;
+                        getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
+                        getPost.SelectCommand.Parameters.Add("@POST_TYPE", SqlDbType.NVarChar).Value = POST_TYPE;
+
+                        LSV_EN.DataSource = SQL.SELECT(getPost);
+                        LSV_EN.DataBind();
+
+                        break;
+                    }
+                default:
+                    {
+                        LSV_EN.DataSource = null;
+                        LSV_EN.DataBind();
+
+
+                        SqlDataAdapter getPost = new SqlDataAdapter();
+                        if (string.IsNullOrEmpty(POST_SUBCATEGORY))
+                        {
+                            getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
+                                                                                                        DATA_ID,
+                                                                                                        POST_AZ_TITLE,
+                                                                                                        POST_AZ_TOPIC,
+                                                                                                        POST_CATEGORY,
+                                                                                            	        POST_SUBCATEGORY,
+                                                                                            	        POST_SITECATEGORYAZ,
+                                                                                                        POST_SITESUBCATEGORYAZ,
+                                                                                                        POST_SUBCATEGORY,
+                                                                                                        POST_IMG,
+                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_TYPE,
+                                                                                                        POST_SEOAZ,
+                                                                                                        POST_AUTHOR
+                                                                                            FROM        PC_POSTS
+
+                                                                                            WHERE       ISDELETE            = @ISDELETE      AND
+                                                                                                        ISACTIVE            = @ISACTIVE      AND
+                                                                                                        POST_CATEGORY       = @POST_CATEGORY AND
+                                                                                                        POST_TYPE           = @POST_TYPE     AND
+                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW  AND
+                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+
+                                                                                                        ORDER BY POST_DATE DESC
+                                                                                                    "));
+                        }
+                        else
+                        {
+                            getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
+                                                                                                        DATA_ID,
+                                                                                                        POST_AZ_TITLE,
+                                                                                                        POST_AZ_TOPIC,
+                                                                                                        POST_CATEGORY,
+                                                                                            	        POST_SUBCATEGORY,
+                                                                                            	        POST_SITECATEGORYAZ,
+                                                                                                        POST_SITESUBCATEGORYAZ,
+                                                                                                        POST_SUBCATEGORY,
+                                                                                                        POST_IMG,
+                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_TYPE,
+                                                                                                        POST_SEOAZ,
+                                                                                                        POST_AUTHOR
+                                                                                            FROM        PC_POSTS
+
+                                                                                            WHERE       ISDELETE            = @ISDELETE          AND
+                                                                                                        ISACTIVE            = @ISACTIVE          AND
+                                                                                                        POST_CATEGORY       = @POST_CATEGORY     AND
+                                                                                                        POST_SUBCATEGORY    = @POST_SUBCATEGORY  AND
+                                                                                                        POST_TYPE           = @POST_TYPE         AND
+                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW      AND
+                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+                                                                                                        ORDER BY POST_DATE DESC"));
+                            getPost.SelectCommand.Parameters.Add("@POST_SUBCATEGORY", SqlDbType.NVarChar).Value = POST_SUBCATEGORY;
+                        }
+
+                        getPost.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = POST_ISDELETE;
+                        getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
+                        getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
+                        getPost.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
+                        getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
+                        getPost.SelectCommand.Parameters.Add("@POST_TYPE", SqlDbType.NVarChar).Value = POST_TYPE;
+
+                        LSV_AZ.DataSource = SQL.SELECT(getPost);
+                        LSV_AZ.DataBind();
+
+                        break;
+                    }
+
+            }
+        }
+
+
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             GetLogos();
             Navigation();
             SiteLanguage();
             GetSponsors();
+            GetPosts(Session["language"] as string, "4", "news", "son xəbərlər", false, true,Session["pcsubsite"] as string, LATEST_AZ, LATEST_EN);
 
         }
 

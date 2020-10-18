@@ -194,202 +194,89 @@
                                     <section class="row">
 
                                         <section id="contentside" class="col-md-8 content-side">
-
-                                            <asp:ScriptManager ID="MainScriptManager" runat="server"></asp:ScriptManager>
-                                            <asp:ContentPlaceHolder ID="sublayout" runat="server">
-                                            </asp:ContentPlaceHolder>
-
-
+                                            <asp:ScriptManager ID="MainScriptManager" runat="server"/>
+                                            <asp:ContentPlaceHolder ID="sublayout" runat="server" />                                        
                                         </section>
 
                                         <section id="rightside" class="col-md-4 right-side">
 
+                                            <!--public council latest news-  -->
                                             <section class="right-posts mb-2">
-                                                <div class="container-fluid">
-                                                    <div class="row">
-                                                        <div class="col p-0">
-                                                            <a href="#"
-                                                                class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white  text-capitalize">
-                                                                <i class="far fa-newspaper mr-2"></i>
-                                                                son Xəbərlər
-                                                            </a>
+                                                <asp:ListView ID="LATEST_AZ" runat="server">
+                                                    <LayoutTemplate>
+                                                        <div class="container-fluid">
+                                                            <div class="row">
+                                                                <div class="col p-0">
+                                                                    <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white  text-capitalize">
+                                                                        <i class="far fa-newspaper mr-2"></i>
+                                                                        son Xəbərlər
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col p-0 bg-white p-2 latest-posts ">
+                                                                    <ul id="latestpostlist" class="latest-post-list">
+                                                                        <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col p-0 bg-white p-2 latest-posts ">
-                                                            <ul id="latestpostlist" class="latest-post-list">
-                                                                <li>
-                                                                    <article>
-                                                                        <a class="latest-title"
-                                                                            href="#">
-                                                                            <p>
-                                                                                Türkiyədə dollar
-                                                                                                                        bütün dövrlərin -
-                                                                                                                        REKORDUNU YENİLƏDİ -
-                                                                                                                        SON QİYMƏT
-                                                                            </p>
-                                                                        </a>
-                                                                        <div
-                                                                            class="d-flex justify-content-between align-items-center my-1">
-                                                                            <a class="btn btn-sm btn-outline-default btn-round"
-                                                                                href="#">xeberler</a>
-                                                                            <a class="btn btn-sm btn-outline-danger btn-round"
-                                                                                href="#">10/09/2020
-                                                                                                                        15:15</a>
-                                                                        </div>
-                                                                    </article>
-                                                                </li>
-                                                                <li>
-                                                                    <article>
-                                                                        <a class="latest-title"
-                                                                            href="#">
-                                                                            <p>
-                                                                                Türkiyədə dollar
-                                                                                                                        bütün dövrlərin -
-                                                                                                                        REKORDUNU YENİLƏDİ -
-                                                                                                                        SON QİYMƏT
-                                                                            </p>
-                                                                        </a>
-                                                                        <div
-                                                                            class="d-flex justify-content-between align-items-center my-1">
-                                                                            <a class="btn btn-sm btn-outline-default btn-round"
-                                                                                href="#">xeberler</a>
-                                                                            <a class="btn btn-sm btn-outline-danger btn-round"
-                                                                                href="#">10/09/2020
-                                                                                                                        15:15</a>
-                                                                        </div>
-                                                                    </article>
-                                                                </li>
-                                                                <li>
-                                                                    <article>
-                                                                        <a class="latest-title"
-                                                                            href="#">
-                                                                            <p>
-                                                                                Türkiyədə dollar
-                                                                                                                        bütün dövrlərin -
-                                                                                                                        REKORDUNU YENİLƏDİ -
-                                                                                                                        SON QİYMƏT
-                                                                            </p>
-                                                                        </a>
-                                                                        <div
-                                                                            class="d-flex justify-content-between align-items-center my-1">
-                                                                            <a class="btn btn-sm btn-outline-default btn-round"
-                                                                                href="#">xeberler</a>
-                                                                            <a class="btn btn-sm btn-outline-danger btn-round"
-                                                                                href="#">10/09/2020
-                                                                                                                        15:15</a>
-                                                                        </div>
-                                                                    </article>
-                                                                </li>
-                                                                <li>
-                                                                    <article>
-                                                                        <a class="latest-title"
-                                                                            href="#">
-                                                                            <p>
-                                                                                Türkiyədə dollar
-                                                                                                                        bütün dövrlərin -
-                                                                                                                        REKORDUNU YENİLƏDİ -
-                                                                                                                        SON QİYMƏT
-                                                                            </p>
-                                                                        </a>
-                                                                        <div
-                                                                            class="d-flex justify-content-between align-items-center my-1">
-                                                                            <a class="btn btn-sm btn-outline-default btn-round"
-                                                                                href="#">xeberler</a>
-                                                                            <a class="btn btn-sm btn-outline-danger btn-round"
-                                                                                href="#">10/09/2020
-                                                                                                                        15:15</a>
-                                                                        </div>
-                                                                    </article>
-                                                                </li>
-                                                                <li>
-                                                                    <article>
-                                                                        <a class="latest-title"
-                                                                            href="#">
-                                                                            <p>
-                                                                                Türkiyədə dollar
-                                                                                                                        bütün dövrlərin -
-                                                                                                                        REKORDUNU YENİLƏDİ -
-                                                                                                                        SON QİYMƏT
-                                                                            </p>
-                                                                        </a>
-                                                                        <div
-                                                                            class="d-flex justify-content-between align-items-center my-1">
-                                                                            <a class="btn btn-sm btn-outline-default btn-round"
-                                                                                href="#">xeberler</a>
-                                                                            <a class="btn btn-sm btn-outline-danger btn-round"
-                                                                                href="#">10/09/2020
-                                                                                                                        15:15</a>
-                                                                        </div>
-                                                                    </article>
-                                                                </li>
-                                                                <li>
-                                                                    <article>
-                                                                        <a class="latest-title"
-                                                                            href="#">
-                                                                            <p>
-                                                                                Türkiyədə dollar
-                                                                                                                        bütün dövrlərin -
-                                                                                                                        REKORDUNU YENİLƏDİ -
-                                                                                                                        SON QİYMƏT
-                                                                            </p>
-                                                                        </a>
-                                                                        <div
-                                                                            class="d-flex justify-content-between align-items-center my-1">
-                                                                            <a class="btn btn-sm btn-outline-default btn-round"
-                                                                                href="#">xeberler</a>
-                                                                            <a class="btn btn-sm btn-outline-danger btn-round"
-                                                                                href="#">10/09/2020
-                                                                                                                        15:15</a>
-                                                                        </div>
-                                                                    </article>
-                                                                </li>
-                                                                <li>
-                                                                    <article>
-                                                                        <a class="latest-title"
-                                                                            href="#">
-                                                                            <p>
-                                                                                Türkiyədə dollar
-                                                                                                                        bütün dövrlərin -
-                                                                                                                        REKORDUNU YENİLƏDİ -
-                                                                                                                        SON QİYMƏT
-                                                                            </p>
-                                                                        </a>
-                                                                        <div
-                                                                            class="d-flex justify-content-between align-items-center my-1">
-                                                                            <a class="btn btn-sm btn-outline-default btn-round"
-                                                                                href="#">xeberler</a>
-                                                                            <a class="btn btn-sm btn-outline-danger btn-round"
-                                                                                href="#">10/09/2020
-                                                                                                                        15:15</a>
-                                                                        </div>
-                                                                    </article>
-                                                                </li>
-                                                                <li>
-                                                                    <article>
-                                                                        <a class="latest-title"
-                                                                            href="#">
-                                                                            <p>
-                                                                                Türkiyədə dollar
-                                                                                                                        bütün dövrlərin -
-                                                                                                                        REKORDUNU YENİLƏDİ -
-                                                                                                                        SON QİYMƏT
-                                                                            </p>
-                                                                        </a>
-                                                                        <div
-                                                                            class="d-flex justify-content-between align-items-center my-1">
-                                                                            <a class="btn btn-sm btn-outline-default btn-round"
-                                                                                href="#">xeberler</a>
-                                                                            <a class="btn btn-sm btn-outline-danger btn-round"
-                                                                                href="#">10/09/2020
-                                                                                                                        15:15</a>
-                                                                        </div>
-                                                                    </article>
-                                                                </li>
-                                                            </ul>
+                                                    </LayoutTemplate>
+                                                    <ItemTemplate>
+                                                        <li>
+                                                            <article>
+                                                                <a class="latest-title" href="/details/az/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOAZ")%>">
+                                                                    <%#Eval("POST_AZ_TITLE")%>
+                                                                </a>
+                                                                <div class="d-flex justify-content-between align-items-center my-1">
+                                                                    <a class="btn btn-sm btn-outline-default btn-round" href="/posts/az">xeberler
+                                                          
+                                                                    </a>
+                                                                    <a class="btn btn-sm btn-outline-danger btn-round wrap" href="#">
+                                                                        <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
+                                                                    </a>
+                                                                </div>
+                                                            </article>
+                                                        </li>
+                                                    </ItemTemplate>
+                                                </asp:ListView>
+                                                <asp:ListView ID="LATEST_EN" runat="server">
+                                                    <LayoutTemplate>
+                                                        <div class="container-fluid">
+                                                            <div class="row">
+                                                                <div class="col p-0">
+                                                                    <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white  text-capitalize">
+                                                                        <i class="far fa-newspaper mr-2"></i>
+                                                                        latest news
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col p-0 bg-white p-2 latest-posts ">
+                                                                    <ul id="latestpostlist" class="latest-post-list">
+                                                                        <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
+                                                    </LayoutTemplate>
+                                                    <ItemTemplate>
+                                                        <li>
+                                                            <article>
+                                                                <a class="latest-title" href="/details/en/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOEN")%>">
+                                                                    <%#Eval("POST_EN_TITLE")%>
+                                                                </a>
+                                                                <div class="d-flex justify-content-between align-items-center my-1">
+                                                                    <a class="btn btn-sm btn-outline-default btn-round" href="/posts/en">News
+                                                                    </a>
+                                                                    <a class="btn btn-sm btn-outline-danger btn-round" href="#">
+                                                                        <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
+                                                                    </a>
+                                                                </div>
+                                                            </article>
+                                                        </li>
+                                                    </ItemTemplate>
+                                                </asp:ListView>
                                             </section>
 
                                         </section>
@@ -404,7 +291,6 @@
 
             </div>
         </main>
-
 
         <!-- Start Footer  -->
         <footer class="footer footer-simple bg-gradient-default">

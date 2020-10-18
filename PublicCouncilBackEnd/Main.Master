@@ -290,8 +290,6 @@
                                 </asp:ListView>
                             </section>
 
-
-
                             <!-- public council announcments -->
                             <section class="right-posts mb-2">
                                 <asp:ListView ID="ANNOUNCMENTS_AZ" runat="server">
