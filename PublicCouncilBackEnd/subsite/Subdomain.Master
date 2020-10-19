@@ -1,5 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Subdomain.master.cs" Inherits="PublicCouncilBackEnd.subsite.Subdomain" %>
-
+<%@ Import Namespace= "System.Web.Optimization" %>  
 <!DOCTYPE html>
 
 <html>
@@ -12,10 +12,9 @@
     <link rel="icon" href="/Images/Logo/Logo1.jpeg" type="image/gif" sizes="80x80">
 
     <!-- STYLES -->
-    <link href="/content/css/argon-design-system.min.css" rel="stylesheet" />
-    <link href="/content/css/owl.carousel.min.css" rel="stylesheet" />
-    <link href="/content/css/owl.theme.default.min.css" rel="stylesheet" />
-    <link href="/content/scss/style.css" rel="stylesheet" />
+     <asp:PlaceHolder runat="server">
+        <%: Styles.Render("/bundles/MyAppStartupCss") %> 
+    </asp:PlaceHolder>
     <link href="/content/scss/subsite.css" rel="stylesheet" />
     <!-- FONTS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
@@ -23,8 +22,9 @@
 
 
     <!-- SCRIPTS -->
-    <script src="/scripts/core/jquery.min.js"></script>
-    <script src="/scripts/owl.carousel.js"></script>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("/bundles/MyAppStartupJs") %>  
+    </asp:PlaceHolder>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -359,10 +359,7 @@
 
     </form>
 
-    <!-- Start Script  -->
-    <script src="/scripts/core/popper.min.js"></script>
-    <script src="/scripts/core/bootstrap.min.js"></script>
-    <script src="/scripts/jquery-nice-scroll.js"></script>
+   
     <script src="/scripts/scripts-runner.js"></script>
 </body>
 </html>

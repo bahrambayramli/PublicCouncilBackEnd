@@ -169,7 +169,7 @@ namespace PublicCouncilBackEnd
                         pcTitle.Text = "İctimai şuralar";
                         pcucep.Text = "Mərkəzi icra hakimiyyət yanında ictimai şuralar";
                         pcucep.NavigateUrl = "/councils/pcucep/az";
-                        pculealsgb.Text = "Yerli icra hakimiyyəti və yerli özünüidarəetmə orqanları yanında ictimai şuralar";
+                        pculealsgb.Text = "Yerli icra hakimiyyəti və yerli özünü idarəetmə orqanları yanında ictimai şuralar";
                         pculealsgb.NavigateUrl = "/councils/pculealsgb/az";
                         other.Text = "Digər";
                         other.NavigateUrl = "/councils/other/az";
@@ -198,6 +198,7 @@ namespace PublicCouncilBackEnd
                         break;
                     }
             }
+
             if (string.IsNullOrEmpty(Page.RouteData.Values["directory"] as string))
             {
                 GetPCList(Convert.ToString(Page.RouteData.Values["language"]).ToLower(),false,true,PCLIST_AZ,PCLIST_EN);

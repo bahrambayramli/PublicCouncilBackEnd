@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="details.aspx.cs" Inherits="PublicCouncilBackEnd.WebForm9" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5ee9f4b108ecd500128ef9b7&cms=sop' async='async'></script>
     <link href="/content/css/jquery.fancybox.min.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">

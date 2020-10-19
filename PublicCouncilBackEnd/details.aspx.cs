@@ -6,11 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web.UI.HtmlControls;
 
 namespace PublicCouncilBackEnd
 {
     public partial class WebForm9 : System.Web.UI.Page
     {
+
+       
         public string GetViewCount(string POST_ID)
         {
             SqlDataAdapter getcount = new SqlDataAdapter(new SqlCommand("SELECT POST_VIEWCOUNT FROM PC_POSTS WHERE DATA_ID=@DATA_ID"));
@@ -250,6 +253,22 @@ namespace PublicCouncilBackEnd
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            
+            var fbId = new HtmlMeta { Name = "fb:app_id", Content = "1442570649286303" };
+            var ogUrl = new HtmlMeta { Name = "og:url", Content = HttpContext.Current.Request.Url.AbsoluteUri };
+            var ogType = new HtmlMeta { Name = "og:type", Content = "website" };
+            var ogTitle = new HtmlMeta { Name = "og:title", Content = postTitle.Text };
+            var ogDescription = new HtmlMeta { Name = "og:description", Content = postTitle.Text };
+            var ogImage = new HtmlMeta { Name = "og:image", Content = "https://ictimaishura.az/" + postImage.ImageUrl.ToString() };
+
+            Header.Controls.Add(fbId);
+            Header.Controls.Add(ogUrl);
+            Header.Controls.Add(ogType);
+            Header.Controls.Add(ogTitle);
+            Header.Controls.Add(ogDescription);
+            Header.Controls.Add(ogImage);
+
             try
             {
                 GetPost(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Page.RouteData.Values["postid"] as string);

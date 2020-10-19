@@ -687,7 +687,7 @@ namespace PublicCouncilBackEnd
 
             GetPosts(Session["language"] as string, "4", "election", false, true, "admin", COUNCILELECTION_AZ, COUNCILELECTION_EN);
             GetPosts(Session["language"] as string, "4", "announcements", false, true, "admin", ANNOUNCMENTS_AZ, ANNOUNCMENTS_EN);
-            GetPosts(Session["language"] as string, "4", "news","son xəbərlər", false, true, "admin", LATEST_AZ, LATEST_EN);
+            GetPosts(Session["language"] as string, "12", "news", false, true, "admin", LATEST_AZ, LATEST_EN);
 
 
             GetPosts(Session["language"] as string, "5", "multimedia", "video", "Sadə", false, true, "admin", VIDEOS_AZ, VIDEOS_EN);

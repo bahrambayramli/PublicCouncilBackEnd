@@ -520,6 +520,7 @@
   <ItemGroup>
     <Folder Include="images\logos\" />
     <Folder Include="images\subimages\" />
+    <Folder Include="scripts\core\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

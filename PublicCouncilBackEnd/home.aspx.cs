@@ -249,8 +249,8 @@ namespace PublicCouncilBackEnd
         {
 
             
-            if (HttpContext.Current.Request.Url.ToString().Contains(".publiccouncil.ml") &&
-               !HttpContext.Current.Request.Url.ToString().Contains("www.publiccouncil.ml"))
+            if (HttpContext.Current.Request.Url.ToString().Contains(".ictimaishura.az") &&
+               !HttpContext.Current.Request.Url.ToString().Contains("www.ictimaishura.az"))
             {
                 Session["pcsubsite"] =
                      HttpContext.Current.Request.Url.ToString()

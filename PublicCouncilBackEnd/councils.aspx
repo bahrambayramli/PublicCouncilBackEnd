@@ -33,7 +33,7 @@
                 <asp:ListView ID="PCLIST_AZ" runat="server" OnPagePropertiesChanging="POSTLIST_AZ_PagePropertiesChanging">
                     <ItemTemplate>
                         <article class="col-12 d-flex align-items-stretch border-danger">
-                            <a href="http://<%#Eval("USER_PCDOMAIN")%>.publiccouncil.ml" class="shadow p-2 mb-3 rounded d-block text-default h5 w-100 text-wrap" title="<%#Eval("PC_NAME")%>"
+                            <a href="http://<%#Eval("USER_PCDOMAIN")%>.ictimaishura.az" class="shadow p-2 mb-3 rounded d-block text-default h5 w-100 text-wrap" title="<%#Eval("PC_NAME")%>"
                                 style="border-left: 4px solid #32325d;">
                                 <%#Eval("PC_NAME")%>
                             </a>
@@ -43,7 +43,7 @@
                 <asp:ListView ID="PCLIST_EN" runat="server" OnPagePropertiesChanging="POSTLIST_EN_PagePropertiesChanging">
                     <ItemTemplate>
                         <article class="col-12 d-flex align-items-stretch border-danger">
-                             <a href="http://<%#Eval("USER_PCDOMAIN")%>.publiccouncil.ml" class="shadow p-2 mb-3 rounded d-block text-default h5 w-100 text-wrap" title="<%#Eval("PC_NAME")%>"
+                             <a href="http://<%#Eval("USER_PCDOMAIN")%>.ictimaishura.az" class="shadow p-2 mb-3 rounded d-block text-default h5 w-100 text-wrap" title="<%#Eval("PC_NAME")%>"
                                 style="border-left: 4px solid #32325d;">
                                 <%#Eval("PC_NAME")%>
                             </a>

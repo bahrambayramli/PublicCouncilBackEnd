@@ -15,8 +15,8 @@ namespace PublicCouncilBackEnd
         protected void Application_Start(object sender, EventArgs e)
         {
             RegisterRoutes(RouteTable.Routes);
-            //BundleTable.EnableOptimizations = true;
-            //BundleConfig.RegisterBundle(BundleTable.Bundles);
+            BundleTable.EnableOptimizations = true;
+            BundleConfig.RegisterBundle(BundleTable.Bundles);
         }
 
 
