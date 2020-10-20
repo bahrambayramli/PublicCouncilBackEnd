@@ -21,7 +21,7 @@
                                         class="input-group input-group-merge input-group-alternative">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
-                                                <i class="ni ni-email-83"></i>
+                                               <i class="fas fa-user"></i>
                                             </span>
                                         </div>
                                         <asp:TextBox ID="inputLogin" runat="server" CssClass="form-control" placeholder="login"></asp:TextBox>
@@ -32,8 +32,9 @@
                                     <div
                                         class="input-group input-group-merge input-group-alternative">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i
-                                                class="ni ni-lock-circle-open"></i></span>
+                                            <span class="input-group-text">
+                                                <i class="fas fa-unlock-alt"></i>
+                                            </span>
                                         </div>
                                         
                                         <asp:TextBox ID="inputPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="şifrə"></asp:TextBox>
@@ -42,7 +43,7 @@
 
                                 <div class="form-group">
                                     <div class="text-right">
-                                        <a href="/register" class="btn-link text-success">Qeydiyyat</a>
+                                        <a href="/register" class="btn-link text-success ">Qeydiyyat</a>
                                     </div>
                                 </div>
 
@@ -51,7 +52,7 @@
                                         runat="server" 
                                         Text="Daxil ol" 
                                         CssClass="btn btn-default my-4 btn-round" 
-                                        OnClick="btnLogin_Click"  />
+                                        OnClick="btnLogin_Click"/>
                                 </div>
                                 <asp:Literal ID="_errorMessage" runat="server"></asp:Literal>
                             </div>

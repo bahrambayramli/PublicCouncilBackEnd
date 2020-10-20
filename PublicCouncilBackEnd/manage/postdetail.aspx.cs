@@ -665,7 +665,8 @@ namespace PublicCouncilBackEnd.manage
 
             if (Session["USER_MEMBERSHIP_TYPE"] as string == "user")
             {
-                updatedata.Parameters.Add("@POSTMAIN_VIEW", SqlDbType.Bit).Value = false;
+               
+                updatedata.Parameters.Add("@POSTMAIN_VIEW", SqlDbType.Bit).Value = postMAINVIEW.SelectedValue;
             }
             else
             {
