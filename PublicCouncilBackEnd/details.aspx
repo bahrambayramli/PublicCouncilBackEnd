@@ -197,7 +197,7 @@
                 <asp:Literal ID="shareName" runat="server"></asp:Literal>
             </div>
             <div class="my-md-1">
-                <div class="sharethis-inline-share-buttons post-share-div"></div>
+              <div class="sharethis-inline-share-buttons"></div>
             </div>
         </div>
 

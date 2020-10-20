@@ -66,7 +66,7 @@
                             <li class="nav-item">
                                  <asp:HyperLink ID="pcnameLink" runat="server" CssClass="nav-link justify-content-center">
                                     <span class="nav-link-text text-uppercase text-primary font-weight-600">
-                                        <asp:Literal ID="pcNameText" runat="server"></asp:Literal>
+<%--                                        <asp:Literal ID="pcNameText" runat="server"></asp:Literal>--%>
                                     </span>
                                  </asp:HyperLink>
                             </li>

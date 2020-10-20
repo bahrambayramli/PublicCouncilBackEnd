@@ -11,7 +11,7 @@ namespace PublicCouncilBackEnd
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
-        private void GetPosts(string LANGUAGE, string POST_CATEGORY, bool POST_ISDELETE, bool POST_ISACTIVE, string POST_AUTHOR, ListView LSV_AZ, ListView LSV_EN)
+        private void GetPosts(string LANGUAGE, string POST_CATEGORY, bool POST_ISDELETE, bool POST_ISACTIVE, ListView LSV_AZ, ListView LSV_EN)
         {
             switch (LANGUAGE)
             {
@@ -37,9 +37,8 @@ namespace PublicCouncilBackEnd
                                                                                             WHERE       ISDELETE            = @ISDELETE      AND
                                                                                                         ISACTIVE            = @ISACTIVE      AND
                                                                                                         POST_CATEGORY       = @POST_CATEGORY AND                                                                                                   
-                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW  AND
-                                                                                                        POST_AUTHOR         = @POST_AUTHOR
-
+                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW  
+                                                                                                       
                                                                                                         ORDER BY POST_DATE DESC
                                                                                                     "));
 
@@ -49,7 +48,6 @@ namespace PublicCouncilBackEnd
                         getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
                         getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
                         getPost.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
-                        getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
 
 
                         LSV_AZ.DataSource = SQL.SELECT(getPost);
@@ -79,8 +77,8 @@ namespace PublicCouncilBackEnd
                                                                                             WHERE       ISDELETE            = @ISDELETE      AND
                                                                                                         ISACTIVE            = @ISACTIVE      AND
                                                                                                         POST_CATEGORY       = @POST_CATEGORY AND                                                                                                   
-                                                                                                        POST_EN_VIEW        = @POST_EN_VIEW  AND
-                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+                                                                                                        POST_EN_VIEW        = @POST_EN_VIEW 
+                                                                                                      
 
                                                                                                         ORDER BY POST_DATE DESC
                                                                                                     "));
@@ -91,7 +89,6 @@ namespace PublicCouncilBackEnd
                         getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
                         getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
                         getPost.SelectCommand.Parameters.Add("@POST_EN_VIEW", SqlDbType.Bit).Value = true;
-                        getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
 
 
                         LSV_EN.DataSource = SQL.SELECT(getPost);
@@ -120,8 +117,8 @@ namespace PublicCouncilBackEnd
                                                                                             WHERE       ISDELETE            = @ISDELETE      AND
                                                                                                         ISACTIVE            = @ISACTIVE      AND
                                                                                                         POST_CATEGORY       = @POST_CATEGORY AND                                                                                                   
-                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW  AND
-                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW  
+                                                                                                      
 
                                                                                                          ORDER BY POST_DATE DESC
                                                                                                     "));
@@ -132,7 +129,6 @@ namespace PublicCouncilBackEnd
                         getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
                         getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
                         getPost.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
-                        getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
 
 
                         LSV_AZ.DataSource = SQL.SELECT(getPost);
@@ -166,7 +162,7 @@ namespace PublicCouncilBackEnd
                     }
                    
             }
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "news", false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
+            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "news", false, true,  POSTLIST_AZ, POSTLIST_EN);
         }
 
         protected void POSTLIST_AZ_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
@@ -184,7 +180,7 @@ namespace PublicCouncilBackEnd
                 POSTLIST_AZ.Visible = false;
                 DataPager_EN.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
             }
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "news", false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
+            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "news", false, true, POSTLIST_AZ, POSTLIST_EN);
         }
 
         protected void POSTLIST_EN_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
@@ -203,7 +199,7 @@ namespace PublicCouncilBackEnd
                 DataPager_EN.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
             }
 
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "news", false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
+            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "news", false, true,  POSTLIST_AZ, POSTLIST_EN);
 
 
         }

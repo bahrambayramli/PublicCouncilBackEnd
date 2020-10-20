@@ -97,7 +97,9 @@ namespace PublicCouncilBackEnd.manage
                                                                          
                                                                           POST_AZ_TOPIC,
                                                                           POST_EN_TOPIC,
-                                                                        
+                                                                                                                                                    
+                                                                          POSTMAIN_VIEW,
+
                                                                           POST_AZ_VIEW,
                                                                           POST_EN_VIEW,
                                                                        
@@ -135,7 +137,6 @@ namespace PublicCouncilBackEnd.manage
             dataTable = SQL.SELECT(getPost);
 
             GetCategory();
-
             foreach (ListItem item in category_list.Items)
             {
 
@@ -156,7 +157,6 @@ namespace PublicCouncilBackEnd.manage
             }
 
             GetSubCategory(category_list.SelectedValue);
-
             foreach (ListItem item in subcategory_list.Items)
             {
                 if (item.Value.ToString() == dataTable.Rows[0]["POST_SUBCATEGORY"].ToString())
@@ -174,7 +174,6 @@ namespace PublicCouncilBackEnd.manage
             }
 
             GetPcLists();
-
             foreach (ListItem item in pcSelectList.Items)
             {
                 if (item.Value.ToString() == dataTable.Rows[0]["USER_ID"].ToString())
@@ -202,6 +201,15 @@ namespace PublicCouncilBackEnd.manage
             post_az.Text = dataTable.Rows[0]["POST_AZ_TOPIC"].ToString();
             post_en.Text = dataTable.Rows[0]["POST_EN_TOPIC"].ToString();
 
+            if (dataTable.Rows[0]["POSTMAIN_VIEW"].Equals(true))
+            {
+                postMAINVIEW.Items.FindByValue("1").Selected = true;
+            }
+            else
+            {
+                postMAINVIEW.Items.FindByValue("0").Selected = true;
+            }
+
             if (dataTable.Rows[0]["POST_AZ_VIEW"].Equals(true))
             {
                 az_view.Items.FindByText("Bəli").Selected = true;
@@ -219,6 +227,8 @@ namespace PublicCouncilBackEnd.manage
             {
                 en_view.Items.FindByText("Xeyr").Selected = true;
             }
+
+            
 
             labelTime.Text = dataTable.Rows[0]["POST_DATE"].ToString().Substring(0, dataTable.Rows[0]["POST_DATE"].ToString().Length - 3);
 
@@ -257,6 +267,8 @@ namespace PublicCouncilBackEnd.manage
 		                                                                        POST_AZ_TOPIC,
 		                                                                        POST_EN_TOPIC,
 		                                                                       
+                                                                                POSTMAIN_VIEW,
+
 		                                                                        POST_AZ_VIEW,
 		                                                                        POST_EN_VIEW,
 		                                                                       
@@ -293,6 +305,8 @@ namespace PublicCouncilBackEnd.manage
 		                                                                        @POST_AZ_TOPIC,
 		                                                                        @POST_EN_TOPIC,
 		                                                                        
+                                                                                @POSTMAIN_VIEW,
+
 		                                                                        @POST_AZ_VIEW,
 		                                                                        @POST_EN_VIEW,
 		                                                                       
@@ -350,9 +364,7 @@ namespace PublicCouncilBackEnd.manage
                                                                                 FROM  PC_NAV WHERE NAV_VALUE = @NAV_VALUE	AND 
                                                                            					   ISDELETE  = 'False'          AND
                                                                            					   ISACTIVE  = 'True'"));
-
             getNav.SelectCommand.Parameters.Add("@NAV_VALUE", SqlDbType.NVarChar).Value = category_list.SelectedValue;
-
             DataTable NAVDB = SQL.SELECT(getNav);
 
 
@@ -371,10 +383,8 @@ namespace PublicCouncilBackEnd.manage
                                                                                     SUBNAV_VALUE = @SUBNAV_VALUE              AND 
                                                                            			ISDELETE  = 'FALSE'                       AND
                                                                            			ISACTIVE  = 'TRUE'"));
-
             getsubNav.SelectCommand.Parameters.Add("@NAV_VALUE", SqlDbType.NVarChar).Value = category_list.SelectedValue;
             getsubNav.SelectCommand.Parameters.Add("@SUBNAV_VALUE", SqlDbType.NVarChar).Value = subcategory_list.SelectedValue;
-
             DataTable SUBNAVDB = SQL.SELECT(getsubNav);
 
 
@@ -383,7 +393,6 @@ namespace PublicCouncilBackEnd.manage
                 insertdata.Parameters.Add("@POST_SITESUBCATEGORYAZ", SqlDbType.NVarChar).Value = SUBNAVDB.Rows[0]["SUBNAV_AZ"].ToString();
                 insertdata.Parameters.Add("@POST_SITESUBCATEGORYEN", SqlDbType.NVarChar).Value = SUBNAVDB.Rows[0]["SUBNAV_EN"].ToString();
             }
-
             else
             {
                 insertdata.Parameters.Add("@POST_SITESUBCATEGORYAZ", SqlDbType.NVarChar).Value = "";
@@ -392,12 +401,25 @@ namespace PublicCouncilBackEnd.manage
             }
 
 
-            //---------------------------------------------------------------------------------------------------------------------------------//
-
-
-
             insertdata.Parameters.Add("@POST_IMG", SqlDbType.NVarChar).Value = picName;
             insertdata.Parameters.Add("@POST_VIDEO", SqlDbType.NVarChar).Value = mainvideo_frame.Text;
+
+            if(Session["USER_MEMBERSHIP_TYPE"] as string == "user")
+            {
+
+                insertdata.Parameters.Add("@POSTMAIN_VIEW", SqlDbType.Bit).Value = false;
+            }
+            else
+            {
+                if (postMAINVIEW.SelectedValue == "1")
+                {
+                    insertdata.Parameters.Add("@POSTMAIN_VIEW", SqlDbType.Bit).Value = true;
+                }
+                else
+                {
+                    insertdata.Parameters.Add("@POSTMAIN_VIEW", SqlDbType.Bit).Value = false;
+                }
+            }
 
             if (az_view.SelectedItem.Text.ToLower() == "bəli")
             {
@@ -582,6 +604,8 @@ namespace PublicCouncilBackEnd.manage
 		                                                                        POST_AZ_TOPIC     =   @POST_AZ_TOPIC,
 		                                                                        POST_EN_TOPIC     =   @POST_EN_TOPIC,
 		                                                                      
+                                                                                POSTMAIN_VIEW     =   @POSTMAIN_VIEW,
+
 		                                                                        POST_AZ_VIEW      =   @POST_AZ_VIEW,
 		                                                                        POST_EN_VIEW      =   @POST_EN_VIEW,
 		                                                                     
@@ -638,6 +662,23 @@ namespace PublicCouncilBackEnd.manage
 
                 updatedata.Parameters.Add("@POST_IMG", SqlDbType.NVarChar).Value = mainImageName;
             }
+
+            if (Session["USER_MEMBERSHIP_TYPE"] as string == "user")
+            {
+                updatedata.Parameters.Add("@POSTMAIN_VIEW", SqlDbType.Bit).Value = false;
+            }
+            else
+            {
+                if (postMAINVIEW.SelectedValue == "1")
+                {
+                    updatedata.Parameters.Add("@POSTMAIN_VIEW", SqlDbType.Bit).Value = true;
+                }
+                else
+                {
+                    updatedata.Parameters.Add("@POSTMAIN_VIEW", SqlDbType.Bit).Value = false;
+                }
+            }
+
             if (az_view.SelectedItem.Text.ToLower() == "bəli")
             {
                 updatedata.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
@@ -905,7 +946,6 @@ namespace PublicCouncilBackEnd.manage
 
         }
 
-
         private void GetPcLists()
         {
             SqlDataAdapter getPC = new SqlDataAdapter(new SqlCommand("SELECT USER_ID, PC_NAME FROM PC_USERS WHERE ISACTIVE = @ISACTIVE AND ISDELETE = @ISDELETE"));
@@ -1045,6 +1085,7 @@ namespace PublicCouncilBackEnd.manage
 
             return SQL.SELECT(getUserPCdomainName).Rows[0]["USER_PCDOMAIN"].ToString() ;
         }
+
         #endregion
 
         #region(Post Sub images)
@@ -1142,70 +1183,30 @@ namespace PublicCouncilBackEnd.manage
         {
             if (!IsPostBack)
             {
-                try
-                {
-                    GetCategory();
-                }
-                catch (Exception ex)
-                {
-                    Response.Write(ex.Message);
-                }
 
-                try
-                {
-                    GetSubCategory(category_list.SelectedValue);
-                }
-                catch (Exception ex)
-                {
-                    Response.Write(ex.Message);
-                }
+                try { GetCategory(); } catch  { }
 
-                try
-                {
-                    GetPcLists();
-                }
-                catch(Exception ex)
-                {
-                    Response.Write(ex.Message);
-                }
+                try{ GetSubCategory(category_list.SelectedValue); }  catch  { }
+
+                try { GetPcLists(); } catch { }
 
                 if (Session["POST"] as string == "SELECTED")
                 {
-                    try
-                    {
-                        GetNews(Session["POST_USER_ID"] as string,Session["POSTID"] as string);
-                    }
-                    catch (Exception ex)
-                    {
-                        Response.Write(ex.Message);
-                    }
+                    try { GetNews(Session["POST_USER_ID"] as string,Session["POSTID"] as string); } catch { }
 
                     try
                     {
                         postConfirm.Text = "Dəyiş";
                         postConfirm.CssClass = "btn btn-warning";
                     }
-                    catch (Exception ex)
-                    {
-                        Response.Write(ex.Message);
-                    }
+                    catch  { }
 
+                } else{ try{ labelTime.Text = GetDate();} catch { } }
 
-
-                }
-                else
+                if(Session["USER_MEMBERSHIP_TYPE"]as string == "user")
                 {
-                    try
-                    {
-                        labelTime.Text = GetDate();
-                    }
-                    catch (Exception ex)
-                    {
-                        Response.Write(ex.Message);
-                    }
-
-
-
+                    PCLIST_PANEL.Visible = false;
+                    MAINVIEW_PANEL.Visible = false;
                 }
             }
         }

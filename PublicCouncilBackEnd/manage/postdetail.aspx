@@ -45,14 +45,22 @@
             <div class="container-fluid" style="padding: 0!important;">
 
                 <div class="row">
-                    <div class="col-12">
-                        <div class="form-group">
-                            <label for="managelayout_pcSelectList">Təşkilat</label>
+                    <div class="col-12 col-md-6">
+                        <asp:Panel ID="PCLIST_PANEL" runat="server" CssClass="form-group">
+                             <label for="managelayout_pcSelectList">Təşkilat</label>
                             <asp:DropDownList ID="pcSelectList" runat="server" CssClass="form-control">
-
                             </asp:DropDownList>
-                           
-                        </div>
+                        </asp:Panel>
+                       
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <asp:Panel ID="MAINVIEW_PANEL" runat="server">
+                            <label for="managelayout_postMAINVIEW">Ana səhifədə görunsun</label>
+                            <asp:DropDownList ID="postMAINVIEW" runat="server" CssClass="form-control">
+                                <asp:ListItem Value="1">Bəli</asp:ListItem>
+                                <asp:ListItem Value="0">Xeyr</asp:ListItem>
+                            </asp:DropDownList>
+                        </asp:Panel>
                     </div>
                 </div>
 

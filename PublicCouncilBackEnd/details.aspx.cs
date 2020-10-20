@@ -255,19 +255,8 @@ namespace PublicCouncilBackEnd
         {
 
             
-            var fbId = new HtmlMeta { Name = "fb:app_id", Content = "1442570649286303" };
-            var ogUrl = new HtmlMeta { Name = "og:url", Content = HttpContext.Current.Request.Url.AbsoluteUri };
-            var ogType = new HtmlMeta { Name = "og:type", Content = "website" };
-            var ogTitle = new HtmlMeta { Name = "og:title", Content = postTitle.Text };
-            var ogDescription = new HtmlMeta { Name = "og:description", Content = postTitle.Text };
-            var ogImage = new HtmlMeta { Name = "og:image", Content = "https://ictimaishura.az/" + postImage.ImageUrl.ToString() };
+           
 
-            Header.Controls.Add(fbId);
-            Header.Controls.Add(ogUrl);
-            Header.Controls.Add(ogType);
-            Header.Controls.Add(ogTitle);
-            Header.Controls.Add(ogDescription);
-            Header.Controls.Add(ogImage);
 
             try
             {
@@ -306,6 +295,20 @@ namespace PublicCouncilBackEnd
                 //    Response.Redirect("/home/az");
                 //}
             }
+
+
+            HtmlMeta ogUrl = new HtmlMeta { Name = "og:url", Content = "http://ictimaishura.az/details/"+ RouteData.Values["postid"] as string };
+            HtmlMeta ogType = new HtmlMeta { Name = "og:type", Content = "article" };
+            HtmlMeta ogTitle = new HtmlMeta { Name = "og:title", Content = postTitle.Text };
+            HtmlMeta ogDescription = new HtmlMeta { Name = "og:description", Content = postTitle.Text };
+            HtmlMeta ogImage = new HtmlMeta { Name = "og:image", Content = "http://ictimaishura.az" + postImage.ImageUrl.ToString() };
+
+
+            Header.Controls.Add(ogUrl);
+            Header.Controls.Add(ogType);
+            Header.Controls.Add(ogTitle);
+            Header.Controls.Add(ogDescription);
+            Header.Controls.Add(ogImage);
         }
     }
 }

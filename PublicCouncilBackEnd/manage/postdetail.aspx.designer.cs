@@ -24,6 +24,15 @@ namespace PublicCouncilBackEnd.manage
         protected global::System.Web.UI.WebControls.LinkButton back;
 
         /// <summary>
+        /// PCLIST_PANEL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PCLIST_PANEL;
+
+        /// <summary>
         /// pcSelectList control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,24 @@ namespace PublicCouncilBackEnd.manage
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList pcSelectList;
+
+        /// <summary>
+        /// MAINVIEW_PANEL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel MAINVIEW_PANEL;
+
+        /// <summary>
+        /// postMAINVIEW control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList postMAINVIEW;
 
         /// <summary>
         /// NAVPANEL control.

@@ -19,15 +19,15 @@ namespace PublicCouncilBackEnd.manage
 
             if (Session["USER_MEMBERSHIP_TYPE"] as string == "admin")
             {
-                pcnameLink.NavigateUrl = "http://publiccouncil.ml";
-                pcNameText.Text = "publiccouncil.ml";
+                //pcnameLink.NavigateUrl = "http://publiccouncil.ml";
+               // pcNameText.Text = "publiccouncil.ml";
               
 
             }
             else if (Session["USER_MEMBERSHIP_TYPE"] as string == "user")
             {
-                pcnameLink.NavigateUrl = $"http://{ Session["USER_PCDOMAIN"] as string}.publiccouncil.ml";
-                pcNameText.Text = ($"{Session["USER_PCDOMAIN"] as string}.publiccouncil.ml").ToLower();
+              //  pcnameLink.NavigateUrl = $"http://{ Session["USER_PCDOMAIN"] as string}.publiccouncil.ml";
+             //    pcNameText.Text = ($"{Session["USER_PCDOMAIN"] as string}.publiccouncil.ml").ToLower();
                 
                 managepartners.Visible = false;
                 managesponsors.Visible = false;
