@@ -10,7 +10,7 @@ namespace PublicCouncilBackEnd
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        private void GetPosts(string LANGUAGE, string POST_COUNT, string POST_CATEGORY,string POST_SUBCATEGORY, string POST_TYPE, bool POST_ISDELETE, bool POST_ISACTIVE, string POST_AUTHOR, ListView LSV_AZ, ListView LSV_EN)
+        private void GetPosts(string LANGUAGE, string POST_COUNT, string POST_CATEGORY,string POST_SUBCATEGORY, string POST_TYPE, bool POST_ISDELETE, bool POST_ISACTIVE, bool POSTMAIN_VIEW, ListView LSV_AZ, ListView LSV_EN)
         {
             switch (LANGUAGE)
             {
@@ -44,7 +44,7 @@ namespace PublicCouncilBackEnd
                                                                                                         POST_CATEGORY       = @POST_CATEGORY AND
                                                                                                         POST_TYPE           = @POST_TYPE     AND
                                                                                                         POST_AZ_VIEW        = @POST_AZ_VIEW  AND
-                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+                                                                                                        POSTMAIN_VIEW       = @POSTMAIN_VIEW
 
                                                                                                         ORDER BY POST_DATE DESC
                                                                                                     "));
@@ -61,7 +61,7 @@ namespace PublicCouncilBackEnd
                                                                                                         POST_SITESUBCATEGORYAZ,
                                                                                                         POST_SUBCATEGORY,
                                                                                                         POST_IMG,
-                                                                                                       POST_DATE,
+                                                                                                        POST_DATE,
                                                                                                         POST_TYPE,
                                                                                                         POST_SEOAZ,
                                                                                                         POST_AUTHOR
@@ -73,7 +73,7 @@ namespace PublicCouncilBackEnd
                                                                                                         POST_SUBCATEGORY    = @POST_SUBCATEGORY  AND
                                                                                                         POST_TYPE           = @POST_TYPE         AND
                                                                                                         POST_AZ_VIEW        = @POST_AZ_VIEW      AND
-                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+                                                                                                        POSTMAIN_VIEW       = @POSTMAIN_VIEW
                                                                                                         ORDER BY POST_DATE DESC"));
                             getPost.SelectCommand.Parameters.Add("@POST_SUBCATEGORY", SqlDbType.NVarChar).Value = POST_SUBCATEGORY;
                         }
@@ -82,7 +82,7 @@ namespace PublicCouncilBackEnd
                         getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
                         getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
                         getPost.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
-                        getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
+                        getPost.SelectCommand.Parameters.Add("@POSTMAIN_VIEW", SqlDbType.Bit).Value = POSTMAIN_VIEW;
                         getPost.SelectCommand.Parameters.Add("@POST_TYPE", SqlDbType.NVarChar).Value = POST_TYPE;
 
                         LSV_AZ.DataSource = SQL.SELECT(getPost);
@@ -109,7 +109,7 @@ namespace PublicCouncilBackEnd
                                                                                                         POST_SITESUBCATEGORYEN,
                                                                                                         POST_SUBCATEGORY,
                                                                                                         POST_IMG,
-                                                                                                       POST_DATE,
+                                                                                                        POST_DATE,
                                                                                                         POST_TYPE,
                                                                                                         POST_SEOEN,
                                                                                                         POST_AUTHOR
@@ -120,7 +120,7 @@ namespace PublicCouncilBackEnd
                                                                                                         POST_CATEGORY       = @POST_CATEGORY AND
                                                                                                         POST_TYPE           = @POST_TYPE     AND
                                                                                                         POST_EN_VIEW        = @POST_EN_VIEW  AND
-                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+                                                                                                        POSTMAIN_VIEW         = @POSTMAIN_VIEW
                                                                                                         
                                                                                                         ORDER BY POST_DATE DESC"));
                         }
@@ -148,7 +148,7 @@ namespace PublicCouncilBackEnd
                                                                                                         POST_SUBCATEGORY    = @POST_SUBCATEGORY  AND
                                                                                                         POST_TYPE           = @POST_TYPE         AND
                                                                                                         POST_EN_VIEW        = @POST_EN_VIEW      AND
-                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+                                                                                                        POSTMAIN_VIEW         = @POSTMAIN_VIEW
                                                                                                         ORDER BY POST_DATE DESC"));
                             getPost.SelectCommand.Parameters.Add("@POST_SUBCATEGORY", SqlDbType.NVarChar).Value = POST_SUBCATEGORY;
                         }
@@ -157,7 +157,7 @@ namespace PublicCouncilBackEnd
                         getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
                         getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
                         getPost.SelectCommand.Parameters.Add("@POST_EN_VIEW", SqlDbType.Bit).Value = true;
-                        getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
+                        getPost.SelectCommand.Parameters.Add("@POSTMAIN_VIEW", SqlDbType.Bit).Value = POSTMAIN_VIEW;
                         getPost.SelectCommand.Parameters.Add("@POST_TYPE", SqlDbType.NVarChar).Value = POST_TYPE;
 
                         LSV_EN.DataSource = SQL.SELECT(getPost);
@@ -195,7 +195,7 @@ namespace PublicCouncilBackEnd
                                                                                                         POST_CATEGORY       = @POST_CATEGORY AND
                                                                                                         POST_TYPE           = @POST_TYPE     AND
                                                                                                         POST_AZ_VIEW        = @POST_AZ_VIEW  AND
-                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+                                                                                                        POSTMAIN_VIEW         = @POSTMAIN_VIEW
 
                                                                                                         ORDER BY POST_DATE DESC
                                                                                                     "));
@@ -224,7 +224,7 @@ namespace PublicCouncilBackEnd
                                                                                                         POST_SUBCATEGORY    = @POST_SUBCATEGORY  AND
                                                                                                         POST_TYPE           = @POST_TYPE         AND
                                                                                                         POST_AZ_VIEW        = @POST_AZ_VIEW      AND
-                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+                                                                                                        POSTMAIN_VIEW         = @POSTMAIN_VIEW
                                                                                                         ORDER BY POST_DATE DESC"));
                             getPost.SelectCommand.Parameters.Add("@POST_SUBCATEGORY", SqlDbType.NVarChar).Value = POST_SUBCATEGORY;
                         }
@@ -233,7 +233,7 @@ namespace PublicCouncilBackEnd
                         getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
                         getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
                         getPost.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
-                        getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
+                        getPost.SelectCommand.Parameters.Add("@POSTMAIN_VIEW", SqlDbType.Bit).Value = POSTMAIN_VIEW;
                         getPost.SelectCommand.Parameters.Add("@POST_TYPE", SqlDbType.NVarChar).Value = POST_TYPE;
 
                         LSV_AZ.DataSource = SQL.SELECT(getPost);
@@ -488,11 +488,11 @@ namespace PublicCouncilBackEnd
                     Response.Redirect("/site/home/az");
             }
 
-            GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "","Əsas", false, true, "admin",MAINSLIDER_AZ,MAINSLIDER_EN);
-            GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "","Sağ yuxarı", false, true, "admin", RIGHTTOP_AZ, RIGHTTOP_EN);
-            GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "","Sağ aşağı",false, true, RIGHTBOTTOM_AZ, RIGHTBOTTOM_EN);
-            GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "", "Sağ aşağı", false, true, RIGHTBOTTOM_AZ, RIGHTBOTTOM_EN);
-            GetPosts(Page.RouteData.Values["language"] as string, "6", "news", "", "Sadə", false, true, "admin", SIMPLEPOSTS_AZ, SIMPLEPOSTS_EN);
+            GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "","Əsas", false, true,true,MAINSLIDER_AZ,MAINSLIDER_EN);
+            GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "","Sağ yuxarı", false, true,  true, RIGHTTOP_AZ, RIGHTTOP_EN);
+            GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "","Sağ aşağı",false, true, true, RIGHTBOTTOM_AZ, RIGHTBOTTOM_EN);
+            GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "", "Sağ aşağı", false, true, true, RIGHTBOTTOM_AZ, RIGHTBOTTOM_EN);
+            GetPosts(Page.RouteData.Values["language"] as string, "6", "news", "", "Sadə", false, true, true, SIMPLEPOSTS_AZ, SIMPLEPOSTS_EN);
             switch (Page.RouteData.Values["language"] as string)
             {
                 case "az":
@@ -515,8 +515,8 @@ namespace PublicCouncilBackEnd
                     }
                    
             }
-            GetPosts(Page.RouteData.Values["language"] as string, "6", "publications", "", "Sadə", false, true, "admin", PUBLICATIONS_AZ, PUBLICATIONS_EN);
-            GetPosts(Page.RouteData.Values["language"] as string, "6", "reports", "", "Sadə", false, true, "admin", REPORTS_AZ, REPORTS_EN);
+            GetPosts(Page.RouteData.Values["language"] as string, "6", "publications", "", "Sadə", false, true, true, PUBLICATIONS_AZ, PUBLICATIONS_EN);
+            GetPosts(Page.RouteData.Values["language"] as string, "6", "reports", "", "Sadə", false, true, true, REPORTS_AZ, REPORTS_EN);
         }
     }
 }

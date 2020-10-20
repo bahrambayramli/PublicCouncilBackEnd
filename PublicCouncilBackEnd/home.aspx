@@ -52,9 +52,9 @@
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                     </span>
                                     <h2 class="slider-title">
-                                       <%#Eval("POST_EN_TITLE")%>
+                                        <%#Eval("POST_EN_TITLE")%>
                                     </h2>
-                                    <a class="caption-link"  href="/details/en/<%#Eval("DATA_ID")%>"  title="<%#Eval("POST_SEOEN")%>"></a>
+                                    <a class="caption-link" href="/details/en/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOEN")%>"></a>
                                 </div>
                             </div>
                         </ItemTemplate>
@@ -102,7 +102,7 @@
                                     <h3 class="slider-title">
                                         <%#Eval("POST_SEOAZ")%>
                                     </h3>
-                                     <a class="caption-link" title="<%#Eval("POST_SEOAZ")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
+                                    <a class="caption-link" title="<%#Eval("POST_SEOAZ")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
                                 </div>
                             </div>
                         </ItemTemplate>
@@ -119,12 +119,12 @@
                                 <div class="slider-caption">
                                     <span class="slider-time btn btn-outline-warning btn-sm btn-round">
                                         <i class="far fa-calendar-alt"></i>
-                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
+                                        <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                     </span>
                                     <h3 class="slider-title">
-                                       <%#Eval("POST_SEOEN")%>
+                                        <%#Eval("POST_SEOEN")%>
                                     </h3>
-                                     <a class="caption-link" title="<%#Eval("POST_SEOEN")%>" href="/details/en/<%#Eval("DATA_ID")%>"></a>
+                                    <a class="caption-link" title="<%#Eval("POST_SEOEN")%>" href="/details/en/<%#Eval("DATA_ID")%>"></a>
                                 </div>
                             </div>
                         </ItemTemplate>
@@ -146,9 +146,9 @@
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                     </span>
                                     <h3 class="slider-title">
-                                      <%#Eval("POST_SEOAZ")%>
+                                        <%#Eval("POST_SEOAZ")%>
                                     </h3>
-                                     <a class="caption-link" title="<%#Eval("POST_SEOAZ")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
+                                    <a class="caption-link" title="<%#Eval("POST_SEOAZ")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
                                 </div>
                             </div>
                         </ItemTemplate>
@@ -170,7 +170,7 @@
                                     <h3 class="slider-title">
                                         <%#Eval("POST_SEOEN")%>
                                     </h3>
-                                     <a class="caption-link" title="<%#Eval("POST_SEOEN")%>" href="/details/en/<%#Eval("DATA_ID")%>"></a>
+                                    <a class="caption-link" title="<%#Eval("POST_SEOEN")%>" href="/details/en/<%#Eval("DATA_ID")%>"></a>
                                 </div>
                             </div>
                         </ItemTemplate>
@@ -265,7 +265,7 @@
         </asp:ListView>
     </section>
 
-     <!-- All  Posts  -->
+    <!-- All  Posts  -->
     <section class="all-news text-center mb-2">
         <asp:LinkButton ID="allPosts" runat="server" CssClass="btn btn-warning btn-round  text-uppercase">
             bütün Xeberler
@@ -309,7 +309,7 @@
                         <div class="col">
                             <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
                                 <i class="fas fa-scroll mr-2"></i>
-                               Publications
+                                Publications
                             </a>
                         </div>
                     </div>
@@ -324,7 +324,7 @@
             </LayoutTemplate>
             <ItemTemplate>
                 <div class="publication-item">
-                    <a class="rounded overflow-hidden" href="/details/en/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOEN")%>" >
+                    <a class="rounded overflow-hidden" href="/details/en/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOEN")%>">
                         <img class="publication-img" src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>">
                     </a>
                 </div>
@@ -391,14 +391,14 @@
                     <a href="/details/en/<%#Eval("DATA_ID")%>" class="d-block irem btn btn-outline-default my-1 w-100" title="<%#Eval("POST_SEOEN") %>">
                         <div class="container-fluid">
                             <div class="row">
-                                  <div class="col-3">
-                              <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
+                                <div class="col-3">
+                                    <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
+                                </div>
+                                <div class="col-9 text-left">
+                                    <%#Eval("POST_SEOEN") %>
+                                </div>
                             </div>
-                            <div class="col-9 text-left">
-                                <%#Eval("POST_SEOEN") %>
-                            </div>
-                            </div>
-                          
+
                         </div>
                     </a>
 
