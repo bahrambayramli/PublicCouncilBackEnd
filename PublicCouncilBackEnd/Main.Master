@@ -11,7 +11,7 @@
     <meta name="keywords" content="Public Council, İctimai şura,İctimai Şuraların fəaliyyəti">
     <meta name="fb:app_id" content="1442570649286303">
     <title>İctimai şura</title>
-    <link rel="icon" href="http://ictimaishura.az/Images/Logo/Logo1.jpeg" type="image/x-icon" sizes="32x32">
+    <link rel="icon" href="http://ictimaishura.az/Images/Logo/logo.png" type="image/x-icon">
     <!-- STYLES -->
     <asp:PlaceHolder runat="server">
         <%: Styles.Render("/bundles/MyAppStartupCss") %> 
@@ -386,7 +386,7 @@
                                             <div class="row">
                                                 <div class="col p-0">
                                                     <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white  text-capitalize">
-                                                        <i class="far fa-newspaper mr-2"></i>
+                                                       <i class="fas fa-clock mr-2"></i>
                                                         son Xəbərlər
                                                     </a>
                                                 </div>
@@ -424,7 +424,7 @@
                                             <div class="row">
                                                 <div class="col p-0">
                                                     <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white  text-capitalize">
-                                                        <i class="far fa-newspaper mr-2"></i>
+                                                       <i class="fas fa-clock mr-2"></i>
                                                         latest news
                                                     </a>
                                                 </div>
@@ -631,6 +631,13 @@
                                     </a>
                                 </li>
                             </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="text-center">
+                             site by <a class="text-light font-weight-300" target="_blank" href="http://smartcode.az">smartcode.az</a>
+                            </div>
                         </div>
                     </div>
                 </div>
