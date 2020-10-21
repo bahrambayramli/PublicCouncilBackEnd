@@ -2,16 +2,16 @@
 <%@ Import Namespace= "System.Web.Optimization" %>  
 <!DOCTYPE html>
 
-<html>
+<html lang="az">
 <head runat="server">
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="İctimai Şuraların fəaliyyəti">
-    <meta name="keywords" content="Public Council">
+    <meta name="description" content="Public Council, İctimai şura,İctimai Şuraların fəaliyyəti">
+    <meta name="keywords" content="Public Council, İctimai şura,İctimai Şuraların fəaliyyəti">
     <meta name="fb:app_id" content="1442570649286303">
     <title>İctimai şura</title>
-    <link rel="icon" href="/Images/Logo/Logo1.jpeg" type="image/gif" sizes="80x80">
+    <link rel="icon" href="http://ictimaishura.az/Images/Logo/Logo1.jpeg" type="image/x-icon" sizes="32x32">
     <!-- STYLES -->
     <asp:PlaceHolder runat="server">
         <%: Styles.Render("/bundles/MyAppStartupCss") %> 
@@ -52,7 +52,7 @@
                         <div class="header-top-social">
                             <ul class="social-buttons m-0 d-flex ">
                                 <li>
-                                    <a href="#" target="_blank" class="btn btn-round btn-twitter btn-sm mr-2 px-2 ">
+                                    <a href="https://www.facebook.com/%C4%B0ctimai-%C5%9Eura-109645403890081/?modal=admin_todo_tour" target="_blank" class="btn btn-round btn-twitter btn-sm mr-2 px-2 ">
                                         <i class="fab fa-twitter"></i>
                                     </a>
                                 </li>
@@ -85,9 +85,13 @@
                             <div class="col-6">
                                 <asp:ListView ID="LogoDesktop" runat="server">
                                     <LayoutTemplate>
+                                        <h1>
+
+                                        
                                         <a href="/home/az" class="d-block">
                                             <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                                         </a>
+                                            </h1>
                                     </LayoutTemplate>
                                     <ItemTemplate>
                                         <img class="rounded shadow-sm w-25" src="/images/logos/<%#Eval("LOGO_IMG")%>" alt="<%#Eval("LOGO_TITLE") %>">
@@ -251,9 +255,7 @@
                                                     <i class="far fa-calendar-alt"></i>
                                                     <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                                 </span>
-                                                <h2 class="slider-title">
-                                                    <%#Eval("POST_SEOAZ")%>
-                                                </h2>
+                                               
                                                 <a class="caption-link" title="<%#Eval("POST_SEOAZ")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
                                             </div>
                                         </div>
@@ -288,9 +290,7 @@
                                                     <i class="far fa-calendar-alt"></i>
                                                     <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                                 </span>
-                                                <h2 class="slider-title">
-                                                    <%#Eval("POST_SEOEN")%>
-                                                </h2>
+                                                
                                                 <a class="caption-link" title="<%#Eval("POST_SEOEN")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
                                             </div>
                                         </div>

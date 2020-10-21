@@ -73,7 +73,7 @@ namespace PublicCouncilBackEnd
                                                                                             	        POST_SITECATEGORYAZ,
                                                                                                         POST_SITESUBCATEGORYAZ,
                                                                                                         POST_IMG,
-                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_DATE,
                                                                                                         POST_SEOAZ,
                                                                                                         POST_AUTHOR
                                                                                             FROM        PC_POSTS
@@ -576,20 +576,19 @@ namespace PublicCouncilBackEnd
                                                                                             	        POST_SITECATEGORYAZ,
                                                                                                         POST_IMG,
                                                                                                         POST_DATE,
-                                                                                                        POST_SEOAZ,
+                                                                                                        POST_SEOAZ
                                                                                                       
                                                                                             FROM        PC_POSTS
 
-                                                                                            WHERE       ISDELETE            = @ISDELETE      AND
-                                                                                                        ISACTIVE            = @ISACTIVE      AND
-                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW  AND
-
-                                                                                                        POST_CATEGORY       = 'news '        AND 
-                                                                                                        POST_CATEGORY       ='announcements' AND
-                                                                                                        POST_CATEGORY       ='reports'       AND
-                                                                                                        POST_CATEGORY       ='publications'  AND
-
-                                                                                                        POSTMAIN_VIEW       = @POSTMAIN_VIEW
+                                                                                            WHERE       ISDELETE            = @ISDELETE        AND
+                                                                                                        ISACTIVE            = @ISACTIVE        AND
+                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW    AND
+                                                                                                        POSTMAIN_VIEW       = @POSTMAIN_VIEW   AND
+                                                                                                        (
+                                                                                                        POST_CATEGORY       = 'news '          OR 
+                                                                                                        POST_CATEGORY       = 'announcements'  OR
+                                                                                                        POST_CATEGORY       = 'reports'        OR
+                                                                                                        POST_CATEGORY       = 'publications'   )
 
                                                                                                         ORDER BY POST_DATE DESC
                                                                                                     "));
@@ -604,6 +603,7 @@ namespace PublicCouncilBackEnd
 
                         LSV_AZ.DataSource = SQL.SELECT(getPost);
                         LSV_AZ.DataBind();
+
                         getPost = null;
 
                         break;
@@ -621,20 +621,20 @@ namespace PublicCouncilBackEnd
                                                                                             	        POST_SITECATEGORYEN,
                                                                                                         POST_IMG,
                                                                                                         POST_DATE,
-                                                                                                        POST_SEOEN,
+                                                                                                        POST_SEOEN
                                                                                                       
                                                                                             FROM        PC_POSTS
 
-                                                                                            WHERE       ISDELETE            = @ISDELETE      AND
-                                                                                                        ISACTIVE            = @ISACTIVE      AND
-                                                                                                        POST_EN_VIEW        = @POST_EN_VIEW  AND
-
-                                                                                                        POST_CATEGORY       = 'news '        AND 
-                                                                                                        POST_CATEGORY       ='announcements' AND
-                                                                                                        POST_CATEGORY       ='reports'       AND
-                                                                                                        POST_CATEGORY       ='publications'  AND
-
-                                                                                                        POSTMAIN_VIEW       = @POSTMAIN_VIEW
+                                                                                            WHERE       ISDELETE            = @ISDELETE        AND
+                                                                                                        ISACTIVE            = @ISACTIVE        AND
+                                                                                                        POST_EN_VIEW        = @POST_EN_VIEW    AND
+                                                                                                        POSTMAIN_VIEW       = @POSTMAIN_VIEW   AND
+                                                                                                        (
+                                                                                                        POST_CATEGORY       = 'news '          OR 
+                                                                                                        POST_CATEGORY       = 'announcements'  OR
+                                                                                                        POST_CATEGORY       = 'reports'        AND
+                                                                                                        POST_CATEGORY       = 'publications'   
+                                                                                                        )
 
                                                                                                         ORDER BY POST_DATE DESC
                                                                                                     "));
@@ -649,6 +649,7 @@ namespace PublicCouncilBackEnd
 
                         LSV_AZ.DataSource = SQL.SELECT(getPost);
                         LSV_AZ.DataBind();
+
                         getPost = null;
 
                         break;
@@ -666,20 +667,19 @@ namespace PublicCouncilBackEnd
                                                                                             	        POST_SITECATEGORYAZ,
                                                                                                         POST_IMG,
                                                                                                         POST_DATE,
-                                                                                                        POST_SEOAZ,
+                                                                                                        POST_SEOAZ
                                                                                                       
                                                                                             FROM        PC_POSTS
 
-                                                                                            WHERE       ISDELETE            = @ISDELETE      AND
-                                                                                                        ISACTIVE            = @ISACTIVE      AND
-                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW  AND
-
-                                                                                                        POST_CATEGORY       = 'news '        AND 
-                                                                                                        POST_CATEGORY       ='announcements' AND
-                                                                                                        POST_CATEGORY       ='reports'       AND
-                                                                                                        POST_CATEGORY       ='publications'  AND
-
-                                                                                                        POSTMAIN_VIEW       = @POSTMAIN_VIEW
+                                                                                            WHERE       ISDELETE            = @ISDELETE        AND
+                                                                                                        ISACTIVE            = @ISACTIVE        AND
+                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW    AND
+                                                                                                        POSTMAIN_VIEW       = @POSTMAIN_VIEW   AND
+                                                                                                        (
+                                                                                                        POST_CATEGORY       = 'news '          OR 
+                                                                                                        POST_CATEGORY       = 'announcements'  OR
+                                                                                                        POST_CATEGORY       = 'reports'        OR
+                                                                                                        POST_CATEGORY       = 'publications'   )
 
                                                                                                         ORDER BY POST_DATE DESC
                                                                                                     "));
@@ -694,6 +694,7 @@ namespace PublicCouncilBackEnd
 
                         LSV_AZ.DataSource = SQL.SELECT(getPost);
                         LSV_AZ.DataBind();
+
                         getPost = null;
 
                         break;
@@ -816,7 +817,7 @@ namespace PublicCouncilBackEnd
             GetNavigations(Page.RouteData.Values["language"] as string);
             GetPosts(Session["language"] as string, "4", "election", false, true, true, COUNCILELECTION_AZ, COUNCILELECTION_EN);
             GetPosts(Session["language"] as string, "4", "announcements", false, true, true, ANNOUNCMENTS_AZ, ANNOUNCMENTS_EN);
-            GetPosts(Session["language"] as string, "12", "news", false, true, true, LATEST_AZ, LATEST_EN);
+            GetLatest(Session["language"] as string, "12", false, true, true, LATEST_AZ, LATEST_EN);
             GetPosts(Session["language"] as string, "5", "multimedia", "video", false, true,true, VIDEOS_AZ, VIDEOS_EN,false);
             GetPartners(Session["language"] as string,"12", false, true, PARTNERS_AZ,PARTNERS_EN);
             switch (Session["language"]as string)

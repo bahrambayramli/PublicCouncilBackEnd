@@ -43,7 +43,7 @@ namespace PublicCouncilBackEnd.subsite
                                                                                             WHERE       ISDELETE            = @ISDELETE      AND
                                                                                                         ISACTIVE            = @ISACTIVE      AND
                                                                                                         POST_CATEGORY       = @POST_CATEGORY AND
-                                                                                                        POST_TYPE           = @POST_TYPE     AND
+                                                                                                      
                                                                                                         POST_AZ_VIEW        = @POST_AZ_VIEW  AND
                                                                                                         POST_AUTHOR         = @POST_AUTHOR
 
@@ -84,7 +84,6 @@ namespace PublicCouncilBackEnd.subsite
                         getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
                         getPost.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
                         getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
-                        getPost.SelectCommand.Parameters.Add("@POST_TYPE", SqlDbType.NVarChar).Value = POST_TYPE;
 
                         LSV_AZ.DataSource = SQL.SELECT(getPost);
                         LSV_AZ.DataBind();
@@ -119,7 +118,6 @@ namespace PublicCouncilBackEnd.subsite
                                                                                             WHERE       ISDELETE            = @ISDELETE      AND
                                                                                                         ISACTIVE            = @ISACTIVE      AND
                                                                                                         POST_CATEGORY       = @POST_CATEGORY AND
-                                                                                                        POST_TYPE           = @POST_TYPE     AND
                                                                                                         POST_EN_VIEW        = @POST_EN_VIEW  AND
                                                                                                         POST_AUTHOR         = @POST_AUTHOR
                                                                                                         
@@ -137,8 +135,7 @@ namespace PublicCouncilBackEnd.subsite
                                                                                                         POST_SITESUBCATEGORYAZ,
                                                                                                         POST_SUBCATEGORY,
                                                                                                         POST_IMG,
-                                                                                                       POST_DATE,
-                                                                                                        POST_TYPE,
+                                                                                                        POST_DATE,
                                                                                                         POST_SEOAZ,
                                                                                                         POST_AUTHOR
                                                                                             FROM        PC_POSTS
@@ -159,7 +156,6 @@ namespace PublicCouncilBackEnd.subsite
                         getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
                         getPost.SelectCommand.Parameters.Add("@POST_EN_VIEW", SqlDbType.Bit).Value = true;
                         getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
-                        getPost.SelectCommand.Parameters.Add("@POST_TYPE", SqlDbType.NVarChar).Value = POST_TYPE;
 
                         LSV_EN.DataSource = SQL.SELECT(getPost);
                         LSV_EN.DataBind();
@@ -186,7 +182,6 @@ namespace PublicCouncilBackEnd.subsite
                                                                                                         POST_SUBCATEGORY,
                                                                                                         POST_IMG,
                                                                                                         POST_DATE,
-                                                                                                        POST_TYPE,
                                                                                                         POST_SEOAZ,
                                                                                                         POST_AUTHOR
                                                                                             FROM        PC_POSTS
@@ -214,7 +209,6 @@ namespace PublicCouncilBackEnd.subsite
                                                                                                         POST_SUBCATEGORY,
                                                                                                         POST_IMG,
                                                                                                         POST_DATE,
-                                                                                                        POST_TYPE,
                                                                                                         POST_SEOAZ,
                                                                                                         POST_AUTHOR
                                                                                             FROM        PC_POSTS
@@ -235,7 +229,6 @@ namespace PublicCouncilBackEnd.subsite
                         getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
                         getPost.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
                         getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
-                        getPost.SelectCommand.Parameters.Add("@POST_TYPE", SqlDbType.NVarChar).Value = POST_TYPE;
 
                         LSV_AZ.DataSource = SQL.SELECT(getPost);
                         LSV_AZ.DataBind();
