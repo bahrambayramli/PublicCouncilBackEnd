@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="multimedia.aspx.cs" Inherits="PublicCouncilBackEnd.WebForm8" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="content/css/argon-design-system.min.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
     <asp:UpdatePanel ID="POSTS_PANEL" runat="server" class="container-fluid">
@@ -11,7 +12,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="d-flex justify-content-around mb-2">
+                    <div class="d-flex flex-column justify-content-lg-around flex-md-row mb-2">
                         
 
                         <asp:HyperLink ID="postPhoto" runat="server" CssClass="btn btn-danger w-100">
