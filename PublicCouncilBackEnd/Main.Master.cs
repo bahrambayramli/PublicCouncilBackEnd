@@ -557,6 +557,151 @@ namespace PublicCouncilBackEnd
             }
         }
 
+        private void GetLatest(string LANGUAGE, string POST_COUNT, bool POST_ISDELETE, bool POST_ISACTIVE, bool POSTMAIN_VIEW, ListView LSV_AZ, ListView LSV_EN)
+        {
+
+            SqlDataAdapter getPost = new SqlDataAdapter();
+            switch (LANGUAGE)
+            {
+                case "az":
+                    {
+                        LSV_EN.DataSource = null;
+                        LSV_EN.DataBind();
+
+
+                        getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
+
+                                                                                                        DATA_ID,
+                                                                                                        POST_AZ_TITLE,
+                                                                                            	        POST_SITECATEGORYAZ,
+                                                                                                        POST_IMG,
+                                                                                                        POST_DATE,
+                                                                                                        POST_SEOAZ,
+                                                                                                      
+                                                                                            FROM        PC_POSTS
+
+                                                                                            WHERE       ISDELETE            = @ISDELETE      AND
+                                                                                                        ISACTIVE            = @ISACTIVE      AND
+                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW  AND
+
+                                                                                                        POST_CATEGORY       = 'news '        AND 
+                                                                                                        POST_CATEGORY       ='announcements' AND
+                                                                                                        POST_CATEGORY       ='reports'       AND
+                                                                                                        POST_CATEGORY       ='publications'  AND
+
+                                                                                                        POSTMAIN_VIEW       = @POSTMAIN_VIEW
+
+                                                                                                        ORDER BY POST_DATE DESC
+                                                                                                    "));
+
+
+
+                        getPost.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = POST_ISDELETE;
+                        getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
+                        getPost.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
+                        getPost.SelectCommand.Parameters.Add("@POSTMAIN_VIEW", SqlDbType.Bit).Value = POSTMAIN_VIEW;
+
+
+                        LSV_AZ.DataSource = SQL.SELECT(getPost);
+                        LSV_AZ.DataBind();
+                        getPost = null;
+
+                        break;
+                    }
+                case "en":
+                    {
+                        LSV_EN.DataSource = null;
+                        LSV_EN.DataBind();
+
+
+                        getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
+
+                                                                                                        DATA_ID,
+                                                                                                        POST_EN_TITLE,
+                                                                                            	        POST_SITECATEGORYEN,
+                                                                                                        POST_IMG,
+                                                                                                        POST_DATE,
+                                                                                                        POST_SEOEN,
+                                                                                                      
+                                                                                            FROM        PC_POSTS
+
+                                                                                            WHERE       ISDELETE            = @ISDELETE      AND
+                                                                                                        ISACTIVE            = @ISACTIVE      AND
+                                                                                                        POST_EN_VIEW        = @POST_EN_VIEW  AND
+
+                                                                                                        POST_CATEGORY       = 'news '        AND 
+                                                                                                        POST_CATEGORY       ='announcements' AND
+                                                                                                        POST_CATEGORY       ='reports'       AND
+                                                                                                        POST_CATEGORY       ='publications'  AND
+
+                                                                                                        POSTMAIN_VIEW       = @POSTMAIN_VIEW
+
+                                                                                                        ORDER BY POST_DATE DESC
+                                                                                                    "));
+
+
+
+                        getPost.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = POST_ISDELETE;
+                        getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
+                        getPost.SelectCommand.Parameters.Add("@POST_EN_VIEW", SqlDbType.Bit).Value = true;
+                        getPost.SelectCommand.Parameters.Add("@POSTMAIN_VIEW", SqlDbType.Bit).Value = POSTMAIN_VIEW;
+
+
+                        LSV_AZ.DataSource = SQL.SELECT(getPost);
+                        LSV_AZ.DataBind();
+                        getPost = null;
+
+                        break;
+                    }
+                default:
+                    {
+                        LSV_EN.DataSource = null;
+                        LSV_EN.DataBind();
+
+
+                        getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
+
+                                                                                                        DATA_ID,
+                                                                                                        POST_AZ_TITLE,
+                                                                                            	        POST_SITECATEGORYAZ,
+                                                                                                        POST_IMG,
+                                                                                                        POST_DATE,
+                                                                                                        POST_SEOAZ,
+                                                                                                      
+                                                                                            FROM        PC_POSTS
+
+                                                                                            WHERE       ISDELETE            = @ISDELETE      AND
+                                                                                                        ISACTIVE            = @ISACTIVE      AND
+                                                                                                        POST_AZ_VIEW        = @POST_AZ_VIEW  AND
+
+                                                                                                        POST_CATEGORY       = 'news '        AND 
+                                                                                                        POST_CATEGORY       ='announcements' AND
+                                                                                                        POST_CATEGORY       ='reports'       AND
+                                                                                                        POST_CATEGORY       ='publications'  AND
+
+                                                                                                        POSTMAIN_VIEW       = @POSTMAIN_VIEW
+
+                                                                                                        ORDER BY POST_DATE DESC
+                                                                                                    "));
+
+
+
+                        getPost.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = POST_ISDELETE;
+                        getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
+                        getPost.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
+                        getPost.SelectCommand.Parameters.Add("@POSTMAIN_VIEW", SqlDbType.Bit).Value = POSTMAIN_VIEW;
+
+
+                        LSV_AZ.DataSource = SQL.SELECT(getPost);
+                        LSV_AZ.DataBind();
+                        getPost = null;
+
+                        break;
+                    }
+
+            }
+        }
+
         private void GetPartners(string LANGUAGE,string PARTNERS_COUNT, bool PARTNERS_ISDELETE, bool PARTNERS_ISACTIVE, ListView LSV_AZ,ListView LSV_EN)
         {
             SqlDataAdapter getPartners = new SqlDataAdapter();

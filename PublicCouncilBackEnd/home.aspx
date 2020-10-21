@@ -139,7 +139,7 @@
                         <ItemTemplate>
 
                             <div class="slider-item">
-                                <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>" alt="<%#Eval("POST_SEOAZ")%>" />
+                                <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>"  />
                                 <div class="slider-caption">
                                     <span class="slider-time btn btn-outline-warning btn-sm btn-round">
                                         <i class="far fa-calendar-alt"></i>

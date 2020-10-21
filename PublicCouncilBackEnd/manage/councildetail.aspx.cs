@@ -122,7 +122,7 @@ namespace PublicCouncilBackEnd.manage
                     {
                         inputCity.Items.FindByValue(item.Value.ToString()).Selected = true;
                     }
-                    catch (Exception ex)
+                    catch
                     {
                         //  Debug.WriteLine(ex.Message);
                     }

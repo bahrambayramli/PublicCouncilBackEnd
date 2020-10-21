@@ -12,6 +12,7 @@ namespace PublicCouncilBackEnd
     {
         private void GetPosts(string LANGUAGE, string POST_COUNT, string POST_CATEGORY,string POST_SUBCATEGORY, string POST_TYPE, bool POST_ISDELETE, bool POST_ISACTIVE, bool POSTMAIN_VIEW, ListView LSV_AZ, ListView LSV_EN)
         {
+            SqlDataAdapter getPost = new SqlDataAdapter();
             switch (LANGUAGE)
             {
                 case "az":
@@ -20,7 +21,7 @@ namespace PublicCouncilBackEnd
                         LSV_EN.DataBind();
 
 
-                        SqlDataAdapter getPost = new SqlDataAdapter();
+                      
                         if (string.IsNullOrEmpty(POST_SUBCATEGORY))
                         {
                             getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
@@ -87,7 +88,7 @@ namespace PublicCouncilBackEnd
 
                         LSV_AZ.DataSource = SQL.SELECT(getPost);
                         LSV_AZ.DataBind();
-
+                        getPost = null;
                         break;
                     }
                 case "en":
@@ -96,7 +97,7 @@ namespace PublicCouncilBackEnd
                         LSV_AZ.DataBind();
 
 
-                        SqlDataAdapter getPost = new SqlDataAdapter();
+                       
                         if (string.IsNullOrEmpty(POST_SUBCATEGORY))
                         {
                             getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
@@ -162,7 +163,7 @@ namespace PublicCouncilBackEnd
 
                         LSV_EN.DataSource = SQL.SELECT(getPost);
                         LSV_EN.DataBind();
-
+                        getPost = null;
                         break;
                     }
                 default:
@@ -171,7 +172,7 @@ namespace PublicCouncilBackEnd
                         LSV_EN.DataBind();
 
 
-                        SqlDataAdapter getPost = new SqlDataAdapter();
+                      
                         if (string.IsNullOrEmpty(POST_SUBCATEGORY))
                         {
                             getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
@@ -238,7 +239,7 @@ namespace PublicCouncilBackEnd
 
                         LSV_AZ.DataSource = SQL.SELECT(getPost);
                         LSV_AZ.DataBind();
-
+                        getPost = null;
                         break;
                     }
 

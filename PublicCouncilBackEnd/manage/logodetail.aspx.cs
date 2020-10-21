@@ -169,7 +169,7 @@ namespace PublicCouncilBackEnd.manage
                     {
                         GetLogos(Session["LOGO_ID"] as string, false, Session["USER_ID"] as string);
                     }
-                    catch (Exception ex)
+                    catch 
                     {
                        // Log.LogCreator(Server.MapPath("~/Logs/logs.txt"), ex.Message);
                     }
@@ -179,7 +179,7 @@ namespace PublicCouncilBackEnd.manage
                         logoConfirm.Text = "Dəyiş";
                         logoConfirm.CssClass = "btn btn-warning";
                     }
-                    catch (Exception ex)
+                    catch 
                     {
                        // Log.LogCreator(Server.MapPath("~/Logs/logs.txt"), ex.Message);
                     }
