@@ -164,7 +164,7 @@
                                         <asp:HyperLink ID="_multimedia" runat="server" CssClass="subnav-link">
                                         </asp:HyperLink>
                                     </li>
-                                    <%--<li class="subnav-item">
+                                    <li class="subnav-item">
 
                                         <asp:HyperLink ID="_aboutus" runat="server" CssClass="subnav-link">
                                         </asp:HyperLink>
@@ -173,7 +173,7 @@
 
                                         <asp:HyperLink ID="_contactus" runat="server" CssClass="subnav-link">
                                         </asp:HyperLink>
-                                    </li>--%>
+                                    </li>
                                 </ul>
                                
                             </nav>

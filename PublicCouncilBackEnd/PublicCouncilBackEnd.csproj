@@ -238,6 +238,8 @@
     <Content Include="subsite\publications.aspx" />
     <Content Include="subsite\reports.aspx" />
     <Content Include="subsite\multimedia.aspx" />
+    <Content Include="subsite\contactus.aspx" />
+    <Content Include="subsite\aboutus.aspx" />
     <Content Include="Web.config" />
     <Content Include="home.aspx" />
     <Content Include="posts.aspx" />
@@ -495,6 +497,20 @@
     </Compile>
     <Compile Include="councils.aspx.designer.cs">
       <DependentUpon>councils.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="subsite\contactus.aspx.cs">
+      <DependentUpon>contactus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="subsite\contactus.aspx.designer.cs">
+      <DependentUpon>contactus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="subsite\aboutus.aspx.cs">
+      <DependentUpon>aboutus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="subsite\aboutus.aspx.designer.cs">
+      <DependentUpon>aboutus.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

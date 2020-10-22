@@ -74,10 +74,8 @@ namespace PublicCouncilBackEnd
             routes.MapPageRoute("pcreports", "site/reports/{language}", "~/subsite/reports.aspx");
             routes.MapPageRoute("pcmultimedia", "site/multimedia/{language}", "~/subsite/multimedia.aspx");
             routes.MapPageRoute("pcmultimediaRoute", "site/multimedia/{directory}/{language}", "~/subsite/multimedia.aspx");
-
-            //routes.MapPageRoute("ngoaboutus", "site/aboutus/{language}", "~/ngo/aboutus.aspx");
-            //routes.MapPageRoute("ngocontactus", "site/contactus/{language}", "~/ngo/contactus.aspx");
-            //routes.MapPageRoute("ngopublications", "site/publications/{language}", "~/ngo/publications.aspx");
+            routes.MapPageRoute("pcaboutus", "site/aboutus/{language}", "~/subsite/aboutus.aspx");
+            routes.MapPageRoute("pccontactus", "site/contactus/{language}", "~/subsite/contactus.aspx");
             #endregion
 
         }
