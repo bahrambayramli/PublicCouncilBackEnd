@@ -610,8 +610,8 @@ namespace PublicCouncilBackEnd
                     }
                 case "en":
                     {
-                        LSV_EN.DataSource = null;
-                        LSV_EN.DataBind();
+                        LSV_AZ.DataSource = null;
+                        LSV_AZ.DataBind();
 
 
                         getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
@@ -647,8 +647,8 @@ namespace PublicCouncilBackEnd
                         getPost.SelectCommand.Parameters.Add("@POSTMAIN_VIEW", SqlDbType.Bit).Value = POSTMAIN_VIEW;
 
 
-                        LSV_AZ.DataSource = SQL.SELECT(getPost);
-                        LSV_AZ.DataBind();
+                        LSV_EN.DataSource = SQL.SELECT(getPost);
+                        LSV_EN.DataBind();
 
                         getPost = null;
 

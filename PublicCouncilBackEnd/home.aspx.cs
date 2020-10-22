@@ -335,7 +335,6 @@ namespace PublicCouncilBackEnd
                                                                                             WHERE       ISDELETE            = @ISDELETE      AND
                                                                                                         ISACTIVE            = @ISACTIVE      AND
                                                                                                         POST_CATEGORY       = @POST_CATEGORY AND
-                                                                                                        POST_TYPE           = @POST_TYPE     AND
                                                                                                         POST_EN_VIEW        = @POST_EN_VIEW  
                                                                                                         
                                                                                                         ORDER BY POST_DATE DESC"));
