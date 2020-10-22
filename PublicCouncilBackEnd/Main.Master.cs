@@ -585,7 +585,8 @@ namespace PublicCouncilBackEnd
                                                                                                         POST_AZ_VIEW        = @POST_AZ_VIEW    AND
                                                                                                         POSTMAIN_VIEW       = @POSTMAIN_VIEW   AND
                                                                                                         (
-                                                                                                        POST_CATEGORY       = 'news '          OR 
+                                                                                                        POST_CATEGORY       = 'news '          OR
+                                                                                                        POST_CATEGORY       = 'election '      OR
                                                                                                         POST_CATEGORY       = 'announcements'  OR
                                                                                                         POST_CATEGORY       = 'reports'        OR
                                                                                                         POST_CATEGORY       = 'publications'   )
@@ -632,6 +633,7 @@ namespace PublicCouncilBackEnd
                                                                                                         (
                                                                                                         POST_CATEGORY       = 'news '          OR 
                                                                                                         POST_CATEGORY       = 'announcements'  OR
+                                                                                                        POST_CATEGORY       = 'election '      OR
                                                                                                         POST_CATEGORY       = 'reports'        AND
                                                                                                         POST_CATEGORY       = 'publications'   
                                                                                                         )
@@ -678,6 +680,7 @@ namespace PublicCouncilBackEnd
                                                                                                         (
                                                                                                         POST_CATEGORY       = 'news '          OR 
                                                                                                         POST_CATEGORY       = 'announcements'  OR
+                                                                                                        POST_CATEGORY       = 'election '      OR
                                                                                                         POST_CATEGORY       = 'reports'        OR
                                                                                                         POST_CATEGORY       = 'publications'   )
 

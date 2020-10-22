@@ -459,7 +459,7 @@ namespace PublicCouncilBackEnd
             GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "","Əsas", false, true,true,MAINSLIDER_AZ,MAINSLIDER_EN);
             GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "","Sağ yuxarı", false, true,  true, RIGHTTOP_AZ, RIGHTTOP_EN);
             GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "","Sağ aşağı",false, true, true, RIGHTBOTTOM_AZ, RIGHTBOTTOM_EN);
-            GetPosts(Page.RouteData.Values["language"] as string, "6", "news", "",  false, true, true, SIMPLEPOSTS_AZ, SIMPLEPOSTS_EN);
+            GetPosts(Page.RouteData.Values["language"] as string, "9", "news", "",  false, true, true, SIMPLEPOSTS_AZ, SIMPLEPOSTS_EN);
             switch (Page.RouteData.Values["language"] as string)
             {
                 case "az":
@@ -483,7 +483,7 @@ namespace PublicCouncilBackEnd
                    
             }
             GetPosts(Page.RouteData.Values["language"] as string, "6", "publications", "", false, true, true, PUBLICATIONS_AZ, PUBLICATIONS_EN);
-            GetPosts(Page.RouteData.Values["language"] as string, "6", "reports", "",  false, true, true, REPORTS_AZ, REPORTS_EN);
+            GetPosts(Page.RouteData.Values["language"] as string, "9", "reports", "",  false, true, true, REPORTS_AZ, REPORTS_EN);
         }
     }
 }
