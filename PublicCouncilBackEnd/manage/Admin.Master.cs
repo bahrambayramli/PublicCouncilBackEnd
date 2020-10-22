@@ -16,7 +16,7 @@ namespace PublicCouncilBackEnd.manage
             {
                 Response.Redirect("/login");
             }
-
+            Session.Timeout = 30;
             if (Session["USER_MEMBERSHIP_TYPE"] as string == "admin")
             {
                 //pcnameLink.NavigateUrl = "http://publiccouncil.ml";
