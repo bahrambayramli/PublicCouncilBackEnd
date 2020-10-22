@@ -1247,7 +1247,7 @@ namespace PublicCouncilBackEnd.manage
                 }
             }
 
-            Session["POST"] = "NONE";
+            Session["POST"] = null;
             Session["POSTID"] = null;
             Session["POST_USER_ID"] = null;
             Response.Redirect("/manage/posts");
@@ -1256,7 +1256,7 @@ namespace PublicCouncilBackEnd.manage
         protected void back_Click(object sender, EventArgs e)
         {
 
-            Session["POST"] = null;
+            Session["POST"] = null; ;
             Session["POSTID"] = null;
             Session["POST_USER_ID"] = null;
             Response.Redirect("/manage/posts");
