@@ -163,7 +163,7 @@ namespace PublicCouncilBackEnd.manage
 
             inputWeb.Text = pc.Rows[0]["PC_WEBADDRESS"].ToString().ToLower();
 
-            inputPCname.Text = pc.Rows[0]["PC_NAME"].ToString().ToLower();
+            inputPCname.Text = pc.Rows[0]["PC_NAME"].ToString();
 
             GetLogos(pc.Rows[0]["USER_SERIAL"].ToString(), false);
 
