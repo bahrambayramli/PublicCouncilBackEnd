@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    
     <title>İctimai şura</title>
-    <link rel="icon" href="/Images/Logo/Logo1.jpeg" type="image/gif" sizes="80x80">
+    <link rel="icon" href="/Images/Logo/logo.png" type="image/gif" sizes="80x80">
 
     <!-- STYLES -->
      <asp:PlaceHolder runat="server">
