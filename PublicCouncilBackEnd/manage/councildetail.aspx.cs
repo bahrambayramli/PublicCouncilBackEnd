@@ -165,6 +165,8 @@ namespace PublicCouncilBackEnd.manage
 
             inputPCname.Text = pc.Rows[0]["PC_NAME"].ToString();
 
+            inputAboutUs.Text = pc.Rows[0]["PC_ABOUT"].ToString();
+
             GetLogos(pc.Rows[0]["USER_SERIAL"].ToString(), false);
 
         }
@@ -194,6 +196,7 @@ namespace PublicCouncilBackEnd.manage
                                                          PC_WEBADDRESS,
                                                          PC_COUNTRY,
                                                          PC_CITY,
+                                                         PC_ABOUT,
                                                          CREATED_DATE,
                                                          PC_CATEGORY
 	                                                    )
@@ -217,7 +220,7 @@ namespace PublicCouncilBackEnd.manage
                                                          @PC_WEBADDRESS,
                                                          @PC_COUNTRY,
                                                          @PC_CITY,
-                                                         
+                                                         @PC_ABOUT,
                                                          @CREATED_DATE,
                                                          @PC_CATEGORY
                                                         
@@ -252,6 +255,7 @@ namespace PublicCouncilBackEnd.manage
             insertUser.Parameters.Add("@PC_WEBADDRESS", SqlDbType.NVarChar).Value = inputWeb.Text;
             insertUser.Parameters.Add("@PC_COUNTRY", SqlDbType.NVarChar).Value = "Azərbaycan";
             insertUser.Parameters.Add("@PC_CITY", SqlDbType.NVarChar).Value = inputCity.SelectedItem.Text;
+            insertUser.Parameters.Add("@PC_ABOUT", SqlDbType.NVarChar).Value = inputAboutUs.Text;
 
             DateTime createdDate = DateTime.ParseExact(GetDate(), "dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
             insertUser.Parameters.Add("@CREATED_DATE", SqlDbType.Date).Value = createdDate.ToString(); ;
@@ -292,7 +296,7 @@ namespace PublicCouncilBackEnd.manage
                                                          PC_WEBADDRESS         = @PC_WEBADDRESS         ,                                                      
                                                          PC_CITY               = @PC_CITY               ,
                                                          PC_CATEGORY           = @PC_CATEGORY
-	                                                    
+	                                                     PC_ABOUT              = @PC_ABOUT              
                                                          WHERE USER_ID = @USER_ID
                                                         
 	                                                	   ");
@@ -319,7 +323,7 @@ namespace PublicCouncilBackEnd.manage
                                                          PC_WEBADDRESS         = @PC_WEBADDRESS         ,                                                      
                                                          PC_CITY               = @PC_CITY               ,                                                       
                                                          PC_CATEGORY           = @PC_CATEGORY
-	                                                    
+	                                                     PC_ABOUT              = @PC_ABOUT              
                                                          WHERE USER_ID = @USER_ID
                                                         
 	                                                	   ");
@@ -351,6 +355,7 @@ namespace PublicCouncilBackEnd.manage
             updateUser.Parameters.Add("@PC_WEBADDRESS", SqlDbType.NVarChar).Value = inputWeb.Text;
             updateUser.Parameters.Add("@PC_CITY", SqlDbType.NVarChar).Value = inputCity.SelectedItem.Text;
             updateUser.Parameters.Add("@PC_CATEGORY", SqlDbType.NVarChar).Value = categorySelect.SelectedValue;
+            updateUser.Parameters.Add("@PC_ABOUT", SqlDbType.NVarChar).Value = inputAboutUs.Text;
 
 
 

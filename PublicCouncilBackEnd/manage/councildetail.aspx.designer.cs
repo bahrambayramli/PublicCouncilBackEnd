@@ -141,6 +141,15 @@ namespace PublicCouncilBackEnd.manage
         protected global::System.Web.UI.WebControls.DropDownList inputCity;
 
         /// <summary>
+        /// inputAboutUs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CKEditor.NET.CKEditorControl inputAboutUs;
+
+        /// <summary>
         /// logoImage control.
         /// </summary>
         /// <remarks>

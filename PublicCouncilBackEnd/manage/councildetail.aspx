@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manage/Admin.Master" AutoEventWireup="true" CodeBehind="councildetail.aspx.cs" Inherits="PublicCouncilBackEnd.manage.WebForm11" %>
+<%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         #managelayout_logoFile {
@@ -10,7 +12,10 @@
             height: 30px;
         }
     </style>
+    <script src="/scripts/ckeditor/ckeditor.js"></script>
+    <script src="/scripts/ckfinder/ckfinder.js"></script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="managelayout" runat="server">
 
     <div class="card my-md-2">
@@ -198,6 +203,12 @@
                                 <asp:ListItem Value="70">Zəngilan</asp:ListItem>
                                 <asp:ListItem Value="71">Zərdab</asp:ListItem>
                             </asp:DropDownList>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label for="managelayout_inputAboutUs">Haqqında</label>
+                             <CKEditor:CKEditorControl ID="inputAboutUs" runat="server" Height="200px"/>
                         </div>
                     </div>
                     <div class="col-12">
