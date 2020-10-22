@@ -76,25 +76,31 @@ $backgroud-color-1: #f6f6f6;
 }
 
 .submain-bar {
-      flex: 2;
+    flex: 2;
 
-      .mainbar-header {
-            box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
-            padding: 1rem;
+    .mainbar-header {
+        box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+        padding: 1rem;
 
-            .mainbar-header-title {
-                  font-size: 2rem;
-                  font-weight: 700;
-                  color: $brand-color-1;
-                  transition: all 0.3s ease;
-                  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        .mainbar-header-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: $brand-color-1;
+            transition: all 0.3s ease;
+            font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 
-                  &:hover {
-                        letter-spacing: 0.2rem;
-                        color: #163877;
-                  }
+            &:hover {
+                letter-spacing: 0.2rem;
+                color: #163877;
             }
-      }
+        }
+    }
+
+    .about-us {
+        p {
+            word-break: break-word;
+        }
+    }
 }
 
 .submob-active {

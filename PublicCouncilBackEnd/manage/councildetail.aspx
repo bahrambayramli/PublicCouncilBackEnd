@@ -205,7 +205,7 @@
                             </asp:DropDownList>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12">
                         <div class="form-group">
                             <label for="managelayout_inputAboutUs">Haqqında</label>
                              <CKEditor:CKEditorControl ID="inputAboutUs" runat="server" Height="200px"/>

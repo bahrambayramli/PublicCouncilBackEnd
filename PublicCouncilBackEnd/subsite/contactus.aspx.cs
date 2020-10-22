@@ -28,10 +28,10 @@ namespace PublicCouncilBackEnd.subsite
 
             DataTable dt = SQL.SELECT(getSerial);
 
-            subMob.Text = dt.Rows[0]["USER_MOBILE"].ToString();
-            subTel.Text = dt.Rows[0]["PC_TELEPHONE"].ToString();
-            subEmail.Text = dt.Rows[0]["PC_EMAIL"].ToString();
-            subEmail.Text = dt.Rows[0]["PC_WEBADDRESS"].ToString();
+            subMob.Text   =  $"<i class='fas fa-mobile-alt mr-2'></i>{dt.Rows[0]["USER_MOBILE"].ToString()}";
+            subTel.Text   =  $"<i class='fas fa-phone-square-alt mr-2'></i>{dt.Rows[0]["PC_TELEPHONE"].ToString()}";
+            subEmail.Text =  $"<i class='fas fa-envelope mr-2'></i>{dt.Rows[0]["PC_EMAIL"].ToString()}";
+            subEmail.Text =  $"<i class='fas fa-globe-europe mr-2'></i><a target='_blank' href='{dt.Rows[0]["PC_WEBADDRESS"].ToString()}'>{dt.Rows[0]["PC_WEBADDRESS"].ToString()}</a>";
             dt = null;
 
         }

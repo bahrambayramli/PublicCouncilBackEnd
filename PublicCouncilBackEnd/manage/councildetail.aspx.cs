@@ -77,7 +77,8 @@ namespace PublicCouncilBackEnd.manage
                                                                                PC_COUNTRY,
                                                                                PC_CITY,
                                                                                CREATED_DATE,
-                                                                               PC_CATEGORY
+                                                                               PC_CATEGORY,
+                                                                               PC_ABOUT
 
                                                                                FROM PC_USERS
 
@@ -295,7 +296,7 @@ namespace PublicCouncilBackEnd.manage
                                                          PC_EMAIL              = @PC_EMAIL              ,
                                                          PC_WEBADDRESS         = @PC_WEBADDRESS         ,                                                      
                                                          PC_CITY               = @PC_CITY               ,
-                                                         PC_CATEGORY           = @PC_CATEGORY
+                                                         PC_CATEGORY           = @PC_CATEGORY           ,
 	                                                     PC_ABOUT              = @PC_ABOUT              
                                                          WHERE USER_ID = @USER_ID
                                                         
@@ -322,7 +323,7 @@ namespace PublicCouncilBackEnd.manage
                                                          PC_EMAIL              = @PC_EMAIL              ,
                                                          PC_WEBADDRESS         = @PC_WEBADDRESS         ,                                                      
                                                          PC_CITY               = @PC_CITY               ,                                                       
-                                                         PC_CATEGORY           = @PC_CATEGORY
+                                                         PC_CATEGORY           = @PC_CATEGORY           ,
 	                                                     PC_ABOUT              = @PC_ABOUT              
                                                          WHERE USER_ID = @USER_ID
                                                         

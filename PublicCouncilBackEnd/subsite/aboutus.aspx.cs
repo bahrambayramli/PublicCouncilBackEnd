@@ -14,7 +14,7 @@ namespace PublicCouncilBackEnd.subsite
 
         private void GetUserInfo(string USER_PCDOMAIN)
         {
-            SqlDataAdapter getSerial = new SqlDataAdapter(new SqlCommand(@"SELECTPC_ABOUT  FROM  PC_USERS 
+            SqlDataAdapter getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT PC_NAME, PC_ABOUT  FROM  PC_USERS 
                                                                            WHERE 
                                                                                  ISDELETE      = @ISDELETE AND 
                                                                                  ISACTIVE      = @ISACTIVE AND
@@ -26,6 +26,7 @@ namespace PublicCouncilBackEnd.subsite
             DataTable dt = SQL.SELECT(getSerial);
 
             aboususInfo.Text = dt.Rows[0]["PC_ABOUT"].ToString();
+            pcName.Text = dt.Rows[0]["PC_NAME"].ToString();
             dt = null;
 
         }

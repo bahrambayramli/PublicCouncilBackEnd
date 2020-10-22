@@ -53,6 +53,8 @@
       .submain-bar .mainbar-header .mainbar-header-title:hover {
         letter-spacing: 0.2rem;
         color: #163877; }
+  .submain-bar .about-us p {
+    word-break: break-word; }
 
 .submob-active {
   position: absolute;

@@ -14,6 +14,13 @@
                     </asp:HyperLink>
                 </div>
             </div>
+         <div class="row">
+             <div class="col-12 tex">
+                 <h2 class="text-default h3 text-center">
+                      <asp:Literal ID="pcName" runat="server"></asp:Literal>
+                 </h2>
+             </div>
+         </div>
             <div class="row">
                 <div class="col-12">
                     <div class="about-us">
