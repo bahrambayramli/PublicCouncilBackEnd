@@ -1208,6 +1208,22 @@ namespace PublicCouncilBackEnd.manage
                 {
                     PCLIST_PANEL.Visible = false;
                     MAINVIEW_PANEL.Visible = false;
+                    GetPcLists();
+                    foreach (ListItem item in pcSelectList.Items)
+                    {
+                        if (item.Value.ToString() == Session["USER_ID"] as string)
+                        {
+                            try
+                            {
+                                pcSelectList.Items.FindByValue(item.Value.ToString()).Selected = true;
+                            }
+                            catch (Exception ex)
+                            {
+
+                                Debug.WriteLine(ex.Message);
+                            }
+                        }
+                    }
                 }
             }
         }

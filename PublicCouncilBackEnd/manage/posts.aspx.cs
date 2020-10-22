@@ -82,7 +82,16 @@ namespace PublicCouncilBackEnd.manage
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetPosts(pcSelectList.SelectedValue);
+            if(Session["USER_MEMBERSHIP_TYPE"] as string == "user")
+            {
+                GetPosts(Session["USER_ID"] as string);
+                pcSelectList.Visible = false;
+            }
+            else
+            {
+                GetPosts(pcSelectList.SelectedValue);
+            }
+           
         }
 
         protected void new_post_Click(object sender, EventArgs e)
@@ -138,9 +147,6 @@ namespace PublicCouncilBackEnd.manage
             Session["POST_USER_ID"] = PostsList.SelectedRow.Cells[2].Text;
             Response.Redirect("/manage/postdetail");
         }
-
-
-
 
         #endregion
 
