@@ -66,7 +66,7 @@
             <div class="row">
                 <div class="col-12">
                     <nav aria-label="Page navigation example">
-                        <asp:DataPager ID="DataPager_AZ" runat="server" PagedControlID="POSTLIST_AZ" PageSize="9" class="pagination">
+                        <asp:DataPager ID="DataPager_AZ" runat="server" PagedControlID="POSTLIST_AZ" PageSize="12" class="pagination">
                             <Fields>
                                 <asp:NextPreviousPagerField
                                     ButtonType="Link"
@@ -88,7 +88,7 @@
                             </Fields>
                         </asp:DataPager>
 
-                        <asp:DataPager ID="DataPager_EN" runat="server" PagedControlID="POSTLIST_EN" PageSize="9" class="pagination">
+                        <asp:DataPager ID="DataPager_EN" runat="server" PagedControlID="POSTLIST_EN" PageSize="12" class="pagination">
                             <Fields>
                                 <asp:NextPreviousPagerField
                                     ButtonType="Link"

@@ -146,6 +146,7 @@ namespace PublicCouncilBackEnd
         }
         private void GetPosts(string LANGUAGE, string POST_CATEGORY, bool POST_ISDELETE, bool POST_ISACTIVE, ListView LSV_AZ, ListView LSV_EN)
         {
+            SqlDataAdapter getPost = new SqlDataAdapter();
             switch (LANGUAGE)
             {
                 case "az":
@@ -154,13 +155,10 @@ namespace PublicCouncilBackEnd
                         LSV_EN.DataBind();
 
 
-                        SqlDataAdapter getPost = new SqlDataAdapter(new SqlCommand(@"SELECT  
+                        getPost = new SqlDataAdapter(new SqlCommand(@"SELECT  
                                                                                                         DATA_ID,
                                                                                                         POST_AZ_TITLE,
-                                                                                                        POST_CATEGORY,
-                                                                                            	        POST_SUBCATEGORY,
                                                                                             	        POST_SITECATEGORYAZ,
-                                                                                                        POST_SITESUBCATEGORYAZ,
                                                                                                         POST_IMG,
                                                                                                         POST_DATE,
                                                                                                         POST_SEOAZ
@@ -187,7 +185,7 @@ namespace PublicCouncilBackEnd
 
                         LSV_AZ.DataSource = SQL.SELECT(getPost);
                         LSV_AZ.DataBind();
-
+                        getPost = null;
                         break;
                     }
                 case "en":
@@ -196,17 +194,13 @@ namespace PublicCouncilBackEnd
                         LSV_AZ.DataBind();
 
 
-                        SqlDataAdapter getPost = new SqlDataAdapter(new SqlCommand(@"SELECT 
+                        getPost = new SqlDataAdapter(new SqlCommand(@"SELECT 
                                                                                                         DATA_ID,
                                                                                                         POST_EN_TITLE,
-                                                                                                        POST_CATEGORY,
-                                                                                            	        POST_SUBCATEGORY,
                                                                                             	        POST_SITECATEGORYEN,
-                                                                                                        POST_SITESUBCATEGORYEN,
                                                                                                         POST_IMG,
                                                                                                         POST_DATE,
                                                                                                         POST_SEOEN,
-                                                                                                        POST_AUTHOR
                                                                                             FROM        PC_POSTS
 
                                                                                             WHERE       ISDELETE            = @ISDELETE      AND
@@ -229,6 +223,8 @@ namespace PublicCouncilBackEnd
 
                         LSV_EN.DataSource = SQL.SELECT(getPost);
                         LSV_EN.DataBind();
+
+                        getPost = null;
                         break;
                     }
                 default:
@@ -237,17 +233,13 @@ namespace PublicCouncilBackEnd
                         LSV_EN.DataBind();
 
 
-                        SqlDataAdapter getPost = new SqlDataAdapter(new SqlCommand(@"SELECT 
+                        getPost = new SqlDataAdapter(new SqlCommand(@"SELECT 
                                                                                                         DATA_ID,
                                                                                                         POST_AZ_TITLE,
-                                                                                                        POST_CATEGORY,
-                                                                                            	        POST_SUBCATEGORY,
                                                                                             	        POST_SITECATEGORYAZ,
-                                                                                                        POST_SITESUBCATEGORYAZ,
                                                                                                         POST_IMG,
                                                                                                         POST_DATE,
                                                                                                         POST_SEOAZ,
-                                                                                                        POST_AUTHOR
                                                                                             FROM        PC_POSTS
 
                                                                                             WHERE       ISDELETE            = @ISDELETE      AND
@@ -269,6 +261,7 @@ namespace PublicCouncilBackEnd
 
                         LSV_AZ.DataSource = SQL.SELECT(getPost);
                         LSV_AZ.DataBind();
+                        getPost = null;
 
                         break;
                     }
