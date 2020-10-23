@@ -285,7 +285,6 @@ namespace PublicCouncilBackEnd.manage
                                                          ISACTIVE              = @ISACTIVE              ,                                                      
                                                          USER_MEMBERSHIP       = @USER_MEMBERSHIP       ,
                                                          USER_MEMBERSHIP_TYPE  = @USER_MEMBERSHIP_TYPE  ,
-                                                         USER_LOGIN            = @USER_LOGIN            ,
                                                          USER_PASSWORD         = @USER_PASSWORD         ,
                                                          USER_PCDOMAIN         = @USER_PCDOMAIN         ,
                                                          USER_NAME             = @USER_NAME             ,
@@ -311,9 +310,7 @@ namespace PublicCouncilBackEnd.manage
                                                          ISACTIVE              = @ISACTIVE              , 
                                                          USER_MEMBERSHIP       = @USER_MEMBERSHIP       ,
                                                          USER_MEMBERSHIP_TYPE  = @USER_MEMBERSHIP_TYPE  ,
-                                                         USER_LOGIN            = @USER_LOGIN            ,
-                                                        
-                                                       
+                                                    
                                                          USER_PCDOMAIN         = @USER_PCDOMAIN         ,
                                                          USER_NAME             = @USER_NAME             ,
                                                          USER_SURNAME          = @USER_SURNAME          ,
@@ -344,7 +341,6 @@ namespace PublicCouncilBackEnd.manage
 
             updateUser.Parameters.Add("@USER_MEMBERSHIP", SqlDbType.NVarChar).Value = "pc";
             updateUser.Parameters.Add("@USER_MEMBERSHIP_TYPE", SqlDbType.NVarChar).Value = inputMembershipType.SelectedValue;
-            updateUser.Parameters.Add("@USER_LOGIN", SqlDbType.NVarChar).Value = inputLoginName.Text;
             
             updateUser.Parameters.Add("@USER_PCDOMAIN", SqlDbType.NVarChar).Value = inputPCdomain.Text;
             updateUser.Parameters.Add("@USER_NAME", SqlDbType.NVarChar).Value = inputName.Text;
