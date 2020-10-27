@@ -54,7 +54,7 @@ $(".owl-elections").owlCarousel({
 $(document).ready(function () {
       $("#latestpostlist").niceScroll({
             cursorcolor: "#dc3545",
-            cursorwidth: "7px",
+            cursorwidth: "10px",
             cursoropacitymax: 0.7
       });
 
