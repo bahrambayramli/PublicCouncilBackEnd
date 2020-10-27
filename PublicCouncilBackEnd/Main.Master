@@ -392,7 +392,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col p-0 bg-white p-2 latest-posts ">
+                                                <div class="col p-0 bg-white latest-posts ">
                                                     <ul id="latestpostlist" class="latest-post-list">
                                                         <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                                                     </ul>
@@ -401,19 +401,11 @@
                                         </div>
                                     </LayoutTemplate>
                                     <ItemTemplate>
-                                        <li>
+                                        <li class="latest-item p-2">
                                             <article>
                                                 <a class="latest-title" href="/details/az/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOAZ")%>">
                                                     <%#Eval("POST_AZ_TITLE")%>
                                                 </a>
-                                                <div class="d-flex justify-content-between align-items-center my-1">
-                                                    <a class="btn btn-sm btn-outline-default btn-round" href="/posts/az">xeberler
-                                                          
-                                                    </a>
-                                                    <a class="btn btn-sm btn-outline-danger btn-round wrap" href="#">
-                                                        <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
-                                                    </a>
-                                                </div>
                                             </article>
                                         </li>
                                     </ItemTemplate>
@@ -439,18 +431,11 @@
                                         </div>
                                     </LayoutTemplate>
                                     <ItemTemplate>
-                                        <li>
+                                        <li class="latest-item p-2">
                                             <article>
-                                                <a class="latest-title" href="/details/en/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOEN")%>">
+                                                <a class="latest-title" href="/details/az/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOEN")%>">
                                                     <%#Eval("POST_EN_TITLE")%>
                                                 </a>
-                                                <div class="d-flex justify-content-between align-items-center my-1">
-                                                    <a class="btn btn-sm btn-outline-default btn-round" href="/posts/en">News
-                                                    </a>
-                                                    <a class="btn btn-sm btn-outline-danger btn-round" href="#">
-                                                        <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
-                                                    </a>
-                                                </div>
                                             </article>
                                         </li>
                                     </ItemTemplate>
@@ -636,7 +621,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="text-center">
-                             site by <a class="text-light font-weight-300" target="_blank" href="http://smartcode.az">smartcode.az</a>
+                             site by <a class="text-light font-weight-300" target="_blank" href="http://smartcode.az">SMARTCODE LLC</a>
                             </div>
                         </div>
                     </div>
