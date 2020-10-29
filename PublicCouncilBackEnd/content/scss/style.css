@@ -182,11 +182,9 @@ img {
     border-bottom: none; }
   .main .right-side .latest-posts li .latest-title {
     color: black;
-    font-weight: bold;
     font-size: 12px; }
     .main .right-side .latest-posts li .latest-title p {
-      font-size: 0.9rem;
-      font-weight: 600; }
+      font-size: 0.9rem; }
 
 /*@media (min-width: 576px) {}*/
 @media (min-width: 768px) {
@@ -448,11 +446,9 @@ img {
       border-bottom: none; }
     .main .right-side .latest-posts .latest-item .latest-title {
       color: black;
-      font-weight: bold;
       font-size: 10px; }
       .main .right-side .latest-posts .latest-item .latest-title p {
-        font-size: 1rem;
-        font-weight: 600; } }
+        font-size: 1rem; } }
 
 /*@media (min-width: 992px) {}
 

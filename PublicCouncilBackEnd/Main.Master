@@ -406,6 +406,9 @@
                                                 <a class="latest-title" href="/details/az/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOAZ")%>">
                                                     <%#Eval("POST_AZ_TITLE")%>
                                                 </a>
+                                                <div class="badge badge-pill d-block text-right text-gray">
+                                                    <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
+                                                </div>
                                             </article>
                                         </li>
                                     </ItemTemplate>
@@ -436,6 +439,9 @@
                                                 <a class="latest-title" href="/details/az/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOEN")%>">
                                                     <%#Eval("POST_EN_TITLE")%>
                                                 </a>
+                                                <div class="badge badge-pill d-block text-right text-gray">
+                                                    <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
+                                                </div>
                                             </article>
                                         </li>
                                     </ItemTemplate>
