@@ -553,8 +553,6 @@ namespace PublicCouncilBackEnd.manage
                 InsertUser();
             }
 
-
-
             Session["PC"] = null;
             Session["PC_ID"] = null;
             Session["PC_SERIAL"] = null;
