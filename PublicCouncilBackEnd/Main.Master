@@ -27,7 +27,7 @@
     <!-- SHARETHIS SCRIPTS -->
     <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f8df40458d8400012272351&product=sop' async='async'></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180960102-1"></script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-180960102-1" async></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -49,6 +49,22 @@
             <div class="header-top shadow-lg py-md-1 bg-white">
                 <div class="site-container">
                     <div class="header-top-container d-flex justify-content-between align-items-center p-2 p-md-0">
+                        <div class="header-middle d-none d-md-block">
+                            <asp:ListView ID="LogoDesktop" runat="server">
+                                    <LayoutTemplate>
+                                        <h1>
+
+                                        
+                                        <a href="/home/az" class="d-block">
+                                            <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                                        </a>
+                                            </h1>
+                                    </LayoutTemplate>
+                                    <ItemTemplate>
+                                        <img class="rounded shadow-sm w-50" src="/images/logos/<%#Eval("LOGO_IMG")%>" alt="<%#Eval("LOGO_TITLE") %>">
+                                    </ItemTemplate>
+                                </asp:ListView>
+                        </div>
                         <div class="header-top-social">
                             <ul class="social-buttons m-0 d-flex ">
                                 <li>
@@ -78,47 +94,7 @@
                 </div>
             </div>
 
-            <div class="header-middle bg-gradient-secondary d-none d-md-block">
-                <div class="site-container">
-                    <div class="container-fluid py-2 m-0">
-                        <div class="row align-items-center justify-content-between">
-                            <div class="col-6">
-                                <asp:ListView ID="LogoDesktop" runat="server">
-                                    <LayoutTemplate>
-                                        <h1>
-
-                                        
-                                        <a href="/home/az" class="d-block">
-                                            <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
-                                        </a>
-                                            </h1>
-                                    </LayoutTemplate>
-                                    <ItemTemplate>
-                                        <img class="rounded shadow-sm w-25" src="/images/logos/<%#Eval("LOGO_IMG")%>" alt="<%#Eval("LOGO_TITLE") %>">
-                                    </ItemTemplate>
-                                </asp:ListView>
-                            </div>
-                            <div class="col-6">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <asp:ListView ID="SPONSORS" runat="server">
-
-                                            <ItemTemplate>
-                                                <div class="col-4">
-                                                    <a href="<%#Eval("SPONSOR_LINK")%>" target="_blank" class="d-block">
-                                                        <img class="rounded shadow-sm" src="/images/<%#Eval("SPONSOR_IMG")%>" alt="<%#Eval("SPONSOR_LINK")%>">
-                                                    </a>
-                                                </div>
-                                            </ItemTemplate>
-                                        </asp:ListView>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+           
 
             <div class="header-bottom ">
                 <div class="site-container">
@@ -251,10 +227,10 @@
                                         <div class="slider-item">
                                             <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>" />
                                             <div class="slider-caption">
-                                                <span class="btn btn-danger text-white btn-sm slider-time ">
+                                              <%--  <span class="btn btn-danger text-white btn-sm slider-time ">
                                                     <i class="far fa-calendar-alt"></i>
                                                     <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
-                                                </span>
+                                                </span>--%>
                                                
                                                 <a class="caption-link" title="<%#Eval("POST_SEOAZ")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
                                             </div>
@@ -286,10 +262,10 @@
                                         <div class="slider-item">
                                             <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
                                             <div class="slider-caption">
-                                                <span class="btn btn-danger text-white btn-sm slider-time ">
+                                           <%--     <span class="btn btn-danger text-white btn-sm slider-time ">
                                                     <i class="far fa-calendar-alt"></i>
                                                     <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
-                                                </span>
+                                                </span>--%>
                                                 
                                                 <a class="caption-link" title="<%#Eval("POST_SEOEN")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
                                             </div>
@@ -455,11 +431,11 @@
                 </div>
 
                 <!-- Videos -->
-                <section class="site-post mb-2">
+                <section class="site-post mb-2 mb-md-3">
                     <asp:ListView ID="VIDEOS_AZ" runat="server">
                         <LayoutTemplate>
                             <div class="row">
-                                <div class="col">
+                                <div class="col-12 px-md-1">
                                     <a href="#"
                                         class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase"
                                         style="font-size: 2rem;">Videolar
@@ -467,7 +443,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-12">
+                                <div class="col-12 px-md-1">
                                     <div class="owl-carousel owl-video rounded overflow-hidden">
                                         <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                                     </div>
@@ -485,7 +461,7 @@
                     <asp:ListView ID="VIDEOS_EN" runat="server">
                         <LayoutTemplate>
                             <div class="row">
-                                <div class="col">
+                                <div class="col-12 px-md-1">
                                     <a href="#"
                                         class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase"
                                         style="font-size: 2rem;">Videos
@@ -493,7 +469,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-12">
+                                <div class="col-12 px-md-1">
                                     <div class="owl-carousel owl-video rounded overflow-hidden">
                                         <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                                     </div>
@@ -511,12 +487,11 @@
                 </section>
 
                 <!-- Partnes -->
-                <section class="site-post mb-2">
-
+                <section class="site-post mb-2 mb-md-3">
                     <asp:ListView ID="PARTNERS_AZ" runat="server">
                         <LayoutTemplate>
                             <div class="row">
-                                <div class="col">
+                                <div class="col-12 px-md-1">
                                     <a href="#"
                                         class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase"
                                         style="font-size: 2rem;">tərəfdaşlar
@@ -528,7 +503,7 @@
                             </div>
                         </LayoutTemplate>
                         <ItemTemplate>
-                            <div class="col-3 col-md-2">
+                            <div class="col-3 col-md-2 px-md-1">
                                 <a href="<%#Eval("PARTNERS_LINK")%>" target="_blank" class="mb-2 rounded overflow-hidden shadow">
                                     <img class="rounded" src="/images/<%#Eval("PARTNERS_IMG")%>" alt="<%#Eval("PARTNERS_TITLE")%>">
                                 </a>
@@ -538,7 +513,7 @@
                     <asp:ListView ID="PARTNERS_EN" runat="server">
                         <LayoutTemplate>
                             <div class="row">
-                                <div class="col">
+                                <div class="col-12 px-md-1">
                                     <a href="#"
                                         class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase"
                                         style="font-size: 2rem;">partners
@@ -550,9 +525,35 @@
                             </div>
                         </LayoutTemplate>
                         <ItemTemplate>
-                            <div class="col-3 col-md-2">
+                            <div class="col-3 col-md-2 px-md-1">
                                 <a href="<%#Eval("PARTNERS_LINK")%>" target="_blank" class="mb-2 rounded overflow-hidden shadow">
                                     <img class="rounded" src="/images/<%#Eval("PARTNERS_IMG")%>" alt="<%#Eval("PARTNERS_TITLE")%>">
+                                </a>
+                            </div>
+                        </ItemTemplate>
+                    </asp:ListView>
+                </section>
+
+                <!-- sponsors -->
+                <section class="site-post mb-2 mb-md-3">
+                    <asp:ListView ID="SPONSORS" runat="server">
+                        <LayoutTemplate>
+                            <div class="row">
+                                <div class="col-12 px-md-1">
+                                    <a href="#"
+                                        class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase"
+                                        style="font-size: 2rem;">Sponsorlar
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
+                            </div>
+                        </LayoutTemplate>
+                        <ItemTemplate>
+                            <div class="col-6 col-md-3 px-md-1">
+                                <a href="<%#Eval("SPONSOR_LINK")%>" target="_blank" class="d-block">
+                                    <img class="rounded shadow-sm" src="/images/<%#Eval("SPONSOR_IMG")%>" alt="<%#Eval("SPONSOR_LINK")%>">
                                 </a>
                             </div>
                         </ItemTemplate>

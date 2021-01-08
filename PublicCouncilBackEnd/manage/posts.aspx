@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manage/Admin.Master" AutoEventWireup="true" CodeBehind="posts.aspx.cs" Inherits="PublicCouncilBackEnd.manage.WebForm2" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="managelayout" runat="server">
     <asp:UpdatePanel ID="PostsUpdatePanel" runat="server">
@@ -23,11 +23,10 @@
                 </div>
                 <div class="card-body">
                     <div class="post-filter my-1">
-                        <div class="container-fluid" style="padding:0!important">
+                        <div class="container-fluid" style="padding: 0!important">
                             <div class="row">
                                 <div class="col-6">
                                     <asp:DropDownList ID="pcSelectList" runat="server" CssClass="form-control" DataSourceID="SqlDataSource1" DataTextField="PC_NAME" DataValueField="USER_ID" AutoPostBack="true" OnSelectedIndexChanged="pcSelectList_SelectedIndexChanged">
-                                       
                                     </asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:pc %>" SelectCommand="SELECT USER_ID, PC_NAME FROM PC_USERS WHERE (ISACTIVE = @ISACTIVE) AND (ISDELETE = @ISDELETE)">
                                         <SelectParameters>
@@ -66,7 +65,7 @@
                             <Columns>
                                 <asp:BoundField DataField="#" HeaderText="#" />
                                 <asp:BoundField DataField="DATA_ID" HeaderText="DATA_ID" />
-                                  <asp:BoundField DataField="USER_ID" HeaderText="DATA_ID" />
+                                <asp:BoundField DataField="USER_ID" HeaderText="DATA_ID" />
                                 <asp:BoundField DataField="POST_SEOAZ" HeaderText="Başlıq Az">
                                     <ControlStyle Width="600px" />
                                     <ItemStyle HorizontalAlign="Left" VerticalAlign="Middle" Width="600px" />

@@ -271,7 +271,6 @@ img {
     }
 }
 
-/*@media (min-width: 576px) {}*/
 
 @media (min-width: 768px) {
   img {
@@ -327,9 +326,9 @@ img {
                             z-index: 2;
 
                             .slider-time {
-                                color: #eeeeee;
-                                font-size: 0.9rem;
-                                font-weight: 600;
+                                color: #eeeeee !important;
+                                font-size: 0.8rem;
+                                font-weight: 500;
                             }
 
                             .slider-title {
@@ -655,9 +654,3 @@ img {
         }
     }
 }
-
-/*@media (min-width: 992px) {}
-
-@media (min-width: 1200px) {}
-
-@media (min-width: 1400px) {}*/

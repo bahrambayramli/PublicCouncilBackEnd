@@ -33,6 +33,15 @@ namespace PublicCouncilBackEnd
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// LogoDesktop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView LogoDesktop;
+
+        /// <summary>
         /// langAZ control.
         /// </summary>
         /// <remarks>
@@ -58,24 +67,6 @@ namespace PublicCouncilBackEnd
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton signIN;
-
-        /// <summary>
-        /// LogoDesktop control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView LogoDesktop;
-
-        /// <summary>
-        /// SPONSORS control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView SPONSORS;
 
         /// <summary>
         /// LogoMobile control.
@@ -229,5 +220,14 @@ namespace PublicCouncilBackEnd
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView PARTNERS_EN;
+
+        /// <summary>
+        /// SPONSORS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView SPONSORS;
     }
 }

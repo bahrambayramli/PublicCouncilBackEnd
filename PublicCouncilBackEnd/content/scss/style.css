@@ -186,7 +186,6 @@ img {
     .main .right-side .latest-posts li .latest-title p {
       font-size: 0.9rem; }
 
-/*@media (min-width: 576px) {}*/
 @media (min-width: 768px) {
   img {
     display: block;
@@ -223,9 +222,9 @@ img {
       .main .content-side .site-sliders .owl-main .slider-item .slider-caption .slider-time,
       .main .content-side .site-sliders .owl-right-top .slider-item .slider-caption .slider-time,
       .main .content-side .site-sliders .owl-right-bottom .slider-item .slider-caption .slider-time {
-        color: #eeeeee;
-        font-size: 0.9rem;
-        font-weight: 600; }
+        color: #eeeeee !important;
+        font-size: 0.8rem;
+        font-weight: 500; }
       .main .content-side .site-sliders .owl-main .slider-item .slider-caption .slider-title,
       .main .content-side .site-sliders .owl-right-top .slider-item .slider-caption .slider-title,
       .main .content-side .site-sliders .owl-right-bottom .slider-item .slider-caption .slider-title {
@@ -449,9 +448,3 @@ img {
       font-size: 10px; }
       .main .right-side .latest-posts .latest-item .latest-title p {
         font-size: 1rem; } }
-
-/*@media (min-width: 992px) {}
-
-@media (min-width: 1200px) {}
-
-@media (min-width: 1400px) {}*/

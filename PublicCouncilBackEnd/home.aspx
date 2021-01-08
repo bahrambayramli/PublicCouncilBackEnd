@@ -4,11 +4,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
 
     <!-- Start  Sliders  -->
-    <section class="site-sliders mb-3">
+    <section class="site-sliders mb-2">
         <div class="container-fluid p-0">
             <div class="row">
 
-                <div class="col col-12 col-md-8 pr-md-1">
+                <div class="col col-12 col-md-8 px-md-1">
 
                     <asp:ListView ID="MAINSLIDER_AZ" runat="server">
                         <LayoutTemplate>
@@ -22,7 +22,7 @@
                             <div class="slider-item">
                                 <img src="/images/<%#Eval("POST_IMG")%>" alt="/<%#Eval("POST_SEOAZ")%>" />
                                 <div class="slider-caption">
-                                    <span class="btn btn-sm btn-round slider-time bg-white text-default ">
+                                    <span class="btn btn-sm btn-round slider-time">
                                         <i class="far fa-calendar-alt"></i>
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                     </span>
@@ -47,7 +47,7 @@
                             <div class="slider-item">
                                 <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
                                 <div class="slider-caption">
-                                    <span class="btn btn-sm btn-round slider-time bg-white text-default ">
+                                    <span class="btn btn-sm btn-round slider-time">
                                         <i class="far fa-calendar-alt"></i>
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                     </span>
@@ -86,7 +86,7 @@
 
                     <asp:ListView ID="RIGHTTOP_AZ" runat="server">
                         <LayoutTemplate>
-                            <div class="owl-carousel owl-right-top rounded overflow-hidden d-none d-md-block">
+                            <div class="owl-carousel owl-right-top ml-md-2 rounded overflow-hidden d-none d-md-block">
                                 <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                             </div>
                         </LayoutTemplate>
@@ -109,7 +109,7 @@
                     </asp:ListView>
                     <asp:ListView ID="RIGHTTOP_EN" runat="server">
                         <LayoutTemplate>
-                            <div class="owl-carousel owl-right-top rounded overflow-hidden d-none d-md-block">
+                            <div class="owl-carousel owl-right-top ml-md-2 rounded overflow-hidden d-none d-md-block">
                                 <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                             </div>
                         </LayoutTemplate>
@@ -132,7 +132,7 @@
 
                     <asp:ListView ID="RIGHTBOTTOM_AZ" runat="server">
                         <LayoutTemplate>
-                            <div class="owl-carousel owl-theme  mt-md-2 owl-right-bottom rounded overflow-hidden d-none d-md-block">
+                            <div class="owl-carousel owl-theme  mt-md-3 ml-md-2 owl-right-bottom rounded overflow-hidden d-none d-md-block">
                                 <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                             </div>
                         </LayoutTemplate>
@@ -155,7 +155,7 @@
                     </asp:ListView>
                     <asp:ListView ID="RIGHTBOTTOM_EN" runat="server">
                         <LayoutTemplate>
-                            <div class="owl-carousel owl-theme  mt-md-2 owl-right-bottom rounded overflow-hidden d-none d-md-block">
+                            <div class="owl-carousel owl-theme  mt-md-3 ml-md-2 owl-right-bottom rounded overflow-hidden d-none d-md-block">
                                 <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                             </div>
                         </LayoutTemplate>
@@ -188,8 +188,8 @@
             <LayoutTemplate>
                 <div class="container-fluid p-0">
                     <div class="row">
-                        <div class="col">
-                            <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
+                        <div class="col-12 px-md-1">
+                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title">
                                 <i class="far fa-newspaper mr-2"></i>
                                 Xəbərlər
                             </a>
@@ -201,8 +201,8 @@
                 </div>
             </LayoutTemplate>
             <ItemTemplate>
-                <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch">
-                    <div class="card mb-3 rounded post overflow-hidden">
+                <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch p-md-1">
+                    <div class="card mb-2 rounded post overflow-hidden">
                         <div class="post-header overflow-hidden">
                             <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block" title="">
                                 <img src="/images/<%#Eval("POST_IMG")%>" class="post-img" alt="<%#Eval("POST_SEOAZ")%>">
@@ -228,8 +228,8 @@
             <LayoutTemplate>
                 <div class="container-fluid p-0">
                     <div class="row">
-                        <div class="col">
-                            <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
+                        <div class="col-12 px-md-1">
+                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title">
                                 <i class="far fa-newspaper mr-2"></i>
                                 News
                             </a>
@@ -241,8 +241,8 @@
                 </div>
             </LayoutTemplate>
             <ItemTemplate>
-                <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch">
-                    <div class="card mb-3 rounded post overflow-hidden">
+                <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch p-md-1">
+                    <div class="card mb-2 rounded post overflow-hidden">
                         <div class="post-header overflow-hidden">
                             <a href="/details/en/<%#Eval("DATA_ID")%>" class="d-block" title="">
                                 <img src="/images/<%#Eval("POST_IMG")%>" class="post-img" alt="<%#Eval("POST_SEOEN")%>">
@@ -278,15 +278,15 @@
             <LayoutTemplate>
                 <div class="container-fluid p-0">
                     <div class="row">
-                        <div class="col">
-                            <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
+                        <div class="col-12 px-md-1">
+                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title">
                                 <i class="fas fa-scroll mr-2"></i>
                                 Nəşrlər
                             </a>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12 px-md-1">
                             <div class="owl-carousel publications rounded overflow-hidden">
                                 <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                             </div>
@@ -306,15 +306,15 @@
             <LayoutTemplate>
                 <div class="container-fluid p-0">
                     <div class="row">
-                        <div class="col">
-                            <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
+                        <div class="col-12 px-md-1">
+                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title">
                                 <i class="fas fa-scroll mr-2"></i>
                                 Publications
                             </a>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12 px-md-1">
                             <div class="owl-carousel publications rounded overflow-hidden">
                                 <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                             </div>
@@ -338,8 +338,8 @@
             <LayoutTemplate>
                 <div class="container-fluid p-0">
                     <div class="row">
-                        <div class="col">
-                            <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
+                        <div class="col-12 px-md-1">
+                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title">
                                 <i class="far fa-flag mr-2"></i>
                                 hesabatlar
                             </a>
@@ -351,7 +351,7 @@
                 </div>
             </LayoutTemplate>
             <ItemTemplate>
-                <article class="col-md-6 d-flex align-items-stretch">
+                <article class="col-md-6 d-flex align-items-stretch px-md-1">
 
                     <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block irem btn btn-outline-default my-1 w-100" title="<%#Eval("POST_SEOAZ") %>">
                         <div class="container-fluid">
@@ -373,8 +373,8 @@
             <LayoutTemplate>
                 <div class="container-fluid p-0">
                     <div class="row">
-                        <div class="col">
-                            <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
+                        <div class="col-12 px-md-1">
+                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title">
                                 <i class="far fa-flag mr-2"></i>
                                 reports
                             </a>
@@ -386,7 +386,7 @@
                 </div>
             </LayoutTemplate>
             <ItemTemplate>
-                <article class="col-md-6 d-flex align-items-stretch">
+                <article class="col-md-6 d-flex align-items-stretch px-md-1">
 
                     <a href="/details/en/<%#Eval("DATA_ID")%>" class="d-block irem btn btn-outline-default my-1 w-100" title="<%#Eval("POST_SEOEN") %>">
                         <div class="container-fluid">
