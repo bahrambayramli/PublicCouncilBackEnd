@@ -203,6 +203,7 @@
       <DependentUpon>subsite.css</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="images\4850037.jpg" />
     <Content Include="images\7000.jpg" />
     <Content Include="images\adv1.png" />
     <Content Include="images\adv2.png" />

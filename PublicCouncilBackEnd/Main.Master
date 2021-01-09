@@ -51,19 +51,19 @@
                     <div class="header-top-container d-flex justify-content-between align-items-center p-2 p-md-0">
                         <div class="header-middle d-none d-md-block">
                             <asp:ListView ID="LogoDesktop" runat="server">
-                                    <LayoutTemplate>
-                                        <h1>
+                                <LayoutTemplate>
+                                    <h1>
 
-                                        
+
                                         <a href="/home/az" class="d-block">
                                             <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                                         </a>
-                                            </h1>
-                                    </LayoutTemplate>
-                                    <ItemTemplate>
-                                        <img class="rounded shadow-sm w-50" src="/images/logos/<%#Eval("LOGO_IMG")%>" alt="<%#Eval("LOGO_TITLE") %>">
-                                    </ItemTemplate>
-                                </asp:ListView>
+                                    </h1>
+                                </LayoutTemplate>
+                                <ItemTemplate>
+                                    <img class="rounded shadow-sm w-50" src="/images/logos/<%#Eval("LOGO_IMG")%>" alt="<%#Eval("LOGO_TITLE") %>">
+                                </ItemTemplate>
+                            </asp:ListView>
                         </div>
                         <div class="header-top-social">
                             <ul class="social-buttons m-0 d-flex ">
@@ -216,7 +216,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-12 mb-2 px-0">
-                                                    <div class="owl-carousel owl-theme owl-elections overflow-hidden rounded">
+                                                    <div class="owl-carousel owl-theme owl-elections council-election overflow-hidden rounded">
                                                         <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                                                     </div>
                                                 </div>
@@ -297,19 +297,38 @@
                                         </div>
                                     </LayoutTemplate>
                                     <ItemTemplate>
-                                        <div class="slider-item">
-                                            <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>" />
+                                        <%--<div class="slider-item">
+                                          
                                             <div class="slider-caption">
-                                                <span class="btn btn-danger text-white btn-sm slider-time ">
-                                                    <i class="far fa-calendar-alt"></i>
-                                                    <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
-                                                </span>
+
                                                 <h2 class="slider-title">
                                                     <%#Eval("POST_SEOAZ")%>
                                                 </h2>
-                                                <a class="caption-link" title="<%#Eval("POST_SEOAZ")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
+                                               
                                             </div>
 
+
+                                        </div>--%>
+                                        <div class="announcements-container rounded shadow d-flex flex-column align-items-center">
+                                            <div class="bg-light d-flex justify-content-between flex-lg-grow-0"></div>
+                                            <div class="img-wrapper flex-lg-grow-1">
+                                                 <img class="d-block w-100 h-100" src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>" />
+                                            </div>
+                                            <div class="text-wrapper flex-lg-grow-1">
+                                                <div class="announcement-text px-md-2">
+                                                    <a class="caption-link shadow project-link" title="<%#Eval("POST_SEOAZ")%>" href="/details/az/<%#Eval("DATA_ID")%>">
+                                                         <%#Eval("POST_SEOAZ")%>
+
+                                                    </a>
+                                                    <div class="mt-md-1">
+                                                        <span class="btn btn-danger text-white btn-sm slider-time ">
+                                                            <i class="far fa-calendar-alt"></i>
+                                                            <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
+                                                        </span>
+                                                    </div>
+                                            </div>
+                                       <%--    
+                                            </div>--%>
 
                                         </div>
                                     </ItemTemplate>
@@ -360,7 +379,7 @@
                                     <LayoutTemplate>
                                         <div class="container-fluid">
                                             <div class="row">
-                                                <div class="col p-0">
+                                                <div class="col-12 p-0 rounded">
                                                     <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white  text-capitalize">
                                                        <i class="fas fa-clock mr-2"></i>
                                                         son Xəbərlər
@@ -382,7 +401,8 @@
                                                 <a class="latest-title" href="/details/az/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOAZ")%>">
                                                     <%#Eval("POST_AZ_TITLE")%>
                                                 </a>
-                                                <div class="badge badge-pill d-block text-right text-gray">
+                                                <div class="latest-date text-right font-italic">
+                                                    <i class="far fa-calendar-alt text-danger mr-1"></i>
                                                     <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                                 </div>
                                             </article>
@@ -393,9 +413,9 @@
                                     <LayoutTemplate>
                                         <div class="container-fluid">
                                             <div class="row">
-                                                <div class="col p-0">
+                                                <div class="col-12 p-0 rounded">
                                                     <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white  text-capitalize">
-                                                       <i class="fas fa-clock mr-2"></i>
+                                                       <i class="fas fa-clock mr-1"></i>
                                                         latest news
                                                     </a>
                                                 </div>
@@ -415,9 +435,12 @@
                                                 <a class="latest-title" href="/details/az/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOEN")%>">
                                                     <%#Eval("POST_EN_TITLE")%>
                                                 </a>
-                                                <div class="badge badge-pill d-block text-right text-gray">
+
+                                                <div class="latest-date text-right font-italic">
+                                                    <i class="far fa-calendar-alt text-danger mr-1"></i>
                                                     <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                                 </div>
+
                                             </article>
                                         </li>
                                     </ItemTemplate>
@@ -487,7 +510,7 @@
                 </section>
 
                 <!-- Partnes -->
-                <section id="site_partners" class="site-post mb-2 mb-md-3">
+                <section id="site_partners" class="site-post site-partners mb-2 mb-md-3">
                     <asp:ListView ID="PARTNERS_AZ" runat="server">
                         <LayoutTemplate>
                             <div class="row">
@@ -503,8 +526,8 @@
                             </div>
                         </LayoutTemplate>
                         <ItemTemplate>
-                            <div class="col-3 col-md-2 px-md-1">
-                                <a href="<%#Eval("PARTNERS_LINK")%>" target="_blank" class="mb-2 rounded overflow-hidden shadow">
+                            <div class="col-3 col-md-2 px-md-1 mb-2">
+                                <a href="<%#Eval("PARTNERS_LINK")%>" title="<%#Eval("PARTNERS_TITLE")%>" target="_blank" class="mb-2 rounded overflow-hidden shadow site-partners-link">
                                     <img class="rounded" src="/images/<%#Eval("PARTNERS_IMG")%>" alt="<%#Eval("PARTNERS_TITLE")%>">
                                 </a>
                             </div>
@@ -513,7 +536,7 @@
                     <asp:ListView ID="PARTNERS_EN" runat="server">
                         <LayoutTemplate>
                             <div class="row">
-                                <div class="col-12 px-md-1">
+                                <div class="col-12 px-md-1 mb-2">
                                     <a href="#"
                                         class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase"
                                         style="font-size: 2rem;">partners
@@ -525,8 +548,8 @@
                             </div>
                         </LayoutTemplate>
                         <ItemTemplate>
-                            <div class="col-3 col-md-2 px-md-1">
-                                <a href="<%#Eval("PARTNERS_LINK")%>" target="_blank" class="mb-2 rounded overflow-hidden shadow">
+                            <div class="col-3 col-md-2 px-md-1 mb-2">
+                                <a href="<%#Eval("PARTNERS_LINK")%>"  title="<%#Eval("PARTNERS_TITLE")%>" target="_blank" class="mb-2 rounded overflow-hidden shadow">
                                     <img class="rounded" src="/images/<%#Eval("PARTNERS_IMG")%>" alt="<%#Eval("PARTNERS_TITLE")%>">
                                 </a>
                             </div>
@@ -551,7 +574,7 @@
                             </div>
                         </LayoutTemplate>
                         <ItemTemplate>
-                            <div class="col-6 col-md-3 px-md-1">
+                            <div class="col-6 col-md-3 px-md-1 mb-2">
                                 <a href="<%#Eval("SPONSOR_LINK")%>" target="_blank" class="d-block">
                                     <img class="rounded shadow-sm" src="/images/<%#Eval("SPONSOR_IMG")%>" alt="<%#Eval("SPONSOR_LINK")%>">
                                 </a>

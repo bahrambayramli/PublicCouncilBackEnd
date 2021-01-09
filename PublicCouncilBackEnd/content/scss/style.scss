@@ -5,7 +5,7 @@ $brand-color-4: #007bff;
 $brand-color-5: #28a745;
 $brand-color-6: #32325d;
 $backgroud-color-1: #f6f6f6;
-
+$box-sahdow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
 * {
   margin: 0;
   padding: 0;
@@ -22,18 +22,26 @@ ul {
 
 p {
   margin: 0;
+  font-weight:normal;
+  color:black;
 }
 
 body,
 html {
-  height: 100%;
+    height: 100%;
+  
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  background-color: $backgroud-color-1;
-  overflow-y: scroll;
-  overflow-x: hidden;
+    font-family: "Roboto", sans-serif;
+    background-color: $backgroud-color-1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+/*    background-image: url("/images/4850037.jpg");
+    background-attachment:fixed;
+    background-origin:border-box;
+    background-repeat:no-repeat;
+    background-size:cover;*/
 }
 
 form {
@@ -138,9 +146,15 @@ img {
             }
         }
 
-        .post-title{
-            h2{
-                word-break:break-word;
+        .post-title {
+            h2 {
+                word-break: break-word;
+            }
+        }
+
+        .site-partners {
+            .site-partners-link {
+                box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
             }
         }
     }
@@ -217,16 +231,7 @@ img {
         }
 
         .latest-posts {
-            // .scroll-list-header {
-            //   display: flex;
-            //   font-size: 19px;
-            //   color: $brand-color-1;
-            //   p {
-            //     font-weight: bold;
-            //     padding-left: 6px;
-            //     color: black;
-            //   }
-            // }
+
             .latest-post-list {
                 height: 65rem;
                 top: 20px;
@@ -236,11 +241,8 @@ img {
                 overflow: scroll;
                 margin: 0;
                 padding: 0;
-                // border: 1px solid $brand-color-3;
                 font-size: 16px;
                 font-family: Arial, sans-serif;
-                // Again, this is where the magic happens
-                //magic happens in chrome
                 -webkit-overflow-scrolling: touch;
                 overflow: hidden scroll;
             }
@@ -253,17 +255,12 @@ img {
                 &:last-child {
                     border-bottom: none;
                 }
-                // &:nth-child(even) {
-                //   // background: #f8f8f8;
-                // }
+
                 .latest-title {
                     color: black;
-                   // font-weight: bold;
                     font-size: 12px;
-
                     p {
                         font-size: 0.9rem;
-                      //  font-weight: 600;
                     }
                 }
             }
@@ -345,6 +342,7 @@ img {
                                     font-weight: 700;
                                     margin: 0;
                                     padding: 0;
+                                    line-height: 2.3rem;
                                 }
                             }
 
@@ -366,7 +364,7 @@ img {
                             left: 0;
                             right: 0;
                             bottom: 0;
-                            background: linear-gradient(to top, $brand-color-6 0%, rgba(10, 10, 10, 0) 25%);
+                            background: linear-gradient(to top, $brand-color-6 0%, rgba(10, 10, 10, 0) 50%);
                             z-index: 1;
                         }
                     }
@@ -421,21 +419,21 @@ img {
                             z-index: 2;
 
                             .slider-time {
-                                font-size: 0.7rem;
-                                font-weight: 500;
+                                font-size: 0.6rem;
+                                font-weight: 300;
                             }
 
                             .slider-title {
                                 color: #fff;
-                                font-size: 1rem;
-                                font-weight: 700;
+                                font-size: 0.8rem;
+                                font-weight: 500;
                                 margin: 0;
                                 padding: 0;
                                 z-index: 3;
 
                                 p {
                                     color: #fff;
-                                    font-size: 1.76rem;
+                                    font-size: 1.7rem;
                                     font-weight: 700;
                                     margin: 0;
                                     padding: 0;
@@ -554,7 +552,7 @@ img {
 
                         .slider-title {
                             color: #fff;
-                            font-size: 1rem;
+                            font-size: .9rem;
                             font-weight: 700;
                             margin: 0;
                             padding: 0;
@@ -562,8 +560,8 @@ img {
 
                             p {
                                 color: #fff;
-                                font-size: 1.76rem;
-                                font-weight: 700;
+                                font-size: .85rem;
+                                font-weight: 500;
                                 margin: 0;
                                 padding: 0;
                             }
@@ -587,9 +585,53 @@ img {
                         left: 0;
                         right: 0;
                         bottom: 0;
-                        background: linear-gradient(to top, $brand-color-6 0%, rgba(10, 10, 10, 0) 25%);
+                        background: linear-gradient(to top, $brand-color-6 0%, rgba(10, 10, 10, 0) 50%);
                         z-index: 1;
                     }
+                }
+
+                .announcements-container {
+                    position: relative;
+                    background-color: $brand-color-6;
+                    transition: all 0.2s ease;
+                    cursor: pointer;
+                    z-index: 1;
+                }
+
+                .img-wrapper {
+                    opacity: 1;
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    transition: .5s ease;
+                    backface-visibility: hidden;
+                    opacity: 1;
+                }
+
+                .text-wrapper {
+                    transition: .5s ease;
+                    opacity: 0;
+                    position: absolute;
+                    bottom: 20px;
+                }
+
+                .announcements-container:hover .img-wrapper {
+                    opacity: 0.2;
+                }
+
+                .announcements-container:hover .text-wrapper {
+                    opacity: 1;
+                }
+
+                .announcement-text {
+                    position: relative;
+                    color: white;
+                    font-size: .9rem;
+                    text-align:center;
+                }
+
+                .project-link {
+                    color: #fff;
                 }
 
                 .owl-dots {
@@ -607,11 +649,18 @@ img {
                 }
             }
 
+            .council-election {
+                .slider-caption {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
             .latest-posts {
 
 
                 .latest-post-list {
-                    height: 50rem;
+                    height: 62.5rem;
                     top: 20px;
                     bottom: 20px;
                     left: 20px;
@@ -619,13 +668,11 @@ img {
                     overflow: scroll;
                     margin: 0;
                     padding: 0;
-                    // border: 1px solid $brand-color-3;
                     font-size: 16px;
                     font-family: Arial, sans-serif;
-                    // Again, this is where the magic happens
-                    //magic happens in chrome
                     -webkit-overflow-scrolling: touch;
                     overflow: hidden scroll;
+                    box-shadow: $box-sahdow;
                 }
 
                 .latest-item {
@@ -640,15 +687,19 @@ img {
 
                     .latest-title {
                         color: black;
-                       // font-weight: bold;
                         font-size: 10px;
 
                         p {
-                            font-size: 1rem;
-                           // font-weight: 600;
+                            font-size: .9rem;
                         }
                     }
 
+                    .latest-date {
+                        font-size: .75rem;
+                        color: darkslategrey;
+                        font-weight: 600;
+                        padding: 5px 0rem;
+                    }
                 }
             }
         }

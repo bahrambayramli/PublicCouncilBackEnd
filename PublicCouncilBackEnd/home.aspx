@@ -95,7 +95,7 @@
                             <div class="slider-item">
                                 <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>" />
                                 <div class="slider-caption">
-                                    <span class="slider-time btn btn-outline-warning btn-sm btn-round">
+                                    <span class="btn btn-sm btn-round slider-time">
                                         <i class="far fa-calendar-alt"></i>
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                     </span>

@@ -40,8 +40,8 @@ $(".owl-video").owlCarousel({
 });
 
 $(".owl-elections").owlCarousel({
-      loop: true,
-      autoplay: true,
+    loop: true,
+    autoplay: true,
       autoplayTimeout: 4500,
       items: 1,
       margin: 5,
