@@ -5,14 +5,14 @@
     <asp:UpdatePanel ID="POSTS_PANEL" runat="server" class="container-fluid">
         <ContentTemplate>
             <div class="row">
-                <div class="col-12">
-                    <asp:HyperLink ID="postsName" runat="server" CssClass="d-block text-white p-2 my-2 bg-default rounded shadow-sm post-block-title text-center text-uppercase" Style="font-size: 2rem"></asp:HyperLink>
+                <div class="col-12 px-md-1">
+                    <asp:HyperLink ID="postsName" runat="server" CssClass="d-block text-default p-2 mb-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase" Style="font-size: 2rem"></asp:HyperLink>
                 </div>
             </div>
             <div class="row">
                 <asp:ListView ID="POSTLIST_AZ" runat="server" OnPagePropertiesChanging="POSTLIST_AZ_PagePropertiesChanging">
                     <ItemTemplate>
-                        <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch">
+                        <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch px-md-1">
 
                             <div class="card mb-3 rounded post overflow-hidden">
                                 <div class="post-header overflow-hidden">
@@ -38,7 +38,7 @@
                 </asp:ListView>
                 <asp:ListView ID="POSTLIST_EN" runat="server" OnPagePropertiesChanging="POSTLIST_EN_PagePropertiesChanging">
                     <ItemTemplate>
-                        <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch">
+                        <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch px-md-1">
 
                             <div class="card mb-3 rounded post overflow-hidden">
                                 <div class="post-header overflow-hidden">
@@ -64,7 +64,7 @@
                 </asp:ListView>
             </div>
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 px-md-1">
                     <nav aria-label="Page navigation example">
                         <asp:DataPager ID="DataPager_AZ" runat="server" PagedControlID="POSTLIST_AZ" PageSize="12" class="pagination">
                             <Fields>

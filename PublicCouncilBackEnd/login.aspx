@@ -69,6 +69,9 @@
         $('#contentside').addClass('col-md-12');
         $(document).ready(function () {
             $('#rightside').remove();
+            $('#site_videos').remove();
+            $('#site_partners').remove();
+            $('#site_sponsors').remove();
         });
     </script>
 </asp:Content>
