@@ -454,84 +454,87 @@ img {
                 }
             }
 
-            .site-posts {
-                .post-block-title {
-                    font-weight: 500;
-                    font-size: 1.2rem;
-                    text-transform: uppercase;
-                    transition: all 0.3s ease;
 
-                    &:hover {
-                        color: $brand-color-1 !important;
-                        background-color: #ffffff !important;
+            .post-block-title {
+                font-weight: 500;
+                font-size: 1.2rem;
+                text-transform: uppercase;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    color: $brand-color-1 !important;
+                    background-color: #ffffff !important;
+                }
+            }
+
+            .post {
+                border-radius: 10px;
+
+                .post-header {
+                    .post-img {
+                        transition: all 0.3s ease;
+                        transform: scale(1);
                     }
                 }
 
-                .post {
-                    .post-header {
-                        .post-img {
-                            transition: all 0.3s ease;
-                            transform: scale(1);
-                        }
-                    }
-
-                    &:hover {
-                        .post-img {
-                            transform: scale(1.1);
-                        }
+                &:hover {
+                    .post-img {
+                        transform: scale(1.1);
                     }
                 }
+            }
 
-                .publications {
+            .publications {
+                position: relative;
+                display: flex;
+                align-items: center;
+
+                .publication-item {
+                    height: 300px;
                     position: relative;
-                    display: flex;
-                    align-items: center;
 
-                    .publication-item {
+                    .publication-img {
                         height: 300px;
-                        position: relative;
-
-                        .publication-img {
-                            height: 300px;
-                        }
                     }
+                }
 
-                    .owl-nav {
-                        position: absolute;
-                        left: 0;
-                        width: 100%;
+                .owl-nav {
+                    position: absolute;
+                    left: 0;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    z-index: 2;
+                    padding: 0rem 0.5rem;
+
+                    button {
+                        position: relative !important;
+                        outline: none;
+                        background-color: $brand-color-1;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
                         display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        z-index: 2;
-                        padding: 0rem 0.5rem;
+                        align-items: flex-start;
+                        transition: all 0.3s ease;
 
-                        button {
-                            position: relative !important;
-                            outline: none;
-                            background-color: $brand-color-1;
-                            width: 40px;
-                            height: 40px;
-                            border-radius: 50%;
-                            display: flex;
-                            align-items: flex-start;
-                            transition: all 0.3s ease;
+                        span {
+                            display: block;
+                            width: 100%;
+                            height: auto;
+                            font-size: 1.5rem;
+                            color: #ffffff;
+                        }
 
-                            span {
-                                display: block;
-                                width: 100%;
-                                height: auto;
-                                font-size: 1.5rem;
-                                color: #ffffff;
-                            }
-
-                            &:hover {
-                                background-color: #32325d !important;
-                            }
+                        &:hover {
+                            background-color: #32325d !important;
                         }
                     }
                 }
             }
+
+
         }
 
         .right-side {
@@ -627,7 +630,7 @@ img {
                     position: relative;
                     color: white;
                     font-size: .9rem;
-                    text-align:center;
+                    text-align: center;
                 }
 
                 .project-link {

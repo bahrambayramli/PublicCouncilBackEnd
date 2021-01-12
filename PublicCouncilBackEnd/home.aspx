@@ -202,7 +202,7 @@
             </LayoutTemplate>
             <ItemTemplate>
                 <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch p-md-1">
-                    <div class="card mb-2 rounded post overflow-hidden">
+                    <div class="card mb-2 post overflow-hidden">
                         <div class="post-header overflow-hidden">
                             <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block" title="">
                                 <img src="/images/<%#Eval("POST_IMG")%>" class="post-img" alt="<%#Eval("POST_SEOAZ")%>">
@@ -242,7 +242,7 @@
             </LayoutTemplate>
             <ItemTemplate>
                 <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch p-md-1">
-                    <div class="card mb-2 rounded post overflow-hidden">
+                    <div class="card mb-2 post overflow-hidden">
                         <div class="post-header overflow-hidden">
                             <a href="/details/en/<%#Eval("DATA_ID")%>" class="d-block" title="">
                                 <img src="/images/<%#Eval("POST_IMG")%>" class="post-img" alt="<%#Eval("POST_SEOEN")%>">

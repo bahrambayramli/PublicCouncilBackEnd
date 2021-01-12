@@ -337,29 +337,31 @@ img {
       z-index: 3;
       top: 0;
       left: 0; }
-  .main .content-side .site-posts .post-block-title {
+  .main .content-side .post-block-title {
     font-weight: 500;
     font-size: 1.2rem;
     text-transform: uppercase;
     transition: all 0.3s ease; }
-    .main .content-side .site-posts .post-block-title:hover {
+    .main .content-side .post-block-title:hover {
       color: #dc3545 !important;
       background-color: #ffffff !important; }
-  .main .content-side .site-posts .post .post-header .post-img {
-    transition: all 0.3s ease;
-    transform: scale(1); }
-  .main .content-side .site-posts .post:hover .post-img {
-    transform: scale(1.1); }
-  .main .content-side .site-posts .publications {
+  .main .content-side .post {
+    border-radius: 10px; }
+    .main .content-side .post .post-header .post-img {
+      transition: all 0.3s ease;
+      transform: scale(1); }
+    .main .content-side .post:hover .post-img {
+      transform: scale(1.1); }
+  .main .content-side .publications {
     position: relative;
     display: flex;
     align-items: center; }
-    .main .content-side .site-posts .publications .publication-item {
+    .main .content-side .publications .publication-item {
       height: 300px;
       position: relative; }
-      .main .content-side .site-posts .publications .publication-item .publication-img {
+      .main .content-side .publications .publication-item .publication-img {
         height: 300px; }
-    .main .content-side .site-posts .publications .owl-nav {
+    .main .content-side .publications .owl-nav {
       position: absolute;
       left: 0;
       width: 100%;
@@ -368,7 +370,7 @@ img {
       align-items: center;
       z-index: 2;
       padding: 0rem 0.5rem; }
-      .main .content-side .site-posts .publications .owl-nav button {
+      .main .content-side .publications .owl-nav button {
         position: relative !important;
         outline: none;
         background-color: #dc3545;
@@ -378,13 +380,13 @@ img {
         display: flex;
         align-items: flex-start;
         transition: all 0.3s ease; }
-        .main .content-side .site-posts .publications .owl-nav button span {
+        .main .content-side .publications .owl-nav button span {
           display: block;
           width: 100%;
           height: auto;
           font-size: 1.5rem;
           color: #ffffff; }
-        .main .content-side .site-posts .publications .owl-nav button:hover {
+        .main .content-side .publications .owl-nav button:hover {
           background-color: #32325d !important; }
   .main .right-side .owl-elections .slider-item .slider-caption {
     position: absolute;

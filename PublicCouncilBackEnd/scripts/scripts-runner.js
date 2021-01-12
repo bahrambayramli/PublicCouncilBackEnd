@@ -27,6 +27,19 @@ $(".publications").owlCarousel({
       autoplaySpeed: 2000
 
 });
+
+$(".owl-elections").owlCarousel({
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 4500,
+    items: 1,
+    margin: 5,
+    dots: true,
+    nav: false,
+    autoplaySpeed: 2000
+
+});
+
 $(".owl-video").owlCarousel({
       loop: true,
       autoplay: true,
@@ -39,17 +52,19 @@ $(".owl-video").owlCarousel({
 
 });
 
-$(".owl-elections").owlCarousel({
+$(".owl-partners").owlCarousel({
     loop: true,
     autoplay: true,
-      autoplayTimeout: 4500,
-      items: 1,
-      margin: 5,
-      dots: true,
-      nav: false,
-      autoplaySpeed: 2000
+    autoplayTimeout: 4500,
+    items: 5,
+    margin: 5,
+    dots: false,
+    nav: false,
+    autoplaySpeed: 2000
 
 });
+
+
 
 $(document).ready(function () {
       $("#latestpostlist").niceScroll({

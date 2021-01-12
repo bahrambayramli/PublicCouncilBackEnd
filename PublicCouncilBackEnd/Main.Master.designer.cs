@@ -42,6 +42,24 @@ namespace PublicCouncilBackEnd
         protected global::System.Web.UI.WebControls.ListView LogoDesktop;
 
         /// <summary>
+        /// _aboutus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink _aboutus;
+
+        /// <summary>
+        /// _contactus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink _contactus;
+
+        /// <summary>
         /// langAZ control.
         /// </summary>
         /// <remarks>
