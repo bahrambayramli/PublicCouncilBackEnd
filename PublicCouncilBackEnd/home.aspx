@@ -95,10 +95,10 @@
                             <div class="slider-item">
                                 <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>" />
                                 <div class="slider-caption">
-                                    <span class="btn btn-sm btn-round slider-time">
+<%--                                    <span class="btn btn-sm btn-round slider-time">
                                         <i class="far fa-calendar-alt"></i>
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
-                                    </span>
+                                    </span>--%>
                                     <h3 class="slider-title">
                                         <%#Eval("POST_SEOAZ")%>
                                     </h3>
@@ -117,10 +117,10 @@
                             <div class="slider-item">
                                 <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
                                 <div class="slider-caption">
-                                    <span class="slider-time btn btn-outline-warning btn-sm btn-round">
+<%--                                    <span class="slider-time btn btn-outline-warning btn-sm btn-round">
                                         <i class="far fa-calendar-alt"></i>
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
-                                    </span>
+                                    </span>--%>
                                     <h3 class="slider-title">
                                         <%#Eval("POST_SEOEN")%>
                                     </h3>
@@ -137,14 +137,13 @@
                             </div>
                         </LayoutTemplate>
                         <ItemTemplate>
-
                             <div class="slider-item">
                                 <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>"  />
                                 <div class="slider-caption">
-                                    <span class="slider-time btn btn-outline-warning btn-sm btn-round">
+                                    <%--                                    <span class="slider-time btn btn-sm btn-round">
                                         <i class="far fa-calendar-alt"></i>
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
-                                    </span>
+                                    </span>--%>
                                     <h3 class="slider-title">
                                         <%#Eval("POST_SEOAZ")%>
                                     </h3>
@@ -163,10 +162,10 @@
                             <div class="slider-item">
                                 <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
                                 <div class="slider-caption">
-                                    <span class="slider-time btn btn-outline-warning btn-sm btn-round">
+                                    <%--                                    <span class="slider-time btn-sm btn-round">
                                         <i class="far fa-calendar-alt"></i>
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
-                                    </span>
+                                    </span>--%>
                                     <h3 class="slider-title">
                                         <%#Eval("POST_SEOEN")%>
                                     </h3>
@@ -267,7 +266,7 @@
 
     <!-- All  Posts  -->
     <section class="all-news text-center mb-2">
-        <asp:LinkButton ID="allPosts" runat="server" CssClass="btn btn-warning btn-round  text-uppercase">
+        <asp:LinkButton ID="allPosts" runat="server" CssClass="btn btn-danger btn-round  text-uppercase">
             bütün Xeberler
         </asp:LinkButton>
     </section>

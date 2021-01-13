@@ -37,7 +37,6 @@
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-
 </head>
 <body>
 
@@ -46,7 +45,7 @@
         <!-- Start Header  -->
         <header class="header bg-gradient-default shadow">
 
-            <div class="header-top shadow-lg py-md-1 bg-white">
+            <div class="header-top shadow-lg py-2 bg-white">
                 <div class="site-container">
                     <div class="container-fluid p-0">
                         <div class="row">
@@ -54,9 +53,7 @@
                                 <asp:ListView ID="LogoDesktop" runat="server">
                                     <LayoutTemplate>
                                         <h1 class="m-0">
-
-
-                                            <a href="/home/az" class="d-block">
+                                            <a href="/home/az" class="d-block" title="http://ictimaishura.az">
                                                 <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                                             </a>
                                         </h1>
@@ -66,7 +63,7 @@
                                     </ItemTemplate>
                                 </asp:ListView>
                             </div>
-                            <div class="col-6 col-md-4 px-md-1 d-flex align-items-center justify-content-center">
+                            <div class="col-6 col-md-4 px-md-1 d-flex align-items-center justify-content-start justify-content-md-center">
                                 <ul class="social-buttons m-0 d-md-none d-flex ">
                                     <li>
                                         <a href="https://www.facebook.com/%C4%B0ctimai-%C5%9Eura-109645403890081/?modal=admin_todo_tour" target="_blank" class="btn btn-round btn-twitter btn-sm mr-2 px-2 ">
@@ -84,15 +81,15 @@
                                         </a>
                                     </li>
                                 </ul>
-                                <asp:HyperLink ID="_aboutus" runat="server" CssClass="d-none d-md-inline mx-1">
+                                <asp:HyperLink ID="_aboutus" runat="server" CssClass="d-none d-md-inline text-default mx-1">
                                    
                                 </asp:HyperLink>
-                                <asp:HyperLink ID="_contactus" runat="server" CssClass="d-none d-md-inline mx-1">
+                                <asp:HyperLink ID="_contactus" runat="server" CssClass="d-none d-md-inline text-default mx-1">
                                    
                                 </asp:HyperLink>
                             </div>
                             <div class="col-6 col-md-4 d-flex align-items-center justify-content-end">
-                                <asp:LinkButton ID="langAZ" runat="server" CssClass="site-lang p-1 btn btn-round shadow-sm" OnClick="langAZ_Click">AZ</asp:LinkButton>
+                                <asp:LinkButton ID="langAZ" runat="server" CssClass="site-lang p-1 btn btn-round shadow-sm " OnClick="langAZ_Click">AZ</asp:LinkButton>
                                 <asp:LinkButton ID="langEN" runat="server" CssClass="site-lang p-1 btn btn-round shadow-sm" OnClick="langEN_Click">EN</asp:LinkButton>
                                 <asp:LinkButton ID="signIN" runat="server" CssClass="site-login p-1 px-2 btn btn-round btn-gradient-danger btn-round shadow-sm" OnClick="signIN_Click"></asp:LinkButton>
                             </div>
@@ -379,7 +376,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col p-0 bg-white latest-posts ">
+                                                <div class="col-12 p-0 bg-white latest-posts overflow-hidden shadow">
                                                     <ul id="latestpostlist" class="latest-post-list">
                                                         <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                                                     </ul>

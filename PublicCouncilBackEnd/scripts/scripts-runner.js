@@ -1,6 +1,6 @@
 $(".owl-right-top").owlCarousel({
-      loop: true,
-      autoplay: true,
+    loop: true,
+    autoplay: false,
       autoplayTimeout: 6000,
       items: 1,
       dots: false,
@@ -9,8 +9,8 @@ $(".owl-right-top").owlCarousel({
 
 });
 $(".owl-right-bottom").owlCarousel({
-      loop: true,
-      autoplay: true,
+    loop: true,
+    autoplay: false,
       autoplayTimeout: 7000,
       items: 1,
       dots: false,

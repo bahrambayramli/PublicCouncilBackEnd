@@ -10,7 +10,6 @@
         .content {
             margin: 0 !important;
         }
-
         #managelayout_inpFile,
         #managelayout_subFile,
         #managelayout_labelTime,
@@ -91,11 +90,11 @@
                         <div class="form-group">
                             <label for="managelayout_type_list" class="h4 text-primary">Bölmə</label>
                             <asp:DropDownList ID="type_list" runat="server" CssClass="form-control">
+                                <asp:ListItem Value="simple">Sadə</asp:ListItem>
                                 <asp:ListItem Value="main">Əsas</asp:ListItem>
                                 <asp:ListItem Value="rightupper">Sağ yuxarı</asp:ListItem>
                                 <asp:ListItem Value="rightlower">Sağ aşağı</asp:ListItem>
                                 <asp:ListItem Value="latestpost">son xəbərlər</asp:ListItem>
-                                <asp:ListItem Value="simple">Sadə</asp:ListItem>
                             </asp:DropDownList>
                         </div>
 
