@@ -42,14 +42,13 @@ namespace PublicCouncilBackEnd
                     {
                     getNavigations = new SqlDataAdapter(new SqlCommand(@"SELECT
                                                                                        NAV_AZ ,              
-                                                                                       NAV_LINK_AZ,
-                                                                                       NAV_VALUE,
-                                                                                       NAV_ORDER,
-                                                                                       ISDELETE,
-                                                                                       ISACTIVE
+                                                                                       NAV_LINK_AZ
+                                                                                        
                                                                                   FROM PC_NAV
-                                                                                  WHERE ISDELETE=@ISDELETE AND
-                                                                                        ISACTIVE=@ISACTIVE
+                                                                                  WHERE ISDELETE  =@ISDELETE AND
+                                                                                        ISACTIVE  =@ISACTIVE AND
+                                                                                        NAV_VALUE !='contactus' AND
+                                                                                        NAV_VALUE !='aboutus'
                                                                                  ORDER BY NAV_ORDER ASC"));
                         break;
                     }
@@ -59,14 +58,12 @@ namespace PublicCouncilBackEnd
                         getNavigations = new SqlDataAdapter(new SqlCommand(@"SELECT 
                                                                                      
                                                                                        NAV_EN,
-                                                                                       NAV_LINK_EN,                                                                                   
-                                                                                       NAV_VALUE,
-                                                                                       NAV_ORDER,
-                                                                                       ISDELETE,
-                                                                                       ISACTIVE
+                                                                                       NAV_LINK_EN
                                                                                   FROM PC_NAV
-                                                                                  WHERE ISDELETE=@ISDELETE AND
-                                                                                        ISACTIVE=@ISACTIVE
+                                                                                   WHERE ISDELETE  =@ISDELETE AND
+                                                                                        ISACTIVE  =@ISACTIVE AND
+                                                                                        NAV_VALUE !='contactus' AND
+                                                                                        NAV_VALUE !='aboutus'
                                                                                  ORDER BY NAV_ORDER ASC"));
                         break;
                     }
@@ -74,14 +71,13 @@ namespace PublicCouncilBackEnd
                     {
                         getNavigations = new SqlDataAdapter(new SqlCommand(@"SELECT                   
                                                                                        NAV_RU ,                                                                                  
-                                                                                       NAV_LINK_RU,
-                                                                                       NAV_VALUE,
-                                                                                       NAV_ORDER,
-                                                                                       ISDELETE,
-                                                                                       ISACTIVE
+                                                                                       NAV_LINK_RU
+
                                                                                   FROM PC_NAV
-                                                                                  WHERE ISDELETE=@ISDELETE AND
-                                                                                        ISACTIVE=@ISACTIVE
+                                                                                  WHERE ISDELETE  =@ISDELETE AND
+                                                                                        ISACTIVE  =@ISACTIVE AND
+                                                                                        NAV_VALUE !='contactus' AND
+                                                                                        NAV_VALUE !='aboutus'
                                                                                   ORDER BY NAV_ORDER ASC"));
                         break;
                     }
@@ -95,8 +91,10 @@ namespace PublicCouncilBackEnd
                                                                                        ISDELETE,
                                                                                        ISACTIVE
                                                                                   FROM PC_NAV
-                                                                                  WHERE ISDELETE=@ISDELETE AND
-                                                                                        ISACTIVE=@ISACTIVE
+                                                                                  WHERE ISDELETE  =@ISDELETE AND
+                                                                                        ISACTIVE  =@ISACTIVE AND
+                                                                                        NAV_VALUE !='contactus' AND
+                                                                                        NAV_VALUE !='aboutus'
                                                                                  ORDER BY NAV_ORDER ASC"));
                         break;
                     }

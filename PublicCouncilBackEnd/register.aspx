@@ -51,7 +51,7 @@
                 <div class="col-12 col-md-6">
                     <div class="form-group">
                         <label for="mainlayout_inputPCdomain">İctimai şuranın domain adı</label>
-                        <asp:TextBox ID="inputPCdomain" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="inputPCdomain" runat="server" CssClass="form-control" placeholder="domain.ictimaishura.az"></asp:TextBox>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">

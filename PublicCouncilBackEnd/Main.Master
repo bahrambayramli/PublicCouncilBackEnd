@@ -53,7 +53,7 @@
                             <div class="col-md-4 px-md-1 d-none d-md-block">
                                 <asp:ListView ID="LogoDesktop" runat="server">
                                     <LayoutTemplate>
-                                        <h1>
+                                        <h1 class="m-0">
 
 
                                             <a href="/home/az" class="d-block">
@@ -85,16 +85,10 @@
                                     </li>
                                 </ul>
                                 <asp:HyperLink ID="_aboutus" runat="server" CssClass="d-none d-md-inline mx-1">
-                                    <i class="fas fa-address-card  mr-2 text-danger"></i>
-                                    <span>
-                                        Haqqımızda
-                                    </span>
+                                   
                                 </asp:HyperLink>
                                 <asp:HyperLink ID="_contactus" runat="server" CssClass="d-none d-md-inline mx-1">
-                                   <i class="fas fa-globe  mr-2 text-danger"></i>
-                                    <span>
-                                        Əlaqə
-                                    </span>
+                                   
                                 </asp:HyperLink>
                             </div>
                             <div class="col-6 col-md-4 d-flex align-items-center justify-content-end">
@@ -568,6 +562,7 @@
 
             </div>
         </main>
+
          <!-- sponsors -->
         <section id="site_sponsors" class="site-post bg-white shadow">
             <div class="site-container">
@@ -589,6 +584,7 @@
                 </asp:ListView>
             </div>
         </section>
+
         <!-- Start Footer  -->
         <footer class="footer footer-simple bg-gradient-default">
             <div class="site-container">
@@ -651,9 +647,17 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-12">
-                            <div class="text-center">
-                             site by <a class="text-light font-weight-300" target="_blank" href="http://smartcode.az">SMARTCODE LLC</a>
+                        <div class="col-4">
+
+                        </div>
+                        <div class="col-4">
+                            <span class="d-block text-center text-light">
+                                 © ictimaishura.az
+                            </span>
+                        </div>
+                        <div class="col-4">
+                              <div class="text-right">
+                              Site By <a class="text-gray font-weight-300" target="_blank" href="http://smartcode.az">SmartCode LLC</a> 
                             </div>
                         </div>
                     </div>

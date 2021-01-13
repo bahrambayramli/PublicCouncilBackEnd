@@ -9,6 +9,101 @@ namespace PublicCouncilBackEnd
 {
     public partial class Main : System.Web.UI.MasterPage
     {
+
+        private void HeaderNav()
+        {
+           
+            Label aboutus = new Label();
+            Literal aboutusicon = new Literal();
+            Label contactus = new Label();
+            Literal contactusicon = new Literal();
+            switch (Convert.ToString(Page.RouteData.Values["language"]).ToLower())
+            {
+                case "az":
+                    {
+                        try
+                        {
+
+                           
+                            aboutus.Text = "HAQQIMIZDA";
+                            aboutus.CssClass = "subnav-link-text";
+                            aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2'></i>";
+                            _aboutus.Controls.Add(aboutusicon);
+                            _aboutus.Controls.Add(aboutus);
+                            _aboutus.NavigateUrl = "/aboutus/az";
+
+
+                            contactus.Text = "ƏLAQƏ";
+                            contactus.CssClass = "subnav-link-text";
+                            contactusicon.Text = " <i class='fas fa-globe text-danger mr-2'></i>";
+                            _contactus.Controls.Add(contactusicon);
+                            _contactus.Controls.Add(contactus);
+                            _contactus.NavigateUrl = "/contactus/az";
+
+                        }
+                        catch
+                        {
+
+
+                        }
+                        break;
+                    }
+                case "en":
+                    {
+
+                        aboutus.Text = "ABOUT US";
+                        aboutus.CssClass = "subnav-link-text";
+                        aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2'></i>";
+                        _aboutus.Controls.Add(aboutusicon);
+                        _aboutus.Controls.Add(aboutus);
+                        _aboutus.NavigateUrl = "/aboutus/en";
+
+
+                        contactus.Text = "CONTACT US";
+                        contactus.CssClass = "subnav-link-text";
+                        contactusicon.Text = " <i class='fas fa-globe text-danger mr-2'></i>";
+                        _contactus.Controls.Add(contactusicon);
+                        _contactus.Controls.Add(contactus);
+                        _contactus.NavigateUrl = "/contactus/en";
+
+
+                        break;
+                    }
+                default:
+                    {
+                        try
+                        {
+
+
+                            aboutus.Text = "HAQQIMIZDA";
+                            aboutus.CssClass = "subnav-link-text";
+                            aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2'></i>";
+                            _aboutus.Controls.Add(aboutusicon);
+                            _aboutus.Controls.Add(aboutus);
+                            _aboutus.NavigateUrl = "/aboutus/az";
+
+
+                            contactus.Text = "ƏLAQƏ";
+                            contactus.CssClass = "subnav-link-text";
+                            contactusicon.Text = " <i class='fas fa-globe text-danger mr-2'></i>";
+                            _contactus.Controls.Add(contactusicon);
+                            _contactus.Controls.Add(contactus);
+                            _contactus.NavigateUrl = "/contactus/az";
+
+                        }
+                        catch
+                        {
+
+
+                        }
+                        break;
+                    }
+            }
+
+
+
+        }
+
         #region(SQL FUNCTIONS)
         private void GetLogo()
         {
@@ -23,6 +118,8 @@ namespace PublicCouncilBackEnd
 
             LogoDesktop.DataSource = dtLogo;
             LogoDesktop.DataBind();
+
+            dtLogo = null;
         }
         private void GetNavigations(string lang)
         {
@@ -30,6 +127,7 @@ namespace PublicCouncilBackEnd
             {
                 case "az":
                     {
+
                         NAV_AZ.DataSource = SQLFUNC.GetNavigations(lang, false, true);
                         NAV_AZ.DataBind();
                         break;
@@ -818,6 +916,7 @@ namespace PublicCouncilBackEnd
             GetLogo();
             GetSponsors();
             GetNavigations(Page.RouteData.Values["language"] as string);
+            HeaderNav();
             GetPosts(Session["language"] as string, "4", "election", false, true, true, COUNCILELECTION_AZ, COUNCILELECTION_EN);
             GetPosts(Session["language"] as string, "4", "announcements", false, true, true, ANNOUNCMENTS_AZ, ANNOUNCMENTS_EN);
             GetLatest(Session["language"] as string, "12", false, true, true, LATEST_AZ, LATEST_EN);
