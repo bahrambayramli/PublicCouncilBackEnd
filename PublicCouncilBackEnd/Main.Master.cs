@@ -954,6 +954,7 @@ namespace PublicCouncilBackEnd
 
         protected void signIN_Click(object sender, EventArgs e)
         {
+            Session.Clear();
             Response.Redirect("/login");
         }
     }

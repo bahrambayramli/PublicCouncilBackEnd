@@ -33,6 +33,15 @@ namespace PublicCouncilBackEnd.subsite
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// LogoDesktop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView LogoDesktop;
+
+        /// <summary>
         /// langAZ control.
         /// </summary>
         /// <remarks>
@@ -58,24 +67,6 @@ namespace PublicCouncilBackEnd.subsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton signIN;
-
-        /// <summary>
-        /// LogoDesktop control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView LogoDesktop;
-
-        /// <summary>
-        /// SPONSORS control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView SPONSORS;
 
         /// <summary>
         /// logoPcMobile control.
@@ -211,5 +202,14 @@ namespace PublicCouncilBackEnd.subsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView LATEST_EN;
+
+        /// <summary>
+        /// SPONSORS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView SPONSORS;
     }
 }

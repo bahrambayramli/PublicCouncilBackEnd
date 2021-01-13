@@ -42,6 +42,15 @@ namespace PublicCouncilBackEnd.manage
         protected global::System.Web.UI.WebControls.HyperLink pcnameLink;
 
         /// <summary>
+        /// pcNameText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal pcNameText;
+
+        /// <summary>
         /// manageDashboard control.
         /// </summary>
         /// <remarks>

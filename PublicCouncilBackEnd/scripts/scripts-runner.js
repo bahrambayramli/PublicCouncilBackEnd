@@ -1,6 +1,6 @@
 $(".owl-right-top").owlCarousel({
     loop: true,
-    autoplay: false,
+    autoplay: true,
       autoplayTimeout: 6000,
       items: 1,
       dots: false,
@@ -8,14 +8,16 @@ $(".owl-right-top").owlCarousel({
       autoplaySpeed: 2000
 
 });
+
 $(".owl-right-bottom").owlCarousel({
     loop: true,
-    autoplay: false,
+    autoplay: true,
       autoplayTimeout: 7000,
       items: 1,
       dots: false,
       autoplaySpeed: 2000,
 });
+
 $(".publications").owlCarousel({
       loop: true,
       autoplay: true,
@@ -72,5 +74,4 @@ $(document).ready(function () {
             cursorwidth: "10px",
             cursoropacitymax: 0.7
       });
-
 });

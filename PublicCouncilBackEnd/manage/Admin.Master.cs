@@ -45,7 +45,7 @@ namespace PublicCouncilBackEnd.manage
             }
 
             userName.Text = $"{Session["USER_NAME"] as string} {Session["USER_SURNAME"]}";
-          
+         
            
         }
 
