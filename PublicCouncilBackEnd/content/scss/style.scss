@@ -157,6 +157,16 @@ img {
                 box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
             }
         }
+
+        .post-title {
+            h2 {
+                p {
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    word-break: break-word;
+                }
+            }
+        }
     }
 
     .right-side {
@@ -259,6 +269,7 @@ img {
                 .latest-title {
                     color: black;
                     font-size: 12px;
+
                     p {
                         font-size: 0.9rem;
                     }
@@ -301,7 +312,7 @@ img {
     }
   }
 
-  .main {
+    .main {
 
         .content-side {
             .site-sliders {
@@ -532,7 +543,16 @@ img {
                 }
             }
 
+            .post-title {
+                h2 {
 
+                    p {
+                        font-size: 2.25rem;
+                    }
+                }
+            }
+
+           
         }
 
         .right-side {
@@ -658,8 +678,7 @@ img {
             }
 
             .latest-posts {
-
-                border-radius:10px;
+                border-radius: 10px;
 
                 .latest-post-list {
                     height: 62.5rem;
@@ -674,7 +693,7 @@ img {
                     font-family: Arial, sans-serif;
                     -webkit-overflow-scrolling: touch;
                     overflow: hidden scroll;
-                  //  box-shadow: $box-sahdow;
+                    //  box-shadow: $box-sahdow;
                 }
 
                 .latest-item {

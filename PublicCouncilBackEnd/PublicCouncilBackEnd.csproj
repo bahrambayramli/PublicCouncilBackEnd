@@ -194,11 +194,15 @@
     <Content Include="content\css\owl.theme.green.css" />
     <Content Include="content\css\owl.theme.green.min.css" />
     <Content Include="content\css\style.css" />
-    <Content Include="content\scss\style.css" />
+    <Content Include="content\scss\style.css">
+      <DependentUpon>style.scss</DependentUpon>
+    </Content>
     <Content Include="content\scss\style.min.css">
       <DependentUpon>style.css</DependentUpon>
     </Content>
-    <Content Include="content\scss\subsite.css" />
+    <Content Include="content\scss\subsite.css">
+      <DependentUpon>subsite.scss</DependentUpon>
+    </Content>
     <Content Include="content\scss\subsite.min.css">
       <DependentUpon>subsite.css</DependentUpon>
     </Content>
@@ -533,9 +537,7 @@
   <ItemGroup>
     <Content Include="Main.Master" />
     <Content Include="manage\Admin.Master" />
-    <Content Include="content\scss\style.css.map" />
     <Content Include="content\scss\style.scss" />
-    <Content Include="content\scss\subsite.css.map" />
     <Content Include="content\scss\subsite.scss" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">

@@ -119,6 +119,11 @@ img {
 .main .content-side .site-partners .site-partners-link {
   box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07); }
 
+.main .content-side .post-title h2 p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  word-break: break-word; }
+
 .main .right-side .owl-elections .slider-item .slider-caption {
   position: absolute;
   left: 20px;
@@ -388,6 +393,8 @@ img {
           color: #ffffff; }
         .main .content-side .publications .owl-nav button:hover {
           background-color: #32325d !important; }
+  .main .content-side .post-title h2 p {
+    font-size: 2.25rem; }
   .main .right-side .owl-elections .slider-item .slider-caption {
     position: absolute;
     left: 20px;

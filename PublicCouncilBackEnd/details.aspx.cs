@@ -59,18 +59,18 @@ namespace PublicCouncilBackEnd
                             postImage.Visible = false;
                             postCategory.Visible = false;
                             postDateLink.Visible = false;
-                            postCountLink.Visible = false;
+                            postViewLink.Visible = false;
                         }
                       
 
-                        Page.Title = DT.Rows[0]["POST_SEOAZ"].ToString();
-                        postTitle.Text = DT.Rows[0]["POST_SEOAZ"].ToString();
+                        Page.Title = DT.Rows[0]["POST_SEOAZ"].ToString();                     
+                        postTitle.Text = DT.Rows[0]["POST_AZ_TITLE"].ToString();
                         postDate.Text = DT.Rows[0]["POST_DATE"].ToString().Substring(0, DT.Rows[0]["POST_DATE"].ToString().Length - 3).Replace("/", ".");
 
                         postImage.ImageUrl = $"/Images/{ DT.Rows[0]["POST_IMG"].ToString()}";
                         postAbout.Text = DT.Rows[0]["POST_AZ_TOPIC"].ToString();
                         postCategory.Text = DT.Rows[0]["POST_SITECATEGORYAZ"].ToString();
-                        postCount.Text = DT.Rows[0]["POST_VIEWCOUNT"].ToString();
+                        postView.Text = DT.Rows[0]["POST_VIEWCOUNT"].ToString();
                         GetPostImages(DT.Rows[0]["POST_SERIAL"].ToString());
                         GetPostVideos(DT.Rows[0]["POST_SERIAL"].ToString());
                         GetDocs(DT.Rows[0]["POST_SERIAL"].ToString());
@@ -97,13 +97,13 @@ namespace PublicCouncilBackEnd
 
 
                         Page.Title = DT.Rows[0]["POST_SEOEN"].ToString();
-                        postTitle.Text = DT.Rows[0]["POST_SEOEN"].ToString();
+                        postTitle.Text = DT.Rows[0]["POST_EN_TITLE"].ToString();
                         postDate.Text = DT.Rows[0]["POST_DATE"].ToString().Substring(0, DT.Rows[0]["POST_DATE"].ToString().Length - 3).Replace("/", ".");
 
                         postImage.ImageUrl = $"/Images/{ DT.Rows[0]["POST_IMG"].ToString()}";
                         postAbout.Text = DT.Rows[0]["POST_EN_TOPIC"].ToString();
                         postCategory.Text = DT.Rows[0]["POST_SITECATEGORYEN"].ToString();
-                        postCount.Text = DT.Rows[0]["POST_VIEWCOUNT"].ToString();
+                        postView.Text = DT.Rows[0]["POST_VIEWCOUNT"].ToString();
                         GetPostImages(DT.Rows[0]["POST_SERIAL"].ToString());
                         GetPostVideos(DT.Rows[0]["POST_SERIAL"].ToString());
                         GetDocs(DT.Rows[0]["POST_SERIAL"].ToString());
@@ -130,7 +130,7 @@ namespace PublicCouncilBackEnd
 
                         DataTable DT = SQL.SELECT(getdata);
 
-                        Page.Title = DT.Rows[0]["POST_SEOAZ"].ToString();
+                        Page.Title = DT.Rows[0]["POST_AZ_TITLE"].ToString();
                         postTitle.Text = DT.Rows[0]["POST_AZ_TITLE"].ToString();
                         postDate.Text = DT.Rows[0]["POST_DATE"].ToString()
                                         .Substring(0, DT.Rows[0]["POST_DATE"].ToString().Length - 3).Replace("/", ".");
@@ -138,7 +138,7 @@ namespace PublicCouncilBackEnd
                         postImage.ImageUrl = $"/Images/{ DT.Rows[0]["POST_IMG"].ToString()}";
                         postAbout.Text = DT.Rows[0]["POST_AZ_TOPIC"].ToString();
                         postCategory.Text = DT.Rows[0]["POST_SITECATEGORYAZ"].ToString();
-                        postCount.Text = DT.Rows[0]["POST_VIEWCOUNT"].ToString();
+                        postView.Text = DT.Rows[0]["POST_VIEWCOUNT"].ToString();
                         GetPostImages(DT.Rows[0]["POST_SERIAL"].ToString());
                         GetPostVideos(DT.Rows[0]["POST_SERIAL"].ToString());
                         GetDocs(DT.Rows[0]["POST_SERIAL"].ToString());
