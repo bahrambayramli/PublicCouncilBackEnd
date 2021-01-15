@@ -44,7 +44,15 @@ namespace PublicCouncilBackEnd
                     }
             }
 
-            aboususInfo.Text = GetPages("ABOUTUS");
+            try
+            {
+                aboususInfo.Text = GetPages("ABOUTUS");
+            }
+            catch 
+            {
+
+             
+            }
         }
     }
 }

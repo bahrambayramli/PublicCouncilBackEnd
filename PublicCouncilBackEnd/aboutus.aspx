@@ -12,7 +12,7 @@
                 </div>
             </div>
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 px-md-1">
                 <div class="about-us bg-white p-2 rounded shadow">
                     <asp:Literal ID="aboususInfo" runat="server"></asp:Literal>
                 </div>

@@ -41,7 +41,16 @@ namespace PublicCouncilBackEnd
                         break;
                     }
             }
-            contactUs.Text = GetPages("CONTACTUS");
+
+            try
+            {
+                contactUs.Text = GetPages("CONTACTUS");
+            }
+            catch 
+            {
+
+              
+            }
         }
     }
 }
