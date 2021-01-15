@@ -4,7 +4,6 @@
 
 <html lang="az">
 <head runat="server">
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Public Council, İctimai şura,İctimai Şuraların fəaliyyəti">
@@ -23,9 +22,8 @@
     <!-- FONTS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
-
     <!-- SHARETHIS SCRIPTS -->
-    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5f8df40458d8400012272351&product=sop' async='async'></script>
+    <script src='https://platform-api.sharethis.com/js/sharethis.js#property=5f8df40458d8400012272351&product=sop' async></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script src="https://www.googletagmanager.com/gtag/js?id=UA-180960102-1" async></script>
     <script>
@@ -40,7 +38,7 @@
 </head>
 <body>
 
-    <form id="form1" runat="server">
+    <form id="masterForm" runat="server">
 
         <!-- Start Header  -->
         <header class="header bg-gradient-default shadow">
@@ -664,8 +662,6 @@
 
     </form>
 
-  
  <script src="/scripts/scripts-runner.js"></script>
-
 </body>
 </html>

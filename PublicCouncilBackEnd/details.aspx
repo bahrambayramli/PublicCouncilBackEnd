@@ -13,12 +13,12 @@
         <div class="post-info my-2">
             <asp:HyperLink ID="postCategory" runat="server" CssClass="btn btn-sm btn-outline-default btn-round"></asp:HyperLink>
             <asp:HyperLink ID="postDateLink" runat="server" CssClass="btn btn-sm btn-outline-danger btn-round">
-                <i class="far fa-clock mr-1"></i>
+                <i class="far fa-clock mr-md-1"></i>
                 <asp:Literal ID="postDate" runat="server"></asp:Literal>
             </asp:HyperLink>
 
             <asp:HyperLink ID="postViewLink" runat="server" CssClass="btn btn-sm btn-outline-warning btn-round">
-                <i class="far fa-eye mr-1"></i>
+                <i class="far fa-eye mr-md-1"></i>
                 <asp:Literal ID="postView" runat="server"></asp:Literal>
             </asp:HyperLink>
         </div>
