@@ -13,7 +13,7 @@
                 <asp:ListView ID="POSTLIST_AZ" runat="server" OnPagePropertiesChanging="POSTLIST_AZ_PagePropertiesChanging">
                     <ItemTemplate>
                         <article class="col-12 d-flex align-items-stretch border-danger px-md-1">
-                            <a href="/details/az/<%#Eval("DATA_ID")%>" class="shadow p-2 mb-3 rounded d-block text-default h5 w-100 text-wrap" title="<%#Eval("POST_SEOAZ")%>"
+                            <a href="/details/az/<%#Eval("DATA_ID")%>" class="shadow p-2 py-md-3 mb-3 rounded d-block bg-white text-default h5 w-100 text-wrap" title="<%#Eval("POST_SEOAZ")%>"
                                 style="border-left: 4px solid #32325d;">
                                 <%#Eval("POST_SEOAZ")%>
                             </a>
@@ -23,7 +23,7 @@
                 <asp:ListView ID="POSTLIST_EN" runat="server" OnPagePropertiesChanging="POSTLIST_EN_PagePropertiesChanging">
                     <ItemTemplate>
                         <article class="col-12 d-flex align-items-stretch border-danger px-md-1">
-                            <a href="/details/en/<%#Eval("DATA_ID")%>" class="shadow p-2 mb-3 rounded d-block text-default h5 w-100 text-wrap" title="<%#Eval("POST_SEOEN")%>"
+                            <a href="/details/en/<%#Eval("DATA_ID")%>" class="shadow p-2 py-md-3 mb-3 rounded d-block bg-white text-default h5 w-100 text-wrap" title="<%#Eval("POST_SEOEN")%>"
                                 style="border-left: 4px solid #32325d;">
                                 <%#Eval("POST_SEOEN")%>
                             </a>
