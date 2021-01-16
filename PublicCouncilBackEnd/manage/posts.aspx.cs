@@ -82,14 +82,14 @@ namespace PublicCouncilBackEnd.manage
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["USER_MEMBERSHIP_TYPE"] as string == "user")
+            if(Session["USER_MEMBERSHIP_TYPE"] as string == "admin")
+            {
+                GetPosts(pcSelectList.SelectedValue);
+            }
+           else
             {
                 GetPosts(Session["USER_ID"] as string);
                 pcSelectList.Visible = false;
-            }
-            else
-            {
-                GetPosts(pcSelectList.SelectedValue);
             }
            
         }

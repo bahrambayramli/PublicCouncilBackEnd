@@ -300,7 +300,8 @@ namespace PublicCouncilBackEnd.manage
                                                          WHERE USER_ID = @USER_ID
                                                         
 	                                                	   ");
-                updateUser.Parameters.Add("@USER_PASSWORD", SqlDbType.NVarChar).Value = Crypto.MD5crypt(inputPassword.Text);
+                string pass = Crypto.MD5crypt(inputPassword.Text);
+                updateUser.Parameters.Add("@USER_PASSWORD", SqlDbType.NVarChar).Value =pass ;
             }
             else
             {

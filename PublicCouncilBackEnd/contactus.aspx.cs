@@ -13,7 +13,7 @@ namespace PublicCouncilBackEnd
     {
         private string GetPages(string PAGE)
         {
-            SqlDataAdapter getPage = new SqlDataAdapter(new SqlCommand(@"SELECT DATA_ID , PAGE_DATA FROM NGO_TOPPAGES WHERE PAGE=@PAGE "));
+            SqlDataAdapter getPage = new SqlDataAdapter(new SqlCommand(@"SELECT DATA_ID , PAGE_DATA FROM PC_TOPPAGES WHERE PAGE=@PAGE "));
 
             getPage.SelectCommand.Parameters.Add("@PAGE", SqlDbType.NVarChar).Value = PAGE;
 

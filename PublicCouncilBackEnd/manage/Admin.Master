@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/scripts/vendor/nucleo/css/nucleo.css">
     <!-- SCRIPTS -->
-    <script src="/scripts/core/jquery.min.js"></script>
+    <script src="/scripts/core/jquery.js"></script>
     <script src="/scripts/vendor/moment/moment.js"></script>
     <script src="/scripts/plugins/bootstrap-datetimepicker.min.js"></script>
      <!-- INTERNAL STYLES -->
@@ -103,7 +103,12 @@
                                     <span class="nav-link-text">Sponsorlar</span>
                                 </asp:HyperLink>
                             </li>
-
+                            <li class="nav-item">
+                                <asp:HyperLink ID="managepages" runat="server" CssClass="nav-link" NavigateUrl="/manage/pages">
+                                     <i class="ni ni-single-copy-04 text-pink"></i>
+                                    <span class="nav-link-text">Səhifə</span>
+                                </asp:HyperLink>
+                            </li>
                             <li class="nav-item">
                                 <asp:HyperLink ID="managepcouncils" runat="server" CssClass="nav-link" NavigateUrl="/manage/councils">
                                     <i class="ni ni-chart-pie-35 text-info"></i>

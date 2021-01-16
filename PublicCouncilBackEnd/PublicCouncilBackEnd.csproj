@@ -236,6 +236,7 @@
     <Content Include="manage\sponsordetail.aspx" />
     <Content Include="manage\councils.aspx" />
     <Content Include="manage\councildetail.aspx" />
+    <Content Include="manage\pages.aspx" />
     <Content Include="subsite\home.aspx" />
     <Content Include="subsite\posts.aspx" />
     <Content Include="subsite\announcements.aspx" />
@@ -356,6 +357,13 @@
     </Compile>
     <Compile Include="manage\councildetail.aspx.designer.cs">
       <DependentUpon>councildetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\pages.aspx.cs">
+      <DependentUpon>pages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\pages.aspx.designer.cs">
+      <DependentUpon>pages.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\Crypto.cs" />
     <Compile Include="Model\error.cs" />

@@ -266,7 +266,7 @@
 
     <!-- All  Posts  -->
     <section class="all-news text-center mb-2">
-        <asp:LinkButton ID="allPosts" runat="server" CssClass="btn btn-danger btn-round  text-uppercase">
+        <asp:LinkButton ID="allPosts" runat="server" CssClass="btn btn-outline-danger btn-round shadow-sm">
             bütün Xeberler
         </asp:LinkButton>
     </section>

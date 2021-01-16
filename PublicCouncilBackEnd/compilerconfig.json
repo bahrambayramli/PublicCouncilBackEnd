@@ -6,5 +6,9 @@
   {
     "outputFile": "content/scss/subsite.css",
     "inputFile": "content/scss/subsite.scss"
+  },
+  {
+    "outputFile": "scripts/core/jquery.es5.js",
+    "inputFile": "scripts/core/jquery.js"
   }
 ]

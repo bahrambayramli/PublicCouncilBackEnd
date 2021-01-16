@@ -30,18 +30,18 @@ namespace PublicCouncilBackEnd.manage
               //  pcnameLink.NavigateUrl = $"http://{ Session["USER_PCDOMAIN"] as string}.publiccouncil.ml";
              //    pcNameText.Text = ($"{Session["USER_PCDOMAIN"] as string}.publiccouncil.ml").ToLower();
                 
-                managepartners.Visible = false;
-                managesponsors.Visible = false;
-                managepcouncils.Visible = false;
-               
+                managepartners.Visible   = false;
+                managesponsors.Visible   = false;
+                managepcouncils.Visible  = false;
+                managepages.Visible      = false;
             }
             else
             {
-               
+
                 managepartners.Visible = false;
                 managesponsors.Visible = false;
                 managepcouncils.Visible = false;
-              
+                managepages.Visible = false;
             }
 
             userName.Text = $"{Session["USER_NAME"] as string} {Session["USER_SURNAME"]}";

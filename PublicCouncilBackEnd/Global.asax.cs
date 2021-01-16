@@ -60,6 +60,7 @@ namespace PublicCouncilBackEnd
             routes.MapPageRoute("managesponsordetail", "manage/sponsordetail/", "~/manage/sponsordetail.aspx");
             routes.MapPageRoute("managecouncils", "manage/councils/", "~/manage/councils.aspx");
             routes.MapPageRoute("managecouncildetail", "manage/councildetail/", "~/manage/councildetail.aspx");
+            routes.MapPageRoute("managepages", "manage/pages/", "~/manage/pages.aspx");
 
             //routes.MapPageRoute("admindetails", "adminpanel/details/{newID}", "~/adminpanel/details.aspx");
             //routes.MapPageRoute("partnersedit", "adminpanel/partnersdetail/{id}", "~/adminpanel/partnersdetail.aspx");
