@@ -19,13 +19,13 @@
                 <div class="col-12 col-md-6">
                     <div class="form-group">
                         <label for="mainlayout_inputLoginName">Login</label>
-                        <asp:TextBox ID="inputLoginName" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="inputLoginName" runat="server" CssClass="form-control" required></asp:TextBox>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="form-group">
                         <label for="mainlayout_inputPassword">Şifrə</label>
-                        <asp:TextBox ID="inputPassword" runat="server" CssClass="form-control" TextMode="Password">
+                        <asp:TextBox ID="inputPassword" runat="server" CssClass="form-control" TextMode="Password" required>
 
                         </asp:TextBox>
                     </div>
@@ -39,19 +39,19 @@
                 <div class="col-12 col-md-6">
                     <div class="form-group">
                         <label for="mainlayout_inputSurname">Soyad</label>
-                        <asp:TextBox ID="inputSurname" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="inputSurname" runat="server" CssClass="form-control" required></asp:TextBox>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="form-group">
                         <label for="mainlayout_inputPCname">İctimai şuranın adı</label>
-                        <asp:TextBox ID="inputPCname" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="inputPCname" runat="server" CssClass="form-control" required></asp:TextBox>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="form-group">
                         <label for="mainlayout_inputPCdomain">İctimai şuranın domain adı</label>
-                        <asp:TextBox ID="inputPCdomain" runat="server" CssClass="form-control" placeholder="domain.ictimaishura.az"></asp:TextBox>
+                        <asp:TextBox ID="inputPCdomain" runat="server" CssClass="form-control" placeholder="domain.ictimaishura.az" required></asp:TextBox>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">

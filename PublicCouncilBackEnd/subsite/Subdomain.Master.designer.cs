@@ -96,6 +96,15 @@ namespace PublicCouncilBackEnd.subsite
         protected global::System.Web.UI.WebControls.HyperLink _news;
 
         /// <summary>
+        /// _members control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink _members;
+
+        /// <summary>
         /// _projects control.
         /// </summary>
         /// <remarks>

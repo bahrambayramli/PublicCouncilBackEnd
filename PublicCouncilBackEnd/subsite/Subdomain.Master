@@ -118,6 +118,10 @@
                                         </asp:HyperLink>
                                     </li>
                                     <li class="subnav-item">
+                                        <asp:HyperLink ID="_members" runat="server" CssClass="subnav-link">
+                                        </asp:HyperLink>
+                                    </li>
+                                    <li class="subnav-item">
                                         <asp:HyperLink ID="_projects" runat="server" CssClass="subnav-link">
                                         </asp:HyperLink>
                                     </li>

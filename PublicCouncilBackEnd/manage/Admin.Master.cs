@@ -32,7 +32,7 @@ namespace PublicCouncilBackEnd.manage
                 
                 managepartners.Visible   = false;
                 managesponsors.Visible   = false;
-                managepcouncils.Visible  = false;
+               // managepcouncils.Visible  = false;
                 managepages.Visible      = false;
             }
             else
@@ -40,7 +40,7 @@ namespace PublicCouncilBackEnd.manage
 
                 managepartners.Visible = false;
                 managesponsors.Visible = false;
-                managepcouncils.Visible = false;
+               // managepcouncils.Visible = false;
                 managepages.Visible = false;
             }
 

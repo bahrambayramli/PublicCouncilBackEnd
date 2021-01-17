@@ -180,8 +180,8 @@
                                                     Saytda görsənsin:En
                                                 </label>
                                                 <asp:DropDownList ID="en_view" runat="server" CssClass="form-control w-10 my-2">
-                                                    <asp:ListItem Value="yes">Bəli</asp:ListItem>
                                                     <asp:ListItem Value="no">Xeyr</asp:ListItem>
+                                                    <asp:ListItem Value="yes">Bəli</asp:ListItem>
                                                 </asp:DropDownList>
                                                 <CKEditor:CKEditorControl ID="post_en" runat="server" Height="300px"></CKEditor:CKEditorControl>
                                             </div>

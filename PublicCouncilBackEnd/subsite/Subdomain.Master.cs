@@ -14,7 +14,7 @@ namespace PublicCouncilBackEnd.subsite
         
         private string GetUserInfo(string USER_PCDOMAIN)
         {
-            SqlDataAdapter getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT USER_SERIAL ,PC_NAME FROM PC_USERS 
+            SqlDataAdapter getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT USER_SERIAL ,PC_NAME, USER_ID FROM PC_USERS 
                                                                                                  WHERE 
                                                                                                  ISDELETE      = @ISDELETE AND 
                                                                                                  ISACTIVE      = @ISACTIVE AND
@@ -25,7 +25,8 @@ namespace PublicCouncilBackEnd.subsite
 
             DataTable dt = SQL.SELECT(getSerial);
 
-            Page.Title = dt.Rows[0]["PC_NAME"].ToString();
+            Page.Title                      = dt.Rows[0]["PC_NAME"].ToString();
+            Session["PC_USER_ID"]           = dt.Rows[0]["USER_ID"].ToString();
             return dt.Rows[0]["USER_SERIAL"].ToString(); ;
         }
 
@@ -88,6 +89,8 @@ namespace PublicCouncilBackEnd.subsite
             Literal aboutusicon = new Literal();
             Label contactus = new Label();
             Literal contactusicon = new Literal();
+            Label member = new Label();
+            Literal membericon = new Literal();
             switch (Convert.ToString(Page.RouteData.Values["language"]).ToLower())
             {
                 case "az":
@@ -110,7 +113,14 @@ namespace PublicCouncilBackEnd.subsite
                             _news.Controls.Add(news);
                             _news.NavigateUrl = "/site/posts/az";
 
-                           
+                            member.Text = "ŞURA ÜZVLƏRİ";
+                            member.CssClass = "subnav-link-text";
+                            membericon.Text = " <i class='fas fa-users text-danger mr-2'></i>";
+                            _members.Controls.Add(membericon);
+                            _members.Controls.Add(member);
+                            _members.NavigateUrl = "/site/members/az";
+
+
                             projects.Text = "ELANLAR";
                             projects.CssClass = "subnav-link-text";
                             projectsicon.Text = "<i class='fas fa-project-diagram text-danger mr-2'></i>";
@@ -196,8 +206,14 @@ namespace PublicCouncilBackEnd.subsite
                             _news.Controls.Add(news);
                             _news.NavigateUrl = "/site/posts/en";
 
-                           
-                            projects.Text = "ANNOUNCEMENTS";
+                        member.Text = "Members";
+                        member.CssClass = "subnav-link-text";
+                        membericon.Text = " <i class='fas fa-users text-danger mr-2'></i>";
+                        _members.Controls.Add(membericon);
+                        _members.Controls.Add(member);
+                        _members.NavigateUrl = "/site/members/en";
+
+                        projects.Text = "ANNOUNCEMENTS";
                             projects.CssClass = "subnav-link-text";
                             projectsicon.Text = "<i class='fas fa-project-diagram text-danger mr-2'></i>";
                             _projects.Controls.Add(projectsicon);
@@ -277,6 +293,12 @@ namespace PublicCouncilBackEnd.subsite
                             _news.Controls.Add(news);
                             _news.NavigateUrl = "/site/posts/az";
 
+                            member.Text = "ŞURA ÜZVLƏRİ";
+                            member.CssClass = "subnav-link-text";
+                            membericon.Text = " <i class='fas fa-users text-danger mr-2'></i>";
+                            _members.Controls.Add(membericon);
+                            _members.Controls.Add(member);
+                            _members.NavigateUrl = "/site/members/az";
 
                             projects.Text = "ELANLAR";
                             projects.CssClass = "subnav-link-text";

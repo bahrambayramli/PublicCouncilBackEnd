@@ -61,6 +61,8 @@ namespace PublicCouncilBackEnd
             routes.MapPageRoute("managecouncils", "manage/councils/", "~/manage/councils.aspx");
             routes.MapPageRoute("managecouncildetail", "manage/councildetail/", "~/manage/councildetail.aspx");
             routes.MapPageRoute("managepages", "manage/pages/", "~/manage/pages.aspx");
+            routes.MapPageRoute("managemembers", "manage/members/", "~/manage/members.aspx");
+            routes.MapPageRoute("managememberdetail", "manage/memberdetail/", "~/manage/memberdetail.aspx");
 
             //routes.MapPageRoute("admindetails", "adminpanel/details/{newID}", "~/adminpanel/details.aspx");
             //routes.MapPageRoute("partnersedit", "adminpanel/partnersdetail/{id}", "~/adminpanel/partnersdetail.aspx");
@@ -80,6 +82,8 @@ namespace PublicCouncilBackEnd
             routes.MapPageRoute("pcmultimediaRoute", "site/multimedia/{directory}/{language}", "~/subsite/multimedia.aspx");
             routes.MapPageRoute("pcaboutus", "site/aboutus/{language}", "~/subsite/aboutus.aspx");
             routes.MapPageRoute("pccontactus", "site/contactus/{language}", "~/subsite/contactus.aspx");
+            routes.MapPageRoute("pcmembers", "site/members/{language}", "~/subsite/members.aspx");
+            routes.MapPageRoute("pcmemberdetail", "site/memberdetail/{language}", "~/subsite/memberdetail.aspx");
             #endregion
 
         }

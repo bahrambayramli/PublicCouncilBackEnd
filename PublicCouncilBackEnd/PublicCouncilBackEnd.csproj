@@ -237,6 +237,9 @@
     <Content Include="manage\councils.aspx" />
     <Content Include="manage\councildetail.aspx" />
     <Content Include="manage\pages.aspx" />
+    <Content Include="manage\members.aspx" />
+    <Content Include="manage\memberdetail.aspx" />
+    <Content Include="scripts\viewmage.js" />
     <Content Include="subsite\home.aspx" />
     <Content Include="subsite\posts.aspx" />
     <Content Include="subsite\announcements.aspx" />
@@ -246,6 +249,7 @@
     <Content Include="subsite\multimedia.aspx" />
     <Content Include="subsite\contactus.aspx" />
     <Content Include="subsite\aboutus.aspx" />
+    <Content Include="subsite\members.aspx" />
     <Content Include="Web.config" />
     <Content Include="home.aspx" />
     <Content Include="posts.aspx" />
@@ -364,6 +368,20 @@
     </Compile>
     <Compile Include="manage\pages.aspx.designer.cs">
       <DependentUpon>pages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\members.aspx.cs">
+      <DependentUpon>members.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\members.aspx.designer.cs">
+      <DependentUpon>members.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\memberdetail.aspx.cs">
+      <DependentUpon>memberdetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\memberdetail.aspx.designer.cs">
+      <DependentUpon>memberdetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\Crypto.cs" />
     <Compile Include="Model\error.cs" />
@@ -541,6 +559,13 @@
     <Compile Include="contactus.aspx.designer.cs">
       <DependentUpon>contactus.aspx</DependentUpon>
     </Compile>
+    <Compile Include="subsite\members.aspx.cs">
+      <DependentUpon>members.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="subsite\members.aspx.designer.cs">
+      <DependentUpon>members.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Main.Master" />
@@ -565,6 +590,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\logos\" />
+    <Folder Include="images\members\" />
     <Folder Include="images\subimages\" />
     <Folder Include="scripts\core\" />
   </ItemGroup>

@@ -561,5 +561,7 @@ namespace PublicCouncilBackEnd.manage
 
             Response.Redirect("/manage/councils");
         }
+
+        
     }
 }

@@ -14,8 +14,14 @@ namespace PublicCouncilBackEnd.manage
     {
         #region(SQL FUNCTIONS)
 
-        private void GETPCOUNCILS()
+        private void GETPCOUNCILS(string PC_ID)
         {
+            string newValue = string.Empty;
+            if(!string.IsNullOrEmpty(PC_ID))
+            {
+                newValue = "AND USER_ID = @PC_ID";
+            }
+
             SqlDataAdapter getPC = new SqlDataAdapter(new SqlCommand(@"SELECT 
                                                                               ROW_NUMBER() OVER(ORDER BY CREATED_DATE DESC) AS '#' ,
                                                                               USER_ID,
@@ -28,12 +34,15 @@ namespace PublicCouncilBackEnd.manage
                                                                               USER_PCDOMAIN
                                                                         FROM  PC_USERS
                                                                         WHERE USER_LOGIN != @USER_LOGIN AND
-                                                                              ISDELETE    = @ISDELETE 
-                                                                                        "));
+                                                                              ISDELETE    = @ISDELETE   AND
+                                                                              1=1  "      + newValue));
 
             getPC.SelectCommand.Parameters.Add("@USER_LOGIN", SqlDbType.NVarChar).Value = "admin";
             getPC.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
-
+            if (!string.IsNullOrEmpty(PC_ID))
+            {
+                getPC.SelectCommand.Parameters.Add("@PC_ID", SqlDbType.Int).Value = PC_ID;
+            }
             PCLists.DataSource = SQL.SELECT(getPC);
             PCLists.DataBind();
         }
@@ -46,7 +55,7 @@ namespace PublicCouncilBackEnd.manage
             deletePC.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = false;
             deletePC.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = true;
             SQL.COMMAND(deletePC);
-            GETPCOUNCILS();
+            GETPCOUNCILS(Session["PC_ID"] as string);
 
         }
 
@@ -55,7 +64,17 @@ namespace PublicCouncilBackEnd.manage
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            GETPCOUNCILS();
+            if (Session["USER_MEMBERSHIP_TYPE"] as string == "admin")
+            {
+                GETPCOUNCILS("");
+            }
+            else
+            {
+                new_pc.Visible = false;
+                new_pc.Enabled = false;
+                GETPCOUNCILS(Session["USER_ID"] as string);
+            }
+                
         }
 
         protected void PCLists_RowCreated(object sender, GridViewRowEventArgs e)
@@ -70,7 +89,14 @@ namespace PublicCouncilBackEnd.manage
         protected void PCLists_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             PCLists.PageIndex = e.NewPageIndex;
-            GETPCOUNCILS();
+            if (Session["USER_MEMBERSHIP_TYPE"] as string == "admin")
+            {
+                GETPCOUNCILS("");
+            }
+            else
+            {
+                GETPCOUNCILS(Session["USER_ID"] as string);
+            }
         }
 
         protected void PCLists_SelectedIndexChanged(object sender, EventArgs e)

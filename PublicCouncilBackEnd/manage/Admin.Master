@@ -23,6 +23,7 @@
     <script src="/scripts/core/jquery.js"></script>
     <script src="/scripts/vendor/moment/moment.js"></script>
     <script src="/scripts/plugins/bootstrap-datetimepicker.min.js"></script>
+     <script src="/scripts/viewmage.js"></script>
      <!-- INTERNAL STYLES -->
     <style>
         .table td, .table th {
@@ -141,7 +142,7 @@
         <!-- Main content -->
         <div class="main-content" id="panel">
             <!-- Topnav -->
-            <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+            <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom" id="top-nav">
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Search form -->
