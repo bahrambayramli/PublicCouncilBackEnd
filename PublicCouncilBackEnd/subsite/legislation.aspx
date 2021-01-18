@@ -82,4 +82,5 @@
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
+        <script src="/scripts/subsite.js"></script>
 </asp:Content>

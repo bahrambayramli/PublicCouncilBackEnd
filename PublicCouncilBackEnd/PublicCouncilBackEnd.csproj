@@ -239,6 +239,7 @@
     <Content Include="manage\pages.aspx" />
     <Content Include="manage\members.aspx" />
     <Content Include="manage\memberdetail.aspx" />
+    <Content Include="scripts\subsite.js" />
     <Content Include="scripts\viewmage.js" />
     <Content Include="subsite\home.aspx" />
     <Content Include="subsite\posts.aspx" />

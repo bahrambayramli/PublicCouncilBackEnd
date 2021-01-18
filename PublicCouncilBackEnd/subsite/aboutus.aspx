@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/subsite/Subdomain.Master" AutoEventWireup="true" CodeBehind="aboutus.aspx.cs" Inherits="PublicCouncilBackEnd.subsite.WebForm9" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<%--    <link href="../content/css/argon-design-system.min.css" rel="stylesheet" />--%>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="sublayout" runat="server">
      <div class="container-fluid">
@@ -30,4 +29,5 @@
             </div>
             
      </div>
+    <script src="/scripts/subsite.js"></script>
 </asp:Content>

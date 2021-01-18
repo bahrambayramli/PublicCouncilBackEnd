@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="sublayout" runat="server">
-        <asp:UpdatePanel ID="MEMBERS_PANEL" runat="server" class="container-fluid">
+    <asp:UpdatePanel ID="MEMBERS_PANEL" runat="server" class="container-fluid">
         <ContentTemplate>
             <div class="row">
                 <div class="col-12">
@@ -23,7 +23,6 @@
                                     <%#Eval("MEMBER_NAME")%>   <%#Eval("MEMBER_SURNAME")%>
                                 </div>
                             </div>
-
                         </div>
                     </ItemTemplate>
                 </asp:ListView>
@@ -51,7 +50,7 @@
             <div class="row">
                 <div class="col-12">
                     <nav aria-label="Page navigation example">
-                        <asp:DataPager ID="DataPager_AZ" runat="server" PagedControlID="MEMBER_AZ" PageSize="9" class="pagination">
+                        <asp:DataPager ID="DataPager_AZ" runat="server" PagedControlID="MEMBERS_AZ" PageSize="9" class="pagination">
                             <Fields>
                                 <asp:NextPreviousPagerField
                                     ButtonType="Link"
@@ -73,7 +72,7 @@
                             </Fields>
                         </asp:DataPager>
 
-                        <asp:DataPager ID="DataPager_EN" runat="server" PagedControlID="MEMBER_EN" PageSize="9" class="pagination">
+                        <asp:DataPager ID="DataPager_EN" runat="server" PagedControlID="MEMBERS_EN" PageSize="9" class="pagination">
                             <Fields>
                                 <asp:NextPreviousPagerField
                                     ButtonType="Link"
@@ -83,11 +82,11 @@
                                     ButtonCssClass="btn btn-primary btn-sm"
                                     RenderDisabledButtonsAsLabels="False" Visible="True" PreviousPageText="Previous" />
                                 <asp:NumericPagerField
-                                     CurrentPageLabelCssClass="page-link page-link btn btn-primary btn-sm rounded"
+                                    CurrentPageLabelCssClass="page-link page-link btn btn-primary btn-sm rounded"
                                     NumericButtonCssClass="page-link btn btn-danger btn-sm rounded"
                                     NextPreviousButtonCssClass="page-item" PreviousPageText="..." NextPageText="..." ButtonCount="5" />
                                 <asp:NextPreviousPagerField
-                                     ButtonType="Link"
+                                    ButtonType="Link"
                                     ShowLastPageButton="False"
                                     ShowNextPageButton="True"
                                     ShowPreviousPageButton="False"
