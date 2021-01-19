@@ -574,7 +574,7 @@ namespace PublicCouncilBackEnd.subsite
             Navigation();
             SiteLanguage();
             GetSponsors();
-            GetLatest(Session["language"] as string, "4", "news", false, true,Session["pcsubsite"] as string, LATEST_AZ, LATEST_EN);
+            GetLatest(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "4", "news", false, true,Session["pcsubsite"] as string, LATEST_AZ, LATEST_EN);
 
         }
 

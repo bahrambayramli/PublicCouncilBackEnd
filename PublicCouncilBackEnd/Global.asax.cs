@@ -83,7 +83,7 @@ namespace PublicCouncilBackEnd
             routes.MapPageRoute("pcaboutus", "site/aboutus/{language}", "~/subsite/aboutus.aspx");
             routes.MapPageRoute("pccontactus", "site/contactus/{language}", "~/subsite/contactus.aspx");
             routes.MapPageRoute("pcmembers", "site/members/{language}", "~/subsite/members.aspx");
-            routes.MapPageRoute("pcmemberdetail", "site/memberdetail/{language}", "~/subsite/memberdetail.aspx");
+            routes.MapPageRoute("pcmemberdetail", "site/memberdetail/{language}/{memberid}", "~/subsite/memberdetail.aspx");
             #endregion
 
         }
