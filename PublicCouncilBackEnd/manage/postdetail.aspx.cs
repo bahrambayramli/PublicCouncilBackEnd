@@ -436,7 +436,7 @@ namespace PublicCouncilBackEnd.manage
             }
             else
             {
-                insertdata.Parameters.Add("@NEWS_EN_VIEW", SqlDbType.Bit).Value = false;
+                insertdata.Parameters.Add("@POST_EN_VIEW", SqlDbType.Bit).Value = false;
             }
 
         

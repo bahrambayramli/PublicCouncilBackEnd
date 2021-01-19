@@ -150,18 +150,18 @@ namespace PublicCouncilBackEnd.subsite
             {
                 case "az":
                     {
-                        postsName.Text = "Xəbərlər";
+                        pageName.Text = "Xəbərlər";
 
                         break;
                     }
                 case "en":
                     {
-                        postsName.Text = "News";
+                        pageName.Text = "News";
                         break;
                     }
                 default:
                     {
-                        postsName.Text = "Xəbərlər";
+                        pageName.Text = "Xəbərlər";
                         break;
                     }
 

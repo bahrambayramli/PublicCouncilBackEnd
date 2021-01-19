@@ -13,6 +13,7 @@ namespace PublicCouncilBackEnd
             //bundle all common js files, required in every page  
             bundle.Add(new ScriptBundle("~/bundles/MyAppStartupJs")
             .Include(
+          
             "~/scripts/core/jquery.js",
             "~/scripts/owl.carousel.js",
             "~/scripts/core/popper.min.js",
@@ -27,6 +28,7 @@ namespace PublicCouncilBackEnd
             //wrapup all css in a bundle
             bundle.Add(new StyleBundle("~/bundles/MyAppStartupCss")
             .Include(
+           
             "~/content/css/argon-design-system.min.css",
             "~/content/css/owl.carousel.min.css",
             "~/content/css/owl.theme.default.min.css",

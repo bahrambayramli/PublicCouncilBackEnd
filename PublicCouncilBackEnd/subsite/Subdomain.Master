@@ -7,32 +7,52 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <title>İctimai şura</title>
     <link rel="icon" href="/Images/Logo/logo.png" type="image/gif" sizes="80x80">
-
     <!-- STYLES -->
     <asp:PlaceHolder runat="server">
         <%: Styles.Render("/bundles/MyAppStartupCss") %> 
     </asp:PlaceHolder>
+    <link href="/content/scss/preloader.min.css" rel="stylesheet" />
     <link href="/content/scss/subsite.css" rel="stylesheet" />
-
     <!-- FONTS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
-
     <!-- SCRIPTS -->
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("/bundles/MyAppStartupJs") %>  
     </asp:PlaceHolder>
-
+    <script src="/scripts/preloader.js"></script>
+    
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body onload="hideLoading()">
+    <div id="preloader" class="loader">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: transparent; display: block;" width="150px" height="150px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+            <g transform="translate(20 50)">
+                <circle cx="0" cy="0" r="6" fill="#1d3f72">
+                    <animateTransform attributeName="transform" type="scale" begin="-0.375s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
+                </circle>
+            </g><g transform="translate(40 50)">
+                <circle cx="0" cy="0" r="6" fill="#5699d2">
+                    <animateTransform attributeName="transform" type="scale" begin="-0.25s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
+                </circle>
+            </g><g transform="translate(60 50)">
+                <circle cx="0" cy="0" r="6" fill="#d8ebf9">
+                    <animateTransform attributeName="transform" type="scale" begin="-0.125s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
+                </circle>
+            </g><g transform="translate(80 50)">
+                <circle cx="0" cy="0" r="6" fill="#71c2cc">
+                    <animateTransform attributeName="transform" type="scale" begin="0s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
+                </circle>
+            </g>
+        </svg>
+    </div>
+
     <form id="subdomainFORM" runat="server">
         <!-- Start Header  -->
-        <header class="header bg-gradient-default shadow">
+        <header class="header bg-gradient-default shadow-sm">
             <div class="header-top shadow-lg py-2 bg-white">
                 <div class="site-container">
                     <div class="container-fluid p-0">

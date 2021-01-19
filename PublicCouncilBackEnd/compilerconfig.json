@@ -10,5 +10,9 @@
   {
     "outputFile": "scripts/core/jquery.es5.js",
     "inputFile": "scripts/core/jquery.js"
+  },
+  {
+    "outputFile": "content/scss/preloader.css",
+    "inputFile": "content/scss/preloader.scss"
   }
 ]

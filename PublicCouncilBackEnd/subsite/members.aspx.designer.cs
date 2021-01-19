@@ -15,13 +15,13 @@ namespace PublicCouncilBackEnd.subsite
     {
 
         /// <summary>
-        /// MEMBERS_PANEL control.
+        /// POSTS_PANEL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel MEMBERS_PANEL;
+        protected global::System.Web.UI.UpdatePanel POSTS_PANEL;
 
         /// <summary>
         /// pageName control.

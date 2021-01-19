@@ -194,6 +194,12 @@
     <Content Include="content\css\owl.theme.green.css" />
     <Content Include="content\css\owl.theme.green.min.css" />
     <Content Include="content\css\style.css" />
+    <Content Include="content\scss\preloader.css">
+      <DependentUpon>preloader.scss</DependentUpon>
+    </Content>
+    <Content Include="content\scss\preloader.min.css">
+      <DependentUpon>preloader.css</DependentUpon>
+    </Content>
     <Content Include="content\scss\style.css">
       <DependentUpon>style.scss</DependentUpon>
     </Content>
@@ -239,6 +245,7 @@
     <Content Include="manage\pages.aspx" />
     <Content Include="manage\members.aspx" />
     <Content Include="manage\memberdetail.aspx" />
+    <Content Include="scripts\preloader.js" />
     <Content Include="scripts\subsite.js" />
     <Content Include="scripts\viewmage.js" />
     <Content Include="subsite\home.aspx" />
@@ -577,6 +584,7 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="content\scss\preloader.scss" />
     <None Include="packages.config" />
     <Content Include="subsite\Subdomain.Master" />
     <Content Include="uploads\file.docx" />

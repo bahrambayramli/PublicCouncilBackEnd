@@ -24,13 +24,13 @@ namespace PublicCouncilBackEnd
         protected global::System.Web.UI.UpdatePanel POSTS_PANEL;
 
         /// <summary>
-        /// postsName control.
+        /// pageName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink postsName;
+        protected global::System.Web.UI.WebControls.HyperLink pageName;
 
         /// <summary>
         /// POSTLIST_AZ control.
