@@ -15,7 +15,6 @@
                                 <div class="text-right p-2">
                                     <asp:LinkButton ID="newMember" runat="server" CssClass="btn btn-primary btn-round btn-sm" OnClick="newMember_Click1">
                                                  Yeni üzv
-
                                     </asp:LinkButton>
                                 </div>
                             </div>
@@ -76,11 +75,10 @@
         </ContentTemplate>
     </asp:UpdatePanel>
 
-        <script>
+    <script>
         document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("sidenav-main").style.display = "none";
-            document.getElementById("top-nav").style.display = "none";
-         
+            document.getElementById("sidenav-main").remove();
+            document.getElementById("top-nav").remove();
         });
-        </script>
+    </script>
 </asp:Content>

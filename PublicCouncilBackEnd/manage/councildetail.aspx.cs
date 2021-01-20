@@ -7,14 +7,48 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
+using System.Drawing;
 
 namespace PublicCouncilBackEnd.manage
 {
     public partial class WebForm11 : System.Web.UI.Page
     {
+
+        public void MadeImage(FileUpload fl, string imgName, int width, int height)
+        {
+
+            //gave the sizes
+            int W = width;      //Widht
+            int H = height;    //Height
+
+
+            //check the image extrension type  ---------------------------------------------------
+            string extension = Path.GetExtension(fl.FileName).ToLower();
+            if ((extension != ".jpg") &&
+                (extension != ".jpeg") &&
+                (extension != ".bmp") &&
+                (extension != ".png") &&
+                (extension != ".gif") &&
+                (extension != ".tif") &&
+                (extension != ".tiff")) return;
+
+
+
+            //  ------------------------------------------
+            System.Drawing.Image orginal = System.Drawing.Image.FromStream(fl.PostedFile.InputStream);
+            //int newH = (orginal.Height * W) / orginal.Width;
+            //if (newH > H) { W = (W * H) / newH; newH = H; }
+            //H = newH;
+
+            //chnaged the converted image size ----------------------------------
+            Bitmap NeticeImage = new Bitmap(orginal, W, H);
+            NeticeImage.Save(Server.MapPath("/Images/logos/" + imgName), System.Drawing.Imaging.ImageFormat.Jpeg);//Jpeg formatina kecirdirem
+            NeticeImage.Dispose();
+        }
+
         #region(SQL FUNCTIONS)
 
-       
+
         private bool CheckAccount(string login, string subdomain, bool ISDELETE)
         {
 
@@ -445,7 +479,9 @@ namespace PublicCouncilBackEnd.manage
 
                     SQL.COMMAND(insertLogo);
 
-                    postedFile.SaveAs(Server.MapPath("/Images/logos/" + logoName));
+                  //  postedFile.SaveAs(Server.MapPath("/Images/logos/" + logoName));
+
+                    MadeImage(logoFile, logoName, 460, 280);
                 }
             }
 
@@ -489,7 +525,8 @@ namespace PublicCouncilBackEnd.manage
                 updateLogo.Parameters.Add("@LOGO_TITLE", SqlDbType.NVarChar).Value = logoFile.FileName;
 
 
-                logoFile.SaveAs(Server.MapPath("/Images/logos/" + logoName));
+                // logoFile.SaveAs(Server.MapPath("/Images/logos/" + logoName));
+                MadeImage(logoFile, logoName, 460, 280);
 
             }
             else

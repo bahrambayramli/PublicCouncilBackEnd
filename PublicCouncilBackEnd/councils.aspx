@@ -2,11 +2,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
+<%--                            <a href="http://<%#Eval("USER_PCDOMAIN")%>.ictimaishura.az" class="shadow p-2 mb-3 rounded d-block text-default h5 w-100 text-wrap" title="<%#Eval("PC_NAME")%>" style="border-left: 4px solid #32325d;">
+
+                                <%#Eval("PC_NAME")%>
+                            </a>--%>
     <asp:UpdatePanel ID="COUNCIL_PANEL" runat="server" class="container-fluid">
         <ContentTemplate>
             <div class="row">
                 <div class="col-12 px-md-1">
-                    <asp:HyperLink ID="pcTitle" runat="server" CssClass="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase px-md-1" Style="font-size: 2rem"></asp:HyperLink>
+                    <asp:HyperLink 
+                        ID="pcTitle" runat="server" 
+                        CssClass="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase px-md-1 page-name">
+
+                    </asp:HyperLink>
                 </div>
             </div>
             <div class="row">
@@ -32,22 +40,36 @@
             <div class="row">
                 <asp:ListView ID="PCLIST_AZ" runat="server" OnPagePropertiesChanging="POSTLIST_AZ_PagePropertiesChanging">
                     <ItemTemplate>
-                        <article class="col-12 d-flex align-items-stretch border-danger px-md-1">
-                            <a href="http://<%#Eval("USER_PCDOMAIN")%>.ictimaishura.az" class="shadow p-2 mb-3 rounded d-block text-default h5 w-100 text-wrap" title="<%#Eval("PC_NAME")%>"
-                                style="border-left: 4px solid #32325d;">
-                                <%#Eval("PC_NAME")%>
-                            </a>
-                        </article> 
+                        <div class="col-12 col-md-4 d-flex align-items-stretch border-danger px-md-1">
+                           
+                            <div class="card mb-3 post overflow-hidden">
+                                <div class="post-header overflow-hidden">
+                                    <a href="http://<%#Eval("USER_PCDOMAIN")%>.ictimaishura.az" class="shadow rounded d-block" title="<%#Eval("PC_NAME")%>">
+                                        <img src="/images/logos/<%#Eval("LOGO_IMG")%>" alt="" />
+                                    </a>
+                                </div>
+                                <div class="card-body px-3 pt-2">
+                                   <%#Eval("PC_NAME")%>
+                                </div>
+                            </div>
+                        </div> 
                     </ItemTemplate>
                 </asp:ListView>
                 <asp:ListView ID="PCLIST_EN" runat="server" OnPagePropertiesChanging="POSTLIST_EN_PagePropertiesChanging">
                     <ItemTemplate>
-                        <article class="col-12 d-flex align-items-stretch border-danger px-md-1">
-                             <a href="http://<%#Eval("USER_PCDOMAIN")%>.ictimaishura.az" class="shadow p-2 mb-3 rounded d-block text-default h5 w-100 text-wrap" title="<%#Eval("PC_NAME")%>"
-                                style="border-left: 4px solid #32325d;">
-                                <%#Eval("PC_NAME")%>
-                            </a>
-                        </article>
+                        <div class="col-12 col-md-4 d-flex align-items-stretch border-danger px-md-1">
+                           
+                            <div class="card mb-3 post overflow-hidden">
+                                <div class="post-header overflow-hidden">
+                                    <a href="http://<%#Eval("USER_PCDOMAIN")%>.ictimaishura.az" class="shadow rounded d-block" title="<%#Eval("PC_NAME")%>">
+                                        <img src="/images/logos/<%#Eval("LOGO_IMG")%>" alt="" />
+                                    </a>
+                                </div>
+                                <div class="card-body px-3 pt-2">
+                                   <%#Eval("PC_NAME")%>
+                                </div>
+                            </div>
+                        </div> 
                     </ItemTemplate>
                 </asp:ListView>
             </div>
@@ -103,11 +125,12 @@
         </ContentTemplate>
     </asp:UpdatePanel>
 
-        <script>
+    <script>
         $('#contentside').removeData('col-md-9')
         $('#contentside').addClass('col-md-12 px-md-1');
         $(document).ready(function () {
             $('#rightside').remove();
         });
-        </script>
+    </script>
+
 </asp:Content>

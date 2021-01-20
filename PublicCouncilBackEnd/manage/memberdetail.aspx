@@ -86,7 +86,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("sidenav-main").remove();
-            document.getElementById("top-nav").style.display = "none";
+            document.getElementById("top-nav").remove();
             viewImage("managelayout_memberImage", "managelayout_fileMember", "customFileMember", "btnFileMember")
         });
     </script>

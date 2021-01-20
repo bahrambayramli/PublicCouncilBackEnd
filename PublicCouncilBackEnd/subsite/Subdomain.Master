@@ -28,6 +28,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body onload="hideLoading()">
+
     <div id="preloader" class="loader">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: transparent; display: block;" width="150px" height="150px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
             <g transform="translate(20 50)">
@@ -388,6 +389,7 @@
         </footer>
 
     </form>
+
     <script src="/scripts/scripts-runner.js"></script>
 </body>
 </html>

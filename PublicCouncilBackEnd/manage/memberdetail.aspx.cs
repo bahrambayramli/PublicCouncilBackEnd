@@ -42,8 +42,8 @@ namespace PublicCouncilBackEnd.manage
 
             memberName.Text          = DT.Rows[0]["MEMBER_NAME"].ToString();
             memberSurname.Text       = DT.Rows[0]["MEMBER_SURNAME"].ToString();
-            memberName.Text          = DT.Rows[0]["MEMBER_FNAME"].ToString();
-            memberPosition.Text      = DT.Rows[0]["MEMBER_FNAME"].ToString();
+            memberFname.Text          = DT.Rows[0]["MEMBER_FNAME"].ToString();
+            memberPosition.Text      = DT.Rows[0]["MEMBER_POSITION"].ToString();
             memberDetail.Text        = DT.Rows[0]["MEMBER_DETAIL"].ToString();
             memberImage.ImageUrl     = $"/Images/members/{DT.Rows[0]["MEMBER_IMAGE"].ToString()}";
 
@@ -85,7 +85,7 @@ namespace PublicCouncilBackEnd.manage
                 updateMember.Parameters.Add("@MEMBER_NAME", SqlDbType.NVarChar).Value        = memberName.Text;
                 updateMember.Parameters.Add("@MEMBER_SURNAME", SqlDbType.NVarChar).Value     = memberSurname.Text;
                 updateMember.Parameters.Add("@MEMBER_FNAME", SqlDbType.NVarChar).Value       = memberFname.Text;
-                updateMember.Parameters.Add("@MEMBER_POSITION", SqlDbType.NVarChar).Value    = memberFname.Text;
+                updateMember.Parameters.Add("@MEMBER_POSITION", SqlDbType.NVarChar).Value    = memberPosition.Text;
                 updateMember.Parameters.Add("@MEMBER_DETAIL", SqlDbType.NVarChar).Value      = memberDetail.Text;
                 updateMember.Parameters.Add("@MEMBER_IMAGE", SqlDbType.NVarChar).Value       = memberImageName;
 
@@ -113,12 +113,14 @@ namespace PublicCouncilBackEnd.manage
                 updateMember.Parameters.Add("@MEMBER_NAME", SqlDbType.NVarChar).Value       = memberName.Text;
                 updateMember.Parameters.Add("@MEMBER_SURNAME", SqlDbType.NVarChar).Value    = memberSurname.Text;
                 updateMember.Parameters.Add("@MEMBER_FNAME", SqlDbType.NVarChar).Value      = memberFname.Text;
-                updateMember.Parameters.Add("@MEMBER_POSITION", SqlDbType.NVarChar).Value   = memberFname.Text;
+                updateMember.Parameters.Add("@MEMBER_POSITION", SqlDbType.NVarChar).Value   = memberPosition.Text;
                 updateMember.Parameters.Add("@MEMBER_DETAIL", SqlDbType.NVarChar).Value     = memberDetail.Text;
                
             }
 
             SQL.COMMAND(updateMember);
+
+            updateMember = null;
         }
 
         private void InsertMember(string PC_ID)

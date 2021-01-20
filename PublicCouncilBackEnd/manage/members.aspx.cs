@@ -49,7 +49,7 @@ namespace PublicCouncilBackEnd.manage
             if (!IsPostBack)
             {
                 Session["MEMBER"] = null;
-                GetMembers(Session["USER_ID"] as string, false, MemberList);
+                GetMembers(Session["PC_ID"] as string, false, MemberList);
             }
         }
 
