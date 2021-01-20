@@ -44,10 +44,12 @@
                         </div>
                     </div>
                 </div>
-                <%-- Member about --%>
+                <%-- Member detail --%>
                 <div class="row">
                     <div class="col-12">
-                          <CKEditor:CKEditorControl ID="memberDetail" runat="server" Height="300px"></CKEditor:CKEditorControl>
+                        <div class="form-group">
+                             <CKEditor:CKEditorControl ID="memberDetail" runat="server" Height="300px"></CKEditor:CKEditorControl>
+                        </div>
                     </div>
                 </div>
                 <%-- Member Image --%>
@@ -83,7 +85,7 @@
    
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("sidenav-main").style.display = "none";
+            document.getElementById("sidenav-main").remove();
             document.getElementById("top-nav").style.display = "none";
             viewImage("managelayout_memberImage", "managelayout_fileMember", "customFileMember", "btnFileMember")
         });
