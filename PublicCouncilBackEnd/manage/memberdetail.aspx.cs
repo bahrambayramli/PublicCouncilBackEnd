@@ -74,7 +74,7 @@ namespace PublicCouncilBackEnd.manage
                                                                          MEMBER_FNAME       = @MEMBER_FNAME        ,
                                                                          MEMBER_POSITION    = @MEMBER_POSITION     ,
                                                                          MEMBER_DETAIL      = @MEMBER_DETAIL       ,
-                                                                         MEMBER_IMAGE       = @MEMBER_IMAGE        ,
+                                                                         MEMBER_IMAGE       = @MEMBER_IMAGE        
 					                                                WHERE 
                                                                  
                                                                     MEMBER_ID      = @MEMBER_ID     AND
@@ -101,7 +101,7 @@ namespace PublicCouncilBackEnd.manage
                                                                          MEMBER_SURNAME     = @MEMBER_SURNAME    ,
                                                                          MEMBER_FNAME       = @MEMBER_FNAME      ,
                                                                          MEMBER_POSITION    = @MEMBER_POSITION   ,
-                                                                         MEMBER_DETAIL      = @MEMBER_DETAIL     ,
+                                                                         MEMBER_DETAIL      = @MEMBER_DETAIL     
 					                                                     WHERE 
                                                                  
                                                                          MEMBER_ID          = @MEMBER_ID     AND
@@ -199,9 +199,9 @@ namespace PublicCouncilBackEnd.manage
                     {
                         GetMember(Session["MEMBER_ID"] as string, false, Session["PC_ID"] as string);
                     }
-                    catch
+                    catch (Exception ex)
                     {
-                        // Log.LogCreator(Server.MapPath("~/Logs/logs.txt"), ex.Message);
+                         Log.LogCreator(Server.MapPath("~/Logs/logs.txt"), ex.Message);
                     }
 
                     try
@@ -209,9 +209,9 @@ namespace PublicCouncilBackEnd.manage
                         btnConfirm.Text = "Dəyiş";
                         btnConfirm.CssClass = "btn btn-warning";
                     }
-                    catch
+                    catch (Exception ex)
                     {
-                        // Log.LogCreator(Server.MapPath("~/Logs/logs.txt"), ex.Message);
+                         Log.LogCreator(Server.MapPath("~/Logs/logs.txt"), ex.Message);
                     }
                 }
             }
