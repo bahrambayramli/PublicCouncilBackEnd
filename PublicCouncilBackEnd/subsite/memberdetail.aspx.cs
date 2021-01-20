@@ -39,7 +39,8 @@ namespace PublicCouncilBackEnd.subsite
                         dt = SQL.SELECT(getMember);
 
                         memberImage.ImageUrl   = $"~/images/members/{dt.Rows[0]["MEMBER_IMAGE"].ToString()}";
-                        memberNameSurname.Text = $"<p class'h2 m-0'>{dt.Rows[0]["MEMBER_NAME"].ToString()} {dt.Rows[0]["MEMBER_SURNAME"].ToString()}</p>";
+                        memberPosition.Text    = $"{dt.Rows[0]["MEMBER_POSITION"].ToString()}";
+                        memberNameSurname.Text = $"{dt.Rows[0]["MEMBER_NAME"].ToString()} {dt.Rows[0]["MEMBER_SURNAME"].ToString()}";
                         memberDetail.Text      = $"{dt.Rows[0]["MEMBER_DETAIL"].ToString()}";
                         break;
                     }
@@ -68,9 +69,10 @@ namespace PublicCouncilBackEnd.subsite
                         getMember.SelectCommand.Parameters.Add("@MEMBER_ID", SqlDbType.Int).Value = MEMBER_ID;
                         dt = SQL.SELECT(getMember);
 
-                        memberImage.ImageUrl = $"~/images/members/{dt.Rows[0]["MEMBER_IMAGE"].ToString()}";
-                        memberNameSurname.Text = $"<p class'h2 m-0'>{dt.Rows[0]["MEMBER_NAME"].ToString()} {dt.Rows[0]["MEMBER_SURNAME"].ToString()}</p>";
-                        memberDetail.Text = $"{dt.Rows[0]["MEMBER_DETAIL"].ToString()}";
+                        memberImage.ImageUrl    = $"~/images/members/{dt.Rows[0]["MEMBER_IMAGE"].ToString()}";
+                        memberPosition.Text     = $"{dt.Rows[0]["MEMBER_POSITION"].ToString()}";
+                        memberNameSurname.Text  = $"{dt.Rows[0]["MEMBER_NAME"].ToString()} {dt.Rows[0]["MEMBER_SURNAME"].ToString()}";
+                        memberDetail.Text       = $"{dt.Rows[0]["MEMBER_DETAIL"].ToString()}";
                         break;
                     }
             }
