@@ -105,7 +105,7 @@
 
         <script>
         $('#contentside').removeData('col-md-9')
-        $('#contentside').addClass('col-md-12');
+        $('#contentside').addClass('col-md-12 px-md-1');
         $(document).ready(function () {
             $('#rightside').remove();
         });

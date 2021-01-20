@@ -179,10 +179,10 @@
 
                     <section id="submainbar" class="submain-bar">
 
-                        <div class="mainbar-header d-md-none">
-                            <p class="text-center m-0 mainbar-header-title">
+                        <div class="mainbar-header">
+                            <h2 class="text-center m-0 mainbar-header-title">
                                 <asp:Literal ID="pcName" runat="server"></asp:Literal>
-                            </p>
+                            </h2>
                         </div>
 
                         <section class="mainbar-bottom ">

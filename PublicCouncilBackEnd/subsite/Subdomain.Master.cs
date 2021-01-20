@@ -27,6 +27,8 @@ namespace PublicCouncilBackEnd.subsite
 
             Page.Title                      = dt.Rows[0]["PC_NAME"].ToString();
             Session["PC_USER_ID"]           = dt.Rows[0]["USER_ID"].ToString();
+            pcName.Text                     = dt.Rows[0]["PC_NAME"].ToString();
+
             return dt.Rows[0]["USER_SERIAL"].ToString(); ;
         }
 
