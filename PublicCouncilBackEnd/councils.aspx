@@ -1,73 +1,103 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="councils.aspx.cs" Inherits="PublicCouncilBackEnd.WebForm12" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="content/css/argon.min.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
-<%--                            <a href="http://<%#Eval("USER_PCDOMAIN")%>.ictimaishura.az" class="shadow p-2 mb-3 rounded d-block text-default h5 w-100 text-wrap" title="<%#Eval("PC_NAME")%>" style="border-left: 4px solid #32325d;">
-
-                                <%#Eval("PC_NAME")%>
-                            </a>--%>
-    <asp:UpdatePanel ID="COUNCIL_PANEL" runat="server" class="container-fluid">
+    <asp:UpdatePanel ID="COUNCIL_PANEL" runat="server" class="container-fluid p-0">
         <ContentTemplate>
             <div class="row">
                 <div class="col-12 px-md-1">
                     <asp:HyperLink 
                         ID="pcTitle" runat="server" 
                         CssClass="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase px-md-1 page-name">
-
                     </asp:HyperLink>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 px-md-1">
-                    <div class="d-flex justify-content-around mb-2">
-                        
+                    <div class="d-flex flex-column flex-md-row justify-content-around mb-2">
 
-                        <asp:HyperLink ID="pcucep" runat="server" CssClass="btn btn-default w-100 d-flex align-items-center justify-content-center">
-
+                        <asp:HyperLink ID="pcucep" runat="server" CssClass="btn btn-default w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0">
                         </asp:HyperLink>
 
-                        <asp:HyperLink ID="pculealsgb" runat="server" CssClass="btn btn-success w-100 d-flex align-items-center justify-content-center">
-
+                        <asp:HyperLink ID="pculealsgb" runat="server" CssClass="btn btn-default w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0">
                         </asp:HyperLink>
 
-                        <asp:HyperLink ID="other" runat="server" CssClass="btn btn-warning w-100 d-flex align-items-center justify-content-center">
-
+                        <asp:HyperLink ID="other" runat="server" CssClass="btn btn-default w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0">
                         </asp:HyperLink>
 
                     </div>
                 </div>
             </div>
             <div class="row">
+
                 <asp:ListView ID="PCLIST_AZ" runat="server" OnPagePropertiesChanging="POSTLIST_AZ_PagePropertiesChanging">
                     <ItemTemplate>
-                        <div class="col-12 col-md-4 d-flex align-items-stretch border-danger px-md-1">
-                           
-                            <div class="card mb-3 post overflow-hidden">
-                                <div class="post-header overflow-hidden">
-                                    <a href="http://<%#Eval("USER_PCDOMAIN")%>.ictimaishura.az" class="shadow rounded d-block" title="<%#Eval("PC_NAME")%>">
-                                        <img src="/images/logos/<%#Eval("LOGO_IMG")%>" alt="" />
+                        <div class="col-12 d-flex align-items-stretch px-md-1 mb-md-2">
+                            <div class="h5 w-100 bg-white shadow font-weight-bold text-default text-wrap p-2 p-md-3 rounded ">
+
+                                <a href="http://<%#Eval("USER_PCDOMAIN")%>.ictimaishura.az" title="<%#Eval("PC_NAME")%>" target="_blank" class="d-block text-default">
+                                    <%#Eval("PC_NAME")%>
+                                </a>
+
+                                <hr class="my-1 w-100">
+                                <p>
+                                    <a href="mailto:<%#Eval("PC_EMAIL")%>" class="text-gray">
+                                        <i class="fas fa-envelope mr-2 text-info"></i>
+                                        <%#Eval("PC_EMAIL")%>
                                     </a>
-                                </div>
-                                <div class="card-body px-3 pt-2">
-                                   <%#Eval("PC_NAME")%>
-                                </div>
+                                </p>
+                                <p>
+                                    <a href="tel:<%#Eval("PC_TELEPHONE")%>" class="text-gray mr-2">
+                                        <i class="fas fa-phone-alt mr-2 text-info"></i>
+                                        <%#Eval("PC_TELEPHONE")%>
+                                    </a>
+                                    <a href="tel:<%#Eval("PC_TELEPHONE")%>" class="text-gray">
+                                        <i class="fas fa-mobile mr-2 text-info"></i>
+                                           <%#Eval("PC_TELEPHONE")%>
+                                    </a>
+                                </p>
+
+
+
+
+
                             </div>
                         </div> 
                     </ItemTemplate>
                 </asp:ListView>
+
                 <asp:ListView ID="PCLIST_EN" runat="server" OnPagePropertiesChanging="POSTLIST_EN_PagePropertiesChanging">
                     <ItemTemplate>
-                        <div class="col-12 col-md-4 d-flex align-items-stretch border-danger px-md-1">
-                           
-                            <div class="card mb-3 post overflow-hidden">
-                                <div class="post-header overflow-hidden">
-                                    <a href="http://<%#Eval("USER_PCDOMAIN")%>.ictimaishura.az" class="shadow rounded d-block" title="<%#Eval("PC_NAME")%>">
-                                        <img src="/images/logos/<%#Eval("LOGO_IMG")%>" alt="" />
+                        <div class="col-12 d-flex align-items-stretch px-md-1 mb-md-2">
+                            <div class="h5 w-100 bg-white shadow font-weight-bold text-default text-wrap p-2 p-md-3 rounded ">
+
+                                <a href="http://<%#Eval("USER_PCDOMAIN")%>.ictimaishura.az" title="<%#Eval("PC_NAME")%>" target="_blank" class="d-block text-default">
+                                    <%#Eval("PC_NAME")%>
+                                </a>
+
+                                <hr class="my-1 w-100">
+                                <p>
+                                    <a href="mailto:<%#Eval("PC_EMAIL")%>" class="text-gray">
+                                        <i class="fas fa-envelope mr-2 text-info"></i>
+                                        <%#Eval("PC_EMAIL")%>
                                     </a>
-                                </div>
-                                <div class="card-body px-3 pt-2">
-                                   <%#Eval("PC_NAME")%>
-                                </div>
+                                </p>
+                                <p>
+                                    <a href="tel:<%#Eval("PC_TELEPHONE")%>" class="text-gray mr-2">
+                                        <i class="fas fa-phone-alt mr-2 text-info"></i>
+                                        <%#Eval("PC_TELEPHONE")%>
+                                    </a>
+                                    <a href="tel:<%#Eval("PC_TELEPHONE")%>" class="text-gray">
+                                        <i class="fas fa-mobile mr-2 text-info"></i>
+                                           <%#Eval("PC_TELEPHONE")%>
+                                    </a>
+                                </p>
+
+
+
+
+
                             </div>
                         </div> 
                     </ItemTemplate>

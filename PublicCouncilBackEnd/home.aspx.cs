@@ -440,13 +440,11 @@ namespace PublicCouncilBackEnd
             }
         }
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
             
-            if (HttpContext.Current.Request.Url.ToString().Contains(".ictimaishura.az") &&
-               !HttpContext.Current.Request.Url.ToString().Contains("www.ictimaishura.az"))
+            if (HttpContext.Current.Request.Url.ToString().Contains(".ictimaishura.az") && !HttpContext.Current.Request.Url.ToString().Contains("www.ictimaishura.az"))
             {
                 Session["pcsubsite"] =
                      HttpContext.Current.Request.Url.ToString()

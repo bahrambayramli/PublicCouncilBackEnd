@@ -22,7 +22,14 @@ namespace PublicCouncilBackEnd
                     {
                         LSV_EN.DataSource = null;
                         LSV_EN.DataBind();
-                        getpcList = new SqlDataAdapter(new SqlCommand(@"SELECT USER_PCDOMAIN , PC_NAME, PC_CATEGORY, PC_SITELOGOS.LOGO_IMG  FROM PC_USERS 
+                        getpcList = new SqlDataAdapter(new SqlCommand(@"SELECT
+                                                                                USER_PCDOMAIN   ,
+                                                                                PC_NAME         , 
+                                                                                PC_CATEGORY     , 
+                                                                                LOGO_IMG        ,
+                                                                                PC_TELEPHONE    , USER_MOBILE, 
+                                                                                PC_EMAIL
+                                                                                FROM PC_USERS 
                                                                                         LEFT JOIN PC_SITELOGOS
                                                                                         ON PC_USERS.USER_ID = PC_SITELOGOS.USER_ID
                                                                                         WHERE
@@ -69,14 +76,22 @@ namespace PublicCouncilBackEnd
                     {
                         LSV_EN.DataSource = null;
                         LSV_EN.DataBind();
-                        getpcList = new SqlDataAdapter(new SqlCommand(@"SELECT USER_PCDOMAIN ,PC_NAME,PC_CATEGORY, LOGO_IMG  FROM PC_USERS 
+                        getpcList = new SqlDataAdapter(new SqlCommand(@"SELECT
+                                                                                USER_PCDOMAIN   ,
+                                                                                PC_NAME         , 
+                                                                                PC_CATEGORY     , 
+                                                                                LOGO_IMG        ,
+                                                                                PC_TELEPHONE    , 
+                                                                                USER_MOBILE,
+                                                                                PC_EMAIL
+                                                                                FROM PC_USERS 
                                                                                         LEFT JOIN PC_SITELOGOS
                                                                                         ON PC_USERS.USER_ID = PC_SITELOGOS.USER_ID
                                                                                         WHERE
                                                                                                     PC_USERS.ISDELETE     = @ISDELETE       AND
                                                                                                     PC_USERS.ISACTIVE     = @ISACTIVE       AND
-                                                                                                    PC_CATEGORY  = @PC_CATEGORY    AND
-                                                                                                    USER_LOGIN   !='admin'  
+                                                                                                    PC_CATEGORY           = @PC_CATEGORY    AND
+                                                                                                    USER_LOGIN            !='admin'  
                                                                                                     ORDER BY CREATED_DATE DESC"));
 
                         getpcList.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
@@ -100,13 +115,22 @@ namespace PublicCouncilBackEnd
                     {
                         LSV_EN.DataSource = null;
                         LSV_EN.DataBind();
-                        getpcList = new SqlDataAdapter(new SqlCommand(@"SELECT USER_PCDOMAIN ,PC_NAME,PC_CATEGORY, LOGO_IMG  FROM PC_USERS 
-                                                                                        LEFT JOIN PC_SITELOGOS
-                                                                                        ON PC_USERS.USER_ID = PC_SITELOGOS.USER_ID
-                                                                                        WHERE
+                        getpcList = new SqlDataAdapter(new SqlCommand(@"SELECT 
+                                                                                USER_PCDOMAIN   ,
+                                                                                PC_NAME         , 
+                                                                                PC_CATEGORY     , 
+                                                                                LOGO_IMG        ,
+                                                                                PC_TELEPHONE    ,
+                                                                                USER_MOBILE     ,
+                                                                                PC_EMAIL
+                                                                                FROM PC_USERS 
+
+                                                                                LEFT JOIN PC_SITELOGOS
+                                                                                ON PC_USERS.USER_ID = PC_SITELOGOS.USER_ID
+                                                                                WHERE
                                                                                                     PC_USERS.ISDELETE     = @ISDELETE       AND
                                                                                                     PC_USERS.ISACTIVE     = @ISACTIVE       AND
-                                                                                                    USER_LOGIN   !='admin'   
+                                                                                                    USER_LOGIN           !='admin'   
                                                                                                        
                                                                                                     ORDER BY CREATED_DATE DESC"));
 
@@ -115,7 +139,6 @@ namespace PublicCouncilBackEnd
 
                         LSV_AZ.DataSource = SQL.SELECT(getpcList);
                         LSV_AZ.DataBind();
-
 
                         break;
                     }
@@ -146,13 +169,20 @@ namespace PublicCouncilBackEnd
                     {
                         LSV_EN.DataSource = null;
                         LSV_EN.DataBind();
-                        getpcList = new SqlDataAdapter(new SqlCommand(@"SELECT USER_PCDOMAIN , PC_NAME,PC_CATEGORY , LOGO_IMG  FROM PC_USERS 
+                        getpcList = new SqlDataAdapter(new SqlCommand(@"        USER_PCDOMAIN   ,
+                                                                                PC_NAME         , 
+                                                                                PC_CATEGORY     , 
+                                                                                LOGO_IMG        ,
+                                                                                PC_TELEPHONE    , 
+                                                                                USER_MOBILE     ,
+                                                                                PC_EMAIL
+                                                                                FROM PC_USERS 
                                                                                         LEFT JOIN PC_SITELOGOS
                                                                                         ON PC_USERS.USER_ID = PC_SITELOGOS.USER_ID
                                                                                         WHERE
                                                                                                     PC_USERS.ISDELETE     = @ISDELETE       AND
                                                                                                     PC_USERS.ISACTIVE     = @ISACTIVE       AND
-                                                                                                    USER_LOGIN   !='admin'  
+                                                                                                    USER_LOGIN            !='admin'  
                                                                                                     ORDER BY CREATED_DATE DESC"));
 
                         getpcList.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
@@ -167,13 +197,39 @@ namespace PublicCouncilBackEnd
             }
         }
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            switch (Convert.ToString(Page.RouteData.Values["language"]).ToLower())
+
+            if (HttpContext.Current.Request.Url.ToString().Contains("/councils/pcucep/az") || HttpContext.Current.Request.Url.ToString().Contains("/councils/pcucep/en"))
             {
-                case "az":
-                    {
+                pcucep.CssClass      = "btn btn-success w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0";
+                pculealsgb.CssClass  = "btn btn-default w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0";
+                other.CssClass       = "btn btn-default w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0";
+            }
+            else if(HttpContext.Current.Request.Url.ToString().Contains("/councils/pculealsgb/az") || HttpContext.Current.Request.Url.ToString().Contains("/councils/pculealsgb/en"))
+            {
+                pcucep.CssClass      = "btn btn-default w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0";
+                pculealsgb.CssClass  = "btn btn-success w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0";
+                other.CssClass       = "btn btn-default w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0";
+            }
+            else if (HttpContext.Current.Request.Url.ToString().Contains("/councils/other/az") || HttpContext.Current.Request.Url.ToString().Contains("/councils/other/en"))
+            {
+                pcucep.CssClass      = "btn btn-default w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0";
+                pculealsgb.CssClass  = "btn btn-default w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0";
+                other.CssClass       = "btn btn-success w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0";
+            }
+            else
+            {
+                pcucep.CssClass      = "btn btn-default w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0";
+                pculealsgb.CssClass  = "btn btn-default w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0";
+                other.CssClass       = "btn btn-default w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0";
+            }
+
+
+                switch (Convert.ToString(Page.RouteData.Values["language"]).ToLower())
+                 {
+                    case "az":
+                         {
                         pcTitle.Text = "İctimai şuralar";
                         pcucep.Text = "Mərkəzi icra hakimiyyət yanında ictimai şuralar";
                         pcucep.NavigateUrl = "/councils/pcucep/az";
@@ -181,10 +237,16 @@ namespace PublicCouncilBackEnd
                         pculealsgb.NavigateUrl = "/councils/pculealsgb/az";
                         other.Text = "Digər";
                         other.NavigateUrl = "/councils/other/az";
+
+
+
+                      //  LinkButton1.PostBackUrl = "/councils/pcucep/az";
+
+
                         break;
                     }
-                case "en":
-                    {
+                     case "en":
+                         {
                         pcTitle.Text = "Public councils";
                         pcucep.Text = "Public councils under the central executive power";
                         pcucep.NavigateUrl = "/councils/pcucep/en";
@@ -194,8 +256,8 @@ namespace PublicCouncilBackEnd
                         other.NavigateUrl = "/councils/other/en";
                         break;
                     }
-                default:
-                    {
+                    default:
+                         {
                         pcTitle.Text = "İctimai şuralar";
                         pcucep.Text = "Mərkəzi icra hakimiyyət yanında ictimai şuralar";
                         pcucep.NavigateUrl = "/councils/pcucep/az";
@@ -205,7 +267,7 @@ namespace PublicCouncilBackEnd
                         other.NavigateUrl = "/councils/other/az";
                         break;
                     }
-            }
+                 }
 
             if (string.IsNullOrEmpty(Page.RouteData.Values["directory"] as string))
             {
@@ -219,7 +281,6 @@ namespace PublicCouncilBackEnd
             }
 
         }
-
 
         protected void POSTLIST_AZ_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
         {
@@ -277,5 +338,7 @@ namespace PublicCouncilBackEnd
 
 
         }
+
+
     }
 }
