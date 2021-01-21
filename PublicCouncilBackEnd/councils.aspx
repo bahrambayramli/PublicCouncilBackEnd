@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="councils.aspx.cs" Inherits="PublicCouncilBackEnd.WebForm12" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="content/css/argon.min.css" rel="stylesheet" />
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
     <asp:UpdatePanel ID="COUNCIL_PANEL" runat="server" class="container-fluid p-0">
