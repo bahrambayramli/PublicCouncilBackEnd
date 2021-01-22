@@ -146,12 +146,6 @@ img {
             }
         }
 
-        .post-title {
-            h2 {
-                word-break: break-word;
-            }
-        }
-
         .site-partners {
             .site-partners-link {
                 box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
@@ -160,6 +154,8 @@ img {
 
         .post-title {
             h2 {
+                word-break: break-word;
+
                 p {
                     font-size: 1.2rem;
                     font-weight: 600;
@@ -168,8 +164,8 @@ img {
             }
         }
 
-        .page-name{
-            font-size:1.2rem;
+        .page-name {
+            font-size: 1.2rem;
         }
     }
 
@@ -280,6 +276,11 @@ img {
                 }
             }
         }
+    }
+
+    .post-block-title {
+        font-weight: 500;
+        font-size: 1.2rem;
     }
 }
 
@@ -728,6 +729,16 @@ img {
                         padding: 5px 0rem;
                     }
                 }
+            }
+        }
+
+        .post-block-title {
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+
+            &:hover {
+                color: $brand-color-1 !important;
+                background-color: #ffffff !important;
             }
         }
     }

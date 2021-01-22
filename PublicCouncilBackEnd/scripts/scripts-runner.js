@@ -46,7 +46,15 @@ $(".owl-video").owlCarousel({
       loop: true,
       autoplay: true,
       autoplayTimeout: 4500,
-      items: 4,
+      responsive: {
+        0: {
+            items: 1,
+        },
+        768: {
+            items: 4,
+            nav: true,
+        }
+      },
       margin: 5,
       dots: false,
       nav: false,
@@ -58,7 +66,15 @@ $(".owl-partners").owlCarousel({
     loop: true,
     autoplay: true,
     autoplayTimeout: 4500,
-    items: 5,
+    responsive: {
+        0: {
+            items: 1,
+        },
+        768: {
+            items: 5,
+            nav: true,
+        }
+    },
     margin: 5,
     dots: false,
     nav: false,

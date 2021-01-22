@@ -25,7 +25,7 @@
     <!-- SHARETHIS SCRIPTS -->
     <script src='https://platform-api.sharethis.com/js/sharethis.js#property=5f8df40458d8400012272351&product=sop' async></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script src="https://www.googletagmanager.com/gtag/js?id=UA-180960102-1" async></script>
+    <script src="https://www.googletagmanager.com/gtag/js?id=UA-180960102-1" async="async"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -33,15 +33,13 @@
 
         gtag('config', 'UA-180960102-1');
     </script>
+    <link href="/content/scss/preloader.min.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link href="/content/scss/preloader.min.css" rel="stylesheet" />
-    <script src="/scripts/preloader.js"></script>
-
 </head>
 <body onload="hideLoading()">
 
-        <div id="preloader" class="loader">
+    <div id="preloader" class="loader">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: transparent; display: block;" width="150px" height="150px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
             <g transform="translate(20 50)">
                 <circle cx="0" cy="0" r="6" fill="#1d3f72">
@@ -65,12 +63,12 @@
 
     <form id="masterForm" runat="server">
 
-        <!-- Start Header  -->
+        <!-- Header  -->
         <header class="header bg-gradient-default shadow">
 
             <div class="header-top shadow-lg py-2 bg-white">
                 <div class="site-container">
-                    <div class="container-fluid p-0">
+                    <div class="container-fluid p-md-0">
                         <div class="row">
                             <div class="col-md-4 px-md-1 d-none d-md-block">
                                 <asp:ListView ID="LogoDesktop" runat="server">
@@ -114,7 +112,7 @@
                             <div class="col-6 col-md-4 d-flex align-items-center justify-content-end">
                                 <asp:LinkButton ID="langAZ" runat="server" CssClass="site-lang p-1 btn btn-round shadow-sm " OnClick="langAZ_Click">AZ</asp:LinkButton>
                                 <asp:LinkButton ID="langEN" runat="server" CssClass="site-lang p-1 btn btn-round shadow-sm" OnClick="langEN_Click">EN</asp:LinkButton>
-                                <asp:LinkButton ID="signIN" runat="server" CssClass="site-login p-1 px-2 btn btn-round btn-gradient-danger btn-round shadow-sm" OnClick="signIN_Click"></asp:LinkButton>
+                                <asp:LinkButton ID="signIN" runat="server" CssClass="site-login p-1 px-md-2 btn btn-round btn-gradient-danger btn-round shadow-sm" OnClick="signIN_Click"></asp:LinkButton>
                             </div>
                         </div>
                     </div>
@@ -208,7 +206,7 @@
 
         </header>
 
-        <!-- Start Main  -->
+        <!-- Main  -->
         <main id="main" class="main py-2 px-3 px-md-0">
             <div class="site-container">
 
@@ -251,11 +249,11 @@
                                         <div class="slider-item">
                                             <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>" />
                                             <div class="slider-caption">
-                                              <%--  <span class="btn btn-danger text-white btn-sm slider-time ">
+                                                <%--  <span class="btn btn-danger text-white btn-sm slider-time ">
                                                     <i class="far fa-calendar-alt"></i>
                                                     <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                                 </span>--%>
-                                               
+
                                                 <a class="caption-link" title="<%#Eval("POST_SEOAZ")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
                                             </div>
                                         </div>
@@ -286,11 +284,11 @@
                                         <div class="slider-item">
                                             <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
                                             <div class="slider-caption">
-                                           <%--     <span class="btn btn-danger text-white btn-sm slider-time ">
+                                                <%--     <span class="btn btn-danger text-white btn-sm slider-time ">
                                                     <i class="far fa-calendar-alt"></i>
                                                     <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                                 </span>--%>
-                                                
+
                                                 <a class="caption-link" title="<%#Eval("POST_SEOEN")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
                                             </div>
                                         </div>
@@ -320,7 +318,7 @@
                                             </div>
                                         </div>
                                     </LayoutTemplate>
-                                    <ItemTemplate> 
+                                    <ItemTemplate>
                                         <div class="announcements-container rounded shadow d-flex flex-column align-items-center">
                                             <div class="bg-light d-flex justify-content-between flex-lg-grow-0"></div>
                                             <div class="img-wrapper flex-lg-grow-1">
@@ -393,7 +391,7 @@
                                             <div class="row">
                                                 <div class="col-12 p-0 rounded">
                                                     <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white  text-capitalize">
-                                                       <i class="fas fa-clock mr-2"></i>
+                                                        <i class="fas fa-clock mr-2"></i>
                                                         son Xəbərlər
                                                     </a>
                                                 </div>
@@ -427,7 +425,7 @@
                                             <div class="row">
                                                 <div class="col-12 p-0 rounded">
                                                     <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white  text-capitalize">
-                                                       <i class="fas fa-clock mr-1"></i>
+                                                        <i class="fas fa-clock mr-1"></i>
                                                         latest news
                                                     </a>
                                                 </div>
@@ -471,9 +469,7 @@
                         <LayoutTemplate>
                             <div class="row">
                                 <div class="col-12 px-md-1">
-                                    <a href="#"
-                                        class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase"
-                                        style="font-size: 2rem;">Videolar
+                                    <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm text-center post-block-title text-uppercase">Videolar
                                     </a>
                                 </div>
                             </div>
@@ -498,8 +494,8 @@
                             <div class="row">
                                 <div class="col-12 px-md-1">
                                     <a href="#"
-                                        class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase"
-                                        style="font-size: 2rem;">Videos
+                                        class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm text-center post-block-title text-uppercase"
+                                       >Videos
                                     </a>
                                 </div>
                             </div>
@@ -528,8 +524,8 @@
                             <div class="row">
                                 <div class="col-12 px-md-1">
                                     <a href="#"
-                                        class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase"
-                                        style="font-size: 2rem;">tərəfdaşlar
+                                        class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm text-center post-block-title text-uppercase"
+                                       >tərəfdaşlar
                                     </a>
                                 </div>
                             </div>
@@ -554,8 +550,8 @@
                             <div class="row">
                                 <div class="col-12 px-md-1 mb-2">
                                     <a href="#"
-                                        class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase"
-                                        style="font-size: 2rem;">partners
+                                        class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm text-center post-block-title text-uppercase"
+                                       >partners
                                     </a>
                                 </div>
                             </div>
@@ -577,13 +573,11 @@
                     </asp:ListView>
                 </section>
 
-               
-                
 
             </div>
         </main>
-            
-         <!-- sponsors -->
+
+        <!-- sponsors -->
         <section id="site_sponsors" class="site-post bg-white shadow">
             <div class="site-container">
                 <asp:ListView ID="SPONSORS" runat="server">
@@ -605,7 +599,7 @@
             </div>
         </section>
 
-        <!-- Start Footer  -->
+        <!-- Footer  -->
         <footer class="footer footer-simple bg-gradient-default">
             <div class="site-container">
                 <div class="container-fluid p-md-0">
@@ -668,16 +662,14 @@
                     </div>
                     <div class="row">
                         <div class="col-4">
-
                         </div>
                         <div class="col-4">
-                            <span class="d-block text-center text-light">
-                                 © ictimaishura.az
+                            <span class="d-block text-center text-light">© ictimaishura.az
                             </span>
                         </div>
                         <div class="col-4">
-                              <div class="text-right">
-                              Site By <a class="text-gray font-weight-300" target="_blank" href="http://smartcode.az">SmartCode LLC</a> 
+                            <div class="text-right">
+                                Site By <a class="text-gray font-weight-300" target="_blank" href="http://smartcode.az">SmartCode LLC</a>
                             </div>
                         </div>
                     </div>
@@ -687,6 +679,7 @@
 
     </form>
 
- <script src="/scripts/scripts-runner.js"></script>
+    <script src="/scripts/preloader.js" async="async"></script>
+    <script src="/scripts/scripts-runner.js"></script>
 </body>
 </html>

@@ -112,7 +112,8 @@ namespace PublicCouncilBackEnd.manage
                                                                                PC_CITY,
                                                                                CREATED_DATE,
                                                                                PC_CATEGORY,
-                                                                               PC_ABOUT
+                                                                               PC_ABOUT,
+                                                                               PC_ORDER_NUMBER
 
                                                                                FROM PC_USERS
 
@@ -135,7 +136,7 @@ namespace PublicCouncilBackEnd.manage
             foreach (ListItem item in inputMembershipType.Items)
             {
 
-                if (item.Value.ToString() == pc.Rows[0]["USER_MEMBERSHIP_TYPE"].ToString().ToLower())
+                if (item.Value.ToString().ToLower() == pc.Rows[0]["USER_MEMBERSHIP_TYPE"].ToString().ToLower())
                 {
                     try
                     {
@@ -151,7 +152,7 @@ namespace PublicCouncilBackEnd.manage
             foreach (ListItem item in inputCity.Items)
             {
 
-                if (item.Value.ToString() == pc.Rows[0]["PC_CITY"].ToString().ToLower())
+                if (item.Value.ToString().ToLower() == pc.Rows[0]["PC_CITY"].ToString().ToLower())
                 {
                     try
                     {
@@ -159,7 +160,7 @@ namespace PublicCouncilBackEnd.manage
                     }
                     catch
                     {
-                        //  Debug.WriteLine(ex.Message);
+                        
                     }
                 }
             }
@@ -167,7 +168,7 @@ namespace PublicCouncilBackEnd.manage
             foreach (ListItem item in categorySelect.Items)
             {
 
-                if (item.Value.ToString() == pc.Rows[0]["PC_CATEGORY"].ToString().ToLower())
+                if (item.Value.ToString().ToLower() == pc.Rows[0]["PC_CATEGORY"].ToString().ToLower())
                 {
                     try
                     {
@@ -180,6 +181,8 @@ namespace PublicCouncilBackEnd.manage
                 }
             }
 
+            inputOrderNumber.Text = pc.Rows[0]["PC_ORDER_NUMBER"].ToString();
+            
             inputLoginName.Text = pc.Rows[0]["USER_LOGIN"].ToString().ToLower();
 
             inputPCdomain.Text = pc.Rows[0]["USER_PCDOMAIN"].ToString().ToLower();
@@ -233,7 +236,8 @@ namespace PublicCouncilBackEnd.manage
                                                          PC_CITY,
                                                          PC_ABOUT,
                                                          CREATED_DATE,
-                                                         PC_CATEGORY
+                                                         PC_CATEGORY,
+                                                         PC_ORDER_NUMBER
 	                                                    )
                                                   VALUES
                                                         (
@@ -257,7 +261,9 @@ namespace PublicCouncilBackEnd.manage
                                                          @PC_CITY,
                                                          @PC_ABOUT,
                                                          @CREATED_DATE,
-                                                         @PC_CATEGORY
+                                                         @PC_CATEGORY,
+                                                         @PC_ORDER_NUMBER
+
                                                         
 	                                                	   )");
 
@@ -275,6 +281,7 @@ namespace PublicCouncilBackEnd.manage
             insertUser.Parameters.Add("@ISONLINE", SqlDbType.Bit).Value = false;
 
             insertUser.Parameters.Add("@USER_MEMBERSHIP", SqlDbType.NVarChar).Value = "pc";
+            insertUser.Parameters.Add("@PC_ORDER_NUMBER", SqlDbType.Int).Value = inputOrderNumber.Text;
             insertUser.Parameters.Add("@USER_MEMBERSHIP_TYPE", SqlDbType.NVarChar).Value = inputMembershipType.SelectedValue;
             insertUser.Parameters.Add("@USER_LOGIN", SqlDbType.NVarChar).Value = inputLoginName.Text;
             insertUser.Parameters.Add("@USER_PASSWORD", SqlDbType.NVarChar).Value = Crypto.MD5crypt(inputPassword.Text);
@@ -330,12 +337,13 @@ namespace PublicCouncilBackEnd.manage
                                                          PC_WEBADDRESS         = @PC_WEBADDRESS         ,                                                      
                                                          PC_CITY               = @PC_CITY               ,
                                                          PC_CATEGORY           = @PC_CATEGORY           ,
-	                                                     PC_ABOUT              = @PC_ABOUT              
+	                                                     PC_ABOUT              = @PC_ABOUT              ,
+                                                         PC_ORDER_NUMBER       = @PC_ORDER_NUMBER              
                                                          WHERE USER_ID = @USER_ID
                                                         
 	                                                	   ");
                 string pass = Crypto.MD5crypt(inputPassword.Text);
-                updateUser.Parameters.Add("@USER_PASSWORD", SqlDbType.NVarChar).Value =pass ;
+                updateUser.Parameters.Add("@USER_PASSWORD", SqlDbType.NVarChar).Value = pass ;
             }
             else
             {
@@ -356,7 +364,8 @@ namespace PublicCouncilBackEnd.manage
                                                          PC_WEBADDRESS         = @PC_WEBADDRESS         ,                                                      
                                                          PC_CITY               = @PC_CITY               ,                                                       
                                                          PC_CATEGORY           = @PC_CATEGORY           ,
-	                                                     PC_ABOUT              = @PC_ABOUT              
+	                                                     PC_ABOUT              = @PC_ABOUT              ,
+                                                         PC_ORDER_NUMBER       = @PC_ORDER_NUMBER        
                                                          WHERE USER_ID = @USER_ID
                                                         
 	                                                	   ");
@@ -367,7 +376,7 @@ namespace PublicCouncilBackEnd.manage
 
             if (inputISACTIVE.SelectedItem.Text=="Bəli")
             {
-                updateUser.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value =true ;
+                updateUser.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true ;
             }
             else
             {
@@ -375,6 +384,7 @@ namespace PublicCouncilBackEnd.manage
             }
 
             updateUser.Parameters.Add("@USER_MEMBERSHIP", SqlDbType.NVarChar).Value = "pc";
+            updateUser.Parameters.Add("@PC_ORDER_NUMBER", SqlDbType.Int).Value = inputOrderNumber.Text;
             updateUser.Parameters.Add("@USER_MEMBERSHIP_TYPE", SqlDbType.NVarChar).Value = inputMembershipType.SelectedValue;
             
             updateUser.Parameters.Add("@USER_PCDOMAIN", SqlDbType.NVarChar).Value = inputPCdomain.Text;

@@ -17,6 +17,7 @@
     </style>
     <script src="/scripts/ckeditor/ckeditor.js"></script>
     <script src="/scripts/ckfinder/ckfinder.js"></script>
+    <script src="/scripts/viewmage.js"></script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="managelayout" runat="server">
@@ -51,10 +52,22 @@
                 </div>
                 <div class="card-bdoy">
                     <div class="tab-content" id="myTabContent">
-                        <%-- publi council info --%>
+
+                        <%-- PC council info --%>
                         <div class="tab-pane fade show active" id="pc-info" role="tabpanel" aria-labelledby="tabs-icons-text-1-tab">
                             <div class="container-fluid">
-                                <div class="row">
+                                <%-- PC order number --%>
+                                <asp:Panel ID="PC_ORDER_BLOCK" runat="server" CssClass="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="managelayout_inputOrderNumber">Sira nömrəsi</label>
+                                            <asp:TextBox ID="inputOrderNumber" runat="server" TextMode="Number" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </asp:Panel>
+
+                                <%-- PC isactive and membership --%>
+                                <asp:Panel ID="PC_ISACTIVE_MEMBERSHIP_BLOCK" runat="server" CssClass="row">
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="managelayout_inputISACTIVE">Aktivlik</label>
@@ -74,6 +87,10 @@
                                             </asp:DropDownList>
                                         </div>
                                     </div>
+                                </asp:Panel>
+
+                                <%-- PC login and password --%>
+                                <asp:Panel ID="PC_LOGIN_PASSWORD_BLOCK" runat="server" CssClass="row">
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="mainlayout_inputLoginName">Login</label>
@@ -88,6 +105,9 @@
                                             </asp:TextBox>
                                         </div>
                                     </div>
+                                </asp:Panel>
+
+                                <div class="row">                                    
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="mainlayout_inputName">Ad</label>
@@ -272,7 +292,8 @@
                                 </div>
                             </div>
                         </div>
-                         <%-- publi council members --%>
+
+                        <%-- PC council members --%>
                         <div class="tab-pane fade" id="pc-members" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
                             <div class="container-fluid">
                                 <div class="row">
@@ -282,50 +303,17 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+   
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-
-            function viewImage(imageID, fileID, customfileID, buttonID) {
-                const img = document.getElementById(imageID);
-                const fileInput = document.getElementById(fileID);
-                const customFile = document.getElementById(customfileID);
-                const button = document.getElementById(buttonID);
-
-
-                fileInput.addEventListener("change", function () {
-                    let file = this.files[0];
-                    if (file) {
-                        customFile.value = fileInput.value.match(/[\/\\]([\w\d\s\.\-\(\)]+)$/);
-                        const reader = new FileReader();
-                        reader.addEventListener("load", function () {
-                            img.setAttribute("src", this.result);
-                        });
-                        reader.readAsDataURL(file);
-                    }
-                    else {
-                        customFile.value = "fayl seçilməyib";
-                        img.src = null;
-                    }
-                });
-
-                button.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    fileInput.click();
-                });
-
-
-            }
-
-            viewImage("managelayout_logoImage", "managelayout_logoFile", "customFile","btnFile")
-
-            viewImage("managelayout_memberImage", "managelayout_fileMember", "customFileMember", "btnFileMember")
-
+            viewImage("managelayout_logoImage", "managelayout_logoFile", "customFile", "btnFile");
+            viewImage("managelayout_memberImage", "managelayout_fileMember", "customFileMember", "btnFileMember");
         });
     </script>
 

@@ -37,7 +37,7 @@ namespace PublicCouncilBackEnd
                                                                                                     PC_USERS.ISACTIVE     = @ISACTIVE       AND
                                                                                                     PC_CATEGORY  = @PC_CATEGORY    AND
                                                                                                     USER_LOGIN   !='admin'  
-                                                                                                    ORDER BY CREATED_DATE DESC"));
+                                                                                                    ORDER BY PC_ORDER_NUMBER ASC"));
 
                         getpcList.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
                         getpcList.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = ISACTIVE;
@@ -60,7 +60,7 @@ namespace PublicCouncilBackEnd
                 //                                                                                    ISDELETE     = @ISDELETE       AND
                 //                                                                                    ISACTIVE     = @ISACTIVE       AND
                 //                                                                                    PC_CATEGORY  = @PC_CATEGORY    
-                //                                                                                    ORDER BY CREATED_DATE DESC"));
+                //                                                                                    ORDER BY PC_ORDER_NUMBER ASC"));
 
                 //        getpcList.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = true;
                 //        getpcList.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = false;
@@ -92,7 +92,7 @@ namespace PublicCouncilBackEnd
                                                                                                     PC_USERS.ISACTIVE     = @ISACTIVE       AND
                                                                                                     PC_CATEGORY           = @PC_CATEGORY    AND
                                                                                                     USER_LOGIN            !='admin'  
-                                                                                                    ORDER BY CREATED_DATE DESC"));
+                                                                                                    ORDER BY PC_ORDER_NUMBER ASC"));
 
                         getpcList.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
                         getpcList.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = ISACTIVE;
@@ -132,7 +132,7 @@ namespace PublicCouncilBackEnd
                                                                                                     PC_USERS.ISACTIVE     = @ISACTIVE       AND
                                                                                                     USER_LOGIN           !='admin'   
                                                                                                        
-                                                                                                    ORDER BY CREATED_DATE DESC"));
+                                                                                                    ORDER BY PC_ORDER_NUMBER ASC"));
 
                         getpcList.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
                         getpcList.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = ISACTIVE;
@@ -153,7 +153,7 @@ namespace PublicCouncilBackEnd
                 //                                                                                    ISDELETE     = @ISDELETE       AND
                 //                                                                                    ISACTIVE     = @ISACTIVE       AND
                 //                                                                                    PC_CATEGORY  = @PC_CATEGORY    
-                //                                                                                    ORDER BY CREATED_DATE DESC"));
+                //                                                                                    ORDER BY PC_ORDER_NUMBER ASC"));
 
                 //        getpcList.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = true;
                 //        getpcList.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = false;
@@ -183,7 +183,7 @@ namespace PublicCouncilBackEnd
                                                                                                     PC_USERS.ISDELETE     = @ISDELETE       AND
                                                                                                     PC_USERS.ISACTIVE     = @ISACTIVE       AND
                                                                                                     USER_LOGIN            !='admin'  
-                                                                                                    ORDER BY CREATED_DATE DESC"));
+                                                                                                    ORDER BY PC_ORDER_NUMBER ASC"));
 
                         getpcList.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
                         getpcList.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = ISACTIVE;

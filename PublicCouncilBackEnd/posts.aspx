@@ -2,11 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
-    <asp:UpdatePanel ID="POSTS_PANEL" runat="server" class="container-fluid">
+    <asp:UpdatePanel ID="POSTS_PANEL" runat="server" class="container-fluid p-0">
         <ContentTemplate>
             <div class="row">
                 <div class="col-12 px-md-1">
-                    <asp:HyperLink ID="pageName" runat="server" CssClass="d-block text-default p-2 mb-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase" Style="font-size: 2rem"></asp:HyperLink>
+                    <asp:HyperLink ID="pageName" runat="server" CssClass="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase px-md-1 page-name"></asp:HyperLink>
                 </div>
             </div>
             <div class="row">

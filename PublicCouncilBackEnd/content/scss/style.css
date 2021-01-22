@@ -113,16 +113,15 @@ img {
     background: linear-gradient(to top, #32325d 0%, rgba(10, 10, 10, 0) 25%);
     z-index: 1; }
 
-.main .content-side .post-title h2 {
-  word-break: break-word; }
-
 .main .content-side .site-partners .site-partners-link {
   box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07); }
 
-.main .content-side .post-title h2 p {
-  font-size: 1.2rem;
-  font-weight: 600;
+.main .content-side .post-title h2 {
   word-break: break-word; }
+  .main .content-side .post-title h2 p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    word-break: break-word; }
 
 .main .content-side .page-name {
   font-size: 1.2rem; }
@@ -203,6 +202,10 @@ img {
     font-size: 12px; }
     .main .right-side .latest-posts li .latest-title p {
       font-size: 0.9rem; }
+
+.main .post-block-title {
+  font-weight: 500;
+  font-size: 1.2rem; }
 
 @media (min-width: 768px) {
   img {
@@ -512,4 +515,10 @@ img {
         font-size: .75rem;
         color: darkslategrey;
         font-weight: 600;
-        padding: 5px 0rem; } }
+        padding: 5px 0rem; }
+  .main .post-block-title {
+    font-size: 1.5rem;
+    transition: all 0.3s ease; }
+    .main .post-block-title:hover {
+      color: #dc3545 !important;
+      background-color: #ffffff !important; } }

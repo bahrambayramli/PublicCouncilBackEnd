@@ -188,7 +188,7 @@
                 <div class="container-fluid p-0">
                     <div class="row">
                         <div class="col-12 px-md-1">
-                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title">
+                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title text-uppercase">
                                 <i class="far fa-newspaper mr-2"></i>
                                 Xəbərlər
                             </a>
@@ -228,7 +228,7 @@
                 <div class="container-fluid p-0">
                     <div class="row">
                         <div class="col-12 px-md-1">
-                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title">
+                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title text-uppercase">
                                 <i class="far fa-newspaper mr-2"></i>
                                 News
                             </a>
@@ -278,7 +278,7 @@
                 <div class="container-fluid p-0">
                     <div class="row">
                         <div class="col-12 px-md-1">
-                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title">
+                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title text-uppercase">
                                 <i class="fas fa-scroll mr-2"></i>
                                 Nəşrlər
                             </a>
@@ -306,7 +306,7 @@
                 <div class="container-fluid p-0">
                     <div class="row">
                         <div class="col-12 px-md-1">
-                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title">
+                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title text-uppercase">
                                 <i class="fas fa-scroll mr-2"></i>
                                 Publications
                             </a>
@@ -338,7 +338,7 @@
                 <div class="container-fluid p-0">
                     <div class="row">
                         <div class="col-12 px-md-1">
-                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title">
+                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title text-uppercase">
                                 <i class="far fa-flag mr-2"></i>
                                 hesabatlar
                             </a>
@@ -373,7 +373,7 @@
                 <div class="container-fluid p-0">
                     <div class="row">
                         <div class="col-12 px-md-1">
-                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title">
+                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title text-uppercase">
                                 <i class="far fa-flag mr-2"></i>
                                 reports
                             </a>
