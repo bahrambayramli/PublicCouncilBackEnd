@@ -15,6 +15,24 @@ namespace PublicCouncilBackEnd.manage
     {
 
         /// <summary>
+        /// MEMBER_ORDER_BLOCK control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel MEMBER_ORDER_BLOCK;
+
+        /// <summary>
+        /// memberOrderNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox memberOrderNumber;
+
+        /// <summary>
         /// memberName control.
         /// </summary>
         /// <remarks>

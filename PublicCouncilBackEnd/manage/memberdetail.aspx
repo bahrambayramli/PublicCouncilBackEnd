@@ -17,6 +17,15 @@
         </div>
         <div class="card-body">
             <div class="container-fluid">
+                 <%--Member order number--%>
+                <asp:Panel ID="MEMBER_ORDER_BLOCK" runat="server" CssClass="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="managelayout_inputOrderNumber">Sira nömrəsi</label>
+                            <asp:TextBox ID="memberOrderNumber" runat="server" TextMode="Number" CssClass="form-control"></asp:TextBox>
+                        </div>
+                    </div>
+                </asp:Panel>
                 <%--Member full name --%>
                 <div class="row">
                     <div class="col-6">
@@ -48,7 +57,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
-                             <CKEditor:CKEditorControl ID="memberDetail" runat="server" Height="300px"></CKEditor:CKEditorControl>
+                            <CKEditor:CKEditorControl ID="memberDetail" runat="server" Height="300px"></CKEditor:CKEditorControl>
                         </div>
                     </div>
                 </div>
