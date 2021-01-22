@@ -72,6 +72,7 @@ namespace PublicCouncilBackEnd.manage
             {
                 new_pc.Visible = false;
                 new_pc.Enabled = false;
+               
                 GETPCOUNCILS(Session["USER_ID"] as string);
             }
                 

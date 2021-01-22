@@ -136,32 +136,19 @@ namespace PublicCouncilBackEnd.manage
             foreach (ListItem item in inputMembershipType.Items)
             {
 
-                if (item.Value.ToString().ToLower() == pc.Rows[0]["USER_MEMBERSHIP_TYPE"].ToString().ToLower())
+                if (item.Text.ToString().ToLower() == pc.Rows[0]["USER_MEMBERSHIP_TYPE"].ToString().ToLower())
                 {
-                    try
-                    {
-                        inputMembershipType.Items.FindByValue(item.Value.ToString()).Selected = true;
-                    }
-                    catch
-                    {
-
-                    }
+                    try { inputMembershipType.Items.FindByValue(item.Value.ToString()).Selected = true; } catch { }
+                    break;
                 }
             }
 
             foreach (ListItem item in inputCity.Items)
             {
-
-                if (item.Value.ToString().ToLower() == pc.Rows[0]["PC_CITY"].ToString().ToLower())
+                if (item.Text.ToString().ToLower() == pc.Rows[0]["PC_CITY"].ToString().ToLower())
                 {
-                    try
-                    {
-                        inputCity.Items.FindByValue(item.Value.ToString()).Selected = true;
-                    }
-                    catch
-                    {
-                        
-                    }
+                    try{ inputCity.Items.FindByValue(item.Value.ToString()).Selected = true; } catch{ }
+                    break;
                 }
             }
 
@@ -170,14 +157,8 @@ namespace PublicCouncilBackEnd.manage
 
                 if (item.Value.ToString().ToLower() == pc.Rows[0]["PC_CATEGORY"].ToString().ToLower())
                 {
-                    try
-                    {
-                        categorySelect.Items.FindByValue(item.Value.ToString()).Selected = true;
-                    }
-                    catch
-                    {
-
-                    }
+                    try { categorySelect.Items.FindByValue(item.Value.ToString()).Selected = true; } catch { }
+                    break;
                 }
             }
 
@@ -281,7 +262,15 @@ namespace PublicCouncilBackEnd.manage
             insertUser.Parameters.Add("@ISONLINE", SqlDbType.Bit).Value = false;
 
             insertUser.Parameters.Add("@USER_MEMBERSHIP", SqlDbType.NVarChar).Value = "pc";
-            insertUser.Parameters.Add("@PC_ORDER_NUMBER", SqlDbType.Int).Value = inputOrderNumber.Text;
+
+            if (Session["USER_MEMBERSHIP_TYPE"] as string == "admin")
+            {
+                insertUser.Parameters.Add("@PC_ORDER_NUMBER", SqlDbType.Int).Value = inputOrderNumber.Text;
+            }
+            else
+            {
+                insertUser.Parameters.Add("@PC_ORDER_NUMBER", SqlDbType.Int).Value = "0";
+            }
             insertUser.Parameters.Add("@USER_MEMBERSHIP_TYPE", SqlDbType.NVarChar).Value = inputMembershipType.SelectedValue;
             insertUser.Parameters.Add("@USER_LOGIN", SqlDbType.NVarChar).Value = inputLoginName.Text;
             insertUser.Parameters.Add("@USER_PASSWORD", SqlDbType.NVarChar).Value = Crypto.MD5crypt(inputPassword.Text);
@@ -557,10 +546,17 @@ namespace PublicCouncilBackEnd.manage
 
         protected void Page_Load(object sender, EventArgs e)
         {
+           
             if (!IsPostBack)
             {
                 if(Session["PC"] as string == "SELECTED")
                 {
+                    if (Session["USER_MEMBERSHIP_TYPE"] as string != "admin")
+                    {
+                        PC_ORDER_BLOCK.Visible = false;
+                        PC_ISACTIVE_MEMBERSHIP_BLOCK.Visible = false;
+
+                    }
                     GetPCOUNCIL(Session["PC_ID"] as string);
 
                     try
@@ -582,13 +578,7 @@ namespace PublicCouncilBackEnd.manage
         {
             if (Session["PC"] as string == "SELECTED")
             {
-
-               
-                
-                    UpdateUser(Session["PC_SERIAL"] as string, Session["PC_ID"] as string);
-                
-              
-
+                UpdateUser(Session["PC_SERIAL"] as string, Session["PC_ID"] as string);
             }
             else
             {
@@ -609,6 +599,14 @@ namespace PublicCouncilBackEnd.manage
             Response.Redirect("/manage/councils");
         }
 
-        
+        protected void back_Click(object sender, EventArgs e)
+        {
+            Session["PC"] = null;
+            Session["PC_ID"] = null;
+            Session["PC_SERIAL"] = null;
+            Session["NEW_USER_SERIAL"] = null;
+
+            Response.Redirect("/manage/councils");
+        }
     }
 }

@@ -6,18 +6,17 @@
             display: none;
         }
     </style>
-    <script src="/scripts/ckeditor/ckeditor.js"></script>
-    <script src="/scripts/ckfinder/ckfinder.js"></script>
+    <script src="/scripts/ckeditor/ckeditor.js" async="async"></script>
+    <script src="/scripts/ckfinder/ckfinder.js" async ="async"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="managelayout" runat="server">
 
     <div class="card mt-2">
         <div class="card-header">
-           
              <div class="container-fluid">
                 <div class="row">
                     <div class="col-6">
-                        <p class="h3 m-0">Yeni üzv</p>
+                        <p class="h3 m-0">Üzv</p>
                     </div>
                     <div class="col-6 text-right">
                         <asp:LinkButton ID="back" runat="server" CssClass="btn btn-danger btn-sm" OnClick="back_Click">
@@ -77,7 +76,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
-                            <div class="container-fluid">
+                            <div class="container-fluid" style="padding:0 !important">
                                 <div class="row">
                                     <div class="col-6">
                                         <asp:Image ID="memberImage" runat="server" ImageAlign="Middle" ImageUrl="~/Images/social-media-image.png" CssClass="w-100" />
@@ -108,7 +107,7 @@
         document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("sidenav-main").remove();
             document.getElementById("top-nav").remove();
-            viewImage("managelayout_memberImage", "managelayout_fileMember", "customFileMember", "btnFileMember")
+            viewImage("managelayout_memberImage", "managelayout_fileMember", "customFileMember", "btnFileMember");
         });
     </script>
 

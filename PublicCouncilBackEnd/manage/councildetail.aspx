@@ -17,14 +17,24 @@
     </style>
     <script src="/scripts/ckeditor/ckeditor.js"></script>
     <script src="/scripts/ckfinder/ckfinder.js"></script>
-    <script src="/scripts/viewmage.js"></script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="managelayout" runat="server">
 
     <div class="card my-md-2">
         <div class="card-header">
-            Ətraflı
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-6">
+                        <p class="h3">Ətraflı</p>
+                    </div>
+                    <div class="col-6 text-right">
+                        <asp:LinkButton ID="back" runat="server" CssClass="btn btn-danger btn-sm" OnClick="back_Click">
+                            Geri
+                        </asp:LinkButton>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="card-body">
             <div class="card">
@@ -100,7 +110,7 @@
                                     <div class="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="mainlayout_inputPassword">Şifrə</label>
-                                            <asp:TextBox ID="inputPassword" runat="server" CssClass="form-control" TextMode="Password">
+                                            <asp:TextBox ID="inputPassword" runat="server" CssClass="form-control" TextMode="Password" autocomplete="false">
 
                                             </asp:TextBox>
                                         </div>

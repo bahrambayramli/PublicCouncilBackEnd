@@ -7,11 +7,48 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
+using System.Drawing;
 
 namespace PublicCouncilBackEnd.manage
 {
     public partial class WebForm14 : System.Web.UI.Page
     {
+
+        #region(Image Maker)
+
+        public void MadeImageAndSave(FileUpload fl, string imgName, string imageDirectory, int width, int height)
+        {
+
+            //SET THE SIZES
+            int W = width;      //Widht
+            int H = height;    //Height
+
+
+            //CHECK THE EXTENSION TYPES ---------------------------------------------------
+            string extension = Path.GetExtension(fl.FileName).ToLower();
+            if ((extension != ".jpg") &&
+                (extension != ".jpeg") &&
+                (extension != ".bmp") &&
+                (extension != ".png") &&
+                (extension != ".gif") &&
+                (extension != ".tif") &&
+                (extension != ".tiff")) return;
+
+
+
+            //SET THE IMAGE SIZE ------------------------------------------
+            System.Drawing.Image orginal = System.Drawing.Image.FromStream(fl.PostedFile.InputStream);
+            //int newH = (orginal.Height * W) / orginal.Width;
+            //if (newH > H) { W = (W * H) / newH; newH = H; }
+            //H = newH;
+          
+            //CHNAGE THE FINAL IMAGE SIZE ----------------------------------
+            Bitmap finalImage = new Bitmap(orginal, W, H);
+            finalImage.Save(Server.MapPath(imageDirectory + imgName), System.Drawing.Imaging.ImageFormat.Jpeg);//convert to jpeg format
+            finalImage.Dispose();
+        }
+
+        #endregion
 
         #region(SQL CRUD FUNCTIONS)
         private void GetMember(string MEMBER_ID, bool ISDELETE, string PC_ID)
@@ -53,9 +90,6 @@ namespace PublicCouncilBackEnd.manage
         private void InsertMember(string PC_ID)
         {
             //string logoSerial = Helper.MakeSerial();
-
-
-
             if (fileMember.HasFile)
             {
 
@@ -112,11 +146,9 @@ namespace PublicCouncilBackEnd.manage
 
                 SQL.COMMAND(insertMember);
 
-                fileMember.SaveAs(Server.MapPath("/Images/members/" + memberImageName));
+                MadeImageAndSave(fileMember, memberImageName, "~/images/members/", 900, 600);
 
             }
-
-
 
         }
         private void UpdateMember(string MEMBER_ID, string PC_ID)
@@ -158,12 +190,11 @@ namespace PublicCouncilBackEnd.manage
                 updateMember.Parameters.Add("@MEMBER_POSITION", SqlDbType.NVarChar).Value      = memberPosition.Text;
                 updateMember.Parameters.Add("@MEMBER_DETAIL", SqlDbType.NVarChar).Value        = memberDetail.Text;
                 updateMember.Parameters.Add("@MEMBER_IMAGE", SqlDbType.NVarChar).Value         = memberImageName;
-                updateMember.Parameters.Add("@MEMBER_ORDER_NUMBER", SqlDbType.Int).Value       = memberImageName;
+                updateMember.Parameters.Add("@MEMBER_ORDER_NUMBER", SqlDbType.Int).Value       = memberOrderNumber.Text;
 
 
 
-                fileMember.SaveAs(Server.MapPath("/Images/members/" + memberImageName));
-
+                MadeImageAndSave(fileMember, memberImageName, "~/images/members/", 900, 600);
             }
             else
             {

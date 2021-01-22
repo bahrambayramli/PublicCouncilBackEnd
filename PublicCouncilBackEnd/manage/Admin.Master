@@ -24,6 +24,8 @@
     <script src="/scripts/vendor/moment/moment.js"></script>
     <script src="/scripts/plugins/bootstrap-datetimepicker.min.js"></script>
      <script src="/scripts/viewmage.js"></script>
+
+
      <!-- INTERNAL STYLES -->
     <style>
         .table td, .table th {
@@ -36,7 +38,7 @@
 </head>
 <body>
 
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" autocomplete="off">
 
         <!-- Sidenav -->
         <nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
