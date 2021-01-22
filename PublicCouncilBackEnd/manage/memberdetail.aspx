@@ -13,7 +13,19 @@
 
     <div class="card mt-2">
         <div class="card-header">
-            <p class="m-0 h3"></p>
+           
+             <div class="container-fluid">
+                <div class="row">
+                    <div class="col-6">
+                        <p class="h3 m-0">Yeni üzv</p>
+                    </div>
+                    <div class="col-6 text-right">
+                        <asp:LinkButton ID="back" runat="server" CssClass="btn btn-danger btn-sm" OnClick="back_Click">
+                            Geri
+                        </asp:LinkButton>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="card-body">
             <div class="container-fluid">

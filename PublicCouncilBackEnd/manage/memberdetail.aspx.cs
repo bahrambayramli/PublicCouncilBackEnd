@@ -13,8 +13,7 @@ namespace PublicCouncilBackEnd.manage
     public partial class WebForm14 : System.Web.UI.Page
     {
 
-
-        #region(SQL FUNCTIONS)
+        #region(SQL CRUD FUNCTIONS)
         private void GetMember(string MEMBER_ID, bool ISDELETE, string PC_ID)
         {
             SqlDataAdapter getMember = new SqlDataAdapter(new SqlCommand(@"SELECT 
@@ -51,7 +50,75 @@ namespace PublicCouncilBackEnd.manage
 
             
         }
+        private void InsertMember(string PC_ID)
+        {
+            //string logoSerial = Helper.MakeSerial();
 
+
+
+            if (fileMember.HasFile)
+            {
+
+                string extension = Path.GetExtension(fileMember.FileName).ToLower();
+                if ((extension != ".jpg") &&
+                    (extension != ".jpeg") &&
+                    (extension != ".bmp") &&
+                    (extension != ".png") &&
+                    (extension != ".gif") &&
+                    (extension != ".tif") &&
+                    (extension != ".tiff")) return;
+
+
+                string memberImageName = Helper.SetName(extension);
+
+                SqlCommand insertMember = new SqlCommand(@"INSERT INTO PC_MEMBERS
+                                                                                    (
+						                                                            MEMBER_NAME         ,
+                                                                                    MEMBER_SURNAME      ,
+                                                                                    MEMBER_FNAME        ,
+                                                                                    MEMBER_POSITION     ,
+                                                                                    MEMBER_DETAIL       ,
+                                                                                    MEMBER_IMAGE        ,
+                                                                                    MEMBER_ORDER_NUMBER ,
+                                                                                    PC_ID               ,
+                                                                                    ISDELETE            ,
+                                                                                    ISACTIVE            ,
+	                                                                                )
+                                                                              VALUES
+                                                                                    (
+	                                                                            	 @MEMBER_NAME         ,
+                                                                                     @MEMBER_SURNAME      ,
+                                                                                     @MEMBER_FNAME        ,
+                                                                                     @MEMBER_POSITION     ,
+                                                                                     @MEMBER_DETAIL       ,
+                                                                                     @MEMBER_IMAGE        ,
+                                                                                     @MEMBER_ORDER_NUMBER ,
+                                                                                     @PC_ID               ,
+                                                                                     @ISDELETE            ,
+                                                                                     @ISACTIVE
+	                                                                            	)
+                                                                                    ");
+
+                insertMember.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
+                insertMember.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
+                insertMember.Parameters.Add("@MEMBER_NAME", SqlDbType.NVarChar).Value = memberName.Text;
+                insertMember.Parameters.Add("@MEMBER_SURNAME", SqlDbType.NVarChar).Value = memberSurname.Text;
+                insertMember.Parameters.Add("@MEMBER_FNAME", SqlDbType.NVarChar).Value = memberFname.Text;
+                insertMember.Parameters.Add("@MEMBER_POSITION", SqlDbType.NVarChar).Value = memberPosition.Text;
+                insertMember.Parameters.Add("@MEMBER_DETAIL", SqlDbType.NVarChar).Value = memberDetail.Text;
+                insertMember.Parameters.Add("@MEMBER_IMAGE", SqlDbType.NVarChar).Value = memberImageName;
+                insertMember.Parameters.Add("@MEMBER_ORDER_NUMBER", SqlDbType.Int).Value = memberOrderNumber.Text;
+                insertMember.Parameters.Add("@PC_ID", SqlDbType.Int).Value = PC_ID;
+
+                SQL.COMMAND(insertMember);
+
+                fileMember.SaveAs(Server.MapPath("/Images/members/" + memberImageName));
+
+            }
+
+
+
+        }
         private void UpdateMember(string MEMBER_ID, string PC_ID)
         {
            
@@ -130,76 +197,6 @@ namespace PublicCouncilBackEnd.manage
 
             updateMember = null;
         }
-
-        private void InsertMember(string PC_ID)
-        {
-            //string logoSerial = Helper.MakeSerial();
-
-
-
-            if (fileMember.HasFile)
-            {
-
-                string extension = Path.GetExtension(fileMember.FileName).ToLower();
-                if ((extension != ".jpg") &&
-                    (extension != ".jpeg") &&
-                    (extension != ".bmp") &&
-                    (extension != ".png") &&
-                    (extension != ".gif") &&
-                    (extension != ".tif") &&
-                    (extension != ".tiff")) return;
-
-            
-                    string memberImageName = Helper.SetName(extension);
-
-                    SqlCommand insertMember = new SqlCommand(@"INSERT INTO PC_MEMBERS
-                                                                                    (
-						                                                            MEMBER_NAME         ,
-                                                                                    MEMBER_SURNAME      ,
-                                                                                    MEMBER_FNAME        ,
-                                                                                    MEMBER_POSITION     ,
-                                                                                    MEMBER_DETAIL       ,
-                                                                                    MEMBER_IMAGE        ,
-                                                                                    MEMBER_ORDER_NUMBER ,
-                                                                                    PC_ID               ,
-                                                                                    ISDELETE            ,
-                                                                                    ISACTIVE            ,
-	                                                                                )
-                                                                              VALUES
-                                                                                    (
-	                                                                            	 @MEMBER_NAME         ,
-                                                                                     @MEMBER_SURNAME      ,
-                                                                                     @MEMBER_FNAME        ,
-                                                                                     @MEMBER_POSITION     ,
-                                                                                     @MEMBER_DETAIL       ,
-                                                                                     @MEMBER_IMAGE        ,
-                                                                                     @MEMBER_ORDER_NUMBER ,
-                                                                                     @PC_ID               ,
-                                                                                     @ISDELETE            ,
-                                                                                     @ISACTIVE
-	                                                                            	)
-                                                                                    ");
-
-                    insertMember.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
-                    insertMember.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
-                    insertMember.Parameters.Add("@MEMBER_NAME", SqlDbType.NVarChar).Value          = memberName.Text;
-                    insertMember.Parameters.Add("@MEMBER_SURNAME", SqlDbType.NVarChar).Value       = memberSurname.Text;
-                    insertMember.Parameters.Add("@MEMBER_FNAME", SqlDbType.NVarChar).Value         = memberFname.Text;
-                    insertMember.Parameters.Add("@MEMBER_POSITION", SqlDbType.NVarChar).Value      = memberPosition.Text;
-                    insertMember.Parameters.Add("@MEMBER_DETAIL", SqlDbType.NVarChar).Value        = memberDetail.Text;
-                    insertMember.Parameters.Add("@MEMBER_IMAGE", SqlDbType.NVarChar).Value         = memberImageName;
-                    insertMember.Parameters.Add("@MEMBER_ORDER_NUMBER", SqlDbType.Int).Value       = memberOrderNumber.Text;
-                    insertMember.Parameters.Add("@PC_ID", SqlDbType.Int).Value                     = PC_ID;
-
-                    SQL.COMMAND(insertMember);
-
-                   fileMember.SaveAs(Server.MapPath("/Images/members/" + memberImageName));
-
-            }
-
-
-
-        }
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -208,10 +205,8 @@ namespace PublicCouncilBackEnd.manage
             {
                 if (Session["MEMBER"] as string == "SELECTED")
                 {
-                    try
-                    {
-                        GetMember(Session["MEMBER_ID"] as string, false, Session["PC_ID"] as string);
-                    }
+                    try{ GetMember(Session["MEMBER_ID"] as string, false, Session["PC_ID"] as string); }
+
                     catch (Exception ex)
                     {
                          Log.LogCreator(Server.MapPath("~/Logs/logs.txt"), ex.Message);
@@ -243,6 +238,14 @@ namespace PublicCouncilBackEnd.manage
 
 
 
+            Session["MEMBER"] = null;
+            Session["MEMBER_ID"] = null;
+
+            Response.Redirect("/manage/members");
+        }
+
+        protected void back_Click(object sender, EventArgs e)
+        {
             Session["MEMBER"] = null;
             Session["MEMBER_ID"] = null;
 
