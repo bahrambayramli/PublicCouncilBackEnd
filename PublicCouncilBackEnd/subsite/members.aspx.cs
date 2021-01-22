@@ -33,7 +33,7 @@ namespace PublicCouncilBackEnd.subsite
                                                                             WHERE
                                                                             ISDELETE = @ISDELETE AND
                                                                             ISACTIVE = @ISACTIVE AND
-                                                                            PC_ID=@PC_ID"));
+                                                                            PC_ID=@PC_ID ORDER BY MEMBER_ORDER_NUMBER"));
 
                         getMembers.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
                         getMembers.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = ISACTIVE;
@@ -62,7 +62,7 @@ namespace PublicCouncilBackEnd.subsite
                                                                             WHERE
                                                                             ISDELETE = @ISDELETE AND
                                                                             ISACTIVE = @ISACTIVE AND
-                                                                            PC_ID=@PC_ID"));
+                                                                            PC_ID=@PC_ID ORDER BY MEMBER_ORDER_NUMBER"));
 
                         getMembers.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
                         getMembers.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = ISACTIVE;
@@ -88,7 +88,7 @@ namespace PublicCouncilBackEnd.subsite
                                                                             WHERE
                                                                             ISDELETE = @ISDELETE AND
                                                                             ISACTIVE = @ISACTIVE AND
-                                                                            PC_ID=@PC_ID"));
+                                                                            PC_ID=@PC_ID ORDER BY MEMBER_ORDER_NUMBER"));
 
                         getMembers.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
                         getMembers.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = ISACTIVE;

@@ -297,11 +297,11 @@ namespace PublicCouncilBackEnd
             }
 
 
-            HtmlMeta ogUrl = new HtmlMeta { Name = "og:url", Content = "http://ictimaishura.az/details/"+ RouteData.Values["postid"] as string };
-            HtmlMeta ogType = new HtmlMeta { Name = "og:type", Content = "article" };
-            HtmlMeta ogTitle = new HtmlMeta { Name = "og:title", Content = postTitle.Text };
-            HtmlMeta ogDescription = new HtmlMeta { Name = "og:description", Content = postTitle.Text };
-            HtmlMeta ogImage = new HtmlMeta { Name = "og:image", Content = "http://ictimaishura.az" + postImage.ImageUrl.ToString() };
+            HtmlMeta ogUrl          = new HtmlMeta { Name = "og:url", Content = "http://ictimaishura.az/details/"+ RouteData.Values["postid"] as string };
+            HtmlMeta ogType         = new HtmlMeta { Name = "og:type", Content = "article" };
+            HtmlMeta ogTitle        = new HtmlMeta { Name = "og:title", Content = Page.Title };
+            HtmlMeta ogDescription  = new HtmlMeta { Name = "og:description", Content = Page.Title };
+            HtmlMeta ogImage        = new HtmlMeta { Name = "og:image", Content = "http://ictimaishura.az" + postImage.ImageUrl.ToString() };
 
 
             Header.Controls.Add(ogUrl);
