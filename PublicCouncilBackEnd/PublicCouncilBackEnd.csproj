@@ -219,6 +219,32 @@
     <Content Include="images\adv2.png" />
     <Content Include="images\adv3.png" />
     <Content Include="images\avatar.png" />
+    <Content Include="images\ico\android-icon-144x144.png" />
+    <Content Include="images\ico\android-icon-192x192.png" />
+    <Content Include="images\ico\android-icon-36x36.png" />
+    <Content Include="images\ico\android-icon-48x48.png" />
+    <Content Include="images\ico\android-icon-72x72.png" />
+    <Content Include="images\ico\android-icon-96x96.png" />
+    <Content Include="images\ico\apple-icon-114x114.png" />
+    <Content Include="images\ico\apple-icon-120x120.png" />
+    <Content Include="images\ico\apple-icon-144x144.png" />
+    <Content Include="images\ico\apple-icon-152x152.png" />
+    <Content Include="images\ico\apple-icon-180x180.png" />
+    <Content Include="images\ico\apple-icon-57x57.png" />
+    <Content Include="images\ico\apple-icon-60x60.png" />
+    <Content Include="images\ico\apple-icon-72x72.png" />
+    <Content Include="images\ico\apple-icon-76x76.png" />
+    <Content Include="images\ico\apple-icon-precomposed.png" />
+    <Content Include="images\ico\apple-icon.png" />
+    <Content Include="images\ico\browserconfig.xml" />
+    <Content Include="images\ico\favicon-16x16.png" />
+    <Content Include="images\ico\favicon-32x32.png" />
+    <Content Include="images\ico\favicon-96x96.png" />
+    <Content Include="images\ico\favicon.ico" />
+    <Content Include="images\ico\ms-icon-144x144.png" />
+    <Content Include="images\ico\ms-icon-150x150.png" />
+    <Content Include="images\ico\ms-icon-310x310.png" />
+    <Content Include="images\ico\ms-icon-70x70.png" />
     <Content Include="images\Logo\logo.png" />
     <Content Include="images\Logo\Logo1.jpeg" />
     <Content Include="images\Logo\Logo2.jpeg" />
@@ -593,6 +619,7 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="content\scss\preloader.scss" />
+    <Content Include="images\ico\manifest.json" />
     <None Include="packages.config" />
     <Content Include="subsite\Subdomain.Master" />
     <Content Include="uploads\file.docx" />

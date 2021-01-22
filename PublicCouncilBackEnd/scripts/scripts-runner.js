@@ -52,7 +52,7 @@ $(".owl-video").owlCarousel({
         },
         768: {
             items: 4,
-            nav: true,
+          
         }
       },
       margin: 5,
@@ -72,7 +72,7 @@ $(".owl-partners").owlCarousel({
         },
         768: {
             items: 5,
-            nav: true,
+          
         }
     },
     margin: 5,
