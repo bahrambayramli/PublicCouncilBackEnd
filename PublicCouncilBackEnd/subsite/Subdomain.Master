@@ -7,14 +7,30 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/images/ico/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <title>İctimai şura</title>
-    <link rel="icon" href="/Images/Logo/logo.png" type="image/gif" sizes="80x80">
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/ico/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/ico/app/e-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/ico/apple-i/on-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/ico/apple-icon-/6x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/ico/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/ico/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/ico/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/ico/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/ico/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/ico/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/ico/favicon-16x16.png">
+    <link rel="manifest" href="/images/ico/manifest.json">
     <!-- STYLES -->
     <asp:PlaceHolder runat="server">
         <%: Styles.Render("/bundles/MyAppStartupCss") %> 
     </asp:PlaceHolder>
     <link href="/content/scss/preloader.min.css" rel="stylesheet" />
-    <link href="/content/scss/subsite.css" rel="stylesheet" />
+    <link href="/content/scss/subsite.min.css" rel="stylesheet" />
     <!-- FONTS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
@@ -23,9 +39,10 @@
         <%: Scripts.Render("/bundles/MyAppStartupJs") %>  
     </asp:PlaceHolder>
     <script src="/scripts/preloader.js"></script>
-    
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
 </head>
 <body onload="hideLoading()">
 
@@ -56,7 +73,7 @@
         <header class="header bg-gradient-default shadow-sm">
             <div class="header-top shadow-lg py-2 bg-white">
                 <div class="site-container">
-                    <div class="container-fluid p-0">
+                    <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-4 px-md-1 d-none d-md-block">
                                 <asp:ListView ID="LogoDesktop" runat="server">
@@ -111,7 +128,7 @@
                         <div class="subside-header">
                             <asp:ListView ID="logoPcMobile" runat="server">
                                 <LayoutTemplate>
-                                    <a href="#" class="d-block">
+                                    <a href="#sub-logo" class="d-inline d-md-block sub-logo">
                                         <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                                     </a>
                                 </LayoutTemplate>
@@ -392,4 +409,12 @@
 
     <script src="/scripts/scripts-runner.js"></script>
 </body>
+
+<script>
+    const toogleIcon = document.getElementById("subnavtoggle");
+    const subsideBottom = document.getElementById("subsidebottom");
+    toogleIcon.addEventListener("click", function () {
+        subsideBottom.classList.toggle("submob-active");
+    });
+</script>
 </html>

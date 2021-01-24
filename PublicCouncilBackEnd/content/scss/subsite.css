@@ -13,10 +13,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem; }
-    .subside-bar .subside-header .sub-logo {
-      display: block; }
-      .subside-bar .subside-header .sub-logo img {
-        width: 100%; }
+    .subside-bar .subside-header .sub-logo img {
+      width: 25%; }
     .subside-bar .subside-header .subnav-toggle {
       display: block;
       padding: 0.5rem; }
@@ -26,7 +24,7 @@
       display: block;
       padding: 0.7rem;
       color: #ffffff;
-      background-color: #ffc107;
+      background-color: #32325d;
       transition: all 0.3s ease-in; }
       .subside-bar .subside-bottom .sub-nav .subnav-ul .subnav-item .subnav-link i,
       .subside-bar .subside-bottom .sub-nav .subnav-ul .subnav-item .subnav-link svg {
@@ -45,8 +43,8 @@
     box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
     padding: 1rem; }
     .submain-bar .mainbar-header .mainbar-header-title {
-      font-size: 2rem;
-      font-weight: 700;
+      font-size: 1.3rem;
+      font-weight: 600;
       color: #dc3545;
       transition: all 0.3s ease;
       font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif; }
@@ -107,39 +105,35 @@
   .member-card-back p {
     color: white; }
 
-.member-about {
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  background-color: lightblue;
-  float: left; }
-  .member-about .member-wrapper {
-    position: absolute;
-    left: 0;
-    bottom: 0;
+.member-detail .member-image-block {
+  position: relative; }
+  .member-detail .member-image-block .member-image {
+    display: block;
+    width: 100%;
+    margin: auto; }
+  .member-detail .member-image-block .member-wrapper {
     color: #ffffff;
     font-size: 1rem;
     width: 100%;
     transition: font-size 0.25s ease; }
-    .member-about .member-wrapper .member-position {
-      background-color: #1f4a7a;
-      width: 850%;
-      padding: 0.2rem .7rem;
-      border-top-right-radius: 10px;
-      transition: all 0.3s ease; }
-    .member-about .member-wrapper .member-info {
-      background-color: #32325d;
-      padding: 0.4rem .7rem;
-      width: 90%;
-      border-top-right-radius: 10px;
-      transition: all 0.25s ease;
-      font-weight: 500; }
-  .member-about:hover .member-position {
-    width: 80%; }
-  .member-about:hover .member-info {
-    width: 90%; }
+  .member-detail .member-image-block .member-position, .member-detail .member-image-block .member-info {
+    width: 100%;
+    text-align: center; }
+  .member-detail .member-image-block .member-position {
+    background-color: #1f4a7a;
+    padding: 0.2rem .7rem;
+    transition: all 0.3s ease; }
+  .member-detail .member-image-block .member-info {
+    background-color: #32325d;
+    padding: 0.4rem .7rem;
+    font-size: 1rem;
+    transition: all 0.25s ease;
+    font-weight: 500; }
 
 @media (min-width: 768px) {
+  .mainbar-header .mainbar-header-title {
+    font-size: 2em;
+    font-weight: 700; }
   .sub-container {
     margin: auto;
     height: 100%;
@@ -155,6 +149,8 @@
         display: flex;
         justify-content: center;
         align-items: center; }
+        .sub-container .subside-bar .subside-header .sub-logo img {
+          width: 100%; }
         .sub-container .subside-bar .subside-header .subnav-toggle {
           display: none; }
       .sub-container .subside-bar .subside-bottom {
@@ -200,46 +196,29 @@
         position: relative;
         height: 100%; }
         .sub-container .submain-bar .mainbar-bottom .mainbar-home {
-          height: 100%;
-          overflow-y: scroll;
-          overflow-x: hidden; }
+          height: 100%; }
           .sub-container .submain-bar .mainbar-bottom .mainbar-home .submb-right .ngo-chairman .chairman-info .chairman-name {
             font-weight: 600;
             font-size: 1.2rem;
             color: #163877; }
-  .member-detail {
-    content: "";
-    clear: both;
-    display: table; }
-    .member-detail .member-about {
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-      float: left;
-      width: 55%; }
-      .member-detail .member-about .member-wrapper {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        color: #ffffff;
-        font-size: 1rem;
-        width: 100%;
-        transition: font-size 0.25s ease; }
-        .member-detail .member-about .member-wrapper .member-position {
-          background-color: #1f4a7a;
-          width: 50%;
-          padding: 0.2rem .7rem;
-          border-top-right-radius: 10px;
-          transition: all 0.3s ease;
-          font-weight: 300; }
-        .member-detail .member-about .member-wrapper .member-info {
-          background-color: #32325d;
-          padding: 0.4rem .7rem;
-          width: 60%;
-          border-top-right-radius: 10px;
-          transition: all 0.25s ease;
-          font-weight: 500; }
-      .member-detail .member-about:hover .member-position {
-        width: 80%; }
-      .member-detail .member-about:hover .member-info {
-        width: 90%; } }
+  .member-detail .member-image-block .member-image {
+    width: 50%;
+    height: auto;
+    margin: auto; }
+  .member-detail .member-image-block .member-wrapper {
+    color: #ffffff;
+    font-size: 1rem;
+    width: 70%;
+    margin: auto; }
+  .member-detail .member-image-block .member-position {
+    background-color: #1f4a7a;
+    width: 95%;
+    padding: 0.2rem .7rem;
+    transition: all 0.3s ease;
+    margin: auto; }
+  .member-detail .member-image-block .member-info {
+    background-color: #32325d;
+    padding: 0.4rem .7rem;
+    width: 100%;
+    font-size: 1.25rem;
+    font-weight: 500; } }

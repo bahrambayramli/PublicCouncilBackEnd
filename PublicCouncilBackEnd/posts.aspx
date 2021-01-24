@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between py-2 px-2">
                                     <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/posts/az">
-                                           <%#Eval("POST_SITECATEGORYAZ")%>
+                                        <%#Eval("POST_SITECATEGORYAZ")%>
                                     </a>
                                     <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between py-2 px-2">
                                     <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/posts/en">
-                                           <%#Eval("POST_SITECATEGORYEN")%>
+                                        <%#Eval("POST_SITECATEGORYEN")%>
                                     </a>
                                     <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
@@ -98,11 +98,11 @@
                                     ButtonCssClass="btn btn-primary btn-sm"
                                     RenderDisabledButtonsAsLabels="False" Visible="True" PreviousPageText="Previous" />
                                 <asp:NumericPagerField
-                                     CurrentPageLabelCssClass="page-link page-link btn btn-primary btn-sm rounded"
+                                    CurrentPageLabelCssClass="page-link page-link btn btn-primary btn-sm rounded"
                                     NumericButtonCssClass="page-link btn btn-danger btn-sm rounded"
                                     NextPreviousButtonCssClass="page-item" PreviousPageText="..." NextPageText="..." ButtonCount="5" />
                                 <asp:NextPreviousPagerField
-                                     ButtonType="Link"
+                                    ButtonType="Link"
                                     ShowLastPageButton="False"
                                     ShowNextPageButton="True"
                                     ShowPreviousPageButton="False"

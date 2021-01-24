@@ -19,7 +19,7 @@
                             <div class="slider-item">
                                 <img src="/images/<%#Eval("POST_IMG")%>" alt="/<%#Eval("POST_SEOAZ")%>" />
                                 <div class="slider-caption">
-                                    <span class="btn btn-sm btn-round slider-time bg-white text-default ">
+                                    <span class="btn btn-sm btn-round slider-time">
                                         <i class="far fa-calendar-alt"></i>
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                     </span>
@@ -44,14 +44,14 @@
                             <div class="slider-item">
                                 <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
                                 <div class="slider-caption">
-                                    <span class="btn btn-sm btn-round slider-time bg-white text-default ">
+                                    <span class="btn btn-sm btn-round slider-time">
                                         <i class="far fa-calendar-alt"></i>
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                     </span>
                                     <h2 class="slider-title">
-                                       <%#Eval("POST_EN_TITLE")%>
+                                        <%#Eval("POST_EN_TITLE")%>
                                     </h2>
-                                    <a class="caption-link"  href="/details/en/<%#Eval("DATA_ID")%>"  title="<%#Eval("POST_SEOEN")%>"></a>
+                                    <a class="caption-link" href="/details/en/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOEN")%>"></a>
                                 </div>
                             </div>
                         </ItemTemplate>
@@ -92,7 +92,7 @@
                 <div class="container-fluid p-0">
                     <div class="row">
                         <div class="col">
-                            <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
+                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title text-uppercase">
                                 <i class="far fa-newspaper mr-2"></i>
                                 Xəbərlər
                             </a>
@@ -132,7 +132,7 @@
                 <div class="container-fluid p-0">
                     <div class="row">
                         <div class="col">
-                            <a href="#" class="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title">
+                            <a href="#" class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm post-block-title text-uppercase">
                                 <i class="far fa-newspaper mr-2"></i>
                                 News
                             </a>

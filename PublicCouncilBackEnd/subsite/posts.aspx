@@ -6,13 +6,13 @@
         <ContentTemplate>
             <div class="row">
                 <div class="col-12 px-md-1">
-                    <asp:HyperLink ID="pageName" runat="server" CssClass="d-block text-default p-2 mb-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase" Style="font-size: 2rem"></asp:HyperLink>
+                    <asp:HyperLink ID="pageName" runat="server" CssClass="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase px-md-1 page-name"></asp:HyperLink>
                 </div>
             </div>
             <div class="row">
                 <asp:ListView ID="POSTLIST_AZ" runat="server" OnPagePropertiesChanging="POSTLIST_AZ_PagePropertiesChanging">
                     <ItemTemplate>
-                        <article class="col-12 col-md-6  d-flex align-items-stretch px-md-1">
+                        <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch px-md-1">
 
                             <div class="card mb-3 post overflow-hidden">
                                 <div class="post-header overflow-hidden">
@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between py-2 px-2">
                                     <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/posts/az">
-                                           <%#Eval("POST_SITECATEGORYAZ")%>
+                                        <%#Eval("POST_SITECATEGORYAZ")%>
                                     </a>
                                     <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
@@ -38,7 +38,7 @@
                 </asp:ListView>
                 <asp:ListView ID="POSTLIST_EN" runat="server" OnPagePropertiesChanging="POSTLIST_EN_PagePropertiesChanging">
                     <ItemTemplate>
-                        <article class="col-12 col-md-6  d-flex align-items-stretch px-md-1">
+                        <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch px-md-1">
 
                             <div class="card mb-3 post overflow-hidden">
                                 <div class="post-header overflow-hidden">
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between py-2 px-2">
                                     <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/posts/en">
-                                           <%#Eval("POST_SITECATEGORYEN")%>
+                                        <%#Eval("POST_SITECATEGORYEN")%>
                                     </a>
                                     <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
@@ -98,11 +98,11 @@
                                     ButtonCssClass="btn btn-primary btn-sm"
                                     RenderDisabledButtonsAsLabels="False" Visible="True" PreviousPageText="Previous" />
                                 <asp:NumericPagerField
-                                     CurrentPageLabelCssClass="page-link page-link btn btn-primary btn-sm rounded"
+                                    CurrentPageLabelCssClass="page-link page-link btn btn-primary btn-sm rounded"
                                     NumericButtonCssClass="page-link btn btn-danger btn-sm rounded"
                                     NextPreviousButtonCssClass="page-item" PreviousPageText="..." NextPageText="..." ButtonCount="5" />
                                 <asp:NextPreviousPagerField
-                                     ButtonType="Link"
+                                    ButtonType="Link"
                                     ShowLastPageButton="False"
                                     ShowNextPageButton="True"
                                     ShowPreviousPageButton="False"

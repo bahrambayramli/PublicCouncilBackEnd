@@ -22,12 +22,7 @@ body {
   font-family: "Roboto", sans-serif;
   background-color: #f6f6f6;
   overflow-y: scroll;
-  overflow-x: hidden;
-  /*    background-image: url("/images/4850037.jpg");
-    background-attachment:fixed;
-    background-origin:border-box;
-    background-repeat:no-repeat;
-    background-size:cover;*/ }
+  overflow-x: hidden; }
 
 form {
   width: 100%;
