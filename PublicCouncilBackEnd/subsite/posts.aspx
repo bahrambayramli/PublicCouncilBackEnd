@@ -114,5 +114,9 @@
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
-    <script src="/scripts/subsite.js"></script>
+       <script>
+           document.addEventListener("DOMContentLoaded", () => {
+               changeLayout({ Id: "contentside", className: "col-12 content-side" }, { Id: "rightside", className: "d-none" });
+           });
+       </script>
 </asp:Content>

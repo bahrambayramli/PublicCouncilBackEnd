@@ -39,7 +39,7 @@
         <%: Scripts.Render("/bundles/MyAppStartupJs") %>  
     </asp:PlaceHolder>
     <script src="/scripts/preloader.js"></script>
-
+    <script src="/scripts/subsite.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
@@ -408,13 +408,10 @@
     </form>
 
     <script src="/scripts/scripts-runner.js"></script>
+   
 </body>
 
 <script>
-    const toogleIcon = document.getElementById("subnavtoggle");
-    const subsideBottom = document.getElementById("subsidebottom");
-    toogleIcon.addEventListener("click", function () {
-        subsideBottom.classList.toggle("submob-active");
-    });
+
 </script>
 </html>
