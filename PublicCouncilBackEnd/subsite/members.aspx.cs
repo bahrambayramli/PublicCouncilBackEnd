@@ -22,7 +22,7 @@ namespace PublicCouncilBackEnd.subsite
                         LSV_EN.DataSource = null;
                         LSV_EN.DataBind();
 
-                        getMembers = new SqlDataAdapter(new SqlCommand(@"SELECT  ROW_NUMBER() OVER(ORDER BY MEMBER_ID DESC) AS '#' ,
+                        getMembers = new SqlDataAdapter(new SqlCommand(@"SELECT 
                                                                                     MEMBER_ID,
                                                                                     MEMBER_NAME,
                                                                                     MEMBER_SURNAME,
@@ -50,7 +50,7 @@ namespace PublicCouncilBackEnd.subsite
                         LSV_AZ.DataSource = null;
                         LSV_AZ.DataBind();
 
-                        getMembers = new SqlDataAdapter(new SqlCommand(@"SELECT  ROW_NUMBER() OVER(ORDER BY MEMBER_ID DESC) AS '#' ,
+                        getMembers = new SqlDataAdapter(new SqlCommand(@"SELECT 
                                                                                     MEMBER_ID,
                                                                                     MEMBER_NAME_EN,
                                                                                     MEMBER_SURNAME_EN,
@@ -77,7 +77,7 @@ namespace PublicCouncilBackEnd.subsite
                         LSV_EN.DataSource = null;
                         LSV_EN.DataBind();
 
-                        getMembers = new SqlDataAdapter(new SqlCommand(@"SELECT  ROW_NUMBER() OVER(ORDER BY MEMBER_ID DESC) AS '#' ,
+                        getMembers = new SqlDataAdapter(new SqlCommand(@"SELECT  
                                                                                     MEMBER_ID,
                                                                                     MEMBER_NAME,
                                                                                     MEMBER_SURNAME,

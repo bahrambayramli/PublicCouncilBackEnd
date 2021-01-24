@@ -571,12 +571,39 @@ namespace PublicCouncilBackEnd.subsite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            GetLogos();
+            try
+            {
+                Session["pcsubsite"] =
+                     HttpContext.Current.Request.Url.ToString()
+                    .Substring(0, HttpContext.Current.Request.Url.ToString().IndexOf("."))
+                    .Replace("http://", string.Empty);
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", ex.Message);
+                throw;
+            }
+
+            try
+            {
+             GetLogos();
             Navigation();
             SiteLanguage();
             GetSponsors();
             GetLatest(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "4", "news", false, true,Session["pcsubsite"] as string, LATEST_AZ, LATEST_EN);
+
+          
+
+            }
+            catch (Exception ex)
+            {
+                string suburl = HttpContext.Current.Request.Url.ToString()
+                    .Substring(0, HttpContext.Current.Request.Url.ToString().IndexOf("."))
+                    .Replace("http://", string.Empty);
+                Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", ex.Message);
+                Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", suburl);
+                throw;
+            }
 
         }
 

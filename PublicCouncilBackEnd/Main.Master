@@ -628,7 +628,7 @@
                             <div class="column">
                                 <ul class="inline-menu">
                                     <li>
-                                        <a class="nav-link" href="javascript:;">Xeberler
+                                        <a class="nav-link" href=":;">Xeberler
                                         </a>
                                     </li>
                                     <li>
@@ -682,6 +682,7 @@
                         </div>
                         <div class="col-4">
                             <span class="d-block text-center text-light">© ictimaishura.az
+                                <asp:Literal ID="siteRights" runat="server"></asp:Literal>
                             </span>
                         </div>
                         <div class="col-4">
