@@ -1,4 +1,7 @@
-﻿.sub-container {
+﻿.main {
+  overflow: inherit !important; }
+
+.sub-container {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -178,18 +181,15 @@
       overflow: hidden;
       position: relative;
       height: 100%; }
-      .sub-container .submain-bar .mainbar-header {
-        box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
-        padding: 1rem; }
-        .sub-container .submain-bar .mainbar-header .mainbar-header-title {
-          font-size: 2rem;
-          font-weight: 700;
-          color: #dc3545;
-          transition: all 0.3s ease;
-          font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif; }
-          .sub-container .submain-bar .mainbar-header .mainbar-header-title:hover {
-            letter-spacing: 0.2rem;
-            color: #163877; }
+      .sub-container .submain-bar .mainbar-header .mainbar-header-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #dc3545;
+        transition: all 0.3s ease;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif; }
+        .sub-container .submain-bar .mainbar-header .mainbar-header-title:hover {
+          letter-spacing: 0.2rem;
+          color: #163877; }
       .sub-container .submain-bar .mainbar-bottom {
         padding: 1rem;
         height: auto;
@@ -197,10 +197,6 @@
         height: 100%; }
         .sub-container .submain-bar .mainbar-bottom .mainbar-home {
           height: 100%; }
-          .sub-container .submain-bar .mainbar-bottom .mainbar-home .submb-right .ngo-chairman .chairman-info .chairman-name {
-            font-weight: 600;
-            font-size: 1.2rem;
-            color: #163877; }
   .member-detail .member-image-block .member-image {
     width: 50%;
     height: auto;

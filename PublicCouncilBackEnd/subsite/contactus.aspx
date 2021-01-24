@@ -8,7 +8,7 @@
                 <asp:HyperLink
                     ID="pageName"
                     runat="server"
-                    CssClass="d-block text-white p-2 mb-2 bg-default rounded shadow-sm post-block-title text-center text-uppercase"
+                    CssClass="d-block bg-white rounded shadow-sm text-center text-default text-uppercase p-2 my-2 px-md-1 page-name"
                     Style="font-size: 2rem">
                 </asp:HyperLink>
             </div>

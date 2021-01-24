@@ -205,7 +205,7 @@
 
                         <section class="mainbar-bottom ">
                             <div id="mainbarhome" class="mainbar-home">
-                                <div class="container-fluid p-0">
+                                <div class="container-fluid p-md-0">
                                     <section class="row">
 
                                         <section id="contentside" class="col-md-8 content-side">

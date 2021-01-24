@@ -8,18 +8,11 @@
                     <asp:HyperLink 
                         ID="pageName" 
                         runat="server" 
-                        CssClass="d-block text-white p-2 mb-2 bg-default rounded shadow-sm post-block-title text-center text-uppercase" 
-                        Style="font-size: 2rem">
+                        CssClass="d-block bg-white rounded shadow-sm text-center text-default text-uppercase p-2 my-2 px-md-1 page-name">
                     </asp:HyperLink>
                 </div>
             </div>
-         <div class="row">
-             <div class="col-12 tex">
-                 <h2 class="text-default h3 text-center">
-                      <asp:Literal ID="pcName" runat="server"></asp:Literal>
-                 </h2>
-             </div>
-         </div>
+
             <div class="row">
                 <div class="col-12">
                     <div class="about-us">

@@ -1,12 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/subsite/Subdomain.Master" AutoEventWireup="true" CodeBehind="announcements.aspx.cs" Inherits="PublicCouncilBackEnd.subsite.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="sublayout" runat="server">
     <asp:UpdatePanel ID="POSTS_PANEL" runat="server" class="container-fluid">
         <ContentTemplate>
             <div class="row">
                 <div class="col-12">
-                    <asp:HyperLink ID="postsName" runat="server" CssClass="d-block text-white p-2 mb-2 bg-default rounded shadow-sm post-block-title text-center text-uppercase" Style="font-size: 2rem"></asp:HyperLink>
+                    <asp:HyperLink ID="postsName" runat="server" CssClass="d-block bg-white rounded shadow-sm text-center text-default text-uppercase p-2 my-2 px-md-1 page-name"></asp:HyperLink>
                 </div>
             </div>
             <div class="row">

@@ -26,7 +26,7 @@ namespace PublicCouncilBackEnd.subsite
             DataTable dt = SQL.SELECT(getSerial);
 
             aboususInfo.Text = dt.Rows[0]["PC_ABOUT"].ToString();
-            pcName.Text = dt.Rows[0]["PC_NAME"].ToString();
+            //pcName.Text = dt.Rows[0]["PC_NAME"].ToString();
             dt = null;
 
         }

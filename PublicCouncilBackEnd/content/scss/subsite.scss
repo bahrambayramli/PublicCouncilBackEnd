@@ -7,6 +7,9 @@ $brand-color-6: #32325d;
 $backgroud-color-1: #f6f6f6;
 
 
+.main {
+    overflow: inherit !important;
+}
 
 .sub-container {
       width: 100%;
@@ -52,7 +55,6 @@ $backgroud-color-1: #f6f6f6;
                                     color: #ffffff;
                                     background-color: $brand-color-6;
                                     transition: all 0.3s ease-in;
-
                                     i,
                                     svg {
                                           transition: all 0.3s ease-in;
@@ -62,7 +64,6 @@ $backgroud-color-1: #f6f6f6;
                                           background-color: $brand-color-1;
                                           color: #ffffff;
                                           padding-left: 1rem;
-
                                           i,
                                           svg {
                                                 color: #ffffff !important;
@@ -293,8 +294,6 @@ $backgroud-color-1: #f6f6f6;
             height: 100%;
 
             .mainbar-header {
-                box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
-                padding: 1rem;
 
                 .mainbar-header-title {
                     font-size: 2rem;
@@ -318,19 +317,7 @@ $backgroud-color-1: #f6f6f6;
 
                 .mainbar-home {
                     height: 100%;
-                    
-
-                    .submb-right {
-                        .ngo-chairman {
-                            .chairman-info {
-                                .chairman-name {
-                                    font-weight: 600;
-                                    font-size: 1.2rem;
-                                    color: #163877;
-                                }
-                            }
-                        }
-                    }
+                   
                 }
             }
         }
