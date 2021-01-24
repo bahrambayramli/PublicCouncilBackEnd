@@ -6,7 +6,7 @@
         <ContentTemplate>
             <div class="row">
                 <div class="col-12 px-md-1">
-                    <asp:HyperLink ID="postsName" runat="server" CssClass="d-block text-default p-2 my-2 bg-white rounded shadow-sm post-block-title text-center text-uppercase px-md-1 page-name"></asp:HyperLink>
+                    <asp:HyperLink ID="postsName" runat="server" CssClass="d-block bg-white rounded shadow-sm text-center text-default text-uppercase p-2 my-2  px-md-1 page-name"></asp:HyperLink>
                 </div>
             </div>
             <div class="row">
