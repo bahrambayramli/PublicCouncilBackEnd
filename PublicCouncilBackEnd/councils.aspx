@@ -2,14 +2,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
+
     <asp:UpdatePanel ID="COUNCIL_PANEL" runat="server" class="container-fluid p-0">
         <ContentTemplate>
             <div class="row">
                 <div class="col-12 px-md-1">
                     <asp:HyperLink 
                         ID="pcTitle" runat="server" 
-                        CssClass="d-block bg-white rounded shadow-sm text-center text-default text-uppercase p-2 my-2  px-md-1 page-name">
+                        CssClass="d-block bg-white rounded shadow-sm text-center text-default text-uppercase p-2 mb-2 px-md-1 page-name">
                     </asp:HyperLink>
                 </div>
             </div>
@@ -30,7 +32,6 @@
                 </div>
             </div>
             <div class="row">
-
                 <asp:ListView ID="PCLIST_AZ" runat="server" OnPagePropertiesChanging="POSTLIST_AZ_PagePropertiesChanging">
                     <ItemTemplate>
                         <div class="col-12 d-flex align-items-stretch px-md-1 mb-md-2">
@@ -72,8 +73,8 @@
                         <div class="col-12 d-flex align-items-stretch px-md-1 mb-md-2">
                             <div class="h5 w-100 bg-white shadow font-weight-bold text-default text-wrap p-2 p-md-3 rounded ">
 
-                                <a href="http://<%#Eval("USER_PCDOMAIN")%>.ictimaishura.az" title="<%#Eval("PC_NAME")%>" target="_blank" class="d-block text-default">
-                                    <%#Eval("PC_NAME")%>
+                                <a href="http://<%#Eval("USER_PCDOMAIN")%>.ictimaishura.az" title="<%#Eval("PC_NAME_EN")%>" target="_blank" class="d-block text-default">
+                                    <%#Eval("PC_NAME_EN")%>
                                 </a>
 
                                 <hr class="my-1 w-100">
