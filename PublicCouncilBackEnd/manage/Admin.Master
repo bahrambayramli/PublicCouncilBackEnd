@@ -32,6 +32,14 @@
             white-space: normal;
             padding: 0.5rem !important;
         }
+
+        .reset-padding {
+            padding: 0px !important;
+        }
+
+        .reset-marging {
+            margin: 0px !important;
+        }
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>

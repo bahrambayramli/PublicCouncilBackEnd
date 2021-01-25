@@ -94,31 +94,34 @@ namespace PublicCouncilBackEnd.manage
             SqlDataAdapter getPC =
                 new SqlDataAdapter(
                     new SqlCommand(@"SELECT 
-                                                                               ISACTIVE,
-                                                                               USER_MEMBERSHIP,
-                                                                               USER_MEMBERSHIP_TYPE,
-                                                                               USER_LOGIN,
-                                                                               USER_PASSWORD,
-                                                                               USER_SERIAL,
-                                                                               USER_PCDOMAIN,
-                                                                               USER_NAME,
-                                                                               USER_SURNAME,
-                                                                               USER_MOBILE,
-                                                                               PC_NAME,
-                                                                               PC_TELEPHONE,
-                                                                               PC_EMAIL,
-                                                                               PC_WEBADDRESS,
-                                                                               PC_COUNTRY,
-                                                                               PC_CITY,
-                                                                               CREATED_DATE,
-                                                                               PC_CATEGORY,
-                                                                               PC_ABOUT,
-                                                                               PC_ORDER_NUMBER
+                                                                               ISACTIVE             ,
+                                                                               USER_MEMBERSHIP      ,
+                                                                               USER_MEMBERSHIP_TYPE ,
+                                                                               USER_LOGIN           ,
+                                                                               USER_PASSWORD        ,
+                                                                               USER_SERIAL          ,
+                                                                               USER_PCDOMAIN        ,
+                                                                               USER_NAME            ,
+                                                                               USER_SURNAME         ,
+                                                                               USER_MOBILE          ,
+                                                                               PC_NAME              ,
+                                                                               PC_TELEPHONE         ,
+                                                                               PC_EMAIL             ,
+                                                                               PC_WEBADDRESS        ,
+                                                                               PC_COUNTRY           ,
+                                                                               PC_CITY              ,
+                                                                               CREATED_DATE         ,
+                                                                               PC_CATEGORY          ,
+                                                                               PC_ABOUT             ,
+                                                                               PC_ORDER_NUMBER      ,
+                                                                               PC_NAME_EN           ,
+                                                                               USER_NAME_EN         ,
+                                                                               USER_SURNAME_EN
 
                                                                                FROM PC_USERS
 
                                                                                WHERE 
-                                                                                USER_ID      = @USER_ID "));
+                                                                               USER_ID      = @USER_ID "));
 
             getPC.SelectCommand.Parameters.Add("@USER_ID", SqlDbType.Int).Value = USER_ID;
 
@@ -186,6 +189,13 @@ namespace PublicCouncilBackEnd.manage
 
             inputAboutUs.Text = pc.Rows[0]["PC_ABOUT"].ToString();
 
+            inputPCname_En.Text = pc.Rows[0]["PC_NAME_EN"].ToString();
+
+            inputName_En.Text = pc.Rows[0]["USER_NAME_EN"].ToString();
+
+            inputSurname_En.Text = pc.Rows[0]["USER_SURNAME_EN"].ToString();
+
+
             GetLogos(pc.Rows[0]["USER_SERIAL"].ToString(), false);
 
         }
@@ -218,7 +228,10 @@ namespace PublicCouncilBackEnd.manage
                                                          PC_ABOUT,
                                                          CREATED_DATE,
                                                          PC_CATEGORY,
-                                                         PC_ORDER_NUMBER
+                                                         PC_ORDER_NUMBER,
+                                                         PC_NAME_EN,
+                                                         USER_NAME_EN,
+                                                         USER_SURNAME_EN
 	                                                    )
                                                   VALUES
                                                         (
@@ -243,7 +256,10 @@ namespace PublicCouncilBackEnd.manage
                                                          @PC_ABOUT,
                                                          @CREATED_DATE,
                                                          @PC_CATEGORY,
-                                                         @PC_ORDER_NUMBER
+                                                         @PC_ORDER_NUMBER,
+                                                         @PC_NAME_EN,
+                                                         @USER_NAME_EN,
+                                                         @USER_SURNAME_EN
 
                                                         
 	                                                	   )");
@@ -292,7 +308,9 @@ namespace PublicCouncilBackEnd.manage
             insertUser.Parameters.Add("@CREATED_DATE", SqlDbType.Date).Value = createdDate.ToString(); ;
             insertUser.Parameters.Add("@PC_CATEGORY", SqlDbType.NVarChar).Value = categorySelect.SelectedValue;
 
-
+            insertUser.Parameters.Add("@PC_NAME_EN", SqlDbType.NVarChar).Value      = inputPCname_En.Text;
+            insertUser.Parameters.Add("@USER_NAME_EN", SqlDbType.NVarChar).Value    = inputName_En.Text;
+            insertUser.Parameters.Add("@USER_SURNAME_EN", SqlDbType.NVarChar).Value = inputSurname_En.Text;
 
             SQL.COMMAND(insertUser);
             #endregion
@@ -315,6 +333,7 @@ namespace PublicCouncilBackEnd.manage
                                                          ISACTIVE              = @ISACTIVE              ,                                                      
                                                          USER_MEMBERSHIP       = @USER_MEMBERSHIP       ,
                                                          USER_MEMBERSHIP_TYPE  = @USER_MEMBERSHIP_TYPE  ,
+                                                         USER_LOGIN            = @USER_LOGIN            ,
                                                          USER_PASSWORD         = @USER_PASSWORD         ,
                                                          USER_PCDOMAIN         = @USER_PCDOMAIN         ,
                                                          USER_NAME             = @USER_NAME             ,
@@ -327,8 +346,13 @@ namespace PublicCouncilBackEnd.manage
                                                          PC_CITY               = @PC_CITY               ,
                                                          PC_CATEGORY           = @PC_CATEGORY           ,
 	                                                     PC_ABOUT              = @PC_ABOUT              ,
-                                                         PC_ORDER_NUMBER       = @PC_ORDER_NUMBER              
-                                                         WHERE USER_ID = @USER_ID
+                                                         PC_ORDER_NUMBER       = @PC_ORDER_NUMBER       ,
+                                                         PC_NAME_EN            = @PC_NAME_EN            ,
+                                                         USER_NAME_EN          = @USER_NAME_EN          ,
+                                                         USER_SURNAME_EN       = @USER_SURNAME_EN
+
+
+                                                         WHERE USER_ID         = @USER_ID
                                                         
 	                                                	   ");
                 string pass = Crypto.MD5crypt(inputPassword.Text);
@@ -342,7 +366,7 @@ namespace PublicCouncilBackEnd.manage
                                                          ISACTIVE              = @ISACTIVE              , 
                                                          USER_MEMBERSHIP       = @USER_MEMBERSHIP       ,
                                                          USER_MEMBERSHIP_TYPE  = @USER_MEMBERSHIP_TYPE  ,
-                                                    
+                                                         USER_LOGIN            = @USER_LOGIN            ,
                                                          USER_PCDOMAIN         = @USER_PCDOMAIN         ,
                                                          USER_NAME             = @USER_NAME             ,
                                                          USER_SURNAME          = @USER_SURNAME          ,
@@ -354,7 +378,11 @@ namespace PublicCouncilBackEnd.manage
                                                          PC_CITY               = @PC_CITY               ,                                                       
                                                          PC_CATEGORY           = @PC_CATEGORY           ,
 	                                                     PC_ABOUT              = @PC_ABOUT              ,
-                                                         PC_ORDER_NUMBER       = @PC_ORDER_NUMBER        
+                                                         PC_ORDER_NUMBER       = @PC_ORDER_NUMBER       ,
+                                                         PC_NAME_EN            = @PC_NAME_EN            ,
+                                                         USER_NAME_EN          = @USER_NAME_EN          ,
+                                                         USER_SURNAME_EN       = @USER_SURNAME_EN
+
                                                          WHERE USER_ID = @USER_ID
                                                         
 	                                                	   ");
@@ -372,23 +400,25 @@ namespace PublicCouncilBackEnd.manage
                 updateUser.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = false;
             }
 
-            updateUser.Parameters.Add("@USER_MEMBERSHIP", SqlDbType.NVarChar).Value = "pc";
-            updateUser.Parameters.Add("@PC_ORDER_NUMBER", SqlDbType.Int).Value = inputOrderNumber.Text;
-            updateUser.Parameters.Add("@USER_MEMBERSHIP_TYPE", SqlDbType.NVarChar).Value = inputMembershipType.SelectedValue;
-            
-            updateUser.Parameters.Add("@USER_PCDOMAIN", SqlDbType.NVarChar).Value = inputPCdomain.Text;
-            updateUser.Parameters.Add("@USER_NAME", SqlDbType.NVarChar).Value = inputName.Text;
-            updateUser.Parameters.Add("@USER_SURNAME", SqlDbType.NVarChar).Value = inputSurname.Text;
-            updateUser.Parameters.Add("@PC_NAME", SqlDbType.NVarChar).Value = inputPCname.Text;
-            updateUser.Parameters.Add("@PC_TELEPHONE", SqlDbType.NVarChar).Value = inputTelephone.Text;
-            updateUser.Parameters.Add("@USER_MOBILE", SqlDbType.NVarChar).Value = inputMobile.Text;
-            updateUser.Parameters.Add("@PC_EMAIL", SqlDbType.NVarChar).Value = inputEmail.Text;
-            updateUser.Parameters.Add("@PC_WEBADDRESS", SqlDbType.NVarChar).Value = inputWeb.Text;
-            updateUser.Parameters.Add("@PC_CITY", SqlDbType.NVarChar).Value = inputCity.SelectedItem.Text;
-            updateUser.Parameters.Add("@PC_CATEGORY", SqlDbType.NVarChar).Value = categorySelect.SelectedValue;
-            updateUser.Parameters.Add("@PC_ABOUT", SqlDbType.NVarChar).Value = inputAboutUs.Text;
+            updateUser.Parameters.Add("@USER_MEMBERSHIP", SqlDbType.NVarChar).Value         = "pc";
+            updateUser.Parameters.Add("@PC_ORDER_NUMBER", SqlDbType.Int).Value              = inputOrderNumber.Text;
+            updateUser.Parameters.Add("@USER_MEMBERSHIP_TYPE", SqlDbType.NVarChar).Value    = inputMembershipType.SelectedValue;
+            updateUser.Parameters.Add("@USER_LOGIN", SqlDbType.NVarChar).Value              = inputLoginName.Text;
+            updateUser.Parameters.Add("@USER_PCDOMAIN", SqlDbType.NVarChar).Value           = inputPCdomain.Text;
+            updateUser.Parameters.Add("@USER_NAME", SqlDbType.NVarChar).Value               = inputName.Text;
+            updateUser.Parameters.Add("@USER_SURNAME", SqlDbType.NVarChar).Value            = inputSurname.Text;
+            updateUser.Parameters.Add("@PC_NAME", SqlDbType.NVarChar).Value                 = inputPCname.Text;
+            updateUser.Parameters.Add("@PC_TELEPHONE", SqlDbType.NVarChar).Value            = inputTelephone.Text;
+            updateUser.Parameters.Add("@USER_MOBILE", SqlDbType.NVarChar).Value             = inputMobile.Text;
+            updateUser.Parameters.Add("@PC_EMAIL", SqlDbType.NVarChar).Value                = inputEmail.Text;
+            updateUser.Parameters.Add("@PC_WEBADDRESS", SqlDbType.NVarChar).Value           = inputWeb.Text;
+            updateUser.Parameters.Add("@PC_CITY", SqlDbType.NVarChar).Value                 = inputCity.SelectedItem.Text;
+            updateUser.Parameters.Add("@PC_CATEGORY", SqlDbType.NVarChar).Value             = categorySelect.SelectedValue;
+            updateUser.Parameters.Add("@PC_ABOUT", SqlDbType.NVarChar).Value                = inputAboutUs.Text;
 
-
+            updateUser.Parameters.Add("@PC_NAME_EN", SqlDbType.NVarChar).Value              = inputPCname_En.Text;
+            updateUser.Parameters.Add("@USER_NAME_EN", SqlDbType.NVarChar).Value            = inputName_En.Text;
+            updateUser.Parameters.Add("@USER_SURNAME_EN", SqlDbType.NVarChar).Value         = inputSurname_En.Text;
 
             SQL.COMMAND(updateUser);
             #endregion

@@ -117,26 +117,98 @@
                                     </div>
                                 </asp:Panel>
 
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="container-fluid row" style="padding:0 !important">
+                                            <div class="col-12">
+                                                <div class="nav-wrapper">
+                                                    <ul class="nav nav-pills nav-fill flex-column flex-md-row"
+                                                        id="tabs-pc-userinfo" role="tablist">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link mb-sm-3 mb-md-0 active"
+                                                                id="tabs-pc-userinfo-tab-1" data-toggle="tab"
+                                                                href="#pc-user-az" role="tab"
+                                                                aria-controls="tabs-pc-userinfo-tab-1"
+                                                                aria-selected="true">Az</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link mb-sm-3 mb-md-0"
+                                                                id="tabs-pc-userinfo-tab-2" data-toggle="tab"
+                                                                href="#pc-user-en" role="tab"
+                                                                aria-controls="tabs-pc-userinfo-tab-2"
+                                                                aria-selected="false">En</a>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="tab-content" id="myTabContent2">
+                                                    <div class="tab-pane fade show active" id="pc-user-az" role="tabpanel" aria-labelledby="tabs-pc-userinfo-tab-1">
+                                                        <div class="container-fluid" style="padding: 0 !important">
+                                                            <div class="row">
+
+                                                                <div class="col-12 col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="mainlayout_inputName">Ad</label>
+                                                                        <asp:TextBox ID="inputName" runat="server" CssClass="form-control"></asp:TextBox>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-12 col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="mainlayout_inputSurname">Soyad</label>
+                                                                        <asp:TextBox ID="inputSurname" runat="server" CssClass="form-control"></asp:TextBox>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-12">
+                                                                    <div class="form-group">
+                                                                        <label for="mainlayout_inputPCname">İctimai şuranın adı</label>
+                                                                        <asp:TextBox ID="inputPCname" runat="server" CssClass="form-control"></asp:TextBox>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="pc-user-en" role="tabpanel" aria-labelledby="tabs-pc-userinfo-tab-2">
+                                                        <div class="container-fluid" style="padding: 0 !important">
+                                                            <div class="row">
+
+                                                                <div class="col-12 col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="mainlayout_inputName_En">Ad - En</label>
+                                                                        <asp:TextBox ID="inputName_En" runat="server" CssClass="form-control"></asp:TextBox>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-12 col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="mainlayout_inputSurname_En">Soyad - En</label>
+                                                                        <asp:TextBox ID="inputSurname_En" runat="server" CssClass="form-control"></asp:TextBox>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-12">
+                                                                    <div class="form-group">
+                                                                        <label for="mainlayout_inputPCname_En">İctimai şuranın adı - En</label>
+                                                                        <asp:TextBox ID="inputPCname_En" runat="server" CssClass="form-control"></asp:TextBox>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="row">                                    
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-group">
-                                            <label for="mainlayout_inputName">Ad</label>
-                                            <asp:TextBox ID="inputName" runat="server" CssClass="form-control"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-group">
-                                            <label for="mainlayout_inputSurname">Soyad</label>
-                                            <asp:TextBox ID="inputSurname" runat="server" CssClass="form-control"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-group">
-                                            <label for="mainlayout_inputPCname">İctimai şuranın adı</label>
-                                            <asp:TextBox ID="inputPCname" runat="server" CssClass="form-control"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 col-md-6">
+
+                                    <div class="col-12">
                                         <div class="form-group">
                                             <label for="mainlayout_inputPCdomain">İctimai şuranın domain adı</label>
                                             <asp:TextBox ID="inputPCdomain" runat="server" CssClass="form-control"></asp:TextBox>

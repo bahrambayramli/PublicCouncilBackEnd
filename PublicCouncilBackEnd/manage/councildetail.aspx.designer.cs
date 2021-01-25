@@ -123,6 +123,33 @@ namespace PublicCouncilBackEnd.manage
         protected global::System.Web.UI.WebControls.TextBox inputPCname;
 
         /// <summary>
+        /// inputName_En control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputName_En;
+
+        /// <summary>
+        /// inputSurname_En control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputSurname_En;
+
+        /// <summary>
+        /// inputPCname_En control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputPCname_En;
+
+        /// <summary>
         /// inputPCdomain control.
         /// </summary>
         /// <remarks>
