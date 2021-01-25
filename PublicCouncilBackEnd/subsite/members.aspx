@@ -6,9 +6,42 @@
         <ContentTemplate>
             <div class="row">
                 <div class="col-12 px-md-1">
-                    <asp:HyperLink ID="pageName" runat="server" CssClass="d-block bg-white rounded shadow-sm text-center text-default text-uppercase p-2 my-2 px-md-1 page-name"></asp:HyperLink>
+                    <asp:HyperLink ID="pageName" runat="server" CssClass="d-block bg-white rounded shadow-sm text-center text-default text-uppercase p-2 mb-2 px-md-1 page-name"></asp:HyperLink>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="table-responsive py-2">
+                        <asp:GridView
+                            ID="MemberList"
+                            runat="server"
+                            Width="100%"
+                            CssClass="table"
+                            OnRowCreated="MemberList_RowCreated"
+                            CellPadding="3"
+                            ForeColor="#333333"
+                            GridLines="None"
+                            AllowPaging="True"
+                            OnPageIndexChanging="MemberList_PageIndexChanging"
+                            OnSelectedIndexChanged="MemberList_SelectedIndexChanged">
+                            <AlternatingRowStyle BackColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
+
+                            <EditRowStyle BackColor="#2461BF" HorizontalAlign="Center" VerticalAlign="Middle" />
+                            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#32325d" Font-Bold="True" ForeColor="#ffffff" HorizontalAlign="Center" VerticalAlign="Middle" />
+                            <PagerStyle BackColor="#A641B9" ForeColor="White" HorizontalAlign="Center" Font-Size="Large" VerticalAlign="Middle" />
+                            <RowStyle BackColor="#EFF3FB" HorizontalAlign="Center" VerticalAlign="Middle" />
+                            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                        </asp:GridView>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <asp:ListView ID="MEMBERS_AZ" runat="server" OnPagePropertiesChanging="MEMBERS_AZ_PagePropertiesChanging">
                     <ItemTemplate>

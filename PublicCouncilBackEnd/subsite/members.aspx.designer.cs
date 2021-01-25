@@ -33,6 +33,15 @@ namespace PublicCouncilBackEnd.subsite
         protected global::System.Web.UI.WebControls.HyperLink pageName;
 
         /// <summary>
+        /// MemberList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView MemberList;
+
+        /// <summary>
         /// MEMBERS_AZ control.
         /// </summary>
         /// <remarks>

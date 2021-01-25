@@ -11,6 +11,85 @@ namespace PublicCouncilBackEnd.subsite
 {
     public partial class WebForm10 : System.Web.UI.Page
     {
+
+        private void GetMembers(String LANG, string PC_ID, bool ISDELETE, GridView GRID)
+        {
+          
+           
+            SqlDataAdapter getMembers;
+
+            switch (LANG)
+            {
+                case "az":
+                    {
+                        getMembers = new SqlDataAdapter(new SqlCommand(@"SELECT ROW_NUMBER() OVER(ORDER BY MEMBER_ORDER_NUMBER ASC) AS '#' ,
+
+                                                                                
+                                                                                  MEMBER_NAME AS 'Ad',
+                                                                                  MEMBER_SURNAME AS 'Soyad',
+                                                                                  MEMBER_POSITION AS 'Vəzifə'
+
+
+                                                                            FROM PC_MEMBERS
+
+                                                                            WHERE ISDELETE     = @ISDELETE AND
+                                                                                  PC_ID        = @PC_ID"));
+
+                        getMembers.SelectCommand.Parameters.Add("@PC_ID", SqlDbType.Int).Value    = PC_ID;
+                        getMembers.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
+
+                        MemberList.DataSource = SQL.SELECT(getMembers);
+                        MemberList.DataBind();
+                        break;
+                    }
+                case "en":
+                    {
+                        getMembers = new SqlDataAdapter(new SqlCommand(@"SELECT ROW_NUMBER() OVER(ORDER BY MEMBER_ORDER_NUMBER ASC) AS '#' ,
+
+                                                                                 
+                                                                                  MEMBER_NAME_EN AS 'Name',
+                                                                                  MEMBER_SURNAME_EN AS 'Surname',
+                                                                                  MEMBER_POSITION_EN AS 'Position'
+                                                                                 
+
+                                                                            FROM PC_MEMBERS
+
+                                                                            WHERE ISDELETE     = @ISDELETE AND
+                                                                                  PC_ID        = @PC_ID"));
+
+                        getMembers.SelectCommand.Parameters.Add("@PC_ID", SqlDbType.Int).Value = PC_ID;
+                        getMembers.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
+
+                        MemberList.DataSource = SQL.SELECT(getMembers);
+                        MemberList.DataBind();
+                        break;
+                    }
+                default:
+                    {
+                        getMembers = new SqlDataAdapter(new SqlCommand(@"SELECT ROW_NUMBER() OVER(ORDER BY MEMBER_ORDER_NUMBER ASC) AS '#' ,
+
+                                                                                
+                                                                                  MEMBER_NAME AS 'Ad',
+                                                                                  MEMBER_SURNAME AS 'Soyad',
+                                                                                  MEMBER_POSITION AS 'Vəzifə'
+
+                                                                            FROM PC_MEMBERS
+
+                                                                            WHERE ISDELETE     = @ISDELETE AND
+                                                                                  PC_ID        = @PC_ID"));
+
+                        getMembers.SelectCommand.Parameters.Add("@PC_ID", SqlDbType.Int).Value = PC_ID;
+                        getMembers.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
+
+                        MemberList.DataSource = SQL.SELECT(getMembers);
+                        MemberList.DataBind();
+                        break;
+                    }
+            }
+
+            getMembers = null;
+        }
+
         private void GetMembers(string LANG, string PC_ID, bool ISDELETE, bool ISACTIVE,ListView LSV_AZ, ListView LSV_EN)
         {
             SqlDataAdapter getMembers = new SqlDataAdapter();
@@ -55,7 +134,7 @@ namespace PublicCouncilBackEnd.subsite
                                                                                     MEMBER_NAME_EN,
                                                                                     MEMBER_SURNAME_EN,
                                                                                     MEMBER_IMAGE,
-                                                                                    MEMBER_POSITION
+                                                                                    MEMBER_POSITION_EN
 
 
                                                                             FROM PC_MEMBERS
@@ -108,28 +187,54 @@ namespace PublicCouncilBackEnd.subsite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            switch (Convert.ToString(Page.RouteData.Values["language"]).ToLower())
+            try
             {
-                case "az":
-                    {
-                        pageName.Text = "Üzvlər";
-                        break;
-                    }
-                case "en":
-                    {
-                        pageName.Text = "Members";
-                        break;
-                    }
-                default:
-                    {
-                        pageName.Text = "Üzvlər";
-                        break;
-                    }
+                switch (Convert.ToString(Page.RouteData.Values["language"]).ToLower())
+                {
+                    case "az":
+                        {
+                            pageName.Text = "Üzvlər";
+                            break;
+                        }
+                    case "en":
+                        {
+                            pageName.Text = "Members";
+                            break;
+                        }
+                    default:
+                        {
+                            pageName.Text = "Üzvlər";
+                            break;
+                        }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", ex.Message);
 
             }
-            GetMembers(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Session["PC_USER_ID"] as string, false, true, MEMBERS_AZ, MEMBERS_EN);
-        }
 
+            try
+            {
+                GetMembers(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Session["PC_USER_ID"] as string, false, MemberList);
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", ex.Message);
+
+            }
+
+            try
+            {
+                GetMembers(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Session["PC_USER_ID"] as string, false, true, MEMBERS_AZ, MEMBERS_EN);
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", ex.Message);
+
+            }
+        }
 
 
         protected void MEMBERS_AZ_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
@@ -168,6 +273,24 @@ namespace PublicCouncilBackEnd.subsite
                 DataPager_EN.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
             }
             GetMembers(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Session["PC_USER_ID"] as string, false, true, MEMBERS_AZ, MEMBERS_EN);
+
+        }
+
+
+        protected void MemberList_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            e.Row.Cells[0].Width = new Unit("20px");
+            e.Row.Cells[1].Width = new Unit("200px");
+            e.Row.Cells[2].Width = new Unit("200px");
+        }
+
+        protected void MemberList_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+
+        }
+
+        protected void MemberList_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

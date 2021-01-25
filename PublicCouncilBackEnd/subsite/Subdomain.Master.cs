@@ -420,7 +420,6 @@ namespace PublicCouncilBackEnd.subsite
             }
         }
 
-
         private void GetLatest(string LANGUAGE, string POST_COUNT, string POST_CATEGORY, bool POST_ISDELETE, bool POST_ISACTIVE, string POST_AUTHOR , ListView LSV_AZ, ListView LSV_EN)
         {
             SqlDataAdapter getPost = new SqlDataAdapter();
@@ -566,9 +565,6 @@ namespace PublicCouncilBackEnd.subsite
         }
 
        
-
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -581,28 +577,25 @@ namespace PublicCouncilBackEnd.subsite
             catch (Exception ex)
             {
                 Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", ex.Message);
-                throw;
             }
 
             try
             {
-             GetLogos();
-            Navigation();
-            SiteLanguage();
-            GetSponsors();
-            GetLatest(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "4", "news", false, true,Session["pcsubsite"] as string, LATEST_AZ, LATEST_EN);
-
-          
-
+                GetLogos();
+                Navigation();
+                SiteLanguage();
+                GetSponsors();
+                GetLatest(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "4", "news", false, true,Session["pcsubsite"] as string, LATEST_AZ, LATEST_EN);
             }
             catch (Exception ex)
             {
-                string suburl = HttpContext.Current.Request.Url.ToString()
-                    .Substring(0, HttpContext.Current.Request.Url.ToString().IndexOf("."))
-                    .Replace("http://", string.Empty);
+
                 Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", ex.Message);
-                Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", suburl);
-                throw;
+                //string suburl = HttpContext.Current.Request.Url.ToString()
+                //    .Substring(0, HttpContext.Current.Request.Url.ToString().IndexOf("."))
+                //    .Replace("http://", string.Empty);
+                //Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", suburl);
+
             }
 
         }
