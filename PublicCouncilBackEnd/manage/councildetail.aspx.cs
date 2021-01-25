@@ -13,7 +13,7 @@ namespace PublicCouncilBackEnd.manage
 {
     public partial class WebForm11 : System.Web.UI.Page
     {
-
+        #region(Helper functions)
         public void MadeImage(FileUpload fl, string imgName, int width, int height)
         {
 
@@ -45,9 +45,9 @@ namespace PublicCouncilBackEnd.manage
             NeticeImage.Save(Server.MapPath("/Images/logos/" + imgName), System.Drawing.Imaging.ImageFormat.Jpeg);//Jpeg formatina kecirdirem
             NeticeImage.Dispose();
         }
+        #endregion
 
         #region(SQL FUNCTIONS)
-
 
         private bool CheckAccount(string login, string subdomain, bool ISDELETE)
         {
@@ -83,6 +83,7 @@ namespace PublicCouncilBackEnd.manage
 
 
         }
+
         private string GetDate()
         {
             SqlDataAdapter adapter = new SqlDataAdapter(new SqlCommand("SELECT FORMAT (SYSDATETIME() ,'dd/MM/yyyy HH:mm' ) as DataTime"));
@@ -165,40 +166,41 @@ namespace PublicCouncilBackEnd.manage
                 }
             }
 
-            inputOrderNumber.Text = pc.Rows[0]["PC_ORDER_NUMBER"].ToString();
+            inputOrderNumber.Text       = pc.Rows[0]["PC_ORDER_NUMBER"].ToString();
             
-            inputLoginName.Text = pc.Rows[0]["USER_LOGIN"].ToString().ToLower();
+            inputLoginName.Text         = pc.Rows[0]["USER_LOGIN"].ToString().ToLower();
 
-            inputPCdomain.Text = pc.Rows[0]["USER_PCDOMAIN"].ToString().ToLower();
+            inputPCdomain.Text          = pc.Rows[0]["USER_PCDOMAIN"].ToString().ToLower();
 
-            inputName.Text = pc.Rows[0]["USER_NAME"].ToString().ToLower();
+            inputName.Text              = pc.Rows[0]["USER_NAME"].ToString().ToLower();
 
-            inputSurname.Text = pc.Rows[0]["USER_SURNAME"].ToString().ToLower();
+            inputSurname.Text           = pc.Rows[0]["USER_SURNAME"].ToString().ToLower();
 
-            inputLoginName.Text = pc.Rows[0]["USER_LOGIN"].ToString().ToLower();
+            inputLoginName.Text         = pc.Rows[0]["USER_LOGIN"].ToString().ToLower();
 
-            inputEmail.Text = pc.Rows[0]["PC_EMAIL"].ToString().ToLower();
+            inputEmail.Text             = pc.Rows[0]["PC_EMAIL"].ToString().ToLower();
 
-            inputMobile.Text = pc.Rows[0]["USER_MOBILE"].ToString().ToLower();
+            inputMobile.Text            = pc.Rows[0]["USER_MOBILE"].ToString().ToLower();
 
-            inputTelephone.Text = pc.Rows[0]["PC_TELEPHONE"].ToString().ToLower();
+            inputTelephone.Text         = pc.Rows[0]["PC_TELEPHONE"].ToString().ToLower();
 
-            inputWeb.Text = pc.Rows[0]["PC_WEBADDRESS"].ToString().ToLower();
+            inputWeb.Text               = pc.Rows[0]["PC_WEBADDRESS"].ToString().ToLower();
 
-            inputPCname.Text = pc.Rows[0]["PC_NAME"].ToString();
+            inputPCname.Text            = pc.Rows[0]["PC_NAME"].ToString();
 
-            inputAboutUs.Text = pc.Rows[0]["PC_ABOUT"].ToString();
+            inputAboutUs.Text           = pc.Rows[0]["PC_ABOUT"].ToString();
 
-            inputPCname_En.Text = pc.Rows[0]["PC_NAME_EN"].ToString();
+            inputPCname_En.Text         = pc.Rows[0]["PC_NAME_EN"].ToString();
 
-            inputName_En.Text = pc.Rows[0]["USER_NAME_EN"].ToString();
+            inputName_En.Text           = pc.Rows[0]["USER_NAME_EN"].ToString();
 
-            inputSurname_En.Text = pc.Rows[0]["USER_SURNAME_EN"].ToString();
+            inputSurname_En.Text        = pc.Rows[0]["USER_SURNAME_EN"].ToString();
 
 
             GetLogos(pc.Rows[0]["USER_SERIAL"].ToString(), false);
 
         }
+
         private void InsertUser()
         {
             Session["NEW_USER_SERIAL"] = Helper.MakeSerial();
@@ -287,40 +289,41 @@ namespace PublicCouncilBackEnd.manage
             {
                 insertUser.Parameters.Add("@PC_ORDER_NUMBER", SqlDbType.Int).Value = "0";
             }
-            insertUser.Parameters.Add("@USER_MEMBERSHIP_TYPE", SqlDbType.NVarChar).Value = inputMembershipType.SelectedValue;
-            insertUser.Parameters.Add("@USER_LOGIN", SqlDbType.NVarChar).Value = inputLoginName.Text;
-            insertUser.Parameters.Add("@USER_PASSWORD", SqlDbType.NVarChar).Value = Crypto.MD5crypt(inputPassword.Text);
-            insertUser.Parameters.Add("@USER_SERIAL", SqlDbType.NVarChar).Value = Session["NEW_USER_SERIAL"] as string;
-            insertUser.Parameters.Add("@USER_PCDOMAIN", SqlDbType.NVarChar).Value = inputPCdomain.Text;
-            insertUser.Parameters.Add("@USER_NAME", SqlDbType.NVarChar).Value = inputName.Text;
-            insertUser.Parameters.Add("@USER_SURNAME", SqlDbType.NVarChar).Value = inputSurname.Text;
-            insertUser.Parameters.Add("@PC_NAME", SqlDbType.NVarChar).Value = inputPCname.Text;
 
-            insertUser.Parameters.Add("@PC_TELEPHONE", SqlDbType.NVarChar).Value = inputTelephone.Text;
-            insertUser.Parameters.Add("@USER_MOBILE", SqlDbType.NVarChar).Value = inputMobile.Text;
-            insertUser.Parameters.Add("@PC_EMAIL", SqlDbType.NVarChar).Value = inputEmail.Text;
-            insertUser.Parameters.Add("@PC_WEBADDRESS", SqlDbType.NVarChar).Value = inputWeb.Text;
-            insertUser.Parameters.Add("@PC_COUNTRY", SqlDbType.NVarChar).Value = "Azərbaycan";
-            insertUser.Parameters.Add("@PC_CITY", SqlDbType.NVarChar).Value = inputCity.SelectedItem.Text;
-            insertUser.Parameters.Add("@PC_ABOUT", SqlDbType.NVarChar).Value = inputAboutUs.Text;
+            insertUser.Parameters.Add("@USER_MEMBERSHIP_TYPE", SqlDbType.NVarChar).Value                = inputMembershipType.SelectedValue;
+            insertUser.Parameters.Add("@USER_LOGIN", SqlDbType.NVarChar).Value                          = inputLoginName.Text;
+            insertUser.Parameters.Add("@USER_PASSWORD", SqlDbType.NVarChar).Value                       = Crypto.MD5crypt(inputPassword.Text);
+            insertUser.Parameters.Add("@USER_SERIAL", SqlDbType.NVarChar).Value                         = Session["NEW_USER_SERIAL"] as string;
+            insertUser.Parameters.Add("@USER_PCDOMAIN", SqlDbType.NVarChar).Value                       = inputPCdomain.Text;
+            insertUser.Parameters.Add("@USER_NAME", SqlDbType.NVarChar).Value                           = inputName.Text;
+            insertUser.Parameters.Add("@USER_SURNAME", SqlDbType.NVarChar).Value                        = inputSurname.Text;
+            insertUser.Parameters.Add("@PC_NAME", SqlDbType.NVarChar).Value                             = inputPCname.Text;
+
+            insertUser.Parameters.Add("@PC_TELEPHONE", SqlDbType.NVarChar).Value                        = inputTelephone.Text;
+            insertUser.Parameters.Add("@USER_MOBILE", SqlDbType.NVarChar).Value                         = inputMobile.Text;
+            insertUser.Parameters.Add("@PC_EMAIL", SqlDbType.NVarChar).Value                            = inputEmail.Text;
+            insertUser.Parameters.Add("@PC_WEBADDRESS", SqlDbType.NVarChar).Value                       = inputWeb.Text;
+            insertUser.Parameters.Add("@PC_COUNTRY", SqlDbType.NVarChar).Value                          = "Azərbaycan";
+            insertUser.Parameters.Add("@PC_CITY", SqlDbType.NVarChar).Value                             = inputCity.SelectedItem.Text;
+            insertUser.Parameters.Add("@PC_ABOUT", SqlDbType.NVarChar).Value                            = inputAboutUs.Text;
 
             DateTime createdDate = DateTime.ParseExact(GetDate(), "dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
-            insertUser.Parameters.Add("@CREATED_DATE", SqlDbType.Date).Value = createdDate.ToString(); ;
-            insertUser.Parameters.Add("@PC_CATEGORY", SqlDbType.NVarChar).Value = categorySelect.SelectedValue;
+            insertUser.Parameters.Add("@CREATED_DATE", SqlDbType.Date).Value                            = createdDate.ToString(); ;
+            insertUser.Parameters.Add("@PC_CATEGORY", SqlDbType.NVarChar).Value                         = categorySelect.SelectedValue;
 
-            insertUser.Parameters.Add("@PC_NAME_EN", SqlDbType.NVarChar).Value      = inputPCname_En.Text;
-            insertUser.Parameters.Add("@USER_NAME_EN", SqlDbType.NVarChar).Value    = inputName_En.Text;
-            insertUser.Parameters.Add("@USER_SURNAME_EN", SqlDbType.NVarChar).Value = inputSurname_En.Text;
+            insertUser.Parameters.Add("@PC_NAME_EN", SqlDbType.NVarChar).Value                          = inputPCname_En.Text;
+            insertUser.Parameters.Add("@USER_NAME_EN", SqlDbType.NVarChar).Value                        = inputName_En.Text;
+            insertUser.Parameters.Add("@USER_SURNAME_EN", SqlDbType.NVarChar).Value                     = inputSurname_En.Text;
 
             SQL.COMMAND(insertUser);
             #endregion
 
             InsertLogo(Session["NEW_USER_SERIAL"] as string);
         }
+
         private void UpdateUser(string USER_SERIAL,string USER_ID)
         {
            
-
             #region(Update)
 
             SqlCommand updateUser = new SqlCommand();
@@ -426,11 +429,10 @@ namespace PublicCouncilBackEnd.manage
             UpdateLogo(USER_SERIAL,USER_ID);
         }
 
-
         #endregion
 
-
         #region(LOGO)
+
         private void GetLogos(string LOGO_SERIAL, bool ISDELETE)
         {
             SqlDataAdapter getLogos = new SqlDataAdapter(new SqlCommand(@"SELECT 
@@ -455,6 +457,7 @@ namespace PublicCouncilBackEnd.manage
 
             //  Session["LOGOISACTIVE"] = DT.Rows[0]["ISACTIVE"].ToString();
         }
+
         private void InsertLogo(string USER_SERIAL)
         {
 
@@ -517,6 +520,7 @@ namespace PublicCouncilBackEnd.manage
 
 
         }
+
         private void UpdateLogo(string USER_SERIAL, string USER_ID)
         {
             //Update
@@ -571,7 +575,6 @@ namespace PublicCouncilBackEnd.manage
             SQL.COMMAND(updateLogo);
         }
 
-
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -583,11 +586,21 @@ namespace PublicCouncilBackEnd.manage
                 {
                     if (Session["USER_MEMBERSHIP_TYPE"] as string != "admin")
                     {
-                        PC_ORDER_BLOCK.Visible = false;
-                        PC_ISACTIVE_MEMBERSHIP_BLOCK.Visible = false;
+                        PC_ORDER_BLOCK.Visible                = false;
+                        PC_ISACTIVE_MEMBERSHIP_BLOCK.Visible  = false;
+                        PC_LOGIN_BLOCK.Visible                = false;
+                        PC_PASSWORD_BLOCK.CssClass            = "col-12";
 
                     }
-                    GetPCOUNCIL(Session["PC_ID"] as string);
+
+                    try
+                    {
+                        GetPCOUNCIL(Session["PC_ID"] as string);
+                    }
+                    catch 
+                    {
+                        
+                    }
 
                     try
                     {

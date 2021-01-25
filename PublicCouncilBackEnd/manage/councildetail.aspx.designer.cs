@@ -69,13 +69,13 @@ namespace PublicCouncilBackEnd.manage
         protected global::System.Web.UI.WebControls.DropDownList inputMembershipType;
 
         /// <summary>
-        /// PC_LOGIN_PASSWORD_BLOCK control.
+        /// PC_LOGIN_BLOCK control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PC_LOGIN_PASSWORD_BLOCK;
+        protected global::System.Web.UI.WebControls.Panel PC_LOGIN_BLOCK;
 
         /// <summary>
         /// inputLoginName control.
@@ -85,6 +85,15 @@ namespace PublicCouncilBackEnd.manage
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox inputLoginName;
+
+        /// <summary>
+        /// PC_PASSWORD_BLOCK control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PC_PASSWORD_BLOCK;
 
         /// <summary>
         /// inputPassword control.

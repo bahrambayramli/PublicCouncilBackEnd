@@ -99,27 +99,33 @@
                                     </div>
                                 </asp:Panel>
 
-                                <%-- PC login and password --%>
-                                <asp:Panel ID="PC_LOGIN_PASSWORD_BLOCK" runat="server" CssClass="row">
-                                    <div class="col-12 col-md-6">
+                                <%-- PC login--%>
+                                <div class="row">
+                                    <asp:Panel ID="PC_LOGIN_BLOCK" runat="server" CssClass="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="mainlayout_inputLoginName">Login</label>
                                             <asp:TextBox ID="inputLoginName" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
-                                    </div>
-                                    <div class="col-12 col-md-6">
+
+                                    </asp:Panel>
+                                    <asp:Panel ID="PC_PASSWORD_BLOCK" runat="server" CssClass="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="mainlayout_inputPassword">Şifrə</label>
                                             <asp:TextBox ID="inputPassword" runat="server" CssClass="form-control" TextMode="Password" autocomplete="false">
 
                                             </asp:TextBox>
                                         </div>
-                                    </div>
-                                </asp:Panel>
+                                    </asp:Panel>
+                                </div>
+                                
+
+                                <%-- PC password --%>
+                                
+
 
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="container-fluid row" style="padding:0 !important">
+                                        <div class="container-fluid row" style="padding: 0 !important">
                                             <div class="col-12">
                                                 <div class="nav-wrapper">
                                                     <ul class="nav nav-pills nav-fill flex-column flex-md-row"
@@ -206,7 +212,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row">                                    
+                                <div class="row">
 
                                     <div class="col-12">
                                         <div class="form-group">
@@ -380,7 +386,7 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-12">
-                                        <iframe id="memberIFRAME" src="/manage/members" runat="server" class="w-100" height="700px" ></iframe>
+                                        <iframe id="memberIFRAME" src="/manage/members" runat="server" class="w-100" style="height:700px"></iframe>
                                     </div>
                                 </div>
                             </div>
@@ -391,7 +397,7 @@
             </div>
         </div>
     </div>
-   
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             viewImage("managelayout_logoImage", "managelayout_logoFile", "customFile", "btnFile");

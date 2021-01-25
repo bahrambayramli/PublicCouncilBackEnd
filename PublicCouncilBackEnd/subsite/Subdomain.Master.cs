@@ -12,24 +12,78 @@ namespace PublicCouncilBackEnd.subsite
     public partial class Subdomain : System.Web.UI.MasterPage
     {
         
-        private string GetUserInfo(string USER_PCDOMAIN)
+        private void GetUserInfo(string LANG, string USER_PCDOMAIN)
         {
-            SqlDataAdapter getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT USER_SERIAL ,PC_NAME, USER_ID FROM PC_USERS 
+            SqlDataAdapter getSerial;
+            DataTable dt = null;
+
+            switch (LANG)
+            {
+                case "az":
+                    {
+
+                        getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT USER_SERIAL ,PC_NAME, USER_ID FROM PC_USERS 
                                                                                                  WHERE 
                                                                                                  ISDELETE      = @ISDELETE AND 
                                                                                                  ISACTIVE      = @ISACTIVE AND
                                                                                                  USER_PCDOMAIN = @USER_PCDOMAIN"));
-            getSerial.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
-            getSerial.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
-            getSerial.SelectCommand.Parameters.Add("@USER_PCDOMAIN", SqlDbType.NVarChar).Value = USER_PCDOMAIN;
+                        getSerial.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
+                        getSerial.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
+                        getSerial.SelectCommand.Parameters.Add("@USER_PCDOMAIN", SqlDbType.NVarChar).Value = USER_PCDOMAIN;
 
-            DataTable dt = SQL.SELECT(getSerial);
+                        dt = SQL.SELECT(getSerial);
 
-            Page.Title                      = dt.Rows[0]["PC_NAME"].ToString();
-            Session["PC_USER_ID"]           = dt.Rows[0]["USER_ID"].ToString();
-            pcName.Text                     = dt.Rows[0]["PC_NAME"].ToString();
+                        Page.Title                  = dt.Rows[0]["PC_NAME"].ToString();
+                        pcName.Text                 = dt.Rows[0]["PC_NAME"].ToString();
+                        Session["PC_USER_ID"]       = dt.Rows[0]["USER_ID"].ToString();
+                        Session["SUBSITE_SERIAL"]   = dt.Rows[0]["USER_SERIAL"].ToString();
 
-            return dt.Rows[0]["USER_SERIAL"].ToString(); ;
+                        break;
+                    }
+                case "en":
+                    {
+                        getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT USER_SERIAL ,PC_NAME_EN, USER_ID FROM PC_USERS 
+                                                                                                 WHERE 
+                                                                                                 ISDELETE      = @ISDELETE AND 
+                                                                                                 ISACTIVE      = @ISACTIVE AND
+                                                                                                 USER_PCDOMAIN = @USER_PCDOMAIN"));
+                        getSerial.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
+                        getSerial.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
+                        getSerial.SelectCommand.Parameters.Add("@USER_PCDOMAIN", SqlDbType.NVarChar).Value = USER_PCDOMAIN;
+
+                        dt = SQL.SELECT(getSerial);
+
+                        Page.Title                  = dt.Rows[0]["PC_NAME_EN"].ToString();
+                        pcName.Text                 = dt.Rows[0]["PC_NAME_EN"].ToString();
+                        Session["PC_USER_ID"]       = dt.Rows[0]["USER_ID"].ToString();
+                        Session["SUBSITE_SERIAL"]   = dt.Rows[0]["USER_SERIAL"].ToString();
+                        break;
+                    }
+                default:
+                    {
+                        getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT USER_SERIAL ,PC_NAME, USER_ID FROM PC_USERS 
+                                                                                                 WHERE 
+                                                                                                 ISDELETE      = @ISDELETE AND 
+                                                                                                 ISACTIVE      = @ISACTIVE AND
+                                                                                                 USER_PCDOMAIN = @USER_PCDOMAIN"));
+                        getSerial.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
+                        getSerial.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
+                        getSerial.SelectCommand.Parameters.Add("@USER_PCDOMAIN", SqlDbType.NVarChar).Value = USER_PCDOMAIN;
+
+                        dt = SQL.SELECT(getSerial);
+
+                        Page.Title                  = dt.Rows[0]["PC_NAME"].ToString();
+                        pcName.Text                 = dt.Rows[0]["PC_NAME"].ToString();
+                        Session["PC_USER_ID"]       = dt.Rows[0]["USER_ID"].ToString();
+                        Session["SUBSITE_SERIAL"]   = dt.Rows[0]["USER_SERIAL"].ToString();
+                        break;
+                    }
+
+            }
+
+            getSerial   = null;
+            dt          = null;
+         
         }
 
         private DataTable GetLogo(string USER_SERIAL)
@@ -63,7 +117,7 @@ namespace PublicCouncilBackEnd.subsite
 
             //Get Sub PC logo
           
-            logoPcMobile.DataSource = GetLogo(GetUserInfo(Session["pcsubsite"] as string)); ;
+            logoPcMobile.DataSource = GetLogo(Session["SUBSITE_SERIAL"]as string);
             logoPcMobile.DataBind();
            
           
@@ -581,6 +635,7 @@ namespace PublicCouncilBackEnd.subsite
 
             try
             {
+                GetUserInfo(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Session["pcsubsite"] as string);
                 GetLogos();
                 Navigation();
                 SiteLanguage();
