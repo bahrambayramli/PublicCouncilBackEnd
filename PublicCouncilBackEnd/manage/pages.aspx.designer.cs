@@ -15,13 +15,22 @@ namespace PublicCouncilBackEnd.manage
     {
 
         /// <summary>
-        /// CKEditorAboutUs control.
+        /// CKEditorAboutUsAz control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKEditor.NET.CKEditorControl CKEditorAboutUs;
+        protected global::CKEditor.NET.CKEditorControl CKEditorAboutUsAz;
+
+        /// <summary>
+        /// CKEditorAboutUsEn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CKEditor.NET.CKEditorControl CKEditorAboutUsEn;
 
         /// <summary>
         /// btnABOUTUS_SAVE control.
@@ -33,13 +42,22 @@ namespace PublicCouncilBackEnd.manage
         protected global::System.Web.UI.WebControls.Button btnABOUTUS_SAVE;
 
         /// <summary>
-        /// CKEditorContactUs control.
+        /// CKEditorContactUsAz control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKEditor.NET.CKEditorControl CKEditorContactUs;
+        protected global::CKEditor.NET.CKEditorControl CKEditorContactUsAz;
+
+        /// <summary>
+        /// CKEditorContactUsEn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CKEditor.NET.CKEditorControl CKEditorContactUsEn;
 
         /// <summary>
         /// btnCONTACTUS_SAVE control.

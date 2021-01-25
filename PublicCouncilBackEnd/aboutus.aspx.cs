@@ -12,14 +12,37 @@ namespace PublicCouncilBackEnd
     public partial class WebForm13 : System.Web.UI.Page
     {
         #region(SQL FUNCTIONS)
-        private string GetPages(string PAGE)
+        private void GetPages(string LANG, string PAGE)
         {
-            SqlDataAdapter getPage = new SqlDataAdapter(new SqlCommand(@"SELECT DATA_ID , PAGE_DATA FROM PC_TOPPAGES WHERE PAGE=@PAGE "));
+            SqlDataAdapter getPage;
+            switch (LANG)
+            {
+                case "az":
+                    {
+                        getPage = new SqlDataAdapter(new SqlCommand(@"SELECT DATA_ID , PAGE_DATA_AZ FROM PC_TOPPAGES WHERE PAGE=@PAGE "));
+                        getPage.SelectCommand.Parameters.Add("@PAGE", SqlDbType.NVarChar).Value = PAGE;
+                        aboususInfo.Text = SQL.SELECT(getPage).Rows[0]["PAGE_DATA_AZ"].ToString();
+                        break;
+                    }
+                case "en":
+                    {
+                        getPage = new SqlDataAdapter(new SqlCommand(@"SELECT DATA_ID , PAGE_DATA_EN FROM PC_TOPPAGES WHERE PAGE=@PAGE "));
+                        getPage.SelectCommand.Parameters.Add("@PAGE", SqlDbType.NVarChar).Value = PAGE;
+                        aboususInfo.Text = SQL.SELECT(getPage).Rows[0]["PAGE_DATA_EN"].ToString();
+                        break;
+                    }
 
-            getPage.SelectCommand.Parameters.Add("@PAGE", SqlDbType.NVarChar).Value = PAGE;
+                default:
+                    {
+                        getPage = new SqlDataAdapter(new SqlCommand(@"SELECT DATA_ID , PAGE_DATA_AZ FROM PC_TOPPAGES WHERE PAGE=@PAGE "));
+                        getPage.SelectCommand.Parameters.Add("@PAGE", SqlDbType.NVarChar).Value = PAGE;
+                        aboususInfo.Text = SQL.SELECT(getPage).Rows[0]["PAGE_DATA_AZ"].ToString();
+                        break;
+                    }
 
-            return SQL.SELECT(getPage).Rows[0]["PAGE_DATA"].ToString();
-
+            }
+            getPage = null;
+          //  return 
         }
         #endregion
 
@@ -44,15 +67,8 @@ namespace PublicCouncilBackEnd
                     }
             }
 
-            try
-            {
-                aboususInfo.Text = GetPages("ABOUTUS");
-            }
-            catch 
-            {
+            GetPages(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "ABOUTUS");
 
-             
-            }
         }
     }
 }

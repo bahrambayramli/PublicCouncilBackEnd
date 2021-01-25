@@ -11,16 +11,41 @@ namespace PublicCouncilBackEnd
 {
     public partial class WebForm14 : System.Web.UI.Page
     {
-        private string GetPages(string PAGE)
+        #region(SQL FUNCTIONS)
+        private void GetPages(string LANG, string PAGE)
         {
-            SqlDataAdapter getPage = new SqlDataAdapter(new SqlCommand(@"SELECT DATA_ID , PAGE_DATA FROM PC_TOPPAGES WHERE PAGE=@PAGE "));
+            SqlDataAdapter getPage;
+            switch (LANG)
+            {
+                case "az":
+                    {
+                        getPage = new SqlDataAdapter(new SqlCommand(@"SELECT DATA_ID , PAGE_DATA_AZ FROM PC_TOPPAGES WHERE PAGE=@PAGE "));
+                        getPage.SelectCommand.Parameters.Add("@PAGE", SqlDbType.NVarChar).Value = PAGE;
+                        contactUs.Text = SQL.SELECT(getPage).Rows[0]["PAGE_DATA_AZ"].ToString();
+                        break;
+                    }
+                case "en":
+                    {
+                        getPage = new SqlDataAdapter(new SqlCommand(@"SELECT DATA_ID , PAGE_DATA_EN FROM PC_TOPPAGES WHERE PAGE=@PAGE "));
+                        getPage.SelectCommand.Parameters.Add("@PAGE", SqlDbType.NVarChar).Value = PAGE;
+                        contactUs.Text = SQL.SELECT(getPage).Rows[0]["PAGE_DATA_EN"].ToString();
+                        break;
+                    }
 
-            getPage.SelectCommand.Parameters.Add("@PAGE", SqlDbType.NVarChar).Value = PAGE;
+                default:
+                    {
+                        getPage = new SqlDataAdapter(new SqlCommand(@"SELECT DATA_ID , PAGE_DATA_AZ FROM PC_TOPPAGES WHERE PAGE=@PAGE "));
+                        getPage.SelectCommand.Parameters.Add("@PAGE", SqlDbType.NVarChar).Value = PAGE;
+                        contactUs.Text = SQL.SELECT(getPage).Rows[0]["PAGE_DATA_AZ"].ToString();
+                        break;
+                    }
 
-            return SQL.SELECT(getPage).Rows[0]["PAGE_DATA"].ToString();
-
-
+            }
+            getPage = null;
+            //  return 
         }
+        #endregion
+
         protected void Page_Load(object sender, EventArgs e)
         {
             switch (Convert.ToString(Page.RouteData.Values["language"]).ToLower())
@@ -42,15 +67,8 @@ namespace PublicCouncilBackEnd
                     }
             }
 
-            try
-            {
-                contactUs.Text = GetPages("CONTACTUS");
-            }
-            catch 
-            {
+            GetPages(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "CONTACTUS");
 
-              
-            }
         }
     }
 }

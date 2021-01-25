@@ -27,7 +27,14 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-12">
-                                <CKEditor:CKEditorControl ID="CKEditorAboutUs" runat="server" Height="300px" />
+                                <div class="form-group">
+                                    <label>Haqqımızda - AZ</label>
+                                     <CKEditor:CKEditorControl ID="CKEditorAboutUsAz" runat="server" Height="300px" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Haqqımızda - EN</label>
+                                    <CKEditor:CKEditorControl ID="CKEditorAboutUsEn" runat="server" Height="300px" />
+                                </div>
                             </div>
                             <div class="col-12 pt-md-4">
                                 <asp:Button ID="btnABOUTUS_SAVE" runat="server" CssClass="btn btn-primary btn-round" Text="Yadda saxla" OnClick="btnABOUTUS_SAVE_Click" />
@@ -40,7 +47,14 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-12">
-                                <CKEditor:CKEditorControl ID="CKEditorContactUs" runat="server" Height="300px"></CKEditor:CKEditorControl>
+                                <div class="form-group">
+                                    <label>Əlaqə - AZ</label>
+                                    <CKEditor:CKEditorControl ID="CKEditorContactUsAz" runat="server" Height="300px"></CKEditor:CKEditorControl>
+                                </div>
+                                <div class="form-group">
+                                    <label>Əlaqə - AZ</label>
+                                    <CKEditor:CKEditorControl ID="CKEditorContactUsEn" runat="server" Height="300px"></CKEditor:CKEditorControl>
+                                </div>
                             </div>
                             <div class="col-12 pt-md-4">
                                 <asp:Button ID="btnCONTACTUS_SAVE" runat="server" CssClass="btn btn-success btn-round" Text="Yadda saxla" OnClick="btnCONTACTUS_SAVE_Click" />
