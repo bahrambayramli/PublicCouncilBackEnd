@@ -123,31 +123,34 @@ namespace PublicCouncilBackEnd
         }
         private void GetNavigations(string lang)
         {
+            DataTable nav;
             switch (lang)
             {
                 case "az":
                     {
-
-                        NAV_AZ.DataSource = SQLFUNC.GetNavigations(lang, false, true);
+                        nav = SQLFUNC.GetNavigations(lang, false, true);
+                        NAV_AZ.DataSource = nav;
                         NAV_AZ.DataBind();
+                        FOOTER_NAVS_AZ.DataSource = nav;
+                        FOOTER_NAVS_AZ.DataBind();
                         break;
                     }
                 case "en":
                     {
-                        NAV_EN.DataSource = SQLFUNC.GetNavigations(lang, false, true);
+                        nav = SQLFUNC.GetNavigations(lang, false, true);
+                        NAV_EN.DataSource = nav;
                         NAV_EN.DataBind();
-                        break;
-                    }
-                case "ru":
-                    {
-                        NAV_RU.DataSource = SQLFUNC.GetNavigations(lang, false, true);
-                        NAV_RU.DataBind();
+                        FOOTER_NAVS_EN.DataSource = nav;
+                        FOOTER_NAVS_EN.DataBind();
                         break;
                     }
                 default:
                     {
-                        NAV_AZ.DataSource = SQLFUNC.GetNavigations(lang, false, true);
+                        nav = SQLFUNC.GetNavigations(lang, false, true);
+                        NAV_AZ.DataSource = nav;
                         NAV_AZ.DataBind();
+                        FOOTER_NAVS_AZ.DataSource = nav;
+                        FOOTER_NAVS_AZ.DataBind();
                         break;
                     }
             }
@@ -559,8 +562,8 @@ namespace PublicCouncilBackEnd
                                                                                                         POST_CATEGORY       = @POST_CATEGORY     AND
                                                                                                         POST_SUBCATEGORY    = @POST_SUBCATEGORY  AND
                                                                                                      
-                                                                                                        POST_EN_VIEW        = @POST_EN_VIEW      AND
-                                                                                                        POST_AUTHOR         = @POST_AUTHOR
+                                                                                                        POST_EN_VIEW        = @POST_EN_VIEW      
+                                                                                                    
                                                                                                         ORDER BY POST_DATE DESC"));
                             getPost.SelectCommand.Parameters.Add("@POST_SUBCATEGORY", SqlDbType.NVarChar).Value = POST_SUBCATEGORY;
                         }
@@ -570,6 +573,7 @@ namespace PublicCouncilBackEnd
                         getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
                         getPost.SelectCommand.Parameters.Add("@POST_EN_VIEW", SqlDbType.Bit).Value = true;
                         getPost.SelectCommand.Parameters.Add("@POSTMAIN_VIEW", SqlDbType.Bit).Value = POSTMAIN_VIEW;
+                       
 
                         LSV_EN.DataSource = SQL.SELECT(getPost);
                         LSV_EN.DataBind();
@@ -927,16 +931,25 @@ namespace PublicCouncilBackEnd
                 case "az":
                     {
                         signIN.Text = "Daxil ol";
+                        pageName.Text = "İctimai şura";
+                        pageName.NavigateUrl = "http://ictimaishura.az";
+                        siteRights.Text = $"©Bütün hüquqlar qorunur {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year+1).ToString()}";
                         break;
                     }
                 case "en":
                     {
                         signIN.Text = "Sign in";
+                        pageName.Text = "Public council";
+                        pageName.NavigateUrl = "http://ictimaishura.az";
+                        siteRights.Text = $"© All rights reserved {DateTime.Now.Year.ToString()}";
                         break;
                     }
                default:
                     {
                         signIN.Text = "Daxil ol";
+                        pageName.Text = "İctimai şura";
+                        pageName.NavigateUrl = "http://ictimaishura.az";
+                        siteRights.Text = $"©Bütün hüquqlar qorunur {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
                         break;
                     }
             }

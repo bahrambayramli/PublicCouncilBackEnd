@@ -249,6 +249,33 @@ namespace PublicCouncilBackEnd
         protected global::System.Web.UI.WebControls.ListView SPONSORS;
 
         /// <summary>
+        /// pageName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink pageName;
+
+        /// <summary>
+        /// FOOTER_NAVS_AZ control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView FOOTER_NAVS_AZ;
+
+        /// <summary>
+        /// FOOTER_NAVS_EN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView FOOTER_NAVS_EN;
+
+        /// <summary>
         /// siteRights control.
         /// </summary>
         /// <remarks>

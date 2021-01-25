@@ -87,13 +87,13 @@ namespace PublicCouncilBackEnd.subsite
         protected global::System.Web.UI.WebControls.HyperLink _home;
 
         /// <summary>
-        /// _news control.
+        /// _aboutus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink _news;
+        protected global::System.Web.UI.WebControls.HyperLink _aboutus;
 
         /// <summary>
         /// _members control.
@@ -103,6 +103,15 @@ namespace PublicCouncilBackEnd.subsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink _members;
+
+        /// <summary>
+        /// _news control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink _news;
 
         /// <summary>
         /// _projects control.
@@ -148,15 +157,6 @@ namespace PublicCouncilBackEnd.subsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink _multimedia;
-
-        /// <summary>
-        /// _aboutus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink _aboutus;
 
         /// <summary>
         /// _contactus control.
@@ -220,5 +220,41 @@ namespace PublicCouncilBackEnd.subsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView SPONSORS;
+
+        /// <summary>
+        /// pageName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink pageName;
+
+        /// <summary>
+        /// FOOTER_NAVS_AZ control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView FOOTER_NAVS_AZ;
+
+        /// <summary>
+        /// FOOTER_NAVS_EN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView FOOTER_NAVS_EN;
+
+        /// <summary>
+        /// siteRights control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal siteRights;
     }
 }

@@ -45,33 +45,27 @@
             <div class="row">
                 <asp:ListView ID="MEMBERS_AZ" runat="server" OnPagePropertiesChanging="MEMBERS_AZ_PagePropertiesChanging">
                     <ItemTemplate>
-                        <div class="col-12 col-md-4  d-flex align-items-stretch px-md-1">
-
-                            <div class="card mb-3 post overflow-hidden">
-                                <div class="member-card">
-                                    <div class="member-card-inner">
-                                        <div class="member-card-front">
-                                            <img src="/images/members/<%#Eval("MEMBER_IMAGE")%>" alt="Avatar" style="width: 300px; height: 300px;">
-                                        </div>
-                                        <div class="member-card-back">
-                                            <p>
-                                                <%#Eval("MEMBER_POSITION")%>
-                                            </p>
-                                            <p class="h4">
-                                                <%#Eval("MEMBER_NAME")%>  <%#Eval("MEMBER_SURNAME")%>
-                                            </p>
-                                            <a class="btn btn-outline-secondary btn-round btn-sm" href="/site/memberdetail/az/<%#Eval("MEMBER_ID")%>">Ətraflı</a>
-                                        </div>
-                                    </div>
+                        <div class="member-card mb-md-2">
+                            <div class="member-card-inner">
+                                <div class="member-card-front">
+                                    <img src="/images/members/<%#Eval("MEMBER_IMAGE")%>" alt="Avatar" style="width: 300px; height: 300px;">
+                                </div>
+                                <div class="member-card-back">
+                                    <p>
+                                        <%#Eval("MEMBER_POSITION")%>
+                                    </p>
+                                    <p class="h4">
+                                        <%#Eval("MEMBER_NAME")%>  <%#Eval("MEMBER_SURNAME")%>
+                                    </p>
+                                    <a class="btn btn-outline-secondary btn-round btn-sm" href="/site/memberdetail/az/<%#Eval("MEMBER_ID")%>">Ətraflı</a>
                                 </div>
                             </div>
-
                         </div>
                     </ItemTemplate>
                 </asp:ListView>
                 <asp:ListView ID="MEMBERS_EN" runat="server" OnPagePropertiesChanging="MEMBERS_EN_PagePropertiesChanging">
                     <ItemTemplate>
-                        <div class="member-card">
+                        <div class="member-card mb-md-2">
                                     <div class="member-card-inner">
                                         <div class="member-card-front">
                                             <img src="/images/members/<%#Eval("MEMBER_IMAGE")%>" alt="Avatar" style="width: 300px; height: 300px;">

@@ -5,7 +5,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
 
-    <asp:UpdatePanel ID="COUNCIL_PANEL" runat="server" class="container-fluid p-0">
+    <asp:UpdatePanel ID="COUNCIL_PANEL" runat="server" class="container-fluid">
         <ContentTemplate>
             <div class="row">
                 <div class="col-12 px-md-1">
@@ -94,10 +94,6 @@
                                            <%#Eval("PC_TELEPHONE")%>
                                     </a>
                                 </p>
-
-
-
-
 
                             </div>
                         </div> 

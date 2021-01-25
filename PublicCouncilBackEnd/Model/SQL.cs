@@ -29,6 +29,7 @@ namespace PublicCouncilBackEnd
             catch (Exception ex)
             {
                 Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", ex.Message);
+              
                 Debug.WriteLine(ex.Message);
             }
             finally

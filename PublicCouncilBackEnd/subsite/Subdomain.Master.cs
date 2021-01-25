@@ -11,7 +11,7 @@ namespace PublicCouncilBackEnd.subsite
 {
     public partial class Subdomain : System.Web.UI.MasterPage
     {
-        
+
         private void GetUserInfo(string LANG, string USER_PCDOMAIN)
         {
             SqlDataAdapter getSerial;
@@ -33,10 +33,10 @@ namespace PublicCouncilBackEnd.subsite
 
                         dt = SQL.SELECT(getSerial);
 
-                        Page.Title                  = dt.Rows[0]["PC_NAME"].ToString();
-                        pcName.Text                 = dt.Rows[0]["PC_NAME"].ToString();
-                        Session["PC_USER_ID"]       = dt.Rows[0]["USER_ID"].ToString();
-                        Session["SUBSITE_SERIAL"]   = dt.Rows[0]["USER_SERIAL"].ToString();
+                        Page.Title = dt.Rows[0]["PC_NAME"].ToString();
+                        pcName.Text = dt.Rows[0]["PC_NAME"].ToString();
+                        Session["PC_USER_ID"] = dt.Rows[0]["USER_ID"].ToString();
+                        Session["SUBSITE_SERIAL"] = dt.Rows[0]["USER_SERIAL"].ToString();
 
                         break;
                     }
@@ -53,10 +53,10 @@ namespace PublicCouncilBackEnd.subsite
 
                         dt = SQL.SELECT(getSerial);
 
-                        Page.Title                  = dt.Rows[0]["PC_NAME_EN"].ToString();
-                        pcName.Text                 = dt.Rows[0]["PC_NAME_EN"].ToString();
-                        Session["PC_USER_ID"]       = dt.Rows[0]["USER_ID"].ToString();
-                        Session["SUBSITE_SERIAL"]   = dt.Rows[0]["USER_SERIAL"].ToString();
+                        Page.Title = dt.Rows[0]["PC_NAME_EN"].ToString();
+                        pcName.Text = dt.Rows[0]["PC_NAME_EN"].ToString();
+                        Session["PC_USER_ID"] = dt.Rows[0]["USER_ID"].ToString();
+                        Session["SUBSITE_SERIAL"] = dt.Rows[0]["USER_SERIAL"].ToString();
                         break;
                     }
                 default:
@@ -72,18 +72,18 @@ namespace PublicCouncilBackEnd.subsite
 
                         dt = SQL.SELECT(getSerial);
 
-                        Page.Title                  = dt.Rows[0]["PC_NAME"].ToString();
-                        pcName.Text                 = dt.Rows[0]["PC_NAME"].ToString();
-                        Session["PC_USER_ID"]       = dt.Rows[0]["USER_ID"].ToString();
-                        Session["SUBSITE_SERIAL"]   = dt.Rows[0]["USER_SERIAL"].ToString();
+                        Page.Title = dt.Rows[0]["PC_NAME"].ToString();
+                        pcName.Text = dt.Rows[0]["PC_NAME"].ToString();
+                        Session["PC_USER_ID"] = dt.Rows[0]["USER_ID"].ToString();
+                        Session["SUBSITE_SERIAL"] = dt.Rows[0]["USER_SERIAL"].ToString();
                         break;
                     }
 
             }
 
-            getSerial   = null;
-            dt          = null;
-         
+            getSerial = null;
+            dt = null;
+
         }
 
         private DataTable GetLogo(string USER_SERIAL)
@@ -99,7 +99,7 @@ namespace PublicCouncilBackEnd.subsite
             getLogo.SelectCommand.Parameters.Add("@LOGO_SERIAL", SqlDbType.NVarChar).Value = USER_SERIAL;
 
             return SQL.SELECT(getLogo);
-           
+
         }
 
         private void GetLogos()
@@ -116,11 +116,11 @@ namespace PublicCouncilBackEnd.subsite
             LogoDesktop.DataBind();
 
             //Get Sub PC logo
-          
-            logoPcMobile.DataSource = GetLogo(Session["SUBSITE_SERIAL"]as string);
+
+            logoPcMobile.DataSource = GetLogo(Session["SUBSITE_SERIAL"] as string);
             logoPcMobile.DataBind();
-           
-          
+
+
 
 
         }
@@ -153,7 +153,7 @@ namespace PublicCouncilBackEnd.subsite
                     {
                         try
                         {
-                          
+
                             home.Text = "ANA SƏHİFƏ";
                             home.CssClass = "subnav-link-text";
                             homeicon.Text = " <i class='fas fa-home text-danger mr-2'></i>";
@@ -161,13 +161,12 @@ namespace PublicCouncilBackEnd.subsite
                             _home.Controls.Add(home);
                             _home.NavigateUrl = "/site/home/az";
 
-                          
-                            news.Text = "XƏBƏRLƏR";
-                            news.CssClass = "subnav-link-text";
-                            newsicon.Text = " <i class='fas fa-newspaper text-danger mr-2'></i>";
-                            _news.Controls.Add(newsicon);
-                            _news.Controls.Add(news);
-                            _news.NavigateUrl = "/site/posts/az";
+                            aboutus.Text = "HAQQIMIZDA";
+                            aboutus.CssClass = "subnav-link-text";
+                            aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2'></i>";
+                            _aboutus.Controls.Add(aboutusicon);
+                            _aboutus.Controls.Add(aboutus);
+                            _aboutus.NavigateUrl = "/site/aboutus/az";
 
                             member.Text = "ŞURA ÜZVLƏRİ";
                             member.CssClass = "subnav-link-text";
@@ -176,6 +175,12 @@ namespace PublicCouncilBackEnd.subsite
                             _members.Controls.Add(member);
                             _members.NavigateUrl = "/site/members/az";
 
+                            news.Text = "XƏBƏRLƏR";
+                            news.CssClass = "subnav-link-text";
+                            newsicon.Text = " <i class='fas fa-newspaper text-danger mr-2'></i>";
+                            _news.Controls.Add(newsicon);
+                            _news.Controls.Add(news);
+                            _news.NavigateUrl = "/site/posts/az";
 
                             projects.Text = "ELANLAR";
                             projects.CssClass = "subnav-link-text";
@@ -184,7 +189,7 @@ namespace PublicCouncilBackEnd.subsite
                             _projects.Controls.Add(projects);
                             _projects.NavigateUrl = "/site/announcements/az";
 
-                           
+
                             legislation.Text = "QANUNVERİCİLİK";
                             legislation.CssClass = "subnav-link-text";
                             legislationicon.Text = " <i class='fas fa-gavel text-danger mr-2'></i>";
@@ -194,15 +199,9 @@ namespace PublicCouncilBackEnd.subsite
 
 
 
-                          
-                            publications.Text = "NƏŞRLƏR";
-                            publications.CssClass = "subnav-link-text";
-                            publicationsicon.Text = " <i class='fas fa-book-open text-danger mr-2'></i>";
-                            _publications.Controls.Add(publicationsicon);
-                            _publications.Controls.Add(publications);
-                            _publications.NavigateUrl = "/site/publications/az";
 
-                          
+
+
                             reports.Text = "HESABATLAR";
                             reports.CssClass = "subnav-link-text";
                             reportsicon.Text = " <i class='fas fa-flag text-danger mr-2'></i>";
@@ -210,21 +209,21 @@ namespace PublicCouncilBackEnd.subsite
                             _reports.Controls.Add(reports);
                             _reports.NavigateUrl = "/site/reports/az";
 
-                          
+
+                            publications.Text = "NƏŞRLƏR";
+                            publications.CssClass = "subnav-link-text";
+                            publicationsicon.Text = " <i class='fas fa-book-open text-danger mr-2'></i>";
+                            _publications.Controls.Add(publicationsicon);
+                            _publications.Controls.Add(publications);
+                            _publications.NavigateUrl = "/site/publications/az";
+
+
                             multimedia.Text = "MULTİMEDİA";
                             multimedia.CssClass = "subnav-link-text";
                             multimediaicon.Text = " <i class='fas fa-photo-video text-danger mr-2'></i>";
                             _multimedia.Controls.Add(multimediaicon);
                             _multimedia.Controls.Add(multimedia);
                             _multimedia.NavigateUrl = "/site/multimedia/az";
-
-
-                            aboutus.Text = "HAQQIMIZDA";
-                            aboutus.CssClass = "subnav-link-text";
-                            aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2'></i>";
-                            _aboutus.Controls.Add(aboutusicon);
-                            _aboutus.Controls.Add(aboutus);
-                            _aboutus.NavigateUrl = "/site/aboutus/az";
 
 
                             contactus.Text = "ƏLAQƏ";
@@ -235,32 +234,30 @@ namespace PublicCouncilBackEnd.subsite
                             _contactus.NavigateUrl = "/site/contactus/az";
 
                         }
-                        catch 
+                        catch
                         {
-                           
-                          
+
+
                         }
                         break;
                     }
                 case "en":
                     {
 
+                        home.Text = "HOME";
+                        home.CssClass = "subnav-link-text";
+                        homeicon.Text = " <i class='fas fa-home text-danger mr-2'></i>";
+                        _home.Controls.Add(homeicon);
+                        _home.Controls.Add(home);
+                        _home.NavigateUrl = "/site/home/en";
 
-                          
-                            home.Text = "HOME";
-                            home.CssClass = "subnav-link-text";
-                            homeicon.Text = " <i class='fas fa-home text-danger mr-2'></i>";
-                            _home.Controls.Add(homeicon);
-                            _home.Controls.Add(home);
-                            _home.NavigateUrl = "/site/home/en";
+                        aboutus.Text = "ABOUT US";
+                        aboutus.CssClass = "subnav-link-text";
+                        aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2'></i>";
+                        _aboutus.Controls.Add(aboutusicon);
+                        _aboutus.Controls.Add(aboutus);
+                        _aboutus.NavigateUrl = "/site/aboutus/en";
 
-                           
-                            news.Text = "NEWS";
-                            news.CssClass = "subnav-link-text";
-                            newsicon.Text = " <i class='fas fa-newspaper text-danger mr-2'></i>";
-                            _news.Controls.Add(newsicon);
-                            _news.Controls.Add(news);
-                            _news.NavigateUrl = "/site/posts/en";
 
                         member.Text = "Members";
                         member.CssClass = "subnav-link-text";
@@ -269,54 +266,51 @@ namespace PublicCouncilBackEnd.subsite
                         _members.Controls.Add(member);
                         _members.NavigateUrl = "/site/members/en";
 
+                        news.Text = "NEWS";
+                        news.CssClass = "subnav-link-text";
+                        newsicon.Text = " <i class='fas fa-newspaper text-danger mr-2'></i>";
+                        _news.Controls.Add(newsicon);
+                        _news.Controls.Add(news);
+                        _news.NavigateUrl = "/site/posts/en";
+
                         projects.Text = "ANNOUNCEMENTS";
-                            projects.CssClass = "subnav-link-text";
-                            projectsicon.Text = "<i class='fas fa-project-diagram text-danger mr-2'></i>";
-                            _projects.Controls.Add(projectsicon);
-                            _projects.Controls.Add(projects);
-                            _projects.NavigateUrl = "/site/announcements/en";
-
-                            
-                            legislation.Text = "LEGISLATION";
-                            legislation.CssClass = "subnav-link-text";
-                            legislationicon.Text = " <i class='fas fa-gavel text-danger mr-2'></i>";
-                            _legilations.Controls.Add(legislationicon);
-                            _legilations.Controls.Add(legislation);
-                            _legilations.NavigateUrl = "/site/legislation/en";
+                        projects.CssClass = "subnav-link-text";
+                        projectsicon.Text = "<i class='fas fa-project-diagram text-danger mr-2'></i>";
+                        _projects.Controls.Add(projectsicon);
+                        _projects.Controls.Add(projects);
+                        _projects.NavigateUrl = "/site/announcements/en";
 
 
+                        legislation.Text = "LEGISLATION";
+                        legislation.CssClass = "subnav-link-text";
+                        legislationicon.Text = " <i class='fas fa-gavel text-danger mr-2'></i>";
+                        _legilations.Controls.Add(legislationicon);
+                        _legilations.Controls.Add(legislation);
+                        _legilations.NavigateUrl = "/site/legislation/en";
 
-                            
-                            publications.Text = "PUBLICATIONS";
-                            publications.CssClass = "subnav-link-text";
-                            publicationsicon.Text = " <i class='fas fa-book-open text-danger mr-2'></i>";
-                            _publications.Controls.Add(publicationsicon);
-                            _publications.Controls.Add(publications);
-                            _publications.NavigateUrl = "/site/publications/en";
-
-                         
-                            reports.Text = "REPORTS";
-                            reports.CssClass = "subnav-link-text";
-                            reportsicon.Text = " <i class='fas fa-flag text-danger mr-2'></i>";
-                            _reports.Controls.Add(reportsicon);
-                            _reports.Controls.Add(reports);
-                            _reports.NavigateUrl = "/site/reports/en";
-
-                         
-                            multimedia.Text = "MULTIMEDIA";
-                            multimedia.CssClass = "subnav-link-text";
-                            multimediaicon.Text = " <i class='fas fa-photo-video text-danger mr-2'></i>";
-                            _multimedia.Controls.Add(multimediaicon);
-                            _multimedia.Controls.Add(multimedia);
-                            _multimedia.NavigateUrl = "/site/multimedia/en";
+                        reports.Text = "REPORTS";
+                        reports.CssClass = "subnav-link-text";
+                        reportsicon.Text = " <i class='fas fa-flag text-danger mr-2'></i>";
+                        _reports.Controls.Add(reportsicon);
+                        _reports.Controls.Add(reports);
+                        _reports.NavigateUrl = "/site/reports/en";
 
 
-                        aboutus.Text = "ABOUT US";
-                        aboutus.CssClass = "subnav-link-text";
-                        aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2'></i>";
-                        _aboutus.Controls.Add(aboutusicon);
-                        _aboutus.Controls.Add(aboutus);
-                        _aboutus.NavigateUrl = "/site/aboutus/en";
+                        publications.Text = "PUBLICATIONS";
+                        publications.CssClass = "subnav-link-text";
+                        publicationsicon.Text = " <i class='fas fa-book-open text-danger mr-2'></i>";
+                        _publications.Controls.Add(publicationsicon);
+                        _publications.Controls.Add(publications);
+                        _publications.NavigateUrl = "/site/publications/en";
+
+
+                        multimedia.Text = "MULTIMEDIA";
+                        multimedia.CssClass = "subnav-link-text";
+                        multimediaicon.Text = " <i class='fas fa-photo-video text-danger mr-2'></i>";
+                        _multimedia.Controls.Add(multimediaicon);
+                        _multimedia.Controls.Add(multimedia);
+                        _multimedia.NavigateUrl = "/site/multimedia/en";
+
 
 
                         contactus.Text = "CONTACT US";
@@ -341,13 +335,12 @@ namespace PublicCouncilBackEnd.subsite
                             _home.Controls.Add(home);
                             _home.NavigateUrl = "/site/home/az";
 
-
-                            news.Text = "XƏBƏRLƏR";
-                            news.CssClass = "subnav-link-text";
-                            newsicon.Text = " <i class='fas fa-newspaper text-danger mr-2'></i>";
-                            _news.Controls.Add(newsicon);
-                            _news.Controls.Add(news);
-                            _news.NavigateUrl = "/site/posts/az";
+                            aboutus.Text = "HAQQIMIZDA";
+                            aboutus.CssClass = "subnav-link-text";
+                            aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2'></i>";
+                            _aboutus.Controls.Add(aboutusicon);
+                            _aboutus.Controls.Add(aboutus);
+                            _aboutus.NavigateUrl = "/site/aboutus/az";
 
                             member.Text = "ŞURA ÜZVLƏRİ";
                             member.CssClass = "subnav-link-text";
@@ -355,6 +348,13 @@ namespace PublicCouncilBackEnd.subsite
                             _members.Controls.Add(membericon);
                             _members.Controls.Add(member);
                             _members.NavigateUrl = "/site/members/az";
+
+                            news.Text = "XƏBƏRLƏR";
+                            news.CssClass = "subnav-link-text";
+                            newsicon.Text = " <i class='fas fa-newspaper text-danger mr-2'></i>";
+                            _news.Controls.Add(newsicon);
+                            _news.Controls.Add(news);
+                            _news.NavigateUrl = "/site/posts/az";
 
                             projects.Text = "ELANLAR";
                             projects.CssClass = "subnav-link-text";
@@ -374,12 +374,6 @@ namespace PublicCouncilBackEnd.subsite
 
 
 
-                            publications.Text = "NƏŞRLƏR";
-                            publications.CssClass = "subnav-link-text";
-                            publicationsicon.Text = " <i class='fas fa-book-open text-danger mr-2'></i>";
-                            _publications.Controls.Add(publicationsicon);
-                            _publications.Controls.Add(publications);
-                            _publications.NavigateUrl = "/site/publications/az";
 
 
                             reports.Text = "HESABATLAR";
@@ -390,20 +384,20 @@ namespace PublicCouncilBackEnd.subsite
                             _reports.NavigateUrl = "/site/reports/az";
 
 
+                            publications.Text = "NƏŞRLƏR";
+                            publications.CssClass = "subnav-link-text";
+                            publicationsicon.Text = " <i class='fas fa-book-open text-danger mr-2'></i>";
+                            _publications.Controls.Add(publicationsicon);
+                            _publications.Controls.Add(publications);
+                            _publications.NavigateUrl = "/site/publications/az";
+
+
                             multimedia.Text = "MULTİMEDİA";
                             multimedia.CssClass = "subnav-link-text";
                             multimediaicon.Text = " <i class='fas fa-photo-video text-danger mr-2'></i>";
                             _multimedia.Controls.Add(multimediaicon);
                             _multimedia.Controls.Add(multimedia);
                             _multimedia.NavigateUrl = "/site/multimedia/az";
-
-
-                            aboutus.Text = "HAQQIMIZDA";
-                            aboutus.CssClass = "subnav-link-text";
-                            aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2'></i>";
-                            _aboutus.Controls.Add(aboutusicon);
-                            _aboutus.Controls.Add(aboutus);
-                            _aboutus.NavigateUrl = "/site/aboutus/az";
 
 
                             contactus.Text = "ƏLAQƏ";
@@ -424,7 +418,7 @@ namespace PublicCouncilBackEnd.subsite
             }
 
 
-         
+
         }
 
         private void GetSponsors()
@@ -453,28 +447,71 @@ namespace PublicCouncilBackEnd.subsite
         private void SiteLanguage()
         {
 
-           // string aaa = Session["language"] as string;
             switch (Convert.ToString(Page.RouteData.Values["language"]).ToLower())
             {
                 case "az":
                     {
                         signIN.Text = "Daxil ol";
+                        pageName.Text = "İctimai şura";
+                        pageName.NavigateUrl = "http://ictimaishura.az";
+                        siteRights.Text = $"©Bütün hüquqlar qorunur {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
                         break;
                     }
                 case "en":
                     {
                         signIN.Text = "Sign in";
+                        pageName.Text = "Public council";
+                        pageName.NavigateUrl = "http://ictimaishura.az";
+                        siteRights.Text = $"© All rights reserved {DateTime.Now.Year.ToString()}";
                         break;
                     }
                 default:
                     {
                         signIN.Text = "Daxil ol";
+                        pageName.Text = "İctimai şura";
+                        pageName.NavigateUrl = "http://ictimaishura.az";
+                        siteRights.Text = $"©Bütün hüquqlar qorunur {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
                         break;
                     }
             }
+
         }
 
-        private void GetLatest(string LANGUAGE, string POST_COUNT, string POST_CATEGORY, bool POST_ISDELETE, bool POST_ISACTIVE, string POST_AUTHOR , ListView LSV_AZ, ListView LSV_EN)
+        private void GetNavigations(string lang)
+        {
+            DataTable nav;
+            switch (lang)
+            {
+                case "az":
+                    {
+                        nav = SQLFUNC.GetNavigations(lang, false, true);
+                      
+                        FOOTER_NAVS_AZ.DataSource = nav;
+                        FOOTER_NAVS_AZ.DataBind();
+                        break;
+                    }
+                case "en":
+                    {
+                        nav = SQLFUNC.GetNavigations(lang, false, true);
+                       
+                        FOOTER_NAVS_EN.DataSource = nav;
+                        FOOTER_NAVS_EN.DataBind();
+                        break;
+                    }
+                default:
+                    {
+                        nav = SQLFUNC.GetNavigations(lang, false, true);
+                      
+                        FOOTER_NAVS_AZ.DataSource = nav;
+                        FOOTER_NAVS_AZ.DataBind();
+                        break;
+                    }
+            }
+
+            nav = null;
+        }
+
+        private void GetLatest(string LANGUAGE, string POST_COUNT, string POST_CATEGORY, bool POST_ISDELETE, bool POST_ISACTIVE, string POST_AUTHOR, ListView LSV_AZ, ListView LSV_EN)
         {
             SqlDataAdapter getPost = new SqlDataAdapter();
             switch (LANGUAGE)
@@ -485,7 +522,7 @@ namespace PublicCouncilBackEnd.subsite
                         LSV_EN.DataBind();
 
 
-                       getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
+                        getPost = new SqlDataAdapter(new SqlCommand(@"SELECT TOP " + POST_COUNT + @"  
                                                                                                         DATA_ID,
                                                                                                         POST_AZ_TITLE,
                                                                                             	        POST_SITECATEGORYAZ,
@@ -618,7 +655,7 @@ namespace PublicCouncilBackEnd.subsite
             }
         }
 
-       
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -630,7 +667,7 @@ namespace PublicCouncilBackEnd.subsite
             }
             catch (Exception ex)
             {
-                Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", ex.Message);
+                Log.LogCreator(Server.MapPath("~/Log/logs.txt"), ex.Message);
             }
 
             try
@@ -639,8 +676,9 @@ namespace PublicCouncilBackEnd.subsite
                 GetLogos();
                 Navigation();
                 SiteLanguage();
+                GetNavigations(Page.RouteData.Values["language"] as string);
                 GetSponsors();
-                GetLatest(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "4", "news", false, true,Session["pcsubsite"] as string, LATEST_AZ, LATEST_EN);
+                GetLatest(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "4", "news", false, true, Session["pcsubsite"] as string, LATEST_AZ, LATEST_EN);
             }
             catch (Exception ex)
             {

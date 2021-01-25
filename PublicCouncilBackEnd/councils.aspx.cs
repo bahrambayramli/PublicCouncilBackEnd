@@ -73,8 +73,8 @@ namespace PublicCouncilBackEnd
                                                                                                     USER_LOGIN            !='admin'  
                                                                                                     ORDER BY PC_ORDER_NUMBER ASC"));
 
-                        getpcList.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = true;
-                        getpcList.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = false;
+                        getpcList.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
+                        getpcList.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = ISACTIVE;
                         getpcList.SelectCommand.Parameters.Add("@PC_CATEGORY", SqlDbType.NVarChar).Value = PC_DIRECTORY;
 
                         LSV_EN.DataSource = SQL.SELECT(getpcList);
@@ -177,8 +177,8 @@ namespace PublicCouncilBackEnd
                                                                                                        
                                                                                                     ORDER BY PC_ORDER_NUMBER ASC"));
 
-                        getpcList.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = true;
-                        getpcList.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = false;
+                        getpcList.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
+                        getpcList.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = ISACTIVE;
 
                         LSV_EN.DataSource = SQL.SELECT(getpcList);
                         LSV_EN.DataBind();

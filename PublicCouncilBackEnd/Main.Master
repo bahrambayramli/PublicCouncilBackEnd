@@ -622,35 +622,25 @@
                 <div class="container-fluid p-md-0">
                     <div class="row">
                         <div class="col-md-3 d-none d-md-block">
-                            <a class="footer-brand" href="javascript:;">İctimai şura</a>
+                             <asp:HyperLink ID="pageName" runat="server" CssClass="footer-brand"></asp:HyperLink>
                         </div>
                         <div class="col-12 col-md-6 d-none d-md-block">
                             <div class="column">
-                                <ul class="inline-menu">
-                                    <li>
-                                        <a class="nav-link" href=":;">Xeberler
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link" href="javascript:;">Elanlar
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link" href="javascript:;">Seçki
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link" href="javascript:;">Qanunvericilik
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link" href="javascript:;">Nəşrlər
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link" href="javascript:;">Video
-                                        </a>
-                                    </li>
+                                <ul class="inline-menu text-md-center">
+                                    <asp:ListView ID="FOOTER_NAVS_AZ" runat="server">
+                                        <ItemTemplate>
+                                            <li>
+                                                 <a class="nav-link" href="<%#Eval("NAV_LINK_AZ")%>"><%#Eval("NAV_AZ")%></a>
+                                            </li>
+                                        </ItemTemplate>
+                                    </asp:ListView>
+                                     <asp:ListView ID="FOOTER_NAVS_EN" runat="server">
+                                         <ItemTemplate>
+                                            <li>
+                                                 <a class="nav-link" href="<%#Eval("NAV_LINK_EN")%>"><%#Eval("NAV_EN")%></a>
+                                            </li>
+                                        </ItemTemplate>
+                                     </asp:ListView>
                                 </ul>
                             </div>
                         </div>
@@ -680,12 +670,12 @@
                     <div class="row">
                         <div class="col-4">
                         </div>
-                        <div class="col-4">
-                            <span class="d-block text-center text-light">© ictimaishura.az
+                        <div class="col-12 col-md-4">
+                            <span class="d-block text-center text-gray">
                                 <asp:Literal ID="siteRights" runat="server"></asp:Literal>
                             </span>
                         </div>
-                        <div class="col-4">
+                        <div class="col-12 col-md-4">
                             <div class="text-right">
                                 Site By <a class="text-gray font-weight-300" target="_blank" href="http://smartcode.az">SmartCode LLC</a>
                             </div>
