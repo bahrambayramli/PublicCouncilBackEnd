@@ -1,6 +1,7 @@
 $(".owl-right-top").owlCarousel({
     loop: true,
     autoplay: true,
+    autoplayHoverPause: true,
       autoplayTimeout: 6000,
       items: 1,
       dots: false,
@@ -12,6 +13,7 @@ $(".owl-right-top").owlCarousel({
 $(".owl-right-bottom").owlCarousel({
     loop: true,
     autoplay: true,
+    autoplayHoverPause: true,
       autoplayTimeout: 7000,
       items: 1,
       dots: false,
@@ -20,7 +22,8 @@ $(".owl-right-bottom").owlCarousel({
 
 $(".publications").owlCarousel({
       loop: true,
-      autoplay: true,
+    autoplay: true,
+    autoplayHoverPause: true,
       autoplayTimeout: 6000,
       items: 4,
       margin: 10,
@@ -33,6 +36,7 @@ $(".publications").owlCarousel({
 $(".owl-elections").owlCarousel({
     loop: true,
     autoplay: true,
+    autoplayHoverPause: true,
     autoplayTimeout: 4500,
     items: 1,
     margin: 5,
@@ -44,7 +48,8 @@ $(".owl-elections").owlCarousel({
 
 $(".owl-video").owlCarousel({
       loop: true,
-      autoplay: true,
+    autoplay: true,
+    autoplayHoverPause: true,
       autoplayTimeout: 4500,
       responsive: {
         0: {
@@ -65,6 +70,7 @@ $(".owl-video").owlCarousel({
 $(".owl-partners").owlCarousel({
     loop: true,
     autoplay: true,
+    autoplayHoverPause: true,
     autoplayTimeout: 4500,
     responsive: {
         0: {
