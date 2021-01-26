@@ -15,7 +15,6 @@ namespace PublicCouncilBackEnd.subsite
         private void GetMembers(String LANG, string PC_ID, bool ISDELETE, GridView GRID)
         {
           
-           
             SqlDataAdapter getMembers;
 
             switch (LANG)
@@ -25,9 +24,9 @@ namespace PublicCouncilBackEnd.subsite
                         getMembers = new SqlDataAdapter(new SqlCommand(@"SELECT ROW_NUMBER() OVER(ORDER BY MEMBER_ORDER_NUMBER ASC) AS '#' ,
 
                                                                                 
-                                                                                  MEMBER_NAME AS 'Ad',
-                                                                                  MEMBER_SURNAME AS 'Soyad',
-                                                                                  MEMBER_POSITION AS 'Vəzifə'
+                                                                                  MEMBER_NAME_AZ AS 'Ad',
+                                                                                  MEMBER_SURNAME_AZ AS 'Soyad',
+                                                                                  MEMBER_POSITION_AZ AS 'Vəzifə'
 
 
                                                                             FROM PC_MEMBERS
@@ -69,9 +68,9 @@ namespace PublicCouncilBackEnd.subsite
                         getMembers = new SqlDataAdapter(new SqlCommand(@"SELECT ROW_NUMBER() OVER(ORDER BY MEMBER_ORDER_NUMBER ASC) AS '#' ,
 
                                                                                 
-                                                                                  MEMBER_NAME AS 'Ad',
-                                                                                  MEMBER_SURNAME AS 'Soyad',
-                                                                                  MEMBER_POSITION AS 'Vəzifə'
+                                                                                  MEMBER_NAME_AZ AS 'Ad',
+                                                                                  MEMBER_SURNAME_AZ  AS 'Soyad',
+                                                                                  MEMBER_POSITION_AZ AS 'Vəzifə'
 
                                                                             FROM PC_MEMBERS
 
@@ -103,10 +102,10 @@ namespace PublicCouncilBackEnd.subsite
 
                         getMembers = new SqlDataAdapter(new SqlCommand(@"SELECT 
                                                                                     MEMBER_ID,
-                                                                                    MEMBER_NAME,
-                                                                                    MEMBER_SURNAME,
+                                                                                    MEMBER_NAME_AZ,
+                                                                                    MEMBER_SURNAME_AZ,
                                                                                     MEMBER_IMAGE,
-                                                                                    MEMBER_POSITION
+                                                                                    MEMBER_POSITION_AZ
 
                                                                             FROM PC_MEMBERS
                                                                             WHERE
@@ -156,12 +155,12 @@ namespace PublicCouncilBackEnd.subsite
                         LSV_EN.DataSource = null;
                         LSV_EN.DataBind();
 
-                        getMembers = new SqlDataAdapter(new SqlCommand(@"SELECT  
+                        getMembers = new SqlDataAdapter(new SqlCommand(@"SELECT 
                                                                                     MEMBER_ID,
-                                                                                    MEMBER_NAME,
-                                                                                    MEMBER_SURNAME,
+                                                                                    MEMBER_NAME_AZ,
+                                                                                    MEMBER_SURNAME_AZ,
                                                                                     MEMBER_IMAGE,
-                                                                                    MEMBER_POSITION
+                                                                                    MEMBER_POSITION_AZ
 
                                                                             FROM PC_MEMBERS
                                                                             WHERE
@@ -175,6 +174,8 @@ namespace PublicCouncilBackEnd.subsite
 
                         LSV_AZ.DataSource = SQL.SELECT(getMembers);
                         LSV_AZ.DataBind();
+
+
                         break;
                     }
 

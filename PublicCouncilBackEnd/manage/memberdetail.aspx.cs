@@ -54,12 +54,20 @@ namespace PublicCouncilBackEnd.manage
         private void GetMember(string MEMBER_ID, bool ISDELETE, string PC_ID)
         {
             SqlDataAdapter getMember = new SqlDataAdapter(new SqlCommand(@"SELECT 
-                                                                                 MEMBER_ID           ,
-                                                                                 MEMBER_NAME         ,
-                                                                                 MEMBER_SURNAME      ,
-                                                                                 MEMBER_FNAME        ,
-                                                                                 MEMBER_POSITION     ,
-                                                                                 MEMBER_DETAIL       ,
+                                                                                 MEMBER_ID              ,
+
+                                                                                 MEMBER_NAME_AZ         ,
+                                                                                 MEMBER_SURNAME_AZ      ,
+                                                                                 MEMBER_FNAME_AZ        ,
+                                                                                 MEMBER_POSITION_AZ     ,
+                                                                                 MEMBER_DETAIL_AZ       ,
+
+                                                                                 MEMBER_NAME_EN         ,
+                                                                                 MEMBER_SURNAME_EN      ,
+                                                                                 MEMBER_FNAME_EN        ,
+                                                                                 MEMBER_POSITION_EN     ,
+                                                                                 MEMBER_DETAIL_EN       ,
+
                                                                                  MEMBER_IMAGE        ,
                                                                                  MEMBER_ORDER_NUMBER ,
                                                                                  PC_ID
@@ -77,15 +85,22 @@ namespace PublicCouncilBackEnd.manage
 
             DataTable DT = SQL.SELECT(getMember);
             
-            memberName.Text          = DT.Rows[0]["MEMBER_NAME"].ToString();
-            memberSurname.Text       = DT.Rows[0]["MEMBER_SURNAME"].ToString();
-            memberFname.Text         = DT.Rows[0]["MEMBER_FNAME"].ToString();
-            memberPosition.Text      = DT.Rows[0]["MEMBER_POSITION"].ToString();
-            memberDetail.Text        = DT.Rows[0]["MEMBER_DETAIL"].ToString();
+            memberName.Text          = DT.Rows[0]["MEMBER_NAME_AZ"].ToString();
+            memberSurname.Text       = DT.Rows[0]["MEMBER_SURNAME_AZ"].ToString();
+            memberFname.Text         = DT.Rows[0]["MEMBER_FNAME_AZ"].ToString();
+            memberPosition.Text      = DT.Rows[0]["MEMBER_POSITION_AZ"].ToString();
+            memberDetail.Text        = DT.Rows[0]["MEMBER_DETAIL_AZ"].ToString();
+
+            memberName_En.Text       = DT.Rows[0]["MEMBER_NAME_EN"].ToString();
+            memberSurname_En.Text    = DT.Rows[0]["MEMBER_SURNAME_EN"].ToString();
+            memberFname_En.Text      = DT.Rows[0]["MEMBER_FNAME_EN"].ToString();
+            memberPosition_En.Text   = DT.Rows[0]["MEMBER_POSITION_EN"].ToString();
+            memberDetail_En.Text     = DT.Rows[0]["MEMBER_DETAIL_EN"].ToString();
+
             memberOrderNumber.Text   = DT.Rows[0]["MEMBER_ORDER_NUMBER"].ToString();
             memberImage.ImageUrl     = $"/Images/members/{DT.Rows[0]["MEMBER_IMAGE"].ToString()}";
 
-            
+            getMember = null;
         }
         private void InsertMember(string PC_ID)
         {
@@ -107,11 +122,18 @@ namespace PublicCouncilBackEnd.manage
 
                 SqlCommand insertMember = new SqlCommand(@"INSERT INTO PC_MEMBERS
                                                                                     (
-						                                                            MEMBER_NAME         ,
-                                                                                    MEMBER_SURNAME      ,
-                                                                                    MEMBER_FNAME        ,
-                                                                                    MEMBER_POSITION     ,
-                                                                                    MEMBER_DETAIL       ,
+						                                                            MEMBER_NAME_AZ         ,
+                                                                                    MEMBER_SURNAME_AZ      ,
+                                                                                    MEMBER_FNAME_AZ        ,
+                                                                                    MEMBER_POSITION_AZ     ,
+                                                                                    MEMBER_DETAIL_AZ       ,
+
+						                                                            MEMBER_NAME_EN         ,
+                                                                                    MEMBER_SURNAME_EN      ,
+                                                                                    MEMBER_FNAME_EN        ,
+                                                                                    MEMBER_POSITION_EN     ,
+                                                                                    MEMBER_DETAIL_EN       ,
+
                                                                                     MEMBER_IMAGE        ,
                                                                                     MEMBER_ORDER_NUMBER ,
                                                                                     PC_ID               ,
@@ -120,11 +142,18 @@ namespace PublicCouncilBackEnd.manage
 	                                                                                )
                                                                               VALUES
                                                                                     (
-	                                                                            	 @MEMBER_NAME         ,
-                                                                                     @MEMBER_SURNAME      ,
-                                                                                     @MEMBER_FNAME        ,
-                                                                                     @MEMBER_POSITION     ,
-                                                                                     @MEMBER_DETAIL       ,
+	                                                                            	 @MEMBER_NAME_AZ         ,
+                                                                                     @MEMBER_SURNAME_AZ      ,
+                                                                                     @MEMBER_FNAME_AZ        ,
+                                                                                     @MEMBER_POSITION_AZ     ,
+                                                                                     @MEMBER_DETAIL_AZ       ,
+
+	                                                                            	 @MEMBER_NAME_EN         ,
+                                                                                     @MEMBER_SURNAME_EN      ,
+                                                                                     @MEMBER_FNAME_EN        ,
+                                                                                     @MEMBER_POSITION_EN     ,
+                                                                                     @MEMBER_DETAIL_EN       ,
+
                                                                                      @MEMBER_IMAGE        ,
                                                                                      @MEMBER_ORDER_NUMBER ,
                                                                                      @PC_ID               ,
@@ -135,11 +164,19 @@ namespace PublicCouncilBackEnd.manage
 
                 insertMember.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
                 insertMember.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
-                insertMember.Parameters.Add("@MEMBER_NAME", SqlDbType.NVarChar).Value = memberName.Text;
-                insertMember.Parameters.Add("@MEMBER_SURNAME", SqlDbType.NVarChar).Value = memberSurname.Text;
-                insertMember.Parameters.Add("@MEMBER_FNAME", SqlDbType.NVarChar).Value = memberFname.Text;
-                insertMember.Parameters.Add("@MEMBER_POSITION", SqlDbType.NVarChar).Value = memberPosition.Text;
-                insertMember.Parameters.Add("@MEMBER_DETAIL", SqlDbType.NVarChar).Value = memberDetail.Text;
+                insertMember.Parameters.Add("@MEMBER_NAME_AZ", SqlDbType.NVarChar).Value = memberName.Text;
+                insertMember.Parameters.Add("@MEMBER_SURNAME_AZ", SqlDbType.NVarChar).Value = memberSurname.Text;
+                insertMember.Parameters.Add("@MEMBER_FNAME_AZ", SqlDbType.NVarChar).Value = memberFname.Text;
+                insertMember.Parameters.Add("@MEMBER_POSITION_AZ", SqlDbType.NVarChar).Value = memberPosition.Text;
+                insertMember.Parameters.Add("@MEMBER_DETAIL_AZ", SqlDbType.NVarChar).Value = memberDetail.Text;
+
+                insertMember.Parameters.Add("@MEMBER_NAME_EN", SqlDbType.NVarChar).Value = memberName_En.Text;
+                insertMember.Parameters.Add("@MEMBER_SURNAME_EN", SqlDbType.NVarChar).Value = memberSurname_En.Text;
+                insertMember.Parameters.Add("@MEMBER_FNAME_EN", SqlDbType.NVarChar).Value = memberFname_En.Text;
+                insertMember.Parameters.Add("@MEMBER_POSITION_EN", SqlDbType.NVarChar).Value = memberPosition_En.Text;
+                insertMember.Parameters.Add("@MEMBER_DETAIL_EN", SqlDbType.NVarChar).Value = memberDetail_En.Text;
+
+
                 insertMember.Parameters.Add("@MEMBER_IMAGE", SqlDbType.NVarChar).Value = memberImageName;
                 insertMember.Parameters.Add("@MEMBER_ORDER_NUMBER", SqlDbType.Int).Value = memberOrderNumber.Text;
                 insertMember.Parameters.Add("@PC_ID", SqlDbType.Int).Value = PC_ID;
@@ -170,41 +207,46 @@ namespace PublicCouncilBackEnd.manage
                 string memberImageName = Helper.SetName(extension);
 
                 updateMember = new SqlCommand(@"UPDATE PC_MEMBERS  SET  
-						                                                 MEMBER_NAME         = @MEMBER_NAME         ,
-                                                                         MEMBER_SURNAME      = @MEMBER_SURNAME      ,
-                                                                         MEMBER_FNAME        = @MEMBER_FNAME        ,
-                                                                         MEMBER_POSITION     = @MEMBER_POSITION     ,
-                                                                         MEMBER_DETAIL       = @MEMBER_DETAIL       ,
-                                                                         MEMBER_IMAGE        = @MEMBER_IMAGE        ,
+						                                                 MEMBER_NAME_AZ         = @MEMBER_NAME_AZ         ,
+                                                                         MEMBER_SURNAME_AZ      = @MEMBER_SURNAME_AZ      ,
+                                                                         MEMBER_FNAME_AZ        = @MEMBER_FNAME_AZ        ,
+                                                                         MEMBER_POSITION_AZ     = @MEMBER_POSITION_AZ     ,
+                                                                         MEMBER_DETAIL_AZ       = @MEMBER_DETAIL_AZ       ,
+
+						                                                 MEMBER_NAME_EN         = @MEMBER_NAME_EN         ,
+                                                                         MEMBER_SURNAME_EN      = @MEMBER_SURNAME_EN      ,
+                                                                         MEMBER_FNAME_EN        = @MEMBER_FNAME_EN        ,
+                                                                         MEMBER_POSITION_EN     = @MEMBER_POSITION_EN     ,
+                                                                         MEMBER_DETAIL_EN       = @MEMBER_DETAIL_EN       ,
+
+                                                                         MEMBER_IMAGE        = @MEMBER_IMAGE              ,
                                                                          MEMBER_ORDER_NUMBER = @MEMBER_ORDER_NUMBER 
 					                                                WHERE 
                                                                  
                                                                     MEMBER_ID      = @MEMBER_ID     AND
                                                                     PC_ID          = @PC_ID
                                                                   ");
-                updateMember.Parameters.Add("@MEMBER_ID", SqlDbType.Int).Value                 = MEMBER_ID;
-                updateMember.Parameters.Add("@PC_ID", SqlDbType.NVarChar).Value                = PC_ID;
-                updateMember.Parameters.Add("@MEMBER_NAME", SqlDbType.NVarChar).Value          = memberName.Text;
-                updateMember.Parameters.Add("@MEMBER_SURNAME", SqlDbType.NVarChar).Value       = memberSurname.Text;
-                updateMember.Parameters.Add("@MEMBER_FNAME", SqlDbType.NVarChar).Value         = memberFname.Text;
-                updateMember.Parameters.Add("@MEMBER_POSITION", SqlDbType.NVarChar).Value      = memberPosition.Text;
-                updateMember.Parameters.Add("@MEMBER_DETAIL", SqlDbType.NVarChar).Value        = memberDetail.Text;
-                updateMember.Parameters.Add("@MEMBER_IMAGE", SqlDbType.NVarChar).Value         = memberImageName;
-                updateMember.Parameters.Add("@MEMBER_ORDER_NUMBER", SqlDbType.Int).Value       = memberOrderNumber.Text;
 
-
+                updateMember.Parameters.Add("@MEMBER_IMAGE", SqlDbType.NVarChar).Value            = memberImageName;
 
                 MadeImageAndSave(fileMember, memberImageName, "~/images/members/", 900, 600);
             }
             else
             {
                 updateMember = new SqlCommand(@"UPDATE PC_MEMBERS  SET     
-                                                                         MEMBER_NAME         = @MEMBER_NAME          ,
-                                                                         MEMBER_SURNAME      = @MEMBER_SURNAME       ,
-                                                                         MEMBER_FNAME        = @MEMBER_FNAME         ,
-                                                                         MEMBER_POSITION     = @MEMBER_POSITION      ,
-                                                                         MEMBER_DETAIL       = @MEMBER_DETAIL        ,
-                                                                         MEMBER_ORDER_NUMBER = @MEMBER_ORDER_NUMBER 
+						                                                 MEMBER_NAME_AZ         = @MEMBER_NAME_AZ         ,
+                                                                         MEMBER_SURNAME_AZ      = @MEMBER_SURNAME_AZ      ,
+                                                                         MEMBER_FNAME_AZ        = @MEMBER_FNAME_AZ        ,
+                                                                         MEMBER_POSITION_AZ     = @MEMBER_POSITION_AZ     ,
+                                                                         MEMBER_DETAIL_AZ       = @MEMBER_DETAIL_AZ       ,
+
+						                                                 MEMBER_NAME_EN         = @MEMBER_NAME_EN         ,
+                                                                         MEMBER_SURNAME_EN      = @MEMBER_SURNAME_EN      ,
+                                                                         MEMBER_FNAME_EN        = @MEMBER_FNAME_EN        ,
+                                                                         MEMBER_POSITION_EN     = @MEMBER_POSITION_EN     ,
+                                                                         MEMBER_DETAIL_EN       = @MEMBER_DETAIL_EN       ,
+
+                                                                         MEMBER_ORDER_NUMBER    = @MEMBER_ORDER_NUMBER 
 
 					                                                     WHERE 
                                                                  
@@ -212,17 +254,23 @@ namespace PublicCouncilBackEnd.manage
                                                                          PC_ID              = @PC_ID
                                                                              ");
 
-                updateMember.Parameters.Add("@MEMBER_ID", SqlDbType.Int).Value                    = MEMBER_ID;
-                updateMember.Parameters.Add("@PC_ID", SqlDbType.NVarChar).Value                   = PC_ID;
-                updateMember.Parameters.Add("@MEMBER_NAME", SqlDbType.NVarChar).Value             = memberName.Text;
-                updateMember.Parameters.Add("@MEMBER_SURNAME", SqlDbType.NVarChar).Value          = memberSurname.Text;
-                updateMember.Parameters.Add("@MEMBER_FNAME", SqlDbType.NVarChar).Value            = memberFname.Text;
-                updateMember.Parameters.Add("@MEMBER_POSITION", SqlDbType.NVarChar).Value         = memberPosition.Text;
-                updateMember.Parameters.Add("@MEMBER_DETAIL", SqlDbType.NVarChar).Value           = memberDetail.Text;
-                updateMember.Parameters.Add("@MEMBER_ORDER_NUMBER", SqlDbType.Int).Value          = memberOrderNumber.Text;
-
-
             }
+
+
+            updateMember.Parameters.Add("@MEMBER_ID", SqlDbType.Int).Value = MEMBER_ID;
+            updateMember.Parameters.Add("@PC_ID", SqlDbType.NVarChar).Value = PC_ID;
+            updateMember.Parameters.Add("@MEMBER_NAME_AZ", SqlDbType.NVarChar).Value = memberName.Text;
+            updateMember.Parameters.Add("@MEMBER_SURNAME_AZ", SqlDbType.NVarChar).Value = memberSurname.Text;
+            updateMember.Parameters.Add("@MEMBER_FNAME_AZ", SqlDbType.NVarChar).Value = memberFname.Text;
+            updateMember.Parameters.Add("@MEMBER_POSITION_AZ", SqlDbType.NVarChar).Value = memberPosition.Text;
+            updateMember.Parameters.Add("@MEMBER_DETAIL_AZ", SqlDbType.NVarChar).Value = memberDetail.Text;
+
+            updateMember.Parameters.Add("@MEMBER_NAME_EN", SqlDbType.NVarChar).Value = memberName_En.Text;
+            updateMember.Parameters.Add("@MEMBER_SURNAME_EN", SqlDbType.NVarChar).Value = memberSurname_En.Text;
+            updateMember.Parameters.Add("@MEMBER_FNAME_EN", SqlDbType.NVarChar).Value = memberFname_En.Text;
+            updateMember.Parameters.Add("@MEMBER_POSITION_EN", SqlDbType.NVarChar).Value = memberPosition_En.Text;
+            updateMember.Parameters.Add("@MEMBER_DETAIL_EN", SqlDbType.NVarChar).Value = memberDetail_En.Text;
+            updateMember.Parameters.Add("@MEMBER_ORDER_NUMBER", SqlDbType.Int).Value = memberOrderNumber.Text;
 
             SQL.COMMAND(updateMember);
 

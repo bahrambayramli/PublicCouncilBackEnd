@@ -23,11 +23,11 @@ namespace PublicCouncilBackEnd.subsite
                         getMember = new SqlDataAdapter(
                                     new SqlCommand(@"SELECT 
 
-                                                      MEMBER_NAME       , 
-                                                      MEMBER_SURNAME    , 
-                                                      MEMBER_IMAGE      ,
-                                                      MEMBER_POSITION   ,
-                                                      MEMBER_DETAIL
+                                                      MEMBER_NAME_AZ       , 
+                                                      MEMBER_SURNAME_AZ    , 
+                                                      MEMBER_IMAGE         ,
+                                                      MEMBER_POSITION_AZ   ,
+                                                      MEMBER_DETAIL_AZ
 
                                                       FROM PC_MEMBERS 
 
@@ -39,13 +39,35 @@ namespace PublicCouncilBackEnd.subsite
                         dt = SQL.SELECT(getMember);
 
                         memberImage.ImageUrl   = $"~/images/members/{dt.Rows[0]["MEMBER_IMAGE"].ToString()}";
-                        memberPosition.Text    = $"{dt.Rows[0]["MEMBER_POSITION"].ToString()}";
-                        memberNameSurname.Text = $"{dt.Rows[0]["MEMBER_NAME"].ToString()} {dt.Rows[0]["MEMBER_SURNAME"].ToString()}";
-                        memberDetail.Text      = $"{dt.Rows[0]["MEMBER_DETAIL"].ToString()}";
+                        memberPosition.Text    = $"{dt.Rows[0]["MEMBER_POSITION_AZ"].ToString()}";
+                        memberNameSurname.Text = $"{dt.Rows[0]["MEMBER_NAME_AZ"].ToString()} {dt.Rows[0]["MEMBER_SURNAME_AZ"].ToString()}";
+                        memberDetail.Text      = $"{dt.Rows[0]["MEMBER_DETAIL_AZ"].ToString()}";
                         break;
                     }
                 case "en":
                     {
+                        getMember = new SqlDataAdapter(
+                                    new SqlCommand(@"SELECT 
+
+                                                      MEMBER_NAME_EN       , 
+                                                      MEMBER_SURNAME_EN    , 
+                                                      MEMBER_IMAGE         ,
+                                                      MEMBER_POSITION_EN   ,
+                                                      MEMBER_DETAIL_EN
+
+                                                      FROM PC_MEMBERS 
+
+                                                      WHERE PC_ID = @PC_ID AND 
+                                                      MEMBER_ID   = @MEMBER_ID"));
+
+                        getMember.SelectCommand.Parameters.Add("@PC_ID", SqlDbType.Int).Value = PC_ID;
+                        getMember.SelectCommand.Parameters.Add("@MEMBER_ID", SqlDbType.Int).Value = MEMBER_ID;
+                        dt = SQL.SELECT(getMember);
+
+                        memberImage.ImageUrl = $"~/images/members/{dt.Rows[0]["MEMBER_IMAGE"].ToString()}";
+                        memberPosition.Text = $"{dt.Rows[0]["MEMBER_POSITION_EN"].ToString()}";
+                        memberNameSurname.Text = $"{dt.Rows[0]["MEMBER_NAME_EN"].ToString()} {dt.Rows[0]["MEMBER_SURNAME_EN"].ToString()}";
+                        memberDetail.Text = $"{dt.Rows[0]["MEMBER_DETAIL_EN"].ToString()}";
                         break;
                     }
                 default:
@@ -53,26 +75,25 @@ namespace PublicCouncilBackEnd.subsite
                         getMember = new SqlDataAdapter(
                                     new SqlCommand(@"SELECT 
 
-                                                      MEMBER_NAME       , 
-                                                      MEMBER_SURNAME    , 
-                                                      MEMBER_IMAGE      ,
-                                                      MEMBER_POSITION   ,
-                                                      MEMBER_DETAIL
+                                                      MEMBER_NAME_AZ       , 
+                                                      MEMBER_SURNAME_AZ    , 
+                                                      MEMBER_IMAGE         ,
+                                                      MEMBER_POSITION_AZ   ,
+                                                      MEMBER_DETAIL_AZ
 
                                                       FROM PC_MEMBERS 
 
-                                                      WHERE
-                                                      PC_ID       = @PC_ID AND 
+                                                      WHERE PC_ID = @PC_ID AND 
                                                       MEMBER_ID   = @MEMBER_ID"));
 
                         getMember.SelectCommand.Parameters.Add("@PC_ID", SqlDbType.Int).Value = PC_ID;
                         getMember.SelectCommand.Parameters.Add("@MEMBER_ID", SqlDbType.Int).Value = MEMBER_ID;
                         dt = SQL.SELECT(getMember);
 
-                        memberImage.ImageUrl    = $"~/images/members/{dt.Rows[0]["MEMBER_IMAGE"].ToString()}";
-                        memberPosition.Text     = $"{dt.Rows[0]["MEMBER_POSITION"].ToString()}";
-                        memberNameSurname.Text  = $"{dt.Rows[0]["MEMBER_NAME"].ToString()} {dt.Rows[0]["MEMBER_SURNAME"].ToString()}";
-                        memberDetail.Text       = $"{dt.Rows[0]["MEMBER_DETAIL"].ToString()}";
+                        memberImage.ImageUrl = $"~/images/members/{dt.Rows[0]["MEMBER_IMAGE"].ToString()}";
+                        memberPosition.Text = $"{dt.Rows[0]["MEMBER_POSITION_AZ"].ToString()}";
+                        memberNameSurname.Text = $"{dt.Rows[0]["MEMBER_NAME_AZ"].ToString()} {dt.Rows[0]["MEMBER_SURNAME_AZ"].ToString()}";
+                        memberDetail.Text = $"{dt.Rows[0]["MEMBER_DETAIL_AZ"].ToString()}";
                         break;
                     }
             }

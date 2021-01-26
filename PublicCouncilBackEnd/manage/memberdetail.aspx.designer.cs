@@ -87,6 +87,51 @@ namespace PublicCouncilBackEnd.manage
         protected global::CKEditor.NET.CKEditorControl memberDetail;
 
         /// <summary>
+        /// memberName_En control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox memberName_En;
+
+        /// <summary>
+        /// memberSurname_En control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox memberSurname_En;
+
+        /// <summary>
+        /// memberFname_En control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox memberFname_En;
+
+        /// <summary>
+        /// memberPosition_En control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox memberPosition_En;
+
+        /// <summary>
+        /// memberDetail_En control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CKEditor.NET.CKEditorControl memberDetail_En;
+
+        /// <summary>
         /// memberImage control.
         /// </summary>
         /// <remarks>

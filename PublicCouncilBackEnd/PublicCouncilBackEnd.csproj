@@ -285,6 +285,7 @@
     <Content Include="subsite\aboutus.aspx" />
     <Content Include="subsite\members.aspx" />
     <Content Include="subsite\memberdetail.aspx" />
+    <Content Include="subsite\detail.aspx" />
     <Content Include="Web.config" />
     <Content Include="home.aspx" />
     <Content Include="posts.aspx" />
@@ -607,6 +608,13 @@
     </Compile>
     <Compile Include="subsite\memberdetail.aspx.designer.cs">
       <DependentUpon>memberdetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="subsite\detail.aspx.cs">
+      <DependentUpon>detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="subsite\detail.aspx.designer.cs">
+      <DependentUpon>detail.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

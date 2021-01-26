@@ -52,10 +52,10 @@
                                 </div>
                                 <div class="member-card-back">
                                     <p>
-                                        <%#Eval("MEMBER_POSITION")%>
+                                        <%#Eval("MEMBER_POSITION_AZ")%>
                                     </p>
                                     <p class="h4">
-                                        <%#Eval("MEMBER_NAME")%>  <%#Eval("MEMBER_SURNAME")%>
+                                        <%#Eval("MEMBER_NAME_AZ")%>  <%#Eval("MEMBER_SURNAME_AZ")%>
                                     </p>
                                     <a class="btn btn-outline-secondary btn-round btn-sm" href="/site/memberdetail/az/<%#Eval("MEMBER_ID")%>">Ətraflı</a>
                                 </div>
