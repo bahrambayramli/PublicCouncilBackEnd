@@ -28,7 +28,7 @@
     <link rel="manifest" href="/images/ico/manifest.json">
     <!-- STYLES -->
     <asp:PlaceHolder runat="server">
-        <%: Styles.Render("/bundles/MyAppStartupCss") %> 
+        <%: Styles.Render("/bundles/sitebundlecss") %> 
     </asp:PlaceHolder>
     <link href="/content/scss/preloader.min.css" rel="stylesheet" />
     <link href="/content/scss/subsite.min.css" rel="stylesheet" />
@@ -37,7 +37,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
     <!-- SCRIPTS -->
     <asp:PlaceHolder runat="server">
-        <%: Scripts.Render("/bundles/MyAppStartupJs") %>  
+        <%: Scripts.Render("/bundles/sitebundlejs") %>  
     </asp:PlaceHolder>
     <script src="/scripts/preloader.js"></script>
     <script src="/scripts/subsite.js"></script>

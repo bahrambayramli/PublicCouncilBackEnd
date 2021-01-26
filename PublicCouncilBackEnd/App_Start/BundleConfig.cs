@@ -11,7 +11,7 @@ namespace PublicCouncilBackEnd
         public static void RegisterBundle(BundleCollection bundle)
         {
             //bundle all common js files, required in every page  
-            bundle.Add(new ScriptBundle("~/bundles/MyAppStartupJs")
+            bundle.Add(new ScriptBundle("~/bundles/sitebundlejs")
             .Include(
           
             "~/scripts/core/jquery.js",
@@ -26,14 +26,14 @@ namespace PublicCouncilBackEnd
 
 
             //wrapup all css in a bundle
-            bundle.Add(new StyleBundle("~/bundles/MyAppStartupCss")
+            bundle.Add(new StyleBundle("~/bundles/sitebundlecss")
             .Include(
-           
             "~/content/css/argon-design-system.min.css",
             "~/content/css/owl.carousel.min.css",
             "~/content/css/owl.theme.default.min.css",
-            "~/content/scss/style.css")
-          );
+            "~/content/scss/style.css", 
+            "~/content/scss/preloader.min.css"
+            ));
             //  Include("~/Content/CSS/fonts/fontawesome-5.13.0/css/all.min.css", new CssRewriteUrlTransform())
             BundleTable.EnableOptimizations = true;
 

@@ -31,11 +31,11 @@
     <title>İctimai şura</title>
     <!-- STYLES -->
     <asp:PlaceHolder runat="server">
-        <%: Styles.Render("/bundles/MyAppStartupCss") %> 
+        <%: Styles.Render("/bundles/sitebundlecss") %> 
     </asp:PlaceHolder>
     <!-- SCRIPTS -->
     <asp:PlaceHolder runat="server">
-        <%: @Scripts.Render("/bundles/MyAppStartupJs") %>  
+        <%: @Scripts.Render("/bundles/sitebundlejs") %>  
     </asp:PlaceHolder>
     <!-- FONTS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
@@ -51,7 +51,7 @@
 
         gtag('config', 'UA-180960102-1');
     </script>
-    <link href="/content/scss/preloader.min.css" rel="stylesheet" />
+<%--    <link href="/content/scss/preloader.min.css" rel="stylesheet" />--%>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
