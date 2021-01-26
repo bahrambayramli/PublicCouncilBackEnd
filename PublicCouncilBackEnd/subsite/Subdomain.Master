@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Subdomain.master.cs" Inherits="PublicCouncilBackEnd.subsite.Subdomain" %>
-<%@ Import Namespace= "System.Web.Optimization" %>  
+
+<%@ Import Namespace="System.Web.Optimization" %>
 <!DOCTYPE html>
 
 <html lang="az">
@@ -111,7 +112,7 @@
                             <div class="col-6 col-md-4 d-flex align-items-center justify-content-end">
                                 <asp:LinkButton ID="langAZ" runat="server" CssClass="site-lang p-1 btn btn-round shadow-sm " OnClick="langAZ_Click">AZ</asp:LinkButton>
                                 <asp:LinkButton ID="langEN" runat="server" CssClass="site-lang p-1 btn btn-round shadow-sm" OnClick="langEN_Click">EN</asp:LinkButton>
-                                <asp:LinkButton ID="signIN" runat="server" CssClass="site-login p-1 px-2 btn btn-round btn-gradient-danger btn-round shadow-sm" OnClick="signIN_Click"></asp:LinkButton>
+                                <asp:LinkButton ID="signIN" runat="server" CssClass="site-login p-1 px-md-2 btn btn-round btn-gradient-danger btn-round shadow-sm" OnClick="signIN_Click"></asp:LinkButton>
                             </div>
                         </div>
                     </div>
@@ -332,7 +333,7 @@
                 <div class="container-fluid p-md-0">
                     <div class="row">
                         <div class="col-md-3 d-none d-md-block">
-                             <asp:HyperLink ID="pageName" runat="server" CssClass="footer-brand"></asp:HyperLink>
+                            <asp:HyperLink ID="pageName" runat="server" CssClass="footer-brand"></asp:HyperLink>
                         </div>
                         <div class="col-12 col-md-6 d-none d-md-block">
                             <div class="column">
@@ -340,17 +341,17 @@
                                     <asp:ListView ID="FOOTER_NAVS_AZ" runat="server">
                                         <ItemTemplate>
                                             <li>
-                                                 <a class="nav-link" href="<%#Eval("NAV_LINK_AZ")%>"><%#Eval("NAV_AZ")%></a>
+                                                <a class="nav-link" href="<%#Eval("NAV_LINK_AZ")%>"><%#Eval("NAV_AZ")%></a>
                                             </li>
                                         </ItemTemplate>
                                     </asp:ListView>
-                                     <asp:ListView ID="FOOTER_NAVS_EN" runat="server">
-                                         <ItemTemplate>
+                                    <asp:ListView ID="FOOTER_NAVS_EN" runat="server">
+                                        <ItemTemplate>
                                             <li>
-                                                 <a class="nav-link" href="<%#Eval("NAV_LINK_EN")%>"><%#Eval("NAV_EN")%></a>
+                                                <a class="nav-link" href="<%#Eval("NAV_LINK_EN")%>"><%#Eval("NAV_EN")%></a>
                                             </li>
                                         </ItemTemplate>
-                                     </asp:ListView>
+                                    </asp:ListView>
                                 </ul>
                             </div>
                         </div>
@@ -398,7 +399,7 @@
     </form>
 
     <script src="/scripts/scripts-runner.js"></script>
-   
+
 </body>
 
 <script>

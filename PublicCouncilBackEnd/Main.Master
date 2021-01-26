@@ -1,5 +1,6 @@
-﻿ <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="PublicCouncilBackEnd.Main" %>
-<%@ Import Namespace= "System.Web.Optimization" %>  
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="PublicCouncilBackEnd.Main" %>
+
+<%@ Import Namespace="System.Web.Optimization" %>
 <!DOCTYPE html>
 
 <html lang="az">
@@ -26,7 +27,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/images/ico/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-  
+
     <title>İctimai şura</title>
     <!-- STYLES -->
     <asp:PlaceHolder runat="server">
@@ -511,8 +512,7 @@
                             <div class="row">
                                 <div class="col-12 px-md-1">
                                     <a href="#"
-                                        class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm text-center post-block-title text-uppercase"
-                                       >Videos
+                                        class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm text-center post-block-title text-uppercase">Videos
                                     </a>
                                 </div>
                             </div>
@@ -541,8 +541,7 @@
                             <div class="row">
                                 <div class="col-12 px-md-1">
                                     <a href="#"
-                                        class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm text-center post-block-title text-uppercase"
-                                       >tərəfdaşlar
+                                        class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm text-center post-block-title text-uppercase">tərəfdaşlar
                                     </a>
                                 </div>
                             </div>
@@ -567,8 +566,7 @@
                             <div class="row">
                                 <div class="col-12 px-md-1 mb-2">
                                     <a href="#"
-                                        class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm text-center post-block-title text-uppercase"
-                                       >partners
+                                        class="d-block text-default p-2 py-md-3 my-2 bg-white rounded shadow-sm text-center post-block-title text-uppercase">partners
                                     </a>
                                 </div>
                             </div>
@@ -622,7 +620,7 @@
                 <div class="container-fluid p-md-0">
                     <div class="row">
                         <div class="col-md-3 d-none d-md-block">
-                             <asp:HyperLink ID="pageName" runat="server" CssClass="footer-brand"></asp:HyperLink>
+                            <asp:HyperLink ID="pageName" runat="server" CssClass="footer-brand"></asp:HyperLink>
                         </div>
                         <div class="col-12 col-md-6 d-none d-md-block">
                             <div class="column">
@@ -630,17 +628,17 @@
                                     <asp:ListView ID="FOOTER_NAVS_AZ" runat="server">
                                         <ItemTemplate>
                                             <li>
-                                                 <a class="nav-link" href="<%#Eval("NAV_LINK_AZ")%>"><%#Eval("NAV_AZ")%></a>
+                                                <a class="nav-link" href="<%#Eval("NAV_LINK_AZ")%>"><%#Eval("NAV_AZ")%></a>
                                             </li>
                                         </ItemTemplate>
                                     </asp:ListView>
-                                     <asp:ListView ID="FOOTER_NAVS_EN" runat="server">
-                                         <ItemTemplate>
+                                    <asp:ListView ID="FOOTER_NAVS_EN" runat="server">
+                                        <ItemTemplate>
                                             <li>
-                                                 <a class="nav-link" href="<%#Eval("NAV_LINK_EN")%>"><%#Eval("NAV_EN")%></a>
+                                                <a class="nav-link" href="<%#Eval("NAV_LINK_EN")%>"><%#Eval("NAV_EN")%></a>
                                             </li>
                                         </ItemTemplate>
-                                     </asp:ListView>
+                                    </asp:ListView>
                                 </ul>
                             </div>
                         </div>
