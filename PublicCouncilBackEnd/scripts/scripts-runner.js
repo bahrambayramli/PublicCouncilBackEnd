@@ -2,11 +2,11 @@ $(".owl-right-top").owlCarousel({
     loop: true,
     autoplay: true,
     autoplayHoverPause: true,
-      autoplayTimeout: 6000,
-      items: 1,
-      dots: false,
-      nav: false,
-      autoplaySpeed: 2000
+    autoplayTimeout: 6000,
+    items: 1,
+    dots: false,
+    nav: false,
+    autoplaySpeed: 2000
 
 });
 
@@ -14,22 +14,22 @@ $(".owl-right-bottom").owlCarousel({
     loop: true,
     autoplay: true,
     autoplayHoverPause: true,
-      autoplayTimeout: 7000,
-      items: 1,
-      dots: false,
-      autoplaySpeed: 2000,
+    autoplayTimeout: 7000,
+    items: 1,
+    dots: false,
+    autoplaySpeed: 2000,
 });
 
 $(".publications").owlCarousel({
-      loop: true,
+    loop: true,
     autoplay: true,
     autoplayHoverPause: true,
-      autoplayTimeout: 6000,
-      items: 4,
-      margin: 10,
-      dots: false,
-      nav: false,
-      autoplaySpeed: 2000
+    autoplayTimeout: 6000,
+    items: 4,
+    margin: 10,
+    dots: false,
+    nav: false,
+    autoplaySpeed: 2000
 
 });
 
@@ -47,11 +47,11 @@ $(".owl-elections").owlCarousel({
 });
 
 $(".owl-video").owlCarousel({
-      loop: true,
+    loop: true,
     autoplay: true,
     autoplayHoverPause: true,
-      autoplayTimeout: 4500,
-      responsive: {
+    autoplayTimeout: 4500,
+    responsive: {
         0: {
             items: 1,
         },
@@ -60,10 +60,10 @@ $(".owl-video").owlCarousel({
           
         }
       },
-      margin: 5,
-      dots: false,
-      nav: false,
-      autoplaySpeed: 2000
+    margin: 5,
+    dots: false,
+    nav: false,
+    autoplaySpeed: 2000
 
 });
 
@@ -91,9 +91,11 @@ $(".owl-partners").owlCarousel({
 
 
 $(document).ready(function () {
+
       $("#latestpostlist").niceScroll({
             cursorcolor: "#dc3545",
             cursorwidth: "10px",
             cursoropacitymax: 0.7
       });
+
 });

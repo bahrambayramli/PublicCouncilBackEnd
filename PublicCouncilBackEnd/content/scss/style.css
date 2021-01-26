@@ -70,10 +70,11 @@ form {
         .main .content-side .site-sliders .owl-right-top .slider-item .slider-caption .slider-title p,
         .main .content-side .site-sliders .owl-right-bottom .slider-item .slider-caption .slider-title p {
           color: #fff;
-          font-size: 1.1rem;
+          font-size: 1rem;
           font-weight: 600;
           margin: 0;
-          padding: 0; }
+          padding: 0;
+          line-height: 1.3rem; }
       .main .content-side .site-sliders .owl-main .slider-item .slider-caption .caption-link,
       .main .content-side .site-sliders .owl-right-top .slider-item .slider-caption .caption-link,
       .main .content-side .site-sliders .owl-right-bottom .slider-item .slider-caption .caption-link {
@@ -93,7 +94,7 @@ form {
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(to top, #32325d 0%, rgba(10, 10, 10, 0) 25%);
+      background: linear-gradient(to top, #32325d 10%, rgba(20, 20, 10, 0) 65%);
       z-index: 1; }
   .main .content-side .site-partners .site-partners-link {
     box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07); }

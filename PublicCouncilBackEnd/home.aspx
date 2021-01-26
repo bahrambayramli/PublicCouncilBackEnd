@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="PublicCouncilBackEnd.WebForm1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
@@ -10,6 +11,7 @@
 
                 <div class="col col-12 col-md-8 px-md-1">
 
+                    <%-- Main carousel --%>
                     <asp:ListView ID="MAINSLIDER_AZ" runat="server">
                         <LayoutTemplate>
                             <div class="main-slider">
@@ -60,11 +62,14 @@
                         </ItemTemplate>
                     </asp:ListView>
 
+                    <%-- Main carousel run --%>
                     <script>
                         $(".owl-main").owlCarousel({
                             loop: true,
                             autoplay: true,
                             autoplayTimeout: 5000,
+                            dots: false,
+                            autoplaySpeed: 2000,
                             responsive: {
                                 0: {
                                     items: 1,
@@ -74,9 +79,6 @@
                                     nav: true,
                                 }
                             },
-
-                            dots: false,
-                            autoplaySpeed: 2000,
                         });
                     </script>
 
@@ -95,10 +97,6 @@
                             <div class="slider-item">
                                 <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>" />
                                 <div class="slider-caption">
-<%--                                    <span class="btn btn-sm btn-round slider-time">
-                                        <i class="far fa-calendar-alt"></i>
-                                        <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
-                                    </span>--%>
                                     <h3 class="slider-title">
                                         <%#Eval("POST_SEOAZ")%>
                                     </h3>
@@ -117,7 +115,7 @@
                             <div class="slider-item">
                                 <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
                                 <div class="slider-caption">
-<%--                                    <span class="slider-time btn btn-outline-warning btn-sm btn-round">
+                                    <%--                                    <span class="slider-time btn btn-outline-warning btn-sm btn-round">
                                         <i class="far fa-calendar-alt"></i>
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
                                     </span>--%>
@@ -138,7 +136,7 @@
                         </LayoutTemplate>
                         <ItemTemplate>
                             <div class="slider-item">
-                                <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>"  />
+                                <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>" />
                                 <div class="slider-caption">
                                     <%--                                    <span class="slider-time btn btn-sm btn-round">
                                         <i class="far fa-calendar-alt"></i>
