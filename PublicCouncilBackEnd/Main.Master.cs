@@ -9,6 +9,12 @@ namespace PublicCouncilBackEnd
 {
     public partial class Main : System.Web.UI.MasterPage
     {
+        protected DateTime GetCurrentTime()
+        {
+            DateTime serverTime = DateTime.Now;
+            DateTime _localTime = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(serverTime, TimeZoneInfo.Local.Id, "Azerbaijan Standard Time");
+            return _localTime;
+        }
 
         private void HeaderNav()
         {
@@ -919,6 +925,7 @@ namespace PublicCouncilBackEnd
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            GetCurrentTime();
             Session["language"] = Convert.ToString(Page.RouteData.Values["language"]).ToLower();
             GetLogo();
             GetSponsors();
