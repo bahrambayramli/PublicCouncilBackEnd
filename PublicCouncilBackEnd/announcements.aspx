@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
-    <asp:UpdatePanel ID="POSTS_PANEL" runat="server" class="container-fluid p-0">
+    <asp:UpdatePanel ID="POSTS_PANEL" runat="server" class="container-fluid p-0 mb-2">
         <ContentTemplate>
             <div class="row">
                 <div class="col-12 px-md-1">

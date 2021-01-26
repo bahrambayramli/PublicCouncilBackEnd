@@ -45,6 +45,7 @@
     </asp:ContentPlaceHolder>
 
 </head>
+
 <body onload="hideLoading()">
 
     <div id="preloader" class="loader">
@@ -387,7 +388,7 @@
                             </span>
                         </div>
                         <div class="col-12 col-md-4">
-                            <div class="text-right">
+                            <div class="text-center text-md-rght">
                                 Site By <a class="text-gray font-weight-300" target="_blank" href="http://smartcode.az">SmartCode LLC</a>
                             </div>
                         </div>
@@ -402,7 +403,4 @@
 
 </body>
 
-<script>
-
-</script>
 </html>

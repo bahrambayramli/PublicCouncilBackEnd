@@ -1,16 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="councils.aspx.cs" Inherits="PublicCouncilBackEnd.WebForm12" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
 
-    <asp:UpdatePanel ID="COUNCIL_PANEL" runat="server" class="container-fluid">
+    <asp:UpdatePanel ID="COUNCIL_PANEL" runat="server" class="container-fluid p-0 px-md-2 mb-2">
         <ContentTemplate>
             <div class="row">
                 <div class="col-12 px-md-1">
-                    <asp:HyperLink 
-                        ID="pcTitle" runat="server" 
+                    <asp:HyperLink
+                        ID="pcTitle" runat="server"
                         CssClass="d-block bg-white rounded shadow-sm text-center text-default text-uppercase p-2 mb-2 px-md-1 page-name">
                     </asp:HyperLink>
                 </div>
@@ -55,7 +55,7 @@
                                     </a>
                                     <a href="tel:<%#Eval("PC_TELEPHONE")%>" class="text-gray">
                                         <i class="fas fa-mobile mr-2 text-info"></i>
-                                           <%#Eval("PC_TELEPHONE")%>
+                                        <%#Eval("PC_TELEPHONE")%>
                                     </a>
                                 </p>
 
@@ -64,7 +64,7 @@
 
 
                             </div>
-                        </div> 
+                        </div>
                     </ItemTemplate>
                 </asp:ListView>
 
@@ -91,12 +91,12 @@
                                     </a>
                                     <a href="tel:<%#Eval("PC_TELEPHONE")%>" class="text-gray">
                                         <i class="fas fa-mobile mr-2 text-info"></i>
-                                           <%#Eval("PC_TELEPHONE")%>
+                                        <%#Eval("PC_TELEPHONE")%>
                                     </a>
                                 </p>
 
                             </div>
-                        </div> 
+                        </div>
                     </ItemTemplate>
                 </asp:ListView>
             </div>
