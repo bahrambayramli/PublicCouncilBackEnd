@@ -1,15 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="PublicCouncilBackEnd.Main" %>
-
 <%@ Import Namespace="System.Web.Optimization" %>
-<%--<script language="C#" runat="server">
-  protected void Page_Load(object sender, EventArgs e)
-        {
-           foreach (TimeZoneInfo zoneID in TimeZoneInfo.GetSystemTimeZones())
-            {
-                Response.Write(zoneID.Id + "<br/>");
-            }
-        }
-</script>--%>
+
 <!DOCTYPE html>
 
 <html lang="az">

@@ -925,46 +925,54 @@ namespace PublicCouncilBackEnd
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetCurrentTime();
+            
             Session["language"] = Convert.ToString(Page.RouteData.Values["language"]).ToLower();
             GetLogo();
-            GetSponsors();
             GetNavigations(Page.RouteData.Values["language"] as string);
-            HeaderNav();
             GetPosts(Session["language"] as string, "4", "election", false, true, true, COUNCILELECTION_AZ, COUNCILELECTION_EN);
             GetPosts(Session["language"] as string, "4", "announcements", false, true, true, ANNOUNCMENTS_AZ, ANNOUNCMENTS_EN);
             GetLatest(Session["language"] as string, "12", false, true, true, LATEST_AZ, LATEST_EN);
             GetPosts(Session["language"] as string, "10", "multimedia", "video", false, true,true, VIDEOS_AZ, VIDEOS_EN,false);
-            GetPartners(Session["language"] as string,"12", false, true, PARTNERS_AZ,PARTNERS_EN);
+           
 
-            switch (Session["language"]as string)
+            if (!IsPostBack)
             {
-                case "az":
-                    {
-                        signIN.Text = "Daxil ol";
-                        pageName.Text = "İctimai şura";
-                        pageName.NavigateUrl = "http://ictimaishura.az";
-                        siteRights.Text = $"© Bütün hüquqlar qorunur {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year+1).ToString()}";
-                        break;
-                    }
-                case "en":
-                    {
-                        signIN.Text = "Sign in";
-                        pageName.Text = "Public council";
-                        pageName.NavigateUrl = "http://ictimaishura.az";
-                        siteRights.Text = $"© All rights reserved {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
-                        break;
-                    }
-               default:
-                    {
-                        signIN.Text = "Daxil ol";
-                        pageName.Text = "İctimai şura";
-                        pageName.NavigateUrl = "http://ictimaishura.az";
-                        siteRights.Text = $"© Bütün hüquqlar qorunur {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
-                        break;
-                    }
+                HeaderNav();
+                GetPartners(Session["language"] as string, "12", false, true, PARTNERS_AZ, PARTNERS_EN);
+                GetSponsors();
+                switch (Session["language"] as string)
+                {
+                    case "az":
+                        {
+                            signIN.Text = "Daxil ol";
+                            pageName.Text = "İctimai şura";
+                            pageName.NavigateUrl = "http://ictimaishura.az";
+                            siteRights.Text = $"© Bütün hüquqlar qorunur {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
+                            break;
+                        }
+                    case "en":
+                        {
+                            signIN.Text = "Sign in";
+                            pageName.Text = "Public council";
+                            pageName.NavigateUrl = "http://ictimaishura.az";
+                            siteRights.Text = $"© All rights reserved {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
+                            break;
+                        }
+                    default:
+                        {
+                            signIN.Text = "Daxil ol";
+                            pageName.Text = "İctimai şura";
+                            pageName.NavigateUrl = "http://ictimaishura.az";
+                            siteRights.Text = $"© Bütün hüquqlar qorunur {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
+                            break;
+                        }
+                }
             }
 
+
+           
+
+           
         }
 
         protected void langAZ_Click(object sender, EventArgs e)

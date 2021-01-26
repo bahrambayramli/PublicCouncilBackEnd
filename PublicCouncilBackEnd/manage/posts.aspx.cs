@@ -82,14 +82,17 @@ namespace PublicCouncilBackEnd.manage
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["USER_MEMBERSHIP_TYPE"] as string == "admin")
+            if (!IsPostBack)
             {
-                GetPosts(pcSelectList.SelectedValue);
-            }
-           else
-            {
-                GetPosts(Session["USER_ID"] as string);
-                pcSelectList.Visible = false;
+                if (Session["USER_MEMBERSHIP_TYPE"] as string == "admin")
+                {
+                    GetPosts(pcSelectList.SelectedValue);
+                }
+                else
+                {
+                    GetPosts(Session["USER_ID"] as string);
+                    pcSelectList.Visible = false;
+                }
             }
            
         }
@@ -157,10 +160,14 @@ namespace PublicCouncilBackEnd.manage
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            PostsList.DataSource = null;
+            PostsList.DataBind();
+            
             string search = "";
             search = search + " AND POST_SEOAZ like  @POST_SEOAZ";
 
-            SqlDataAdapter getnews = new SqlDataAdapter();
+            SqlDataAdapter getnews;
+            DataTable dt;
             if (string.IsNullOrEmpty(pcSelectList.SelectedValue) || pcSelectList.SelectedValue == "1")
             {
                 getnews = new SqlDataAdapter(
@@ -206,10 +213,14 @@ namespace PublicCouncilBackEnd.manage
             getnews.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
             getnews.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
             getnews.SelectCommand.Parameters.Add("@POST_SEOAZ", SqlDbType.NVarChar).Value = "%"+ inputSearch.Text+ "%";
+            dt = SQL.SELECT(getnews);
 
-            PostsList.DataSource = SQL.SELECT(getnews);
+            string dtid = dt.Rows[0]["DATA_ID"].ToString();
+            string usrid = dt.Rows[0]["USER_ID"].ToString();
+
+            PostsList.DataSource = dt;
             PostsList.DataBind();
-
+          
             search = null;
 
         }
