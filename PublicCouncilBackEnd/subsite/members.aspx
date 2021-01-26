@@ -9,7 +9,9 @@
                     <asp:HyperLink ID="pageName" runat="server" CssClass="d-block bg-white rounded shadow-sm text-center text-default text-uppercase p-2 mb-2 px-md-1 page-name"></asp:HyperLink>
                 </div>
             </div>
-
+            <div class="row">
+                <asp:Literal ID="pcActivityPeriod" runat="server"></asp:Literal>
+            </div>
             <div class="row">
                 <div class="col-12">
                     <div class="table-responsive py-2">
@@ -77,7 +79,7 @@
                                             <p class="h4">
                                                 <%#Eval("MEMBER_NAME_EN")%>  <%#Eval("MEMBER_SURNAME_EN")%>
                                             </p>
-                                            <a class="btn btn-outline-secondary btn-round btn-sm" href="/site/memberdetail/en/<%#Eval("MEMBER_ID")%>">Ətraflı</a>
+                                            <a class="btn btn-outline-secondary btn-round btn-sm" href="/site/memberdetail/en/<%#Eval("MEMBER_ID")%>">Details</a>
                                         </div>
                                     </div>
                                 </div>

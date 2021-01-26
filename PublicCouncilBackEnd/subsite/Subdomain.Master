@@ -244,7 +244,7 @@
                                                                     <%#Eval("POST_AZ_TITLE")%>
                                                                 </a>
                                                                 <div class="d-flex justify-content-between align-items-center my-1">
-                                                                    <a class="btn btn-sm btn-outline-default btn-round" href="/posts/az">xeberler
+                                                                    <a class="btn btn-sm btn-outline-default btn-round" href="/posts/az">xəbərlər
                                                           
                                                                     </a>
                                                                     <a class="btn btn-sm btn-outline-danger btn-round wrap" href="#">

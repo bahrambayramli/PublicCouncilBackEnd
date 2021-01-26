@@ -95,29 +95,31 @@ namespace PublicCouncilBackEnd.manage
             SqlDataAdapter getPC =
                 new SqlDataAdapter(
                     new SqlCommand(@"SELECT 
-                                                                               ISACTIVE             ,
-                                                                               USER_MEMBERSHIP      ,
-                                                                               USER_MEMBERSHIP_TYPE ,
-                                                                               USER_LOGIN           ,
-                                                                               USER_PASSWORD        ,
-                                                                               USER_SERIAL          ,
-                                                                               USER_PCDOMAIN        ,
-                                                                               USER_NAME            ,
-                                                                               USER_SURNAME         ,
-                                                                               USER_MOBILE          ,
-                                                                               PC_NAME              ,
-                                                                               PC_TELEPHONE         ,
-                                                                               PC_EMAIL             ,
-                                                                               PC_WEBADDRESS        ,
-                                                                               PC_COUNTRY           ,
-                                                                               PC_CITY              ,
-                                                                               CREATED_DATE         ,
-                                                                               PC_CATEGORY          ,
-                                                                               PC_ABOUT             ,
-                                                                               PC_ORDER_NUMBER      ,
-                                                                               PC_NAME_EN           ,
-                                                                               USER_NAME_EN         ,
-                                                                               USER_SURNAME_EN
+                                                                               ISACTIVE                ,
+                                                                               USER_MEMBERSHIP         ,
+                                                                               USER_MEMBERSHIP_TYPE    ,
+                                                                               USER_LOGIN              ,
+                                                                               USER_PASSWORD           ,
+                                                                               USER_SERIAL             ,
+                                                                               USER_PCDOMAIN           ,
+                                                                               USER_NAME               ,
+                                                                               USER_SURNAME            ,
+                                                                               USER_MOBILE             ,
+                                                                               PC_NAME                 ,
+                                                                               PC_TELEPHONE            ,
+                                                                               PC_EMAIL                ,
+                                                                               PC_WEBADDRESS           ,
+                                                                               PC_COUNTRY              ,
+                                                                               PC_CITY                 ,
+                                                                               CREATED_DATE            ,
+                                                                               PC_CATEGORY             ,
+                                                                               PC_ABOUT_AZ             ,
+                                                                               PC_ABOUT_EN             ,
+                                                                               PC_ORDER_NUMBER         ,
+                                                                               PC_NAME_EN              ,
+                                                                               USER_NAME_EN            ,
+                                                                               USER_SURNAME_EN         ,
+                                                                               PC_ACTIVITY_PERIOD
 
                                                                                FROM PC_USERS
 
@@ -188,7 +190,9 @@ namespace PublicCouncilBackEnd.manage
 
             inputPCname.Text            = pc.Rows[0]["PC_NAME"].ToString();
 
-            inputAboutUs.Text           = pc.Rows[0]["PC_ABOUT"].ToString();
+            inputAboutUs_Az.Text        = pc.Rows[0]["PC_ABOUT_AZ"].ToString();
+
+            inputAboutUs_En.Text        = pc.Rows[0]["PC_ABOUT_EN"].ToString();
 
             inputPCname_En.Text         = pc.Rows[0]["PC_NAME_EN"].ToString();
 
@@ -196,6 +200,7 @@ namespace PublicCouncilBackEnd.manage
 
             inputSurname_En.Text        = pc.Rows[0]["USER_SURNAME_EN"].ToString();
 
+            inputActivityPeriod.Text    = pc.Rows[0]["PC_ACTIVITY_PERIOD"].ToString();
 
             GetLogos(pc.Rows[0]["USER_SERIAL"].ToString(), false);
 
@@ -227,13 +232,16 @@ namespace PublicCouncilBackEnd.manage
                                                          PC_WEBADDRESS,
                                                          PC_COUNTRY,
                                                          PC_CITY,
-                                                         PC_ABOUT,
+                                                         PC_ABOUT_AZ,
+                                                         PC_ABOUT_EN,
                                                          CREATED_DATE,
                                                          PC_CATEGORY,
                                                          PC_ORDER_NUMBER,
                                                          PC_NAME_EN,
                                                          USER_NAME_EN,
-                                                         USER_SURNAME_EN
+                                                         USER_SURNAME_EN,
+                                                         PC_ACTIVITY_PERIOD
+
 	                                                    )
                                                   VALUES
                                                         (
@@ -255,16 +263,16 @@ namespace PublicCouncilBackEnd.manage
                                                          @PC_WEBADDRESS,
                                                          @PC_COUNTRY,
                                                          @PC_CITY,
-                                                         @PC_ABOUT,
+                                                         @PC_ABOUT_AZ,
+                                                         @PC_ABOUT_EN,
                                                          @CREATED_DATE,
                                                          @PC_CATEGORY,
                                                          @PC_ORDER_NUMBER,
                                                          @PC_NAME_EN,
                                                          @USER_NAME_EN,
-                                                         @USER_SURNAME_EN
-
-                                                        
-	                                                	   )");
+                                                         @USER_SURNAME_EN,
+                                                         @PC_ACTIVITY_PERIOD
+                                                          )");
 
             insertUser.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
 
@@ -305,7 +313,8 @@ namespace PublicCouncilBackEnd.manage
             insertUser.Parameters.Add("@PC_WEBADDRESS", SqlDbType.NVarChar).Value                       = inputWeb.Text;
             insertUser.Parameters.Add("@PC_COUNTRY", SqlDbType.NVarChar).Value                          = "Azərbaycan";
             insertUser.Parameters.Add("@PC_CITY", SqlDbType.NVarChar).Value                             = inputCity.SelectedItem.Text;
-            insertUser.Parameters.Add("@PC_ABOUT", SqlDbType.NVarChar).Value                            = inputAboutUs.Text;
+            insertUser.Parameters.Add("@PC_ABOUT_AZ", SqlDbType.NVarChar).Value                            = inputAboutUs_Az.Text;
+            insertUser.Parameters.Add("@PC_ABOUT_EN", SqlDbType.NVarChar).Value                         = inputAboutUs_En.Text;
 
             DateTime createdDate = DateTime.ParseExact(GetDate(), "dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
             insertUser.Parameters.Add("@CREATED_DATE", SqlDbType.Date).Value                            = createdDate.ToString(); ;
@@ -314,6 +323,7 @@ namespace PublicCouncilBackEnd.manage
             insertUser.Parameters.Add("@PC_NAME_EN", SqlDbType.NVarChar).Value                          = inputPCname_En.Text;
             insertUser.Parameters.Add("@USER_NAME_EN", SqlDbType.NVarChar).Value                        = inputName_En.Text;
             insertUser.Parameters.Add("@USER_SURNAME_EN", SqlDbType.NVarChar).Value                     = inputSurname_En.Text;
+            insertUser.Parameters.Add("@PC_ACTIVITY_PERIOD", SqlDbType.NVarChar).Value                  = inputActivityPeriod.Text;
 
             SQL.COMMAND(insertUser);
             #endregion
@@ -348,7 +358,7 @@ namespace PublicCouncilBackEnd.manage
                                                          PC_WEBADDRESS         = @PC_WEBADDRESS         ,                                                      
                                                          PC_CITY               = @PC_CITY               ,
                                                          PC_CATEGORY           = @PC_CATEGORY           ,
-	                                                     PC_ABOUT              = @PC_ABOUT              ,
+	                                                     PC_ABOUT_AZ              = @PC_ABOUT_AZ              ,
                                                          PC_ORDER_NUMBER       = @PC_ORDER_NUMBER       ,
                                                          PC_NAME_EN            = @PC_NAME_EN            ,
                                                          USER_NAME_EN          = @USER_NAME_EN          ,
@@ -380,11 +390,13 @@ namespace PublicCouncilBackEnd.manage
                                                          PC_WEBADDRESS         = @PC_WEBADDRESS         ,                                                      
                                                          PC_CITY               = @PC_CITY               ,                                                       
                                                          PC_CATEGORY           = @PC_CATEGORY           ,
-	                                                     PC_ABOUT              = @PC_ABOUT              ,
+	                                                     PC_ABOUT_AZ           = @PC_ABOUT_AZ           ,
+	                                                     PC_ABOUT_EN           = @PC_ABOUT_EN           ,
                                                          PC_ORDER_NUMBER       = @PC_ORDER_NUMBER       ,
                                                          PC_NAME_EN            = @PC_NAME_EN            ,
                                                          USER_NAME_EN          = @USER_NAME_EN          ,
-                                                         USER_SURNAME_EN       = @USER_SURNAME_EN
+                                                         USER_SURNAME_EN       = @USER_SURNAME_EN       ,
+                                                         PC_ACTIVITY_PERIOD    = @PC_ACTIVITY_PERIOD       
 
                                                          WHERE USER_ID = @USER_ID
                                                         
@@ -417,11 +429,13 @@ namespace PublicCouncilBackEnd.manage
             updateUser.Parameters.Add("@PC_WEBADDRESS", SqlDbType.NVarChar).Value           = inputWeb.Text;
             updateUser.Parameters.Add("@PC_CITY", SqlDbType.NVarChar).Value                 = inputCity.SelectedItem.Text;
             updateUser.Parameters.Add("@PC_CATEGORY", SqlDbType.NVarChar).Value             = categorySelect.SelectedValue;
-            updateUser.Parameters.Add("@PC_ABOUT", SqlDbType.NVarChar).Value                = inputAboutUs.Text;
+            updateUser.Parameters.Add("@PC_ABOUT_AZ", SqlDbType.NVarChar).Value             = inputAboutUs_Az.Text;
+            updateUser.Parameters.Add("@PC_ABOUT_EN", SqlDbType.NVarChar).Value             = inputAboutUs_En.Text;
 
             updateUser.Parameters.Add("@PC_NAME_EN", SqlDbType.NVarChar).Value              = inputPCname_En.Text;
             updateUser.Parameters.Add("@USER_NAME_EN", SqlDbType.NVarChar).Value            = inputName_En.Text;
             updateUser.Parameters.Add("@USER_SURNAME_EN", SqlDbType.NVarChar).Value         = inputSurname_En.Text;
+            updateUser.Parameters.Add("@PC_ACTIVITY_PERIOD", SqlDbType.NVarChar).Value      = inputActivityPeriod.Text;
 
             SQL.COMMAND(updateUser);
             #endregion

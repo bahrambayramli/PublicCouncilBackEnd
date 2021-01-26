@@ -40,8 +40,8 @@
                                         <Columns>
                                             <asp:BoundField DataField="#" HeaderText="#" />
                                             <asp:BoundField DataField="MEMBER_ID" HeaderText="MEMBER_ID" />
-                                            <asp:BoundField DataField="MEMBER_NAME" HeaderText="Ad" />
-                                            <asp:BoundField DataField="MEMBER_SURNAME" HeaderText="Soyad" />
+                                            <asp:BoundField DataField="MEMBER_NAME_AZ" HeaderText="Ad" />
+                                            <asp:BoundField DataField="MEMBER_SURNAME_AZ" HeaderText="Soyad" />
                                             <asp:CommandField SelectText="Seç" ShowSelectButton="True" ButtonType="Button">
                                                 <ControlStyle ForeColor="White" CssClass="btn btn-primary btn-sm" />
                                                 <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="32px" />

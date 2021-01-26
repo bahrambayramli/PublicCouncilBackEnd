@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/subsite/Subdomain.Master" AutoEventWireup="true" CodeBehind="memberdetail.aspx.cs" Inherits="PublicCouncilBackEnd.subsite.WebForm11" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="/content/css/argon.min.css" rel="stylesheet" />
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="sublayout" runat="server">
     <div class="container-fluid">

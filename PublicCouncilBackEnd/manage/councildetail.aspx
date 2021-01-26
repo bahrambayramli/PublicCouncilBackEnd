@@ -1,19 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manage/Admin.Master" AutoEventWireup="true" CodeBehind="councildetail.aspx.cs" Inherits="PublicCouncilBackEnd.manage.WebForm11" %>
+
 <%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         #managelayout_logoFile,
-        #managelayout_fileMember{
+        #managelayout_fileMember {
             display: none;
         }
-        
+
         #managelayout_logoActive {
             width: 30px;
             height: 30px;
         }
-
-
     </style>
     <script src="/scripts/ckeditor/ckeditor.js"></script>
     <script src="/scripts/ckfinder/ckfinder.js"></script>
@@ -117,11 +116,8 @@
                                         </div>
                                     </asp:Panel>
                                 </div>
-                                
 
                                 <%-- PC password --%>
-                                
-
 
                                 <div class="row">
                                     <div class="col-12">
@@ -213,7 +209,12 @@
                                 </div>
 
                                 <div class="row">
-
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="managelayout_inputActivityPeriod">İctimai şuranin fəaliyyət dövrü</label>
+                                            <asp:TextBox ID="inputActivityPeriod" runat="server" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="mainlayout_inputPCdomain">İctimai şuranın domain adı</label>
@@ -344,10 +345,43 @@
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="managelayout_inputAboutUs">Haqqında</label>
-                                            <CKEditor:CKEditorControl ID="inputAboutUs" runat="server" Height="200px" />
+                                        <div class="nav-wrapper">
+                                            <ul class="nav nav-pills nav-fill flex-column flex-md-row"
+                                                id="tabs-pc-about" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link mb-sm-3 mb-md-0 active"
+                                                        id="tabs-pc-about-tab-1" data-toggle="tab"
+                                                        href="#pc-userabout-az" role="tab"
+                                                        aria-controls="tabs-pc-about-tab-1"
+                                                        aria-selected="true">Az</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link mb-sm-3 mb-md-0"
+                                                        id="tabs-pc-about-tab-2" data-toggle="tab"
+                                                        href="#pc-userabout-en" role="tab"
+                                                        aria-controls="tabs-pc-about-tab-2"
+                                                        aria-selected="false">En</a>
+                                                </li>
+
+                                            </ul>
                                         </div>
+
+                                        <div class="tab-content" id="myTabContent3">
+                                            <div class="tab-pane fade show active" id="pc-userabout-az" role="tabpanel" aria-labelledby="tabs-pc-about-tab-1">
+                                                <div class="form-group">
+                                                    <label for="managelayout_inputAboutUs">Haqqında</label>
+                                                    <CKEditor:CKEditorControl ID="inputAboutUs_Az" runat="server" Height="200px" />
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade show active" id="pc-userabout-en" role="tabpanel" aria-labelledby="tabs-pc-about-tab-2">
+                                                <div class="form-group">
+                                                    <label for="managelayout_inputAboutUs">Haqqında</label>
+                                                    <CKEditor:CKEditorControl ID="inputAboutUs_En" runat="server" Height="200px" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                     </div>
                                     <div class="col-12">
                                         <div class="container-fluid" style="padding: 0!important">
@@ -386,7 +420,7 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-12">
-                                        <iframe id="memberIFRAME" src="/manage/members" runat="server" class="w-100" style="height:700px"></iframe>
+                                        <iframe id="memberIFRAME" src="/manage/members" runat="server" class="w-100" style="height: 700px"></iframe>
                                     </div>
                                 </div>
                             </div>

@@ -22,7 +22,7 @@ namespace PublicCouncilBackEnd.subsite
                 case "az":
                     {
 
-                        getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT USER_SERIAL ,PC_NAME, USER_ID FROM PC_USERS 
+                        getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT USER_SERIAL ,PC_NAME, PC_ACTIVITY_PERIOD, USER_ID FROM PC_USERS 
                                                                                                  WHERE 
                                                                                                  ISDELETE      = @ISDELETE AND 
                                                                                                  ISACTIVE      = @ISACTIVE AND
@@ -37,12 +37,12 @@ namespace PublicCouncilBackEnd.subsite
                         pcName.Text = dt.Rows[0]["PC_NAME"].ToString();
                         Session["PC_USER_ID"] = dt.Rows[0]["USER_ID"].ToString();
                         Session["SUBSITE_SERIAL"] = dt.Rows[0]["USER_SERIAL"].ToString();
-
+                        Session["PC_ACTIVITY_PERIOD"] = dt.Rows[0]["PC_ACTIVITY_PERIOD"].ToString();
                         break;
                     }
                 case "en":
                     {
-                        getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT USER_SERIAL ,PC_NAME_EN, USER_ID FROM PC_USERS 
+                        getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT USER_SERIAL ,PC_NAME_EN, PC_ACTIVITY_PERIOD, USER_ID FROM PC_USERS 
                                                                                                  WHERE 
                                                                                                  ISDELETE      = @ISDELETE AND 
                                                                                                  ISACTIVE      = @ISACTIVE AND
@@ -50,13 +50,14 @@ namespace PublicCouncilBackEnd.subsite
                         getSerial.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
                         getSerial.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
                         getSerial.SelectCommand.Parameters.Add("@USER_PCDOMAIN", SqlDbType.NVarChar).Value = USER_PCDOMAIN;
-
+                        
                         dt = SQL.SELECT(getSerial);
 
                         Page.Title = dt.Rows[0]["PC_NAME_EN"].ToString();
                         pcName.Text = dt.Rows[0]["PC_NAME_EN"].ToString();
                         Session["PC_USER_ID"] = dt.Rows[0]["USER_ID"].ToString();
                         Session["SUBSITE_SERIAL"] = dt.Rows[0]["USER_SERIAL"].ToString();
+                        Session["PC_ACTIVITY_PERIOD"] = dt.Rows[0]["PC_ACTIVITY_PERIOD"].ToString();
                         break;
                     }
                 default:
@@ -76,6 +77,8 @@ namespace PublicCouncilBackEnd.subsite
                         pcName.Text = dt.Rows[0]["PC_NAME"].ToString();
                         Session["PC_USER_ID"] = dt.Rows[0]["USER_ID"].ToString();
                         Session["SUBSITE_SERIAL"] = dt.Rows[0]["USER_SERIAL"].ToString();
+
+                        Session["PC_ACTIVITY_PERIOD"] = dt.Rows[0]["PC_ACTIVITY_PERIOD"].ToString();
                         break;
                     }
 
@@ -462,7 +465,7 @@ namespace PublicCouncilBackEnd.subsite
                         signIN.Text = "Sign in";
                         pageName.Text = "Public council";
                         pageName.NavigateUrl = "http://ictimaishura.az";
-                        siteRights.Text = $"© All rights reserved {DateTime.Now.Year.ToString()}";
+                        siteRights.Text = $"© All rights reserved {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
                         break;
                     }
                 default:

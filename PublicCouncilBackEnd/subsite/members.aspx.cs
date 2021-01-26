@@ -195,16 +195,19 @@ namespace PublicCouncilBackEnd.subsite
                     case "az":
                         {
                             pageName.Text = "Üzvlər";
+                            pcActivityPeriod.Text = $"Üzvlərin fəaliyyət dövrü {Session["PC_ACTIVITY_PERIOD"] as string}";
                             break;
                         }
                     case "en":
                         {
                             pageName.Text = "Members";
+                            pcActivityPeriod.Text = $"Period of activity of members { Session["PC_ACTIVITY_PERIOD"] as string}";
                             break;
                         }
                     default:
                         {
                             pageName.Text = "Üzvlər";
+                            pcActivityPeriod.Text = $"Üzvlərin fəaliyyət dövrü {Session["PC_ACTIVITY_PERIOD"] as string}";
                             break;
                         }
 

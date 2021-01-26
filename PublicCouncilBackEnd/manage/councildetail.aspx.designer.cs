@@ -159,6 +159,15 @@ namespace PublicCouncilBackEnd.manage
         protected global::System.Web.UI.WebControls.TextBox inputPCname_En;
 
         /// <summary>
+        /// inputActivityPeriod control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputActivityPeriod;
+
+        /// <summary>
         /// inputPCdomain control.
         /// </summary>
         /// <remarks>
@@ -222,13 +231,22 @@ namespace PublicCouncilBackEnd.manage
         protected global::System.Web.UI.WebControls.DropDownList inputCity;
 
         /// <summary>
-        /// inputAboutUs control.
+        /// inputAboutUs_Az control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CKEditor.NET.CKEditorControl inputAboutUs;
+        protected global::CKEditor.NET.CKEditorControl inputAboutUs_Az;
+
+        /// <summary>
+        /// inputAboutUs_En control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::CKEditor.NET.CKEditorControl inputAboutUs_En;
 
         /// <summary>
         /// logoImage control.

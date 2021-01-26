@@ -17,8 +17,8 @@ namespace PublicCouncilBackEnd.manage
         {
             SqlDataAdapter getMember = new SqlDataAdapter(new SqlCommand(@"SELECT ROW_NUMBER() OVER(ORDER BY MEMBER_ID DESC) AS '#' ,
                                                                                   MEMBER_ID,
-                                                                                  MEMBER_NAME,
-                                                                                  MEMBER_SURNAME
+                                                                                  MEMBER_NAME_AZ,
+                                                                                  MEMBER_SURNAME_AZ
 
                                                                             FROM PC_MEMBERS
 
