@@ -13,13 +13,14 @@ namespace PublicCouncilBackEnd
             //bundle all common js files, required in every page  
             bundle.Add(new ScriptBundle("~/bundles/sitebundlejs")
             .Include(
-          
+
             "~/scripts/core/jquery.js",
             "~/scripts/owl.carousel.js",
             "~/scripts/core/popper.min.js",
             "~/scripts/core/bootstrap.min.js",
-            "~/scripts/jquery-nice-scroll.js"
-           
+            "~/scripts/jquery-nice-scroll.js",
+            "~/scripts/preloader.js"
+
             ));
              
             

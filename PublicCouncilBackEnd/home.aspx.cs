@@ -446,18 +446,8 @@ namespace PublicCouncilBackEnd
             
             if (HttpContext.Current.Request.Url.ToString().Contains(".ictimaishura.az") && !HttpContext.Current.Request.Url.ToString().Contains("www.ictimaishura.az"))
             {
-                Session["pcsubsite"] =
-                     HttpContext.Current.Request.Url.ToString()
-                    .Substring(0, HttpContext.Current.Request.Url.ToString().IndexOf("."))
-                    .Replace("http://", string.Empty);
-
                     Response.Redirect("/site/home/az");
             }
-
-            GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "","Əsas", false, true,true,MAINSLIDER_AZ,MAINSLIDER_EN);
-            GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "","Sağ yuxarı", false, true,  true, RIGHTTOP_AZ, RIGHTTOP_EN);
-            GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "","Sağ aşağı",false, true, true, RIGHTBOTTOM_AZ, RIGHTBOTTOM_EN);
-            GetPosts(Page.RouteData.Values["language"] as string, "9", "news", "",  false, true, true, SIMPLEPOSTS_AZ, SIMPLEPOSTS_EN);
             switch (Page.RouteData.Values["language"] as string)
             {
                 case "az":
@@ -478,10 +468,14 @@ namespace PublicCouncilBackEnd
                         allPosts.Text = "bütün xəbərlər";
                         break;
                     }
-                   
+
             }
-            GetPosts(Page.RouteData.Values["language"] as string, "6", "publications", "", false, true, true, PUBLICATIONS_AZ, PUBLICATIONS_EN);
-            GetPosts(Page.RouteData.Values["language"] as string, "9", "reports", "",  false, true, true, REPORTS_AZ, REPORTS_EN);
+            GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "","Əsas", false, true,true,MAINSLIDER_AZ,MAINSLIDER_EN);
+            GetPosts(Page.RouteData.Values["language"] as string, "3", "news", "","Sağ yuxarı", false, true,  true, RIGHTTOP_AZ, RIGHTTOP_EN);
+            GetPosts(Page.RouteData.Values["language"] as string, "3", "news", "","Sağ aşağı",false, true, true, RIGHTBOTTOM_AZ, RIGHTBOTTOM_EN);
+            GetPosts(Page.RouteData.Values["language"] as string, "9", "news", "",  false, true, true, SIMPLEPOSTS_AZ, SIMPLEPOSTS_EN);
+            GetPosts(Page.RouteData.Values["language"] as string, "5", "publications", "", false, true, true, PUBLICATIONS_AZ, PUBLICATIONS_EN);
+            GetPosts(Page.RouteData.Values["language"] as string, "6", "reports", "",  false, true, true, REPORTS_AZ, REPORTS_EN);
         }
     }
 }

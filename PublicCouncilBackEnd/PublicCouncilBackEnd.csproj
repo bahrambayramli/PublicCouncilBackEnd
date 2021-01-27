@@ -250,12 +250,6 @@
     <Content Include="images\Logo\Logo2.jpeg" />
     <Content Include="images\sdefaultimage.png" />
     <Content Include="images\social-media-image.png" />
-    <Content Include="images\test\boton_chorek.jpg" />
-    <Content Include="images\test\bus.jpg" />
-    <Content Include="images\test\ilhameliyev.jpg" />
-    <Content Include="images\test\koronovirus.jpg" />
-    <Content Include="images\test\mainphoto.jpg" />
-    <Content Include="images\test\mehribanaliyeva.jpg" />
     <Content Include="Logs\logs.txt" />
     <Content Include="manage\dashboard.aspx" />
     <Content Include="manage\posts.aspx" />
@@ -271,7 +265,12 @@
     <Content Include="manage\pages.aspx" />
     <Content Include="manage\members.aspx" />
     <Content Include="manage\memberdetail.aspx" />
+    <Content Include="scripts\core\jquery3.5.1.js" />
     <Content Include="scripts\preloader.js" />
+    <Content Include="scripts\scripts-runner.js" />
+    <Content Include="scripts\scripts-runner.min.js">
+      <DependentUpon>scripts-runner.js</DependentUpon>
+    </Content>
     <Content Include="scripts\subsite.js" />
     <Content Include="scripts\viewmage.js" />
     <Content Include="subsite\home.aspx" />
@@ -622,6 +621,7 @@
     <Content Include="manage\Admin.Master" />
     <Content Include="content\scss\style.scss" />
     <Content Include="content\scss\subsite.scss" />
+    <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -643,8 +643,8 @@
   <ItemGroup>
     <Folder Include="images\logos\" />
     <Folder Include="images\members\" />
+    <Folder Include="images\original\" />
     <Folder Include="images\subimages\" />
-    <Folder Include="scripts\core\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

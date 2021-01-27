@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="details.aspx.cs" Inherits="PublicCouncilBackEnd.WebForm9" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/content/css/jquery.fancybox.min.css" rel="stylesheet" />
+    <!-- SHARETHIS SCRIPTS -->
+    <script src='https://platform-api.sharethis.com/js/sharethis.js#property=5f8df40458d8400012272351&product=sop' async></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
     <!-- Start Post Details  -->
@@ -25,7 +28,7 @@
 
         <div class="post-title my-2">
             <h2>
-               <asp:Literal ID="postTitle" runat="server"></asp:Literal>
+                <asp:Literal ID="postTitle" runat="server"></asp:Literal>
             </h2>
         </div>
 
@@ -43,7 +46,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <asp:PlaceHolder ID="itemplaceholder" runat="server"/>
+                            <asp:PlaceHolder ID="itemplaceholder" runat="server" />
                         </div>
                     </div>
                 </LayoutTemplate>
@@ -180,12 +183,12 @@
         </div>
 
         <div class="post-share my-2">
-             <hr class="my-2 w-100"/>
+            <hr class="my-2 w-100" />
             <div class="my-md-1">
                 <asp:Literal ID="shareName" runat="server"></asp:Literal>
             </div>
             <div class="my-md-1">
-              <div class="sharethis-inline-share-buttons"></div>
+                <div class="sharethis-inline-share-buttons"></div>
             </div>
         </div>
 
@@ -197,8 +200,8 @@
                     autoStart: true
                 }
             });
-          
+
         </script>
     </section>
-     <!-- End Post Details  -->
+    <!-- End Post Details  -->
 </asp:Content>

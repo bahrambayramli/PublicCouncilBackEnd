@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="PublicCouncilBackEnd.Main" %>
+
 <%@ Import Namespace="System.Web.Optimization" %>
 
 <!DOCTYPE html>
@@ -7,8 +8,8 @@
 <head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Public Council, İctimai şura,İctimai Şuraların fəaliyyəti">
-    <meta name="keywords" content="İctimai şura,Public Council, İctimai Şuraların fəaliyyəti">
+    <meta name="description" content="İctimai şura">
+    <meta name="keywords" content="İctimai şura, Public Council, İctimai Şuraların fəaliyyəti">
     <meta name="fb:app_id" content="1442570649286303">
     <link rel="apple-touch-icon" sizes="57x57" href="/images/ico/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/images/ico/app/e-icon-60x60.png">
@@ -38,10 +39,9 @@
         <%: @Scripts.Render("/bundles/sitebundlejs") %>  
     </asp:PlaceHolder>
     <!-- FONTS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"  />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
-    <!-- SHARETHIS SCRIPTS -->
-    <script src='https://platform-api.sharethis.com/js/sharethis.js#property=5f8df40458d8400012272351&product=sop' async></script>
+    
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script src="https://www.googletagmanager.com/gtag/js?id=UA-180960102-1" async="async"></script>
     <script>
@@ -51,7 +51,6 @@
 
         gtag('config', 'UA-180960102-1');
     </script>
-<%--    <link href="/content/scss/preloader.min.css" rel="stylesheet" />--%>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -92,7 +91,7 @@
                                 <asp:ListView ID="LogoDesktop" runat="server">
                                     <LayoutTemplate>
                                         <h1 class="m-0">
-                                            <a href="/home/az" class="d-block" title="http://ictimaishura.az">
+                                            <a href="/home/az" class="d-block" title="http://ictimaishura.az" rel="noopener">
                                                 <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                                             </a>
                                         </h1>
@@ -105,25 +104,25 @@
                             <div class="col-6 col-md-4 px-md-1 d-flex align-items-center justify-content-start justify-content-md-center">
                                 <ul class="social-buttons m-0 d-md-none d-flex ">
                                     <li>
-                                        <a href="https://www.facebook.com/%C4%B0ctimai-%C5%9Eura-109645403890081/?modal=admin_todo_tour" target="_blank" class="btn btn-round btn-twitter btn-sm mr-2 px-2 ">
+                                        <a href="https://www.facebook.com/%C4%B0ctimai-%C5%9Eura-109645403890081/?modal=admin_todo_tour" target="_blank"  rel="noopener" class="btn btn-round btn-twitter btn-sm mr-2 px-2 ">
                                             <i class="fab fa-twitter"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank" class="btn btn-round btn-facebook btn-sm mr-2">
+                                        <a href="#" target="_blank" class="btn btn-round btn-facebook btn-sm mr-2" rel="noopener">
                                             <i class="fab fa-facebook-square"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" target="_blank" class="btn btn-round btn-instagram btn-sm mr-2">
+                                        <a href="#" target="_blank" class="btn btn-round btn-instagram btn-sm mr-2" rel="noopener">
                                             <i class="fab fa-instagram"></i>
                                         </a>
                                     </li>
                                 </ul>
-                                <asp:HyperLink ID="_aboutus" runat="server" CssClass="d-none d-md-inline text-default mx-1">
+                                <asp:HyperLink ID="_aboutus" runat="server" CssClass="d-none d-md-inline text-default mx-1" rel="noopener">
                                    
                                 </asp:HyperLink>
-                                <asp:HyperLink ID="_contactus" runat="server" CssClass="d-none d-md-inline text-default mx-1">
+                                <asp:HyperLink ID="_contactus" runat="server" CssClass="d-none d-md-inline text-default mx-1" rel="noopener">
                                    
                                 </asp:HyperLink>
                             </div>
@@ -555,7 +554,7 @@
                         </LayoutTemplate>
                         <ItemTemplate>
                             <div class="publication-item">
-                                <a href="<%#Eval("PARTNERS_LINK")%>" title="<%#Eval("PARTNERS_TITLE")%>" target="_blank" class="rounded overflow-hidden shadow site-partners-link">
+                                <a href="<%#Eval("PARTNERS_LINK")%>" title="<%#Eval("PARTNERS_TITLE")%>" target="_blank" rel="noopener" class="rounded overflow-hidden shadow site-partners-link">
                                     <img class="rounded" src="/images/<%#Eval("PARTNERS_IMG")%>" alt="<%#Eval("PARTNERS_TITLE")%>">
                                 </a>
                             </div>
@@ -580,7 +579,7 @@
                         </LayoutTemplate>
                         <ItemTemplate>
                             <div class="publication-item">
-                                <a href="<%#Eval("PARTNERS_LINK")%>" title="<%#Eval("PARTNERS_TITLE")%>" target="_blank" class="rounded overflow-hidden shadow site-partners-link">
+                                <a href="<%#Eval("PARTNERS_LINK")%>" title="<%#Eval("PARTNERS_TITLE")%>" target="_blank" rel="noopener" class="rounded overflow-hidden shadow site-partners-link">
                                     <img class="rounded" src="/images/<%#Eval("PARTNERS_IMG")%>" alt="<%#Eval("PARTNERS_TITLE")%>">
                                 </a>
                             </div>
@@ -605,7 +604,7 @@
                     </LayoutTemplate>
                     <ItemTemplate>
                         <div class="col-6 col-md-3 px-md-1 my-2">
-                            <a href="<%#Eval("SPONSOR_LINK")%>" target="_blank" class="d-block">
+                            <a href="<%#Eval("SPONSOR_LINK")%>" target="_blank" rel="noopener" class="d-block">
                                 <img class="rounded " src="/images/<%#Eval("SPONSOR_IMG")%>" alt="<%#Eval("SPONSOR_LINK")%>">
                             </a>
                         </div>
@@ -648,17 +647,17 @@
                             </div>
                             <ul class="social-buttons text-right align-self-end">
                                 <li>
-                                    <a href="#" target="_blank" class="btn btn-icon btn-twitter btn-sm">
+                                    <a href="#" target="_blank" rel="noopener" class="btn btn-icon btn-twitter btn-sm">
                                         <i class="fab fa-twitter"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" target="_blank" class="btn btn-icon btn-facebook btn-sm">
+                                    <a href="#" target="_blank" rel="noopener" class="btn btn-icon btn-facebook btn-sm">
                                         <i class="fab fa-facebook-square"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" target="_blank" class="btn btn-icon btn-instagram btn-sm">
+                                    <a href="#" target="_blank" rel="noopener" class="btn btn-icon btn-instagram btn-sm">
                                         <i class="fab fa-instagram"></i>
                                     </a>
                                 </li>
@@ -675,7 +674,7 @@
                         </div>
                         <div class="col-12 col-md-4">
                             <div class="text-center text-md-rght">
-                                Site By <a class="text-gray font-weight-300" target="_blank" href="http://smartcode.az">SmartCode LLC</a>
+                                Site By <a class="text-gray font-weight-300" target="_blank" rel="noopener" href="http://smartcode.az">SmartCode LLC</a>
                             </div>
                         </div>
                     </div>
@@ -685,7 +684,7 @@
 
     </form>
 
-    <script src="/scripts/preloader.js" async="async"></script>
-    <script src="/scripts/scripts-runner.js"></script>
+    <%--<script src="/scripts/preloader.js" async="async"></script>--%>
+    <script src="/scripts/scripts-runner.min.js"></script>
 </body>
 </html>

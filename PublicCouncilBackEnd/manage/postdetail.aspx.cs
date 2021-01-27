@@ -23,12 +23,12 @@ namespace PublicCouncilBackEnd.manage
       
         #region(Image Maker)
 
-        public void MadeImageForBanner(FileUpload fl, string imgName)
+        public void MadeImageForBanner(FileUpload fl, string imgName, string imgDirectory, int width, int height)
         {
 
             //SET THE SIZES
-            int W = 900;      //Widht
-            int H = 600;    //Height
+            int W = width;      //Widht
+            int H = height;    //Height
 
 
             //CHECK THE EXTENSION TYPES ---------------------------------------------------
@@ -50,9 +50,9 @@ namespace PublicCouncilBackEnd.manage
             //H = newH;
 
             //CHNAGE THE FINAL IMAGE SIZE ----------------------------------
-            Bitmap NeticeImage = new Bitmap(orginal, W, H);
-            NeticeImage.Save(Server.MapPath("/Images/" + imgName), System.Drawing.Imaging.ImageFormat.Jpeg);//Jpeg formatina kecirdirem
-            NeticeImage.Dispose();
+            Bitmap finalImage = new Bitmap(orginal, W, H);
+            finalImage.Save(Server.MapPath(imgDirectory + imgName), System.Drawing.Imaging.ImageFormat.Jpeg);//Jpeg formatina kecirdirem
+            finalImage.Dispose();
         }
 
         public void MadeSubImages(HttpPostedFile postedFile, string name)
@@ -453,7 +453,8 @@ namespace PublicCouncilBackEnd.manage
 
             SQL.COMMAND(insertdata);
             Session["POST_SUBCATEGORY"] = null;
-            MadeImageForBanner(inpFile, picName);
+            MadeImageForBanner(inpFile, picName,"/images/original/",900,600);
+            MadeImageForBanner(inpFile, picName, "/images/", 800, 500);
 
 
             if (subImgUpload.HasFiles)
@@ -654,7 +655,8 @@ namespace PublicCouncilBackEnd.manage
             {
                 string picName = SetName(".jpg");
                 updatedata.Parameters.Add("@POST_IMG", SqlDbType.NVarChar).Value = picName;
-                MadeImageForBanner(inpFile, picName);
+                MadeImageForBanner(inpFile, picName, "/images/original/", 900, 600);
+                MadeImageForBanner(inpFile, picName, "/images/", 800, 500);
             }
             else
             {
