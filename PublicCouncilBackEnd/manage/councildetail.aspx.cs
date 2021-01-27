@@ -291,11 +291,25 @@ namespace PublicCouncilBackEnd.manage
 
             if (Session["USER_MEMBERSHIP_TYPE"] as string == "admin")
             {
-                insertUser.Parameters.Add("@PC_ORDER_NUMBER", SqlDbType.Int).Value = inputOrderNumber.Text;
+                if (string.IsNullOrEmpty(inputOrderNumber.Text))
+                {
+                    SqlDataAdapter getLastRowOrderNum = new SqlDataAdapter(new SqlCommand("SELECT TOP (1) PC_ORDER_NUMBER FROM PC_USERS WHERE ISACTIVE='TRUE' AND ISDELETE='FALSE' ORDER BY USER_ID DESC"));
+                    DataTable lastRow = SQL.SELECT(getLastRowOrderNum);
+                    insertUser.Parameters.Add("@PC_ORDER_NUMBER", SqlDbType.Int).Value = int.Parse(lastRow.Rows[0]["PC_ORDER_NUMBER"].ToString()) + 1;
+                    lastRow = null;
+                }
+                else
+                {
+                    insertUser.Parameters.Add("@PC_ORDER_NUMBER", SqlDbType.Int).Value = inputOrderNumber.Text;
+                }
+
             }
             else
             {
-                insertUser.Parameters.Add("@PC_ORDER_NUMBER", SqlDbType.Int).Value = "0";
+                SqlDataAdapter getLastRowOrderNum = new SqlDataAdapter(new SqlCommand("SELECT TOP (1) PC_ORDER_NUMBER FROM PC_USERS WHERE ISACTIVE='TRUE' AND ISDELETE='FALSE' ORDER BY USER_ID DESC"));
+                DataTable lastRow = SQL.SELECT(getLastRowOrderNum);
+                insertUser.Parameters.Add("@PC_ORDER_NUMBER", SqlDbType.Int).Value = int.Parse(lastRow.Rows[0]["PC_ORDER_NUMBER"].ToString()) + 1;
+                lastRow = null;
             }
 
             insertUser.Parameters.Add("@USER_MEMBERSHIP_TYPE", SqlDbType.NVarChar).Value                = inputMembershipType.SelectedValue;
@@ -313,7 +327,7 @@ namespace PublicCouncilBackEnd.manage
             insertUser.Parameters.Add("@PC_WEBADDRESS", SqlDbType.NVarChar).Value                       = inputWeb.Text;
             insertUser.Parameters.Add("@PC_COUNTRY", SqlDbType.NVarChar).Value                          = "Azərbaycan";
             insertUser.Parameters.Add("@PC_CITY", SqlDbType.NVarChar).Value                             = inputCity.SelectedItem.Text;
-            insertUser.Parameters.Add("@PC_ABOUT_AZ", SqlDbType.NVarChar).Value                            = inputAboutUs_Az.Text;
+            insertUser.Parameters.Add("@PC_ABOUT_AZ", SqlDbType.NVarChar).Value                         = inputAboutUs_Az.Text;
             insertUser.Parameters.Add("@PC_ABOUT_EN", SqlDbType.NVarChar).Value                         = inputAboutUs_En.Text;
 
             DateTime createdDate = DateTime.ParseExact(GetDate(), "dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
@@ -641,7 +655,7 @@ namespace PublicCouncilBackEnd.manage
             {
                 if (CheckAccount(inputLoginName.Text, inputPCdomain.Text, false))
                 {
-                    errorLiteral.Text = @"<div class='text-danger'>Bu istifadəçi artıq bazada mövcuddur.</div>";
+                    errorLiteral.Text = @"<div class='text-danger text-center h2'>Bu istifadəçi artıq bazada mövcuddur.</div>";
                     return;
                 }
 

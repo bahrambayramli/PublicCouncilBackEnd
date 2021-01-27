@@ -15,21 +15,25 @@ namespace PublicCouncilBackEnd.manage
         #region(SQL FUNCTIONS)
         private void GetMembers(string PC_ID, bool ISDELETE, GridView GRID)
         {
-            SqlDataAdapter getMember = new SqlDataAdapter(new SqlCommand(@"SELECT ROW_NUMBER() OVER(ORDER BY MEMBER_ID DESC) AS '#' ,
+            if (!string.IsNullOrEmpty(PC_ID))
+            {
+
+                SqlDataAdapter getMember = new SqlDataAdapter(new SqlCommand(@"SELECT ROW_NUMBER() OVER(ORDER BY MEMBER_ID DESC) AS '#' ,
                                                                                   MEMBER_ID,
                                                                                   MEMBER_NAME_AZ,
                                                                                   MEMBER_SURNAME_AZ
 
                                                                             FROM PC_MEMBERS
 
-                                                                            WHERE ISDELETE     = @ISDELETE AND
+                                                                            WHERE 1=1                      AND
+                                                                                  ISDELETE     = @ISDELETE AND
                                                                                   PC_ID        = @PC_ID"));
-            getMember.SelectCommand.Parameters.Add("@PC_ID", SqlDbType.Int).Value = PC_ID;
-            getMember.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
+                getMember.SelectCommand.Parameters.Add("@PC_ID", SqlDbType.Int).Value = PC_ID;
+                getMember.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
 
-            GRID.DataSource = SQL.SELECT(getMember);
-            GRID.DataBind();
-
+                GRID.DataSource = SQL.SELECT(getMember);
+                GRID.DataBind();
+            }
         }
 
         public void DeleteLogo(string ID)

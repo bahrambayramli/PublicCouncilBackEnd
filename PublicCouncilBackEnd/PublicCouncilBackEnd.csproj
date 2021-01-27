@@ -266,6 +266,7 @@
     <Content Include="manage\members.aspx" />
     <Content Include="manage\memberdetail.aspx" />
     <Content Include="scripts\core\jquery3.5.1.js" />
+    <Content Include="scripts\jquery-nice-scroll.js" />
     <Content Include="scripts\preloader.js" />
     <Content Include="scripts\scripts-runner.js" />
     <Content Include="scripts\scripts-runner.min.js">

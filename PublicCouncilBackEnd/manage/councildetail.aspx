@@ -81,8 +81,8 @@
                                         <div class="form-group">
                                             <label for="managelayout_inputISACTIVE">Aktivlik</label>
                                             <asp:DropDownList ID="inputISACTIVE" runat="server" CssClass="form-control">
-                                                <asp:ListItem Value="0">Xeyr</asp:ListItem>
                                                 <asp:ListItem Value="1">Bəli</asp:ListItem>
+                                                <asp:ListItem Value="0">Xeyr</asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
                                     </div>
@@ -90,9 +90,9 @@
                                         <div class="form-group">
                                             <label for="managelayput_inputMembershipType">Üzvlük tipi</label>
                                             <asp:DropDownList ID="inputMembershipType" runat="server" CssClass="form-control">
-                                                <asp:ListItem Value="admin">Admin</asp:ListItem>
-                                                <asp:ListItem Value="moderator">Moderator</asp:ListItem>
                                                 <asp:ListItem Value="user">User</asp:ListItem>
+                                                <asp:ListItem Value="moderator">Moderator</asp:ListItem>
+                                                <asp:ListItem Value="admin">Admin</asp:ListItem>
                                             </asp:DropDownList>
                                         </div>
                                     </div>
@@ -373,7 +373,7 @@
                                                     <CKEditor:CKEditorControl ID="inputAboutUs_Az" runat="server" Height="200px" />
                                                 </div>
                                             </div>
-                                            <div class="tab-pane fade show active" id="pc-userabout-en" role="tabpanel" aria-labelledby="tabs-pc-about-tab-2">
+                                            <div class="tab-pane fade show" id="pc-userabout-en" role="tabpanel" aria-labelledby="tabs-pc-about-tab-2">
                                                 <div class="form-group">
                                                     <label for="managelayout_inputAboutUs">Haqqında</label>
                                                     <CKEditor:CKEditorControl ID="inputAboutUs_En" runat="server" Height="200px" />
@@ -396,7 +396,7 @@
                                                             <div class="col-12">
                                                                 <input class="form-control" type="text" value="fayl seçilməyib" id="customFile">
                                                             </div>
-                                                            <div class="col-12 text-right">
+                                                            <div class="col-12 text-right my-2">
                                                                 <button class="btn btn-facebook" id="btnFile">Fayl yüklə</button>
                                                             </div>
                                                         </div>

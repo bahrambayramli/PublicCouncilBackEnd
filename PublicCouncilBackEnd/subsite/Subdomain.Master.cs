@@ -510,7 +510,6 @@ namespace PublicCouncilBackEnd.subsite
                         break;
                     }
             }
-
             nav = null;
         }
 

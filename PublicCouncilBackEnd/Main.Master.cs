@@ -968,19 +968,29 @@ namespace PublicCouncilBackEnd
                         }
                 }
             }
-
-
-           
            
         }
 
         protected void langAZ_Click(object sender, EventArgs e)
         {
+            string url = HttpContext.Current.Request.Url.ToString();
+            if (!url.Contains("home/"))
+            {
+                Response.Redirect("/home/az");
+            }
+            url = null;
+
             Response.Redirect(Request.RawUrl.Replace("/en", "/az"));
         }
 
         protected void langEN_Click(object sender, EventArgs e)
         {
+            string url = HttpContext.Current.Request.Url.ToString();
+            if (!url.Contains("home/"))
+            {
+                Response.Redirect("/home/en");
+            }
+            url = null;
             Response.Redirect(Request.RawUrl.Replace("/az", "/en"));
         }
 

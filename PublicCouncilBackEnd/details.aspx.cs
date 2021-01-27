@@ -33,7 +33,8 @@ namespace PublicCouncilBackEnd
         {
 
             CountViewUpdate(Page.RouteData.Values["postid"] as string);
-            SqlDataAdapter getdata = new SqlDataAdapter();
+            SqlDataAdapter getdata;
+            DataTable DT;
             switch (lang)
             {
                 case "az":
@@ -52,7 +53,7 @@ namespace PublicCouncilBackEnd
                         getdata.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
 
 
-                        DataTable DT = SQL.SELECT(getdata);
+                        DT = SQL.SELECT(getdata);
 
                         if (DT.Rows[0]["POST_SITECATEGORYAZ"].ToString().ToLower() == "qanunvericilik")
                         {
@@ -67,14 +68,14 @@ namespace PublicCouncilBackEnd
                         postTitle.Text = DT.Rows[0]["POST_AZ_TITLE"].ToString();
                         postDate.Text = DT.Rows[0]["POST_DATE"].ToString().Substring(0, DT.Rows[0]["POST_DATE"].ToString().Length - 3).Replace("/", ".");
 
-                        postImage.ImageUrl = $"/Images/{ DT.Rows[0]["POST_IMG"].ToString()}";
+                        postImage.ImageUrl = $"/images/original/{ DT.Rows[0]["POST_IMG"].ToString()}";
                         postAbout.Text = DT.Rows[0]["POST_AZ_TOPIC"].ToString();
                         postCategory.Text = DT.Rows[0]["POST_SITECATEGORYAZ"].ToString();
                         postView.Text = DT.Rows[0]["POST_VIEWCOUNT"].ToString();
                         GetPostImages(DT.Rows[0]["POST_SERIAL"].ToString());
                         GetPostVideos(DT.Rows[0]["POST_SERIAL"].ToString());
                         GetDocs(DT.Rows[0]["POST_SERIAL"].ToString());
-                        getdata = null;
+                    
                         break;
                     }
                 case "en":
@@ -92,7 +93,7 @@ namespace PublicCouncilBackEnd
                         getdata.SelectCommand.Parameters.Add("@POST_EN_VIEW", SqlDbType.Bit).Value = true;
 
 
-                        DataTable DT = SQL.SELECT(getdata);
+                        DT = SQL.SELECT(getdata);
 
 
 
@@ -100,14 +101,14 @@ namespace PublicCouncilBackEnd
                         postTitle.Text = DT.Rows[0]["POST_EN_TITLE"].ToString();
                         postDate.Text = DT.Rows[0]["POST_DATE"].ToString().Substring(0, DT.Rows[0]["POST_DATE"].ToString().Length - 3).Replace("/", ".");
 
-                        postImage.ImageUrl = $"/Images/{ DT.Rows[0]["POST_IMG"].ToString()}";
+                        postImage.ImageUrl = $"/images/original/{ DT.Rows[0]["POST_IMG"].ToString()}";
                         postAbout.Text = DT.Rows[0]["POST_EN_TOPIC"].ToString();
                         postCategory.Text = DT.Rows[0]["POST_SITECATEGORYEN"].ToString();
                         postView.Text = DT.Rows[0]["POST_VIEWCOUNT"].ToString();
                         GetPostImages(DT.Rows[0]["POST_SERIAL"].ToString());
                         GetPostVideos(DT.Rows[0]["POST_SERIAL"].ToString());
                         GetDocs(DT.Rows[0]["POST_SERIAL"].ToString());
-                        getdata = null;
+                      
                         break;
                     }
                 default:
@@ -128,26 +129,27 @@ namespace PublicCouncilBackEnd
                         getdata.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
 
 
-                        DataTable DT = SQL.SELECT(getdata);
+                        DT = SQL.SELECT(getdata);
 
                         Page.Title = DT.Rows[0]["POST_AZ_TITLE"].ToString();
                         postTitle.Text = DT.Rows[0]["POST_AZ_TITLE"].ToString();
                         postDate.Text = DT.Rows[0]["POST_DATE"].ToString()
                                         .Substring(0, DT.Rows[0]["POST_DATE"].ToString().Length - 3).Replace("/", ".");
 
-                        postImage.ImageUrl = $"/Images/{ DT.Rows[0]["POST_IMG"].ToString()}";
+                        postImage.ImageUrl = $"/images/original/{ DT.Rows[0]["POST_IMG"].ToString()}";
                         postAbout.Text = DT.Rows[0]["POST_AZ_TOPIC"].ToString();
                         postCategory.Text = DT.Rows[0]["POST_SITECATEGORYAZ"].ToString();
                         postView.Text = DT.Rows[0]["POST_VIEWCOUNT"].ToString();
                         GetPostImages(DT.Rows[0]["POST_SERIAL"].ToString());
                         GetPostVideos(DT.Rows[0]["POST_SERIAL"].ToString());
                         GetDocs(DT.Rows[0]["POST_SERIAL"].ToString());
-                        getdata = null;
+                       
                         break;
                     }
             }
 
-
+            getdata = null;
+            DT = null;
 
         }
 
@@ -253,9 +255,6 @@ namespace PublicCouncilBackEnd
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            
-           
 
 
             try
