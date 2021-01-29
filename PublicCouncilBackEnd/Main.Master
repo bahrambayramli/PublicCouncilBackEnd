@@ -62,15 +62,13 @@
                 <circle cx="0" cy="0" r="6" fill="#1d3f72">
                     <animateTransform attributeName="transform" type="scale" begin="-0.375s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
                 </circle>
-            </g><g transform="translate(40 50)">
+            </g>
+            <g transform="translate(40 50)">
                 <circle cx="0" cy="0" r="6" fill="#5699d2">
                     <animateTransform attributeName="transform" type="scale" begin="-0.25s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
                 </circle>
-            </g><g transform="translate(60 50)">
-                <circle cx="0" cy="0" r="6" fill="#d8ebf9">
-                    <animateTransform attributeName="transform" type="scale" begin="-0.125s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
-                </circle>
-            </g><g transform="translate(80 50)">
+            </g>
+            <g transform="translate(80 50)">
                 <circle cx="0" cy="0" r="6" fill="#71c2cc">
                     <animateTransform attributeName="transform" type="scale" begin="0s" calcMode="spline" keySplines="0.3 0 0.7 1;0.3 0 0.7 1" values="0;1;0" keyTimes="0;0.5;1" dur="1s" repeatCount="indefinite"></animateTransform>
                 </circle>
@@ -86,8 +84,8 @@
             <div class="header-top shadow-lg py-2 bg-white">
                 <div class="site-container">
                     <div class="container-fluid p-md-0">
-                        <div class="row">
-                            <div class="col-md-4 px-md-1 d-none d-md-block">
+                        <div class="row" id="header-top-row">
+                            <div class="col-md-4 px-md-1 d-none d-md-block order-1">
                                 <asp:ListView ID="LogoDesktop" runat="server">
                                     <LayoutTemplate>
                                         <h1 class="m-0">
@@ -101,8 +99,8 @@
                                     </ItemTemplate>
                                 </asp:ListView>
                             </div>
-                            <div class="col-6 col-md-4 px-md-1 d-flex align-items-center justify-content-start justify-content-md-center">
-                                <ul class="social-buttons m-0 d-md-none d-flex ">
+                            <div class="col-6 col-md-4 px-md-1 d-flex align-items-center justify-content-start justify-content-md-center d-md-none order-1">
+                                <ul class="social-buttons m-0 d-flex ">
                                     <li>
                                         <a href="https://www.facebook.com/%C4%B0ctimai-%C5%9Eura-109645403890081/?modal=admin_todo_tour" target="_blank" rel="noopener" class="btn btn-round btn-twitter btn-sm mr-2 px-2 ">
                                             <i class="fab fa-twitter"></i>
@@ -119,17 +117,24 @@
                                         </a>
                                     </li>
                                 </ul>
-                                <asp:HyperLink ID="_aboutus" runat="server" CssClass="d-none d-md-inline text-default mx-1" rel="noopener">
-                                   
-                                </asp:HyperLink>
-                                <asp:HyperLink ID="_contactus" runat="server" CssClass="d-none d-md-inline text-default mx-1" rel="noopener">
-                                   
-                                </asp:HyperLink>
                             </div>
-                            <div class="col-6 col-md-4 d-flex align-items-center justify-content-end">
+                            <div id="header-links" class="header-links col-6 col-md-4 p-0 px-md-1 d-md-flex flex-column flex-md-row align-items-center justify-content-start justify-content-md-center order-2 ">
+                                <asp:HyperLink ID="_aboutus" runat="server" CssClass="d-block d-md-inline text-default mx-md-1" rel="noopener">
+                                   
+                                </asp:HyperLink>
+                                <asp:HyperLink ID="_contactus" runat="server" CssClass="d-block d-md-inline text-default mx-md-1" rel="noopener">
+                                   
+                                </asp:HyperLink>
+                                <asp:HyperLink ID="_search" runat="server" class="d-block d-md-inline text-default mx-md-1 bg-transparent border-0" data-toggle="modal" data-target="#searchmodal">
+                                   
+                                </asp:HyperLink>
+
+                            </div>
+                            <div class="col-6 col-md-4 d-flex align-items-center justify-content-end order-3">
                                 <asp:LinkButton ID="langAZ" runat="server" CssClass="site-lang p-1 btn btn-round shadow-sm " OnClick="langAZ_Click">AZ</asp:LinkButton>
                                 <asp:LinkButton ID="langEN" runat="server" CssClass="site-lang p-1 btn btn-round shadow-sm" OnClick="langEN_Click">EN</asp:LinkButton>
-                                <asp:LinkButton ID="signIN" runat="server" CssClass="site-login p-1 px-md-2 btn btn-round btn-gradient-danger btn-round shadow-sm" OnClick="signIN_Click"></asp:LinkButton>
+                                <asp:LinkButton ID="signIN" runat="server" CssClass="site-login p-1 px-md-2 btn btn-round btn-gradient-danger btn-round shadow-sm" OnClick="signIN_Click">
+                                </asp:LinkButton>
                             </div>
                         </div>
                     </div>
@@ -184,7 +189,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <ul class="navbar-nav w-100 d-flex justify-content-between">
+                                    <ul class="navbar-nav w-100 d-flex justify-content-between" id="nav-list">
                                         <asp:ListView ID="NAV_AZ" runat="server">
 
                                             <ItemTemplate>
@@ -682,9 +687,39 @@
             </div>
         </footer>
 
+        <!-- Modal -->
+        <div class="modal fade" id="searchmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalMessageTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="card-header">
+                        <asp:Literal ID="searchModalTitle" runat="server"></asp:Literal>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <div class="form-group m-0">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text text-danger"><i class="fas fa-search"></i></span>
+                                    </div>
+                                    <asp:TextBox ID="searchInput" runat="server" CssClass="form-control" placeholder=".........."></asp:TextBox>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="modal-footer text-center p-2">
+                        <asp:LinkButton ID="searchBtn" runat="server" CssClass="btn btn-outline-danger btn-round btn-sm"></asp:LinkButton>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </form>
 
-    <%--<script src="/scripts/preloader.js" async="async"></script>--%>
+
+
     <script src="/scripts/scripts-runner.min.js"></script>
+
 </body>
 </html>

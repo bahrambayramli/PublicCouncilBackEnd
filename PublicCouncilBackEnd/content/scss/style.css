@@ -31,6 +31,11 @@ form {
 
 .header {
   flex-shrink: 0; }
+  .header .header-links a {
+    font-size: 1rem;
+    font-weight: 300;
+    text-transform: lowercase;
+    padding: .4rem 0rem; }
 
 .main {
   flex: 1 0 auto; }
@@ -200,6 +205,10 @@ img {
   .site-container {
     max-width: 1300px;
     margin: auto; }
+  .header .header-links a {
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase; }
   .header .site-logo {
     width: 30%;
     height: auto; }

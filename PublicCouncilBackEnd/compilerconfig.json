@@ -14,5 +14,9 @@
   {
     "outputFile": "content/scss/preloader.css",
     "inputFile": "content/scss/preloader.scss"
+  },
+  {
+    "outputFile": "scripts/scripts-runner.es5.js",
+    "inputFile": "scripts/scripts-runner.js"
   }
 ]

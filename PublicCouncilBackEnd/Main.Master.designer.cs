@@ -60,6 +60,15 @@ namespace PublicCouncilBackEnd
         protected global::System.Web.UI.WebControls.HyperLink _contactus;
 
         /// <summary>
+        /// _search control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink _search;
+
+        /// <summary>
         /// langAZ control.
         /// </summary>
         /// <remarks>
@@ -283,5 +292,32 @@ namespace PublicCouncilBackEnd
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal siteRights;
+
+        /// <summary>
+        /// searchModalTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal searchModalTitle;
+
+        /// <summary>
+        /// searchInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox searchInput;
+
+        /// <summary>
+        /// searchBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton searchBtn;
     }
 }

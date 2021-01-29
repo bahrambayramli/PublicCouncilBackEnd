@@ -46,7 +46,16 @@ form {
 }
 
 .header {
-  flex-shrink: 0;
+    flex-shrink: 0;
+
+    .header-links {
+        a {
+            font-size: 1rem;
+            font-weight: 300;
+            text-transform: lowercase;
+            padding: .4rem 0rem;
+        }
+    }
 }
 
 .main {
@@ -292,26 +301,34 @@ img {
     margin: auto;
   }
 
-  .header {
-    .site-logo {
-      width: 30%;
-      height: auto;
-    }
+    .header {
+        .header-links {
+            a {
+                font-size: 1rem;
+                font-weight: 400;
+                text-transform:uppercase;
+            }
+        }
 
-    .site-nav-item {
-      .nav-link {
-        font-size: 1rem;
-        padding: 0.5rem 0.4rem;
-        font-weight: 400;
-        text-transform: uppercase;
-      }
+        .site-logo {
+            width: 30%;
+            height: auto;
+        }
 
-      .pc-link {
-        width: 160px;
-        text-align: center;
-      }
+        .site-nav-item {
+            .nav-link {
+                font-size: 1rem;
+                padding: 0.5rem 0.4rem;
+                font-weight: 400;
+                text-transform: uppercase;
+            }
+
+            .pc-link {
+                width: 160px;
+                text-align: center;
+            }
+        }
     }
-  }
 
   .main {
 

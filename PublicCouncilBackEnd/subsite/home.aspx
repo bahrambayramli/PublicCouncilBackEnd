@@ -26,7 +26,7 @@
                                     <h2 class="slider-title">
                                         <%#Eval("POST_AZ_TITLE")%>
                                     </h2>
-                                    <a class="caption-link" href="/details/az/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOAZ")%>"></a>
+                                    <a class="caption-link" href="/site/details/az/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOAZ")%>"></a>
                                 </div>
                             </div>
                         </ItemTemplate>
@@ -51,7 +51,7 @@
                                     <h2 class="slider-title">
                                         <%#Eval("POST_EN_TITLE")%>
                                     </h2>
-                                    <a class="caption-link" href="/details/en/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOEN")%>"></a>
+                                    <a class="caption-link" href="/site/details/en/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOEN")%>"></a>
                                 </div>
                             </div>
                         </ItemTemplate>
@@ -107,7 +107,7 @@
                 <article class="col-12 col-md-6 d-flex align-items-stretch">
                     <div class="card mb-3 rounded post overflow-hidden">
                         <div class="post-header overflow-hidden">
-                            <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block" title="">
+                            <a href="/site/details/az/<%#Eval("DATA_ID")%>" class="d-block" title="">
                                 <img src="/images/<%#Eval("POST_IMG")%>" class="post-img" alt="<%#Eval("POST_SEOAZ")%>">
                             </a>
                         </div>
@@ -147,7 +147,7 @@
                 <article class="col-12 col-md-6 d-flex align-items-stretch">
                     <div class="card mb-3 rounded post overflow-hidden">
                         <div class="post-header overflow-hidden">
-                            <a href="/details/en/<%#Eval("DATA_ID")%>" class="d-block" title="">
+                            <a href="/site/details/en/<%#Eval("DATA_ID")%>" class="d-block" title="">
                                 <img src="/images/<%#Eval("POST_IMG")%>" class="post-img" alt="<%#Eval("POST_SEOEN")%>">
                             </a>
                         </div>

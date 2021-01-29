@@ -16,7 +16,7 @@
 
                             <div class="card mb-3 post overflow-hidden">
                                 <div class="post-header overflow-hidden">
-                                    <a href="/details/az/<%#Eval("DATA_ID")%>" class="d-block">
+                                    <a href="/site/details/az/<%#Eval("DATA_ID")%>" class="d-block">
                                         <img src="/images/<%#Eval("POST_IMG")%>" class="post-img" alt="<%#Eval("POST_SEOAZ")%>">
                                     </a>
                                 </div>
@@ -42,7 +42,7 @@
 
                             <div class="card mb-3 post overflow-hidden">
                                 <div class="post-header overflow-hidden">
-                                    <a href="/details/en/<%#Eval("DATA_ID")%>" class="d-block">
+                                    <a href="/site/details/en/<%#Eval("DATA_ID")%>" class="d-block">
                                         <img src="/images/<%#Eval("POST_IMG")%>" class="post-img" alt="<%#Eval("POST_SEOEN")%>">
                                     </a>
                                 </div>

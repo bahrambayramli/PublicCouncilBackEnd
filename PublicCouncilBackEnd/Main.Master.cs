@@ -23,6 +23,8 @@ namespace PublicCouncilBackEnd
             Literal aboutusicon = new Literal();
             Label contactus = new Label();
             Literal contactusicon = new Literal();
+            Label search = new Label();
+            Literal searchIcon = new Literal();
             switch (Convert.ToString(Page.RouteData.Values["language"]).ToLower())
             {
                 case "az":
@@ -33,7 +35,7 @@ namespace PublicCouncilBackEnd
                            
                             aboutus.Text = "HAQQIMIZDA";
                             aboutus.CssClass = "subnav-link-text";
-                            aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2'></i>";
+                            aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2 d-none d-md-inline'></i>";
                             _aboutus.Controls.Add(aboutusicon);
                             _aboutus.Controls.Add(aboutus);
                             _aboutus.NavigateUrl = "/aboutus/az";
@@ -41,11 +43,19 @@ namespace PublicCouncilBackEnd
 
                             contactus.Text = "ƏLAQƏ";
                             contactus.CssClass = "subnav-link-text";
-                            contactusicon.Text = " <i class='fas fa-globe text-danger mr-2'></i>";
+                            contactusicon.Text = " <i class='fas fa-globe text-danger mr-2 d-none d-md-inline'></i>";
                             _contactus.Controls.Add(contactusicon);
                             _contactus.Controls.Add(contactus);
                             _contactus.NavigateUrl = "/contactus/az";
 
+                            search.Text = "Axtar";
+                            search.CssClass = "subnav-link-text";
+                            searchIcon.Text = " <i class='fas fa-search text-danger mr-2 d-none d-md-inline'></i>";
+                            _search.Controls.Add(searchIcon);
+                            _search.Controls.Add(search);
+                            _search.NavigateUrl = "#";
+                            searchBtn.Text = "Axtar";
+                            searchModalTitle.Text = "Saytda axtar";
                         }
                         catch
                         {
@@ -59,7 +69,7 @@ namespace PublicCouncilBackEnd
 
                         aboutus.Text = "ABOUT US";
                         aboutus.CssClass = "subnav-link-text";
-                        aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2'></i>";
+                        aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2 d-none d-md-inline'></i>";
                         _aboutus.Controls.Add(aboutusicon);
                         _aboutus.Controls.Add(aboutus);
                         _aboutus.NavigateUrl = "/aboutus/en";
@@ -67,11 +77,19 @@ namespace PublicCouncilBackEnd
 
                         contactus.Text = "CONTACT US";
                         contactus.CssClass = "subnav-link-text";
-                        contactusicon.Text = " <i class='fas fa-globe text-danger mr-2'></i>";
+                        contactusicon.Text = " <i class='fas fa-globe text-danger mr-2 d-none d-md-inline'></i>";
                         _contactus.Controls.Add(contactusicon);
                         _contactus.Controls.Add(contactus);
                         _contactus.NavigateUrl = "/contactus/en";
 
+                        search.Text = "Search";
+                        search.CssClass = "subnav-link-text";
+                        searchIcon.Text = " <i class='fas fa-search text-danger mr-2 d-none d-md-inline'></i>";
+                        _search.Controls.Add(searchIcon);
+                        _search.Controls.Add(search);
+                        _search.NavigateUrl = "#";
+                        searchBtn.Text = "Search";
+                        searchModalTitle.Text = "Search in the site";
 
                         break;
                     }
@@ -83,7 +101,7 @@ namespace PublicCouncilBackEnd
 
                             aboutus.Text = "HAQQIMIZDA";
                             aboutus.CssClass = "subnav-link-text";
-                            aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2'></i>";
+                            aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2 d-none d-md-inline'></i>";
                             _aboutus.Controls.Add(aboutusicon);
                             _aboutus.Controls.Add(aboutus);
                             _aboutus.NavigateUrl = "/aboutus/az";
@@ -91,11 +109,19 @@ namespace PublicCouncilBackEnd
 
                             contactus.Text = "ƏLAQƏ";
                             contactus.CssClass = "subnav-link-text";
-                            contactusicon.Text = " <i class='fas fa-globe text-danger mr-2'></i>";
+                            contactusicon.Text = " <i class='fas fa-globe text-danger mr-2 d-none d-md-inline'></i>";
                             _contactus.Controls.Add(contactusicon);
                             _contactus.Controls.Add(contactus);
                             _contactus.NavigateUrl = "/contactus/az";
 
+                            search.Text = "Axtar";
+                            search.CssClass = "subnav-link-text";
+                            searchIcon.Text = " <i class='fas fa-search text-danger mr-2 d-none d-md-inline'></i>";
+                            _search.Controls.Add(searchIcon);
+                            _search.Controls.Add(search);
+                            _search.NavigateUrl = "#";
+                            searchBtn.Text = "Axtar";
+                            searchModalTitle.Text = "Saytda axtar";
                         }
                         catch
                         {
