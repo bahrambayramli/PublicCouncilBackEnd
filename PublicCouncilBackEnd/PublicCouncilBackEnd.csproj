@@ -250,6 +250,7 @@
     <Content Include="images\Logo\Logo2.jpeg" />
     <Content Include="images\sdefaultimage.png" />
     <Content Include="images\social-media-image.png" />
+    <Content Include="images\Untitled.png" />
     <Content Include="Logs\logs.txt" />
     <Content Include="manage\dashboard.aspx" />
     <Content Include="manage\posts.aspx" />

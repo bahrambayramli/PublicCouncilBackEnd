@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace PublicCouncilBackEnd.manage
 {
@@ -41,9 +42,34 @@ namespace PublicCouncilBackEnd.manage
             //H = newH;
 
             //chnaged the converted image size ----------------------------------
-            Bitmap NeticeImage = new Bitmap(orginal, W, H);
-            NeticeImage.Save(Server.MapPath("/Images/logos/" + imgName), System.Drawing.Imaging.ImageFormat.Jpeg);//Jpeg formatina kecirdirem
-            NeticeImage.Dispose();
+            Bitmap finalImage = new Bitmap(orginal, W, H);
+            finalImage.Save(Server.MapPath("/Images/logos/" + imgName), System.Drawing.Imaging.ImageFormat.Jpeg);//Jpeg formatina kecirdirem
+            finalImage.Dispose();
+        }
+
+        public void SaveEmptyPCImage(string imageName, string imageText, string SaveDirectory)
+        {
+
+            System.Drawing.Image bitmap = (System.Drawing.Image)Bitmap.FromFile(Server.MapPath("/images/Untitled.png"));
+            // set image     
+            //draw the image object using a Graphics object    
+            Graphics graphicsImage = Graphics.FromImage(bitmap);
+
+            //Set the alignment based on the coordinates       
+            StringFormat stringformat = new StringFormat();
+            stringformat.Alignment = StringAlignment.Center;
+            stringformat.LineAlignment = StringAlignment.Center;
+
+            //Set the font color/format/size etc..      
+
+            Color StringColor = System.Drawing.ColorTranslator.FromHtml("#933eea");//direct color adding    
+            string Str_TextOnImage = imageText;//Your Text On Image    
+
+
+            graphicsImage.DrawString(Str_TextOnImage, new Font("arial", 16, FontStyle.Regular), new SolidBrush(StringColor), new Point(230, 130), stringformat);
+
+
+            bitmap.Save(Server.MapPath(SaveDirectory + imageName), ImageFormat.Jpeg);
         }
         #endregion
 
@@ -342,7 +368,13 @@ namespace PublicCouncilBackEnd.manage
             SQL.COMMAND(insertUser);
             #endregion
 
-            InsertLogo(Session["NEW_USER_SERIAL"] as string);
+
+            #region(Insert logo)
+            SqlDataAdapter getLastPcId = new SqlDataAdapter(new SqlCommand("SELECT TOP (1) USER_ID FROM PC_USERS WHERE ISACTIVE='TRUE' AND ISDELETE='FALSE' ORDER BY USER_ID DESC"));
+          
+            InsertLogo(Session["NEW_USER_SERIAL"] as string, SQL.SELECT(getLastPcId).Rows[0]["USER_ID"].ToString());
+            #endregion
+
         }
 
         private void UpdateUser(string USER_SERIAL,string USER_ID)
@@ -486,11 +518,32 @@ namespace PublicCouncilBackEnd.manage
             //  Session["LOGOISACTIVE"] = DT.Rows[0]["ISACTIVE"].ToString();
         }
 
-        private void InsertLogo(string USER_SERIAL)
+        private void InsertLogo(string USER_SERIAL, string USER_ID)
         {
 
 
+          
+            string logoName = string.Empty;
+            SqlCommand insertLogo = new SqlCommand(@"INSERT INTO PC_SITELOGOS
+                                                                                    (
+	                                                                                 ISDELETE,
+                                                                                     ISACTIVE,
+                                                                                     LOGO_TITLE,
+                                                                                     LOGO_IMG,
+                                                                                     LOGO_SERIAL,
+                                                                                     USER_ID
+	                                                                                )
+                                                                              VALUES
+                                                                                    (
+	                                                                            	 @ISDELETE,
+                                                                                     @ISACTIVE,
+                                                                                     @LOGO_TITLE,
+                                                                                     @LOGO_IMG,
+                                                                                     @LOGO_SERIAL,
+                                                                                     @USER_ID
 
+	                                                                            	)
+                                                                                    ");
 
             if (logoFile.HasFile)
             {
@@ -499,65 +552,45 @@ namespace PublicCouncilBackEnd.manage
                     (extension != ".jpeg") &&
                     (extension != ".bmp") &&
                     (extension != ".png") &&
-                    (extension != ".gif") &&
+                    (extension != ".gif") && 
                     (extension != ".tif") &&
                     (extension != ".tiff")) return;
 
-                foreach (HttpPostedFile postedFile in logoFile.PostedFiles)
-                {
-                    string logoName = Helper.SetName(extension);
+            
+                    logoName = Helper.SetName(extension);
 
-                    SqlCommand insertLogo = new SqlCommand(@"INSERT INTO PC_SITELOGOS
-                                                                                    (
-	                                                                                 ISDELETE,
-                                                                                     ISACTIVE,
-                                                                                     LOGO_TITLE,
-                                                                                     LOGO_IMG,
-                                                                                   
-                                                                                     LOGO_SERIAL
-	                                                                                )
-                                                                              VALUES
-                                                                                    (
-	                                                                            	 @ISDELETE,
-                                                                                     @ISACTIVE,
-                                                                                     @LOGO_TITLE,
-                                                                                     @LOGO_IMG,
-                                                                                     
-                                                                                     @LOGO_SERIAL
-	                                                                            	)
-                                                                                    ");
-
-                    insertLogo.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
-                    insertLogo.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
-
-                    insertLogo.Parameters.Add("@LOGO_TITLE", SqlDbType.NVarChar).Value = postedFile.FileName;
-                    insertLogo.Parameters.Add("@LOGO_IMG", SqlDbType.NVarChar).Value = logoName;
-
-
-
-                    insertLogo.Parameters.Add("@LOGO_SERIAL", SqlDbType.NVarChar).Value = USER_SERIAL;
-
-                    SQL.COMMAND(insertLogo);
-
-                  //  postedFile.SaveAs(Server.MapPath("/Images/logos/" + logoName));
+                    insertLogo.Parameters.Add("@LOGO_TITLE", SqlDbType.NVarChar).Value      = logoFile.FileName;
 
                     MadeImage(logoFile, logoName, 460, 280);
-                }
+                
+            }
+            else
+            {
+                logoName = Helper.SetName(".jpg");
+                insertLogo.Parameters.Add("@LOGO_TITLE", SqlDbType.NVarChar).Value      = inputPCname.Text;
+                SaveEmptyPCImage(logoName, inputPCname.Text,"/images/logos/");
             }
 
+            insertLogo.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value             = false;
+            insertLogo.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value             = true;
+            insertLogo.Parameters.Add("@LOGO_SERIAL", SqlDbType.NVarChar).Value     = USER_SERIAL;
+            insertLogo.Parameters.Add("@USER_ID", SqlDbType.Int).Value              = USER_ID;
+            insertLogo.Parameters.Add("@LOGO_IMG", SqlDbType.NVarChar).Value        = logoName;
 
+            SQL.COMMAND(insertLogo);
+           
 
         }
 
         private void UpdateLogo(string USER_SERIAL, string USER_ID)
         {
             //Update
-            //1. Logo text
+            //1.Logo text
             //2.Logo image
             //if the logo file input has files need to add the new image to /Uploads/logos folder and update in sql 
             //if the logo file input has not file need to update only logo text
-            SqlCommand updateLogo = new SqlCommand();
-
+           
+           
             if (logoFile.HasFile)
             {
                 string extension = Path.GetExtension(logoFile.FileName).ToLower();
@@ -571,36 +604,30 @@ namespace PublicCouncilBackEnd.manage
 
                 string logoName = Helper.SetName(extension);
 
-                updateLogo = new SqlCommand(@"UPDATE PC_SITELOGOS 
+                SqlCommand updateLogo = new SqlCommand(@"UPDATE PC_SITELOGOS 
                                                             SET  
 						                                    LOGO_TITLE = @LOGO_TITLE,
-						                                    LOGO_IMG   = @LOGO_IMG,
-                                                            USER_ID    = @USER_ID
+						                                    LOGO_IMG   = @LOGO_IMG
+                                                           
 					                                        WHERE 
-                                                                 
-                                                                  LOGO_SERIAL = @LOGO_SERIAL
+                                                                  USER_ID               = @USER_ID         AND
+                                                                  LOGO_SERIAL           = @USER_SERIAL
                                                                   ");
 
-                updateLogo.Parameters.Add("@USER_ID", SqlDbType.Int).Value = USER_ID;
+              
                 updateLogo.Parameters.Add("@LOGO_IMG", SqlDbType.NVarChar).Value = logoName;
                 updateLogo.Parameters.Add("@LOGO_TITLE", SqlDbType.NVarChar).Value = logoFile.FileName;
+                
+                
+                updateLogo.Parameters.Add("@USER_ID", SqlDbType.Int).Value = USER_ID;
+                updateLogo.Parameters.Add("@USER_SERIAL", SqlDbType.NVarChar).Value = USER_SERIAL;
 
 
-                // logoFile.SaveAs(Server.MapPath("/Images/logos/" + logoName));
+                SQL.COMMAND(updateLogo);
+
                 MadeImage(logoFile, logoName, 460, 280);
-
             }
-            else
-            {
-                updateLogo = new SqlCommand(@"UPDATE PC_SITELOGOS  SET  USER_ID = @USER_ID  WHERE LOGO_SERIAL = @LOGO_SERIAL");
-
-               
-                updateLogo.Parameters.Add("@USER_ID", SqlDbType.NVarChar).Value = USER_ID;
-            }
-
-            updateLogo.Parameters.Add("@LOGO_SERIAL", SqlDbType.NVarChar).Value = USER_SERIAL;
-
-            SQL.COMMAND(updateLogo);
+            
         }
 
         #endregion
@@ -625,9 +652,11 @@ namespace PublicCouncilBackEnd.manage
                     {
                         GetPCOUNCIL(Session["PC_ID"] as string);
                     }
-                    catch 
+                    catch (Exception ex)
                     {
-                        
+                        Log.LogCreator(HttpContext.Current.Server.MapPath("/Logs/logs.txt"), ex.Message);
+                        string exmm = ex.Message;
+                        Console.WriteLine(exmm);
                     }
 
                     try

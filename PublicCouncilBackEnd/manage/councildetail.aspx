@@ -111,7 +111,6 @@
                                         <div class="form-group">
                                             <label for="mainlayout_inputPassword">Şifrə</label>
                                             <asp:TextBox ID="inputPassword" runat="server" CssClass="form-control" TextMode="Password" autocomplete="false">
-
                                             </asp:TextBox>
                                         </div>
                                     </asp:Panel>

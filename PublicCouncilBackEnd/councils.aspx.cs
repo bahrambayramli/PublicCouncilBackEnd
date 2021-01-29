@@ -14,7 +14,7 @@ namespace PublicCouncilBackEnd
 
         private void GetPCList(string LANGUAGE, string PC_DIRECTORY, bool ISDELETE, bool ISACTIVE, ListView LSV_AZ, ListView LSV_EN)
         {
-            SqlDataAdapter getpcList = new SqlDataAdapter();
+            SqlDataAdapter getpcList;
 
             switch (LANGUAGE)
             {
@@ -25,17 +25,15 @@ namespace PublicCouncilBackEnd
                         getpcList = new SqlDataAdapter(new SqlCommand(@"SELECT
                                                                                 USER_PCDOMAIN   ,
                                                                                 PC_NAME         , 
-                                                                                PC_CATEGORY     , 
-                                                                                LOGO_IMG        ,
-                                                                                PC_TELEPHONE    , USER_MOBILE, 
+                                                                                PC_TELEPHONE    , 
+                                                                                USER_MOBILE     , 
                                                                                 PC_EMAIL
                                                                                 FROM PC_USERS 
-                                                                                        LEFT JOIN PC_SITELOGOS
-                                                                                        ON PC_USERS.USER_ID = PC_SITELOGOS.USER_ID
+                                                                                       
                                                                                         WHERE
-                                                                                                    PC_USERS.ISDELETE     = @ISDELETE       AND
-                                                                                                    PC_USERS.ISACTIVE     = @ISACTIVE       AND
-                                                                                                    PC_CATEGORY           = @PC_CATEGORY    AND
+                                                                                                    ISDELETE              = @ISDELETE                AND
+                                                                                                    ISACTIVE              = @ISACTIVE                AND
+                                                                                                    PC_CATEGORY           = @PC_CATEGORY             AND
                                                                                                     USER_LOGIN            !='admin'  
                                                                                                     ORDER BY PC_ORDER_NUMBER ASC"));
 
@@ -50,7 +48,6 @@ namespace PublicCouncilBackEnd
                         break;
                     }
 
-
                 case "en":
                     {
                         LSV_AZ.DataSource = null;
@@ -58,17 +55,14 @@ namespace PublicCouncilBackEnd
                         getpcList = new SqlDataAdapter(new SqlCommand(@"SELECT
                                                                                 USER_PCDOMAIN       ,
                                                                                 PC_NAME_EN          , 
-                                                                                PC_CATEGORY         , 
-                                                                                LOGO_IMG            ,
                                                                                 PC_TELEPHONE        , 
                                                                                 USER_MOBILE, 
                                                                                 PC_EMAIL
                                                                                 FROM PC_USERS 
-                                                                                        LEFT JOIN PC_SITELOGOS
-                                                                                        ON PC_USERS.USER_ID = PC_SITELOGOS.USER_ID
+                                                                                      
                                                                                         WHERE
-                                                                                                    PC_USERS.ISDELETE     = @ISDELETE       AND
-                                                                                                    PC_USERS.ISACTIVE     = @ISACTIVE       AND
+                                                                                                    ISDELETE     = @ISDELETE       AND
+                                                                                                    ISACTIVE     = @ISACTIVE       AND
                                                                                                     PC_CATEGORY           = @PC_CATEGORY    AND
                                                                                                     USER_LOGIN            !='admin'  
                                                                                                     ORDER BY PC_ORDER_NUMBER ASC"));
@@ -82,7 +76,6 @@ namespace PublicCouncilBackEnd
                         break;
                     }
 
-
                 default:
                     {
                         LSV_EN.DataSource = null;
@@ -90,18 +83,15 @@ namespace PublicCouncilBackEnd
                         getpcList = new SqlDataAdapter(new SqlCommand(@"SELECT
                                                                                 USER_PCDOMAIN   ,
                                                                                 PC_NAME         , 
-                                                                                PC_CATEGORY     , 
-                                                                                LOGO_IMG        ,
                                                                                 PC_TELEPHONE    , 
-                                                                                USER_MOBILE,
+                                                                                USER_MOBILE     , 
                                                                                 PC_EMAIL
                                                                                 FROM PC_USERS 
-                                                                                        LEFT JOIN PC_SITELOGOS
-                                                                                        ON PC_USERS.USER_ID = PC_SITELOGOS.USER_ID
+                                                                                       
                                                                                         WHERE
-                                                                                                    PC_USERS.ISDELETE     = @ISDELETE       AND
-                                                                                                    PC_USERS.ISACTIVE     = @ISACTIVE       AND
-                                                                                                    PC_CATEGORY           = @PC_CATEGORY    AND
+                                                                                                    ISDELETE              = @ISDELETE                AND
+                                                                                                    ISACTIVE              = @ISACTIVE                AND
+                                                                                                    PC_CATEGORY           = @PC_CATEGORY             AND
                                                                                                     USER_LOGIN            !='admin'  
                                                                                                     ORDER BY PC_ORDER_NUMBER ASC"));
 
@@ -111,14 +101,20 @@ namespace PublicCouncilBackEnd
 
                         LSV_AZ.DataSource = SQL.SELECT(getpcList);
                         LSV_AZ.DataBind();
+
+
                         break;
                     }
+
+                   
             }
+
+            getpcList = null;
         }
 
         private void GetPCList(string LANGUAGE, bool ISDELETE, bool ISACTIVE, ListView LSV_AZ, ListView LSV_EN)
         {
-            SqlDataAdapter getpcList = new SqlDataAdapter();
+            SqlDataAdapter getpcList;
 
             switch (LANGUAGE)
             {
@@ -129,19 +125,16 @@ namespace PublicCouncilBackEnd
                         getpcList = new SqlDataAdapter(new SqlCommand(@"SELECT 
                                                                                 USER_PCDOMAIN   ,
                                                                                 PC_NAME         , 
-                                                                                PC_CATEGORY     , 
-                                                                                LOGO_IMG        ,
                                                                                 PC_TELEPHONE    ,
                                                                                 USER_MOBILE     ,
                                                                                 PC_EMAIL
                                                                                 FROM PC_USERS 
 
-                                                                                LEFT JOIN PC_SITELOGOS
-                                                                                ON PC_USERS.USER_ID = PC_SITELOGOS.USER_ID
+                                                                             
                                                                                 WHERE
-                                                                                                    PC_USERS.ISDELETE     = @ISDELETE       AND
-                                                                                                    PC_USERS.ISACTIVE     = @ISACTIVE       AND
-                                                                                                    USER_LOGIN           !='admin'   
+                                                                                                    ISDELETE     = @ISDELETE       AND
+                                                                                                    ISACTIVE     = @ISACTIVE       AND
+                                                                                                    USER_LOGIN   !='admin'   
                                                                                                        
                                                                                                     ORDER BY PC_ORDER_NUMBER ASC"));
 
@@ -161,18 +154,15 @@ namespace PublicCouncilBackEnd
                         getpcList = new SqlDataAdapter(new SqlCommand(@"SELECT 
                                                                                 USER_PCDOMAIN       ,
                                                                                 PC_NAME_EN          , 
-                                                                                PC_CATEGORY         , 
-                                                                                LOGO_IMG            ,
                                                                                 PC_TELEPHONE        ,
                                                                                 USER_MOBILE         ,
                                                                                 PC_EMAIL
                                                                                 FROM PC_USERS 
 
-                                                                                LEFT JOIN PC_SITELOGOS
-                                                                                ON PC_USERS.USER_ID = PC_SITELOGOS.USER_ID
+                                                                              
                                                                                 WHERE
-                                                                                                    PC_USERS.ISDELETE     = @ISDELETE       AND
-                                                                                                    PC_USERS.ISACTIVE     = @ISACTIVE       AND
+                                                                                                    ISDELETE     = @ISDELETE       AND
+                                                                                                    ISACTIVE     = @ISACTIVE       AND
                                                                                                     USER_LOGIN           !='admin'   
                                                                                                        
                                                                                                     ORDER BY PC_ORDER_NUMBER ASC"));
@@ -189,20 +179,20 @@ namespace PublicCouncilBackEnd
                     {
                         LSV_EN.DataSource = null;
                         LSV_EN.DataBind();
-                        getpcList = new SqlDataAdapter(new SqlCommand(@"        USER_PCDOMAIN   ,
+                        getpcList = new SqlDataAdapter(new SqlCommand(@"SELECT 
+                                                                                USER_PCDOMAIN   ,
                                                                                 PC_NAME         , 
-                                                                                PC_CATEGORY     , 
-                                                                                LOGO_IMG        ,
-                                                                                PC_TELEPHONE    , 
+                                                                                PC_TELEPHONE    ,
                                                                                 USER_MOBILE     ,
                                                                                 PC_EMAIL
                                                                                 FROM PC_USERS 
-                                                                                        LEFT JOIN PC_SITELOGOS
-                                                                                        ON PC_USERS.USER_ID = PC_SITELOGOS.USER_ID
-                                                                                        WHERE
-                                                                                                    PC_USERS.ISDELETE     = @ISDELETE       AND
-                                                                                                    PC_USERS.ISACTIVE     = @ISACTIVE       AND
-                                                                                                    USER_LOGIN            !='admin'  
+
+                                                                             
+                                                                                WHERE
+                                                                                                    ISDELETE     = @ISDELETE       AND
+                                                                                                    ISACTIVE     = @ISACTIVE       AND
+                                                                                                    USER_LOGIN   !='admin'   
+                                                                                                       
                                                                                                     ORDER BY PC_ORDER_NUMBER ASC"));
 
                         getpcList.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
@@ -211,10 +201,11 @@ namespace PublicCouncilBackEnd
                         LSV_AZ.DataSource = SQL.SELECT(getpcList);
                         LSV_AZ.DataBind();
 
-
                         break;
                     }
             }
+
+            getpcList = null;
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -292,14 +283,25 @@ namespace PublicCouncilBackEnd
                     }
             }
 
-            if (string.IsNullOrEmpty(Page.RouteData.Values["directory"] as string))
+            try
             {
-                GetPCList(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), false, true, PCLIST_AZ, PCLIST_EN);
-            }
-            else
-            {
-                GetPCList(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Page.RouteData.Values["directory"] as string, false, true, PCLIST_AZ, PCLIST_EN);
+                if (string.IsNullOrEmpty(Page.RouteData.Values["directory"] as string))
+                {
+                    GetPCList(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), false, true, PCLIST_AZ, PCLIST_EN);
+                }
+                else
+                {
+                    GetPCList(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Page.RouteData.Values["directory"] as string, false, true, PCLIST_AZ, PCLIST_EN);
 
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write($"<div class='py-5'>{ex.Message}</div>");
+
+                Log.LogCreator(Server.MapPath("/Logs/logs.txt"), ex.Message);
+
+               
             }
 
         }
