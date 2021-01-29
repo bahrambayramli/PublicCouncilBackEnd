@@ -44,6 +44,9 @@ namespace PublicCouncilBackEnd
 
             routes.MapPageRoute("aboutus", "aboutus/{language}", "~/aboutus.aspx");
             routes.MapPageRoute("contactus", "contactus/{language}", "~/contactus.aspx");
+
+            routes.MapPageRoute("search", "search/{language}", "~/search.aspx");
+
             #endregion
 
             #region(Manage routes)

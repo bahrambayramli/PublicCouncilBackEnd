@@ -133,7 +133,7 @@
                             <div class="col-6 col-md-4 d-flex align-items-center justify-content-end order-3">
                                 <asp:LinkButton ID="langAZ" runat="server" CssClass="site-lang p-1 btn btn-round shadow-sm " OnClick="langAZ_Click">AZ</asp:LinkButton>
                                 <asp:LinkButton ID="langEN" runat="server" CssClass="site-lang p-1 btn btn-round shadow-sm" OnClick="langEN_Click">EN</asp:LinkButton>
-                                <asp:LinkButton ID="signIN" runat="server" CssClass="site-login p-1 px-md-2 btn btn-round btn-gradient-danger btn-round shadow-sm" OnClick="signIN_Click">
+                                <asp:LinkButton ID="signIN" runat="server" CssClass="site-login p-1 px-md-2 btn btn-round btn-gradient-danger btn-round btn-sm shadow-sm" OnClick="signIN_Click">
                                 </asp:LinkButton>
                             </div>
                         </div>
@@ -709,7 +709,7 @@
                         </div>
                     </div>
                     <div class="modal-footer text-center p-2">
-                        <asp:LinkButton ID="searchBtn" runat="server" CssClass="btn btn-outline-danger btn-round btn-sm"></asp:LinkButton>
+                        <asp:LinkButton ID="searchBtn" runat="server" CssClass="btn btn-outline-danger btn-round btn-sm" OnClick="searchBtn_Click"></asp:LinkButton>
                     </div>
                 </div>
             </div>

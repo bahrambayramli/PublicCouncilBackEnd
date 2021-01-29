@@ -955,15 +955,16 @@ namespace PublicCouncilBackEnd
             Session["language"] = Convert.ToString(Page.RouteData.Values["language"]).ToLower();
             GetLogo();
             GetNavigations(Page.RouteData.Values["language"] as string);
-            GetPosts(Session["language"] as string, "4", "election", false, true, true, COUNCILELECTION_AZ, COUNCILELECTION_EN);
             GetPosts(Session["language"] as string, "4", "announcements", false, true, true, ANNOUNCMENTS_AZ, ANNOUNCMENTS_EN);
             GetLatest(Session["language"] as string, "10", false, true, true, LATEST_AZ, LATEST_EN);
-            GetPosts(Session["language"] as string, "10", "multimedia", "video", false, true,true, VIDEOS_AZ, VIDEOS_EN,false);
-           
+          
+
+            HeaderNav();
 
             if (!IsPostBack)
             {
-                HeaderNav();
+                GetPosts(Session["language"] as string, "4", "election", false, true, true, COUNCILELECTION_AZ, COUNCILELECTION_EN);
+                GetPosts(Session["language"] as string, "10", "multimedia", "video", false, true, true, VIDEOS_AZ, VIDEOS_EN, false);
                 GetPartners(Session["language"] as string, "12", false, true, PARTNERS_AZ, PARTNERS_EN);
                 GetSponsors();
                 switch (Session["language"] as string)
@@ -1024,6 +1025,33 @@ namespace PublicCouncilBackEnd
         {
             Session.Clear();
             Response.Redirect("/login");
+        }
+
+        protected void searchBtn_Click(object sender, EventArgs e)
+        {
+            Session["searchtext"] = searchInput.Text;
+            string lang = Convert.ToString(Page.RouteData.Values["language"]).ToLower();
+            switch (lang)
+            {
+                case "az":
+                    {
+                        Response.Redirect("/search/az");
+                        break;
+                    }
+                case "en":
+                    {
+                        Response.Redirect("/search/en");
+
+                        break;
+                    }
+                default:
+                    {
+                        Response.Redirect("/search/az");
+                        break;
+                    }
+            }
+
+          
         }
     }
 }

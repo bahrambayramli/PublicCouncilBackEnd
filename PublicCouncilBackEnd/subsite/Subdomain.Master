@@ -91,7 +91,7 @@
                                     </ItemTemplate>
                                 </asp:ListView>
                             </div>
-                            <div class="col-6 col-md-4 px-md-1 d-flex align-items-center justify-content-start justify-content-md-center">
+                            <div class="col-5 col-md-4 px-md-1 d-flex align-items-center justify-content-start justify-content-md-center">
                                 <ul class="social-buttons m-0 d-md-none d-flex ">
                                     <li>
                                         <a href="https://www.facebook.com/%C4%B0ctimai-%C5%9Eura-109645403890081/?modal=admin_todo_tour" target="_blank" class="btn btn-round btn-twitter btn-sm mr-2 px-2 ">
@@ -110,10 +110,15 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="col-6 col-md-4 d-flex align-items-center justify-content-end">
+                            <div class="col-2 d-md-none d-flex justify-content-center align-items-center">
+                                 <a href="https://ictimaishura.az" class="d-block d-md-inline text-default mx-md-1"">
+                                    <i class="fas fa-home text-danger"></i>
+                                </a>
+                            </div>
+                            <div class="col-5 col-md-4 d-flex align-items-center justify-content-end px-1">
                                 <asp:LinkButton ID="langAZ" runat="server" CssClass="site-lang p-1 btn btn-round shadow-sm " OnClick="langAZ_Click">AZ</asp:LinkButton>
                                 <asp:LinkButton ID="langEN" runat="server" CssClass="site-lang p-1 btn btn-round shadow-sm" OnClick="langEN_Click">EN</asp:LinkButton>
-                                <asp:LinkButton ID="signIN" runat="server" CssClass="site-login p-1 px-md-2 btn btn-round btn-gradient-danger btn-round shadow-sm" OnClick="signIN_Click"></asp:LinkButton>
+                                <asp:LinkButton ID="signIN" runat="server" CssClass="site-login p-1 px-md-2 btn btn-round btn-sm btn-gradient-danger btn-round shadow-sm" OnClick="signIN_Click"></asp:LinkButton>
                             </div>
                         </div>
                     </div>

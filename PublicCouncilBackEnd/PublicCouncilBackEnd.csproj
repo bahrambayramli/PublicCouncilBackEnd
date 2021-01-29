@@ -302,6 +302,7 @@
     <Content Include="councils.aspx" />
     <Content Include="aboutus.aspx" />
     <Content Include="contactus.aspx" />
+    <Content Include="search.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -616,6 +617,13 @@
     </Compile>
     <Compile Include="subsite\details.aspx.designer.cs">
       <DependentUpon>details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="search.aspx.cs">
+      <DependentUpon>search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="search.aspx.designer.cs">
+      <DependentUpon>search.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
