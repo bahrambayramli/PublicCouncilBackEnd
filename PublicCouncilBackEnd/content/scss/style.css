@@ -11,14 +11,17 @@ ul {
 
 p {
   margin: 0;
-  color: #333333; }
+  color: #333333;
+  line-height: 1.4; }
 
 body,
 html {
   height: 100%; }
 
 body {
-  font-family: "Roboto", sans-serif;
+  /*  font-family: "Roboto", sans-serif;*/
+  /* font-family: 'Manrope', sans-serif;*/
+  font-family: 'Maven Pro', sans-serif;
   background-color: #f6f6f6;
   overflow-y: scroll;
   overflow-x: hidden; }
@@ -36,6 +39,8 @@ form {
     font-weight: 300;
     text-transform: lowercase;
     padding: .4rem 0rem; }
+  .header .navbar-nav .nav-item .nav-link {
+    font-family: 'Maven Pro', sans-serif !important; }
 
 .main {
   flex: 1 0 auto; }
@@ -79,7 +84,7 @@ form {
           font-weight: 600;
           margin: 0;
           padding: 0;
-          line-height: 1.3rem; }
+          line-height: 1.2rem; }
       .main .content-side .site-sliders .owl-main .slider-item .slider-caption .caption-link,
       .main .content-side .site-sliders .owl-right-top .slider-item .slider-caption .caption-link,
       .main .content-side .site-sliders .owl-right-bottom .slider-item .slider-caption .caption-link {
@@ -168,9 +173,7 @@ form {
     overflow: scroll;
     margin: 0;
     padding: 0;
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    -webkit-overflow-scrolling: touch;
+    font-size: 1rem;
     overflow: hidden scroll; }
   .main .right-side .latest-posts li {
     padding: 0.5rem 0;
@@ -213,7 +216,7 @@ img {
     width: 30%;
     height: auto; }
   .header .site-nav-item .nav-link {
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding: 0.5rem 0.4rem;
     font-weight: 400;
     text-transform: uppercase; }
@@ -254,11 +257,11 @@ img {
         .main .content-side .site-sliders .owl-right-top .slider-item .slider-caption .slider-title p,
         .main .content-side .site-sliders .owl-right-bottom .slider-item .slider-caption .slider-title p {
           color: #fff;
-          font-size: 1.76rem;
+          font-size: 1.5rem;
           font-weight: 700;
           margin: 0;
           padding: 0;
-          line-height: 2.3rem; }
+          line-height: 2.1rem; }
       .main .content-side .site-sliders .owl-main .slider-item .slider-caption .caption-link,
       .main .content-side .site-sliders .owl-right-top .slider-item .slider-caption .caption-link,
       .main .content-side .site-sliders .owl-right-bottom .slider-item .slider-caption .caption-link {
@@ -312,7 +315,7 @@ img {
     position: absolute;
     left: 20px;
     right: 20px;
-    bottom: 20px;
+    bottom: 10px;
     text-align: left;
     z-index: 2; }
     .main .content-side .site-sliders .owl-right-top .slider-item .slider-caption .slider-time,
@@ -358,6 +361,9 @@ img {
       transform: scale(1); }
     .main .content-side .post:hover .post-img {
       transform: scale(1.1); }
+    .main .content-side .post p {
+      font-weight: normal;
+      font-size: 1.1rem; }
   .main .content-side .publications {
     position: relative;
     display: flex;
@@ -398,6 +404,8 @@ img {
     font-size: 2.25rem; }
   .main .content-side .page-name {
     font-size: 2rem; }
+  .main .content-side .post-details p {
+    font-size: 1.2rem; }
   .main .right-side .owl-elections .slider-item .slider-caption {
     position: absolute;
     left: 20px;
@@ -490,9 +498,7 @@ img {
       overflow: scroll;
       margin: 0;
       padding: 0;
-      font-size: 16px;
-      font-family: Arial, sans-serif;
-      -webkit-overflow-scrolling: touch;
+      font-size: 1.1rem;
       overflow: hidden scroll; }
     .main .right-side .latest-posts .latest-item {
       padding: 0.5rem 0;
@@ -501,11 +507,8 @@ img {
       transition: background-color 0.3s ease; }
       .main .right-side .latest-posts .latest-item:last-child {
         border-bottom: none; }
-      .main .right-side .latest-posts .latest-item .latest-title {
-        color: black;
-        font-size: 10px; }
-        .main .right-side .latest-posts .latest-item .latest-title p {
-          font-size: .9rem; }
+      .main .right-side .latest-posts .latest-item .latest-title p {
+        font-size: 1rem; }
       .main .right-side .latest-posts .latest-item .latest-date {
         font-size: .75rem;
         color: darkslategrey;

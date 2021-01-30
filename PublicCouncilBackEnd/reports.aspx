@@ -62,7 +62,7 @@
                                     ShowNextPageButton="False"
                                     ShowPreviousPageButton="True"
                                     ButtonCssClass="btn btn-primary btn-sm"
-                                    RenderDisabledButtonsAsLabels="False" Visible="True" PreviousPageText="Əvvəlki" />
+                                    RenderDisabledButtonsAsLabels="False" Visible="True" PreviousPageText="<" />
                                 <asp:NumericPagerField
                                     CurrentPageLabelCssClass="page-link page-link btn btn-primary btn-sm rounded"
                                     NumericButtonCssClass="page-link btn btn-danger btn-sm rounded"
@@ -72,7 +72,7 @@
                                     ShowLastPageButton="False"
                                     ShowNextPageButton="True"
                                     ShowPreviousPageButton="False"
-                                    ButtonCssClass="btn btn-primary btn-sm rounded" NextPageText="Sonraki" Visible="True" />
+                                    ButtonCssClass="btn btn-primary btn-sm rounded" NextPageText=">" Visible="True" />
                             </Fields>
                         </asp:DataPager>
 
@@ -84,7 +84,7 @@
                                     ShowNextPageButton="False"
                                     ShowPreviousPageButton="True"
                                     ButtonCssClass="btn btn-primary btn-sm"
-                                    RenderDisabledButtonsAsLabels="False" Visible="True" PreviousPageText="Previous" />
+                                    RenderDisabledButtonsAsLabels="False" Visible="True" PreviousPageText="<" />
                                 <asp:NumericPagerField
                                     CurrentPageLabelCssClass="page-link page-link btn btn-primary btn-sm rounded"
                                     NumericButtonCssClass="page-link btn btn-danger btn-sm rounded"
@@ -94,7 +94,7 @@
                                     ShowLastPageButton="False"
                                     ShowNextPageButton="True"
                                     ShowPreviousPageButton="False"
-                                    ButtonCssClass="btn btn-primary btn-sm rounded" NextPageText="Next" Visible="True" />
+                                    ButtonCssClass="btn btn-primary btn-sm rounded" NextPageText=">" Visible="True" />
                             </Fields>
                         </asp:DataPager>
                     </nav>
