@@ -75,7 +75,15 @@ namespace PublicCouncilBackEnd.manage
             deletenews.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = false;
             deletenews.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = true;
             SQL.COMMAND(deletenews);
-            GetPosts(pcSelectList.SelectedValue);
+
+            if (Session["USER_MEMBERSHIP_TYPE"] as string == "admin")
+            {
+                GetPosts(pcSelectList.SelectedValue);
+            }
+            else
+            {
+                GetPosts(Session["USER_ID"] as string);
+            }
 
         }
         #endregion

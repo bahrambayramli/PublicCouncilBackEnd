@@ -3,13 +3,15 @@
 <%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        img{
-            display:block;
-            width:100%;
+        img {
+            display: block;
+            width: 100%;
         }
+
         .content {
             margin: 0 !important;
         }
+
         #managelayout_inpFile,
         #managelayout_subFile,
         #managelayout_labelTime,
@@ -43,25 +45,26 @@
         <div class="card-body">
             <div class="container-fluid" style="padding: 0!important;">
 
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <asp:Panel ID="PCLIST_PANEL" runat="server" CssClass="form-group">
-                             <label for="managelayout_pcSelectList">Təşkilat</label>
+                <asp:Panel ID="PCLIST_MAINVIEW_BLOCK" runat="server" CssClass="row">
+                    <asp:Panel ID="PCLIST_PANEL" runat="server" CssClass="col-12 col-md-6">
+                        <div class="form-group">
+                            <label for="managelayout_pcSelectList">Təşkilat</label>
                             <asp:DropDownList ID="pcSelectList" runat="server" CssClass="form-control">
                             </asp:DropDownList>
-                        </asp:Panel>
-                       
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <asp:Panel ID="MAINVIEW_PANEL" runat="server">
+                        </div>
+                    </asp:Panel>
+                    <asp:Panel ID="MAINVIEW_PANEL" runat="server" CssClass="col-12 col-md-6">
+                        <div class="form-group">
                             <label for="managelayout_postMAINVIEW">Ana səhifədə görunsun</label>
                             <asp:DropDownList ID="postMAINVIEW" runat="server" CssClass="form-control">
                                 <asp:ListItem Value="1">Bəli</asp:ListItem>
                                 <asp:ListItem Value="0">Xeyr</asp:ListItem>
                             </asp:DropDownList>
-                        </asp:Panel>
-                    </div>
-                </div>
+                        </div>
+                    </asp:Panel>
+                </asp:Panel>
+
+
 
                 <!-- Category and subcategory -->
                 <asp:UpdatePanel ID="NAVPANEL" runat="server" class="row">
@@ -77,13 +80,13 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="managelayout_subcategory_list" class="h4 text-primary">Alt kateqoriya</label>
-                                  <asp:DropDownList ID="subcategory_list" runat="server" CssClass="form-control">
+                                <asp:DropDownList ID="subcategory_list" runat="server" CssClass="form-control">
                                 </asp:DropDownList>
                             </div>
                         </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
-              
+
                 <!-- Type  and date -->
                 <div class="row">
                     <div class="col">
@@ -103,9 +106,9 @@
                         <div class="form-group">
                             <label for="managelayout_post_date" class="h4 text-primary">Tarix</label>
                             <div class="form-group">
-                                  <asp:Label ID="labelTime" runat="server" Text=""></asp:Label>
-                               
-                                <asp:TextBox ID="post_date" runat="server" CssClass="datetimepicker form-control" ></asp:TextBox>
+                                <asp:Label ID="labelTime" runat="server" Text=""></asp:Label>
+
+                                <asp:TextBox ID="post_date" runat="server" CssClass="datetimepicker form-control"></asp:TextBox>
 
                             </div>
                         </div>
@@ -145,11 +148,11 @@
                                             aria-labelledby="tabs-icons-text-1-tab">
 
                                             <div class="form-group">
-                                                <label for="managelayout_postseo_az"class="h4 text-primary">SEO Başlıq:Az</label>
+                                                <label for="managelayout_postseo_az" class="h4 text-primary">SEO Başlıq:Az</label>
                                                 <asp:TextBox ID="postseo_az" runat="server" CssClass="form-control mb-2"></asp:TextBox>
                                             </div>
                                             <div class="form-group">
-                                                <label for="" class="h4 text-primary"> Post Başlıq:Az </label>
+                                                <label for="" class="h4 text-primary">Post Başlıq:Az </label>
                                                 <CKEditor:CKEditorControl ID="posttitle_az" runat="server" Height="100px"></CKEditor:CKEditorControl>
                                             </div>
                                             <div class="form-group ">
@@ -160,7 +163,7 @@
                                                     <asp:ListItem Value="yes">Bəli</asp:ListItem>
                                                     <asp:ListItem Value="no">Xeyr</asp:ListItem>
                                                 </asp:DropDownList>
-                                                 <CKEditor:CKEditorControl ID="post_az" runat="server" Height="300px"></CKEditor:CKEditorControl>
+                                                <CKEditor:CKEditorControl ID="post_az" runat="server" Height="300px"></CKEditor:CKEditorControl>
                                             </div>
 
                                         </div>
@@ -258,7 +261,7 @@
                                                                     <Columns>
                                                                         <asp:BoundField DataField="#" HeaderText="#"></asp:BoundField>
                                                                         <asp:BoundField DataField="DATA_ID" HeaderText="DATA_ID">
-                                                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="65%" />
+                                                                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="65%" />
                                                                         </asp:BoundField>
                                                                         <asp:BoundField DataField="USER_ID" HeaderText="USER_ID"></asp:BoundField>
                                                                         <asp:BoundField DataField="POST_SERIAL" HeaderText="POST_SERIAL"></asp:BoundField>
@@ -319,13 +322,11 @@
                                 <ul class="nav nav-pills nav-fill flex-column flex-md-row"
                                     id="tabs-icons-text" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab" href="#mainvideo" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true">
-                                            Video
+                                        <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab" href="#mainvideo" role="tab" aria-controls="tabs-icons-text-1" aria-selected="true">Video
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-2-tab" data-toggle="tab" href="#videogalery" role="tab" aria-controls="tabs-icons-text-2" aria-selected="false">
-                                            Video Galery
+                                        <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-text-2-tab" data-toggle="tab" href="#videogalery" role="tab" aria-controls="tabs-icons-text-2" aria-selected="false">Video Galery
                                         </a>
                                     </li>
 
@@ -353,7 +354,7 @@
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="videogalery" role="tabpanel" aria-labelledby="tabs-icons-text-2-tab">
-                                            <asp:UpdatePanel ID="VideoGaleryUpdatePanel" runat="server" class="container-fluid" style="padding:0!important">
+                                            <asp:UpdatePanel ID="VideoGaleryUpdatePanel" runat="server" class="container-fluid" style="padding: 0!important">
                                                 <ContentTemplate>
                                                     <div class="row">
                                                         <div class="col-12 col-md-6">
@@ -463,7 +464,7 @@
                     </div>
                 </div>
 
-                 <!-- Apply -->
+                <!-- Apply -->
                 <div class="row">
                     <div class="col-12 text-center my-2">
                         <asp:Button ID="postConfirm" runat="server" Text="Təsdiq et" CssClass="btn btn-round btn-success" OnClick="postConfirm_Click" />
@@ -558,5 +559,5 @@
             htmlEncodeOutput: true
         });
     </script>
-    
+
 </asp:Content>

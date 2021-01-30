@@ -246,7 +246,7 @@
                                                     <ItemTemplate>
                                                         <li>
                                                             <article>
-                                                                <a class="latest-title" href="/details/az/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOAZ")%>">
+                                                                <a class="latest-title" href="/site/details/az/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOAZ")%>">
                                                                     <%#Eval("POST_AZ_TITLE")%>
                                                                 </a>
                                                                 <div class="d-flex justify-content-between align-items-center my-1">
@@ -284,7 +284,7 @@
                                                     <ItemTemplate>
                                                         <li>
                                                             <article>
-                                                                <a class="latest-title" href="/details/en/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOEN")%>">
+                                                                <a class="latest-title" href="/site/details/en/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOEN")%>">
                                                                     <%#Eval("POST_EN_TITLE")%>
                                                                 </a>
                                                                 <div class="d-flex justify-content-between align-items-center my-1">

@@ -415,10 +415,30 @@ namespace PublicCouncilBackEnd
 
             }
         }
+        private void changeLinksActiveStyle()
+        {
+            if (HttpContext.Current.Request.Url.ToString().Contains("/multimedia/photo/az") || HttpContext.Current.Request.Url.ToString().Contains("/multimedia/photo/en"))
+            {
+                postPhoto.CssClass = "btn btn-success w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0";
+                postVideo.CssClass = "btn btn-default w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0";
+            }
+            else if (HttpContext.Current.Request.Url.ToString().Contains("/multimedia/video/az") || HttpContext.Current.Request.Url.ToString().Contains("/multimedia/video/en"))
+            {
+                postPhoto.CssClass = "btn btn-default w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0";
+                postVideo.CssClass = "btn btn-success w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0";
 
+            }
+            else
+            {
+                postPhoto.CssClass = "btn btn-default w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0";
+                postVideo.CssClass = "btn btn-default w-100 d-flex align-items-center justify-content-center mb-1 mb-md-0";
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            changeLinksActiveStyle();
             switch (Convert.ToString(Page.RouteData.Values["language"]).ToLower())
             {
                 case "az":

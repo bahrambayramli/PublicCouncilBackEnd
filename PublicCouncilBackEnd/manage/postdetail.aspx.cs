@@ -439,8 +439,6 @@ namespace PublicCouncilBackEnd.manage
                 insertdata.Parameters.Add("@POST_EN_VIEW", SqlDbType.Bit).Value = false;
             }
 
-        
-
             DateTime DT = DateTime.ParseExact(post_date.Text, "dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
 
             insertdata.Parameters.Add("@POST_DATE", SqlDbType.DateTime).Value = DT.ToString();
@@ -459,7 +457,6 @@ namespace PublicCouncilBackEnd.manage
 
             if (subImgUpload.HasFiles)
             {
-
                 foreach (HttpPostedFile postedFile in subImgUpload.PostedFiles)
                 {
                     string extension = Path.GetExtension(postedFile.FileName).ToLower();
@@ -506,7 +503,6 @@ namespace PublicCouncilBackEnd.manage
                     MadeSubImages(postedFile, subPicName);
 
                 }
-
             }
 
             if (Session["POSTSERIAL"] as string != "TRUE" || Session["POSTSERIAL"] as string == "FALSE")
@@ -519,7 +515,6 @@ namespace PublicCouncilBackEnd.manage
                     }
                 }
             }
-
 
             #region(insert documents to appeal doc table)
             if (_docsupload.HasFiles)
@@ -580,7 +575,7 @@ namespace PublicCouncilBackEnd.manage
             #endregion
 
 
-        }
+        } 
 
         private void UpdateData(string POST_ID, string USER_ID)
         {
@@ -626,19 +621,21 @@ namespace PublicCouncilBackEnd.manage
 		                                                                        POST_TYPE         =   @POST_TYPE
 		                                                                                                                  WHERE DATA_ID = @DATA_ID");
 
-            updatedata.Parameters.Add("@DATA_ID", SqlDbType.Int).Value = POST_ID;
-            updatedata.Parameters.Add("@USER_ID", SqlDbType.Int).Value = USER_ID;
-            updatedata.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = GetAuthor(USER_ID);
-            updatedata.Parameters.Add("@POST_AZ_TITLE", SqlDbType.NVarChar).Value = posttitle_az.Text;
-            updatedata.Parameters.Add("@POST_EN_TITLE", SqlDbType.NVarChar).Value = posttitle_en.Text;
-            updatedata.Parameters.Add("@POST_SEOAZ", SqlDbType.NVarChar).Value = postseo_az.Text;
-            updatedata.Parameters.Add("@POST_SEOEN", SqlDbType.NVarChar).Value = postseo_en.Text;
-            updatedata.Parameters.Add("@POST_AZ_SUBTITLE", SqlDbType.NVarChar).Value = "";
-            updatedata.Parameters.Add("@POST_EN_SUBTITLE", SqlDbType.NVarChar).Value = "";
-            updatedata.Parameters.Add("@POST_AZ_TOPIC", SqlDbType.NVarChar).Value = post_az.Text;
-            updatedata.Parameters.Add("@POST_EN_TOPIC", SqlDbType.NVarChar).Value = post_en.Text;
-            updatedata.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = category_list.SelectedItem.Value;
-            Session["subcategory"] = string.Empty;
+            updatedata.Parameters.Add("@DATA_ID", SqlDbType.Int).Value                  = POST_ID;
+            updatedata.Parameters.Add("@USER_ID", SqlDbType.Int).Value                  = USER_ID;
+            updatedata.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value         = GetAuthor(USER_ID);
+            updatedata.Parameters.Add("@POST_AZ_TITLE", SqlDbType.NVarChar).Value       = posttitle_az.Text;
+            updatedata.Parameters.Add("@POST_EN_TITLE", SqlDbType.NVarChar).Value       = posttitle_en.Text;
+            updatedata.Parameters.Add("@POST_SEOAZ", SqlDbType.NVarChar).Value          = postseo_az.Text;
+            updatedata.Parameters.Add("@POST_SEOEN", SqlDbType.NVarChar).Value          = postseo_en.Text;
+            updatedata.Parameters.Add("@POST_AZ_SUBTITLE", SqlDbType.NVarChar).Value    = "";
+            updatedata.Parameters.Add("@POST_EN_SUBTITLE", SqlDbType.NVarChar).Value    = "";
+            updatedata.Parameters.Add("@POST_AZ_TOPIC", SqlDbType.NVarChar).Value       = post_az.Text;
+            updatedata.Parameters.Add("@POST_EN_TOPIC", SqlDbType.NVarChar).Value       = post_en.Text;
+            updatedata.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value       = category_list.SelectedItem.Value;
+
+            Session["subcategory"]                                                      = string.Empty;
+
             try
             {
                 Session["subcategory"] = subcategory_list.SelectedValue;
@@ -648,6 +645,7 @@ namespace PublicCouncilBackEnd.manage
                 Session["subcategory"] = string.Empty;
 
             }
+
             updatedata.Parameters.Add("@POST_SUBCATEGORY", SqlDbType.NVarChar).Value = Session["subcategory"] as string;
            
 
@@ -667,8 +665,7 @@ namespace PublicCouncilBackEnd.manage
 
             if (Session["USER_MEMBERSHIP_TYPE"] as string == "user")
             {
-               
-                updatedata.Parameters.Add("@POSTMAIN_VIEW", SqlDbType.Bit).Value = postMAINVIEW.SelectedValue;
+                updatedata.Parameters.Add("@POSTMAIN_VIEW", SqlDbType.Bit).Value = false;
             }
             else
             {
@@ -828,13 +825,13 @@ namespace PublicCouncilBackEnd.manage
             }
 
 
-            #region(insert documents to  doc table)
+            #region(insert documents doc table)
             if (_docsupload.HasFiles)
             {
                 foreach (HttpPostedFile postedFile in _docsupload.PostedFiles)
                 {
                     string uploadFile = Path.GetExtension(postedFile.FileName).ToLower();
-                    if ((uploadFile != ".doc") &&
+                    if ((uploadFile != ".doc ") &&
                         (uploadFile != ".docx") &&
                         (uploadFile != ".rtf") &&
                         (uploadFile != ".xlr") &&
@@ -849,7 +846,7 @@ namespace PublicCouncilBackEnd.manage
 
 
                     string docname = SetName(uploadFile);
-                    postedFile.SaveAs(Server.MapPath("/Uploads/" + docname));
+                    postedFile.SaveAs(Server.MapPath("/uploads/" + docname));
 
                     SqlCommand insertdocs = new SqlCommand(@"INSERT INTO PC_POSTDOCS
                                                                 ( 
@@ -1054,13 +1051,12 @@ namespace PublicCouncilBackEnd.manage
                                                                       WHERE 
                                                                             ISDELETE=@ISDELETE       AND
                                                                             ISACTIVE=@ISACTIVE       AND
-                                                                            POST_SERIAL=@POST_SERIAL AND 
-                                                                    		USER_ID=@USER_ID"));
+                                                                            POST_SERIAL=@POST_SERIAL"));
 
             getdocs.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
             getdocs.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
             getdocs.SelectCommand.Parameters.Add("@POST_SERIAL", SqlDbType.NVarChar).Value = POST_SERIAL;
-            getdocs.SelectCommand.Parameters.Add("@USER_ID", SqlDbType.Int).Value = 1;
+         
 
             post_docs_list.DataSource = SQL.SELECT(getdocs);
             post_docs_list.DataBind();
@@ -1075,7 +1071,7 @@ namespace PublicCouncilBackEnd.manage
             deletenews.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = false;
             deletenews.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = true;
             SQL.COMMAND(deletenews);
-            GetDocs(Session["NEWSSERIAL"] as string);
+            GetDocs(Session["POSTSERIAL"] as string);
 
         }
 
@@ -1138,7 +1134,6 @@ namespace PublicCouncilBackEnd.manage
             {
                 videogalery_list.Items.Add(videogalery_text.Text);
                 InsertVideoGalery(Session["USER_ID"] as string, Session["POSTSERIAL"] as string, videogalery_text.Text, string.Empty);
-               
             }
             else
             {
@@ -1158,9 +1153,9 @@ namespace PublicCouncilBackEnd.manage
         {
             if (e.Row.RowType == DataControlRowType.Pager) { return; }
             try { e.Row.Cells[1].Visible = false; } catch { }
-            try { e.Row.Cells[2].Visible = false; } catch { }
+            try { e.Row.Cells[2].Visible = true; } catch { }
             try { e.Row.Cells[3].Visible = false; } catch { }
-          //  try { e.Row.Cells[4].Visible = false; } catch { }
+            try { e.Row.Cells[4].Visible = false; } catch { }
         }
 
         protected void post_docs_list_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -1171,12 +1166,12 @@ namespace PublicCouncilBackEnd.manage
 
         protected void deletePostDocs_Click(object sender, EventArgs e)
         {
-            SqlCommand deleteImg = new SqlCommand(@"Update PC_POSTDOCS SET ISDELETE=@ISDELETE,ISACTIVE=@ISACTIVE WHERE DATA_ID = @DATA_ID");
-            deleteImg.Parameters.Add("@DATA_ID", SqlDbType.Int).Value = post_docs_list.Rows[((GridViewRow)((Control)sender).NamingContainer).RowIndex].Cells[1].Text;
+            SqlCommand deleteImg = new SqlCommand(@"Update PC_POSTDOCS SET ISDELETE=@ISDELETE,ISACTIVE=@ISACTIVE WHERE DOC_ID = @DOC_ID");
+            deleteImg.Parameters.Add("@DOC_ID", SqlDbType.Int).Value = post_docs_list.Rows[((GridViewRow)((Control)sender).NamingContainer).RowIndex].Cells[1].Text;
             deleteImg.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = false;
             deleteImg.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = true;
             SQL.COMMAND(deleteImg);
-            GetSubImages(Session["POSTSERIAL"] as string);
+            GetDocs(Session["POSTSERIAL"] as string);
         }
         #endregion
 
@@ -1208,8 +1203,9 @@ namespace PublicCouncilBackEnd.manage
 
                 if(Session["USER_MEMBERSHIP_TYPE"]as string == "user")
                 {
-                    PCLIST_PANEL.Visible = false;
-                    MAINVIEW_PANEL.Visible = false;
+                    PCLIST_MAINVIEW_BLOCK.Visible   = false;
+                    PCLIST_PANEL.Visible            = false;
+                    MAINVIEW_PANEL.Visible          = false;
                     GetPcLists();
                     foreach (ListItem item in pcSelectList.Items)
                     {

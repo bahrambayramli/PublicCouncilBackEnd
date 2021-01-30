@@ -215,9 +215,7 @@
     <Content Include="Global.asax" />
     <Content Include="images\4850037.jpg" />
     <Content Include="images\7000.jpg" />
-    <Content Include="images\adv1.png" />
-    <Content Include="images\adv2.png" />
-    <Content Include="images\adv3.png" />
+    <Content Include="images\adult-blank.jpg" />
     <Content Include="images\avatar.png" />
     <Content Include="images\ico\android-icon-144x144.png" />
     <Content Include="images\ico\android-icon-192x192.png" />

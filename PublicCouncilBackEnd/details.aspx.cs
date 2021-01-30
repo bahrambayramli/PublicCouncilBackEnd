@@ -218,14 +218,12 @@ namespace PublicCouncilBackEnd
                                                                       WHERE 
                                                                             ISDELETE=@ISDELETE       AND
                                                                             ISACTIVE=@ISACTIVE       AND
-                                                                            POST_SERIAL=@POST_SERIAL AND 
-                                                                    		USER_ID=@USER_ID"));
+                                                                            POST_SERIAL=@POST_SERIAL 
+                                                                    		"));
 
             getdocs.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
             getdocs.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
             getdocs.SelectCommand.Parameters.Add("@POST_SERIAL", SqlDbType.NVarChar).Value = POST_SERIAL;
-            getdocs.SelectCommand.Parameters.Add("@USER_ID", SqlDbType.Int).Value = 1;
-
 
             if (Convert.ToString(Page.RouteData.Values["LANGUAGE"]).ToLower()=="az")
             {

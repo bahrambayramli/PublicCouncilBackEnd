@@ -24,6 +24,15 @@ namespace PublicCouncilBackEnd.manage
         protected global::System.Web.UI.WebControls.LinkButton back;
 
         /// <summary>
+        /// PCLIST_MAINVIEW_BLOCK control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PCLIST_MAINVIEW_BLOCK;
+
+        /// <summary>
         /// PCLIST_PANEL control.
         /// </summary>
         /// <remarks>

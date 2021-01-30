@@ -14,10 +14,10 @@
                     <div class="d-flex flex-column justify-content-lg-around flex-md-row mb-2">
                         
 
-                        <asp:HyperLink ID="postPhoto" runat="server" CssClass="btn btn-danger w-100">
+                        <asp:HyperLink ID="postPhoto" runat="server" CssClass="btn btn-default w-100 mb-1">
 
                         </asp:HyperLink>
-                        <asp:HyperLink ID="postVideo" runat="server" CssClass="btn btn-danger w-100">
+                        <asp:HyperLink ID="postVideo" runat="server" CssClass="btn btn-default w-100 mb-1">
 
                         </asp:HyperLink>
 
