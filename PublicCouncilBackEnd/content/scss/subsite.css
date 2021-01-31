@@ -199,7 +199,7 @@
           height: 100%; }
   .member-detail .member-image-block .member-image {
     width: 50%;
-    height: auto;
+    height: 400px;
     margin: auto; }
   .member-detail .member-image-block .member-wrapper {
     color: #ffffff;

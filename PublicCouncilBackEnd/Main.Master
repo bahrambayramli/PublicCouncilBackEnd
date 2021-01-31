@@ -253,7 +253,7 @@
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col p-0">
-                                                    <a href="/posts/az" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white">
+                                                    <a href="/posts/az" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white text-uppercase">
                                                         <i class="far fa-flag mr-2"></i>
                                                         İctimai şuraya seçkilər
                                                     </a>
@@ -288,7 +288,7 @@
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col p-0">
-                                                    <a href="/posts/az" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white">
+                                                    <a href="/posts/az" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white text-uppercase">
                                                         <i class="far fa-flag mr-2"></i>
                                                         Elections to the Public Council
                                                     </a>
@@ -326,7 +326,7 @@
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-12 p-0">
-                                                    <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white">
+                                                    <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white text-uppercase">
                                                         <i class="fas fa-bullhorn mr-2"></i>
                                                         Elanlar
                                                     </a>
@@ -371,7 +371,7 @@
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col p-0">
-                                                    <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white">
+                                                    <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white text-uppercase">
                                                         <i class="fas fa-bullhorn mr-2"></i>
                                                         Announcement
                                                     </a>
