@@ -15,7 +15,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <div class="about-us">
+                    <div class="post-about">
                         <asp:Literal ID="aboususInfo" runat="server"></asp:Literal>
                     </div>
                 </div>

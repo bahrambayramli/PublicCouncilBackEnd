@@ -133,6 +133,9 @@
     transition: all 0.25s ease;
     font-weight: 500; }
 
+strong {
+  font-weight: revert; }
+
 @media (min-width: 768px) {
   .mainbar-header .mainbar-header-title {
     font-size: 2em;

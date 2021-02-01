@@ -157,7 +157,7 @@ namespace PublicCouncilBackEnd
         {
             SqlDataAdapter getimages = new SqlDataAdapter(new SqlCommand(@"SELECT POST_IMG_NAME
                                                                                             FROM PC_IMGGALERY
-                                                                                                 WHERE POST_SERIAL = @POST_SERIAL"));
+                                                                                                 WHERE POST_SERIAL = @POST_SERIAL AND ISDELETE='FALSE' AND ISACTIVE='TRUE'"));
             getimages.SelectCommand.Parameters.Add("@POST_SERIAL", SqlDbType.NVarChar).Value = POSTSERIAL;
 
             if (Convert.ToString(Page.RouteData.Values["LANGUAGE"]).ToLower() == "az")

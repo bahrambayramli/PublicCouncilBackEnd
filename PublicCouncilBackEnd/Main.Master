@@ -272,10 +272,6 @@
                                         <div class="slider-item">
                                             <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOAZ")%>" />
                                             <div class="slider-caption">
-                                                <%--  <span class="btn btn-danger text-white btn-sm slider-time ">
-                                                    <i class="far fa-calendar-alt"></i>
-                                                    <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
-                                                </span>--%>
 
                                                 <a class="caption-link" title="<%#Eval("POST_SEOAZ")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
                                             </div>
@@ -284,19 +280,21 @@
                                 </asp:ListView>
 
                                 <asp:ListView ID="COUNCILELECTION_EN" runat="server">
+
                                     <LayoutTemplate>
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col p-0">
-                                                    <a href="/posts/az" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white text-uppercase">
+                                                    <a href="/posts/en" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white text-uppercase">
                                                         <i class="far fa-flag mr-2"></i>
+
                                                         Elections to the Public Council
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-12 mb-2 px-0">
-                                                    <div class="owl-carousel owl-theme owl-elections overflow-hidden rounded">
+                                                    <div class="owl-carousel owl-theme owl-elections council-election overflow-hidden rounded">
                                                         <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                                                     </div>
                                                 </div>
@@ -307,15 +305,12 @@
                                         <div class="slider-item">
                                             <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
                                             <div class="slider-caption">
-                                                <%--     <span class="btn btn-danger text-white btn-sm slider-time ">
-                                                    <i class="far fa-calendar-alt"></i>
-                                                    <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
-                                                </span>--%>
 
                                                 <a class="caption-link" title="<%#Eval("POST_SEOEN")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
                                             </div>
                                         </div>
                                     </ItemTemplate>
+
                                 </asp:ListView>
                             </section>
 
@@ -370,37 +365,44 @@
                                     <LayoutTemplate>
                                         <div class="container-fluid">
                                             <div class="row">
-                                                <div class="col p-0">
+                                                <div class="col-12 p-0">
                                                     <a href="#" class="d-block p-2 mb-2 bg-default rounded shadow-sm text-white text-uppercase">
                                                         <i class="fas fa-bullhorn mr-2"></i>
-                                                        Announcement
+                                                        announcements
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-12 mb-2 px-0">
                                                     <div class="owl-carousel owl-theme owl-elections overflow-hidden rounded">
-                                                        <asp:PlaceHolder ID="itemplaceholder" runat="server" />
+                                                        <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </LayoutTemplate>
                                     <ItemTemplate>
-                                        <div class="slider-item">
-                                            <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
-                                            <div class="slider-caption">
-                                                <span class="btn btn-danger text-white btn-sm slider-time ">
-                                                    <i class="far fa-calendar-alt"></i>
-                                                    <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
-                                                </span>
-                                                <h2 class="slider-title">
-                                                    <%#Eval("POST_SEOEN")%>
-                                                </h2>
-                                                <a class="caption-link" title="<%#Eval("POST_SEOEN")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
+                                        <div class="announcements-container rounded shadow d-flex flex-column align-items-center">
+                                            <div class="bg-light d-flex justify-content-between flex-lg-grow-0"></div>
+                                            <div class="img-wrapper flex-lg-grow-1">
+                                                <img class="d-block w-100 h-100" src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
                                             </div>
+                                            <div class="text-wrapper flex-lg-grow-1">
+                                                <div class="announcement-text px-md-2">
+                                                    <a class="caption-link shadow project-link" title="<%#Eval("POST_SEOEN")%>" href="/details/az/<%#Eval("DATA_ID")%>">
+                                                        <%#Eval("POST_SEOEN")%>
 
-
+                                                    </a>
+                                                    <div class="mt-md-1">
+                                                        <span class="btn btn-danger text-white btn-sm slider-time ">
+                                                            <i class="far fa-calendar-alt"></i>
+                                                            <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <%--    
+                                            </div>--%>
+                                            </div>
                                         </div>
                                     </ItemTemplate>
                                 </asp:ListView>

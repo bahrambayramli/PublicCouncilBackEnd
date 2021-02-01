@@ -574,7 +574,8 @@ namespace PublicCouncilBackEnd.manage
             }
             #endregion
 
-
+            serial = null;
+            picName = null;
         } 
 
         private void UpdateData(string POST_ID, string USER_ID)

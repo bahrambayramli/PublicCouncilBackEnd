@@ -210,6 +210,10 @@ $backgroud-color-1: #f6f6f6;
     }
 }
 
+strong{
+    font-weight:revert;
+}
+
 @media (min-width: 768px) {
     .mainbar-header {
        

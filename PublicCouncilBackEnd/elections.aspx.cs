@@ -288,7 +288,7 @@ namespace PublicCouncilBackEnd
                         break;
                     }
             }
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "election", false, true,  POSTLIST_AZ, POSTLIST_EN);
+            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "election", false, true,"admin" , POSTLIST_AZ, POSTLIST_EN);
         }
 
         protected void POSTLIST_AZ_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
@@ -306,7 +306,7 @@ namespace PublicCouncilBackEnd
                 POSTLIST_AZ.Visible = false;
                 DataPager_EN.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
             }
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "election", false, true,  POSTLIST_AZ, POSTLIST_EN);
+            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "election", false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
         }
 
         protected void POSTLIST_EN_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
@@ -325,7 +325,7 @@ namespace PublicCouncilBackEnd
                 DataPager_EN.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
             }
 
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "election", false, true,  POSTLIST_AZ, POSTLIST_EN);
+            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "election", false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
 
 
         }
