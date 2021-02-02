@@ -67,7 +67,7 @@ namespace PublicCouncilBackEnd.manage
         protected void MemberList_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             MemberList.PageIndex = e.NewPageIndex;
-            GetMembers(Session["USR_SERIAL"] as string, false, MemberList);
+            GetMembers(Session["PC_ID"] as string, false, MemberList);
         }
 
         protected void MemberList_SelectedIndexChanged(object sender, EventArgs e)
