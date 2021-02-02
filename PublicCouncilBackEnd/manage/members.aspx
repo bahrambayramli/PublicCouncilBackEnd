@@ -34,7 +34,7 @@
                                         GridLines="None"
                                         AllowPaging="True"
                                         OnPageIndexChanging="MemberList_PageIndexChanging"
-                                        OnSelectedIndexChanged="MemberList_SelectedIndexChanged">
+                                        OnSelectedIndexChanged="MemberList_SelectedIndexChanged" PageSize="15">
                                         <AlternatingRowStyle BackColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
 
                                         <Columns>
