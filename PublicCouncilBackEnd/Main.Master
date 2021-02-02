@@ -306,7 +306,7 @@
                                             <img src="/images/<%#Eval("POST_IMG")%>" alt="<%#Eval("POST_SEOEN")%>" />
                                             <div class="slider-caption">
 
-                                                <a class="caption-link" title="<%#Eval("POST_SEOEN")%>" href="/details/az/<%#Eval("DATA_ID")%>"></a>
+                                                <a class="caption-link" title="<%#Eval("POST_SEOEN")%>" href="/details/en/<%#Eval("DATA_ID")%>"></a>
                                             </div>
                                         </div>
                                     </ItemTemplate>
@@ -355,8 +355,7 @@
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <%--    
-                                            </div>--%>
+                                            
                                             </div>
                                         </div>
                                     </ItemTemplate>
@@ -389,7 +388,7 @@
                                             </div>
                                             <div class="text-wrapper flex-lg-grow-1">
                                                 <div class="announcement-text px-md-2">
-                                                    <a class="caption-link shadow project-link" title="<%#Eval("POST_SEOEN")%>" href="/details/az/<%#Eval("DATA_ID")%>">
+                                                    <a class="caption-link shadow project-link" title="<%#Eval("POST_SEOEN")%>" href="/details/en/<%#Eval("DATA_ID")%>">
                                                         <%#Eval("POST_SEOEN")%>
 
                                                     </a>
@@ -467,7 +466,7 @@
                                     <ItemTemplate>
                                         <li class="latest-item p-2">
                                             <article>
-                                                <a class="latest-title" href="/details/az/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOEN")%>">
+                                                <a class="latest-title" href="/details/en/<%#Eval("DATA_ID")%>" title="<%#Eval("POST_SEOEN")%>">
                                                     <%#Eval("POST_EN_TITLE")%>
                                                 </a>
 
