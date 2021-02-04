@@ -22,7 +22,7 @@ namespace PublicCouncilBackEnd.subsite
                 case "az":
                     {
 
-                        getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT USER_SERIAL ,PC_NAME, PC_ACTIVITY_PERIOD, USER_ID FROM PC_USERS 
+                        getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT USER_SERIAL ,PC_NAME, PC_ACTIVITY_PERIOD, USER_ID , USER_PCDOMAIN FROM PC_USERS 
                                                                                                  WHERE 
                                                                                                  ISDELETE      = @ISDELETE AND 
                                                                                                  ISACTIVE      = @ISACTIVE AND
@@ -42,7 +42,7 @@ namespace PublicCouncilBackEnd.subsite
                     }
                 case "en":
                     {
-                        getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT USER_SERIAL ,PC_NAME_EN, PC_ACTIVITY_PERIOD, USER_ID FROM PC_USERS 
+                        getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT USER_SERIAL ,PC_NAME_EN, PC_ACTIVITY_PERIOD, USER_ID , USER_PCDOMAIN FROM PC_USERS 
                                                                                                  WHERE 
                                                                                                  ISDELETE      = @ISDELETE AND 
                                                                                                  ISACTIVE      = @ISACTIVE AND
@@ -62,7 +62,7 @@ namespace PublicCouncilBackEnd.subsite
                     }
                 default:
                     {
-                        getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT USER_SERIAL ,PC_NAME, USER_ID FROM PC_USERS 
+                        getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT USER_SERIAL ,PC_NAME, USER_ID , USER_PCDOMAIN FROM PC_USERS 
                                                                                                  WHERE 
                                                                                                  ISDELETE      = @ISDELETE AND 
                                                                                                  ISACTIVE      = @ISACTIVE AND
@@ -530,7 +530,8 @@ namespace PublicCouncilBackEnd.subsite
                                                                                             	        POST_SITECATEGORYAZ,
                                                                                                         POST_IMG,
                                                                                                         POST_DATE,
-                                                                                                        POST_SEOAZ
+                                                                                                        POST_SEOAZ,
+                                                                                                        POST_AUTHOR,
                                                                                                        
                                                                                             FROM        PC_POSTS
 
@@ -575,7 +576,8 @@ namespace PublicCouncilBackEnd.subsite
                                                                                             	        POST_SITECATEGORYEN,
                                                                                                         POST_IMG,
                                                                                                         POST_DATE,
-                                                                                                        POST_SEOEN
+                                                                                                        POST_SEOEN,
+                                                                                                        POST_AUTHOR
                                                                                                     
                                                                                             FROM        PC_POSTS
 
@@ -620,7 +622,8 @@ namespace PublicCouncilBackEnd.subsite
                                                                                             	        POST_SITECATEGORYAZ,
                                                                                                         POST_IMG,
                                                                                                         POST_DATE,
-                                                                                                        POST_SEOAZ
+                                                                                                        POST_SEOAZ,
+                                                                                                        POST_AUTHOR
                                                                                                        
                                                                                             FROM        PC_POSTS
 

@@ -25,7 +25,7 @@ namespace PublicCouncilBackEnd
         private void CountViewUpdate(string POST_ID)
         {
             SqlCommand countview = new SqlCommand(@"UPDATE  PC_POSTS SET POST_VIEWCOUNT=@POST_VIEWCOUNT WHERE DATA_ID=@DATA_ID");
-            countview.Parameters.Add("@POST_VIEWCOUNT", SqlDbType.Int).Value = int.Parse(GetViewCount(Page.RouteData.Values["postid"] as string)) + new Random().Next(9, 15);
+            countview.Parameters.Add("@POST_VIEWCOUNT", SqlDbType.Int).Value = int.Parse(GetViewCount(Page.RouteData.Values["postid"] as string)) + new Random().Next(5, 10);
             countview.Parameters.Add("@DATA_ID", SqlDbType.Int).Value = POST_ID;
             SQL.COMMAND(countview);
         }
