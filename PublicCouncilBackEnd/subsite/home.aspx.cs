@@ -252,7 +252,7 @@ namespace PublicCouncilBackEnd.subsite
             {  
                 Log.LogCreator(Server.MapPath("~/Log/logs.txt"), ex.Message);
             }
-            GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "", "Əsas", false, true,Page.RouteData.Values["publiccouncil"] as string, MAINSLIDER_AZ, MAINSLIDER_EN);
+            GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "", "Əsas", false, true, Page.RouteData.Values["publiccouncil"] as string, MAINSLIDER_AZ, MAINSLIDER_EN);
             GetPosts(Page.RouteData.Values["language"] as string, "6", "news", "", "Sadə", false, true, Page.RouteData.Values["publiccouncil"] as string, SIMPLEPOSTS_AZ, SIMPLEPOSTS_EN);
 
         }

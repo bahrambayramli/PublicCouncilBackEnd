@@ -27,7 +27,7 @@ namespace PublicCouncilBackEnd.subsite
             countview.Parameters.Add("@DATA_ID", SqlDbType.Int).Value = POST_ID;
             SQL.COMMAND(countview);
         }
-        private void GetPost(string lang, string ID)
+        private void GetPost(string lang, string ID,string POST_AUTHOR)
         {
 
             CountViewUpdate(Page.RouteData.Values["postid"] as string);
@@ -44,11 +44,13 @@ namespace PublicCouncilBackEnd.subsite
                                                                                                                 WHERE ISACTIVE     = @ISACTIVE                AND 
                                                                                                                       ISDELETE     = @ISDELETE                AND 
                                                                                                                       POST_AZ_VIEW = @POST_AZ_VIEW            AND   
+                                                                                                                      POST_AUTHOR = @POST_AUTHOR              AND
                                                                                                                       DATA_ID=@DATA_ID"));
                         getdata.SelectCommand.Parameters.Add("@DATA_ID", SqlDbType.Int).Value = ID;
                         getdata.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
                         getdata.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
                         getdata.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
+                        getdata.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
 
 
                         DT = SQL.SELECT(getdata);
@@ -83,12 +85,14 @@ namespace PublicCouncilBackEnd.subsite
 
                                                                                                                 WHERE ISACTIVE     = @ISACTIVE                AND 
                                                                                                                       ISDELETE     = @ISDELETE                AND 
-                                                                                                                      POST_EN_VIEW = @POST_EN_VIEW            AND   
+                                                                                                                      POST_EN_VIEW = @POST_EN_VIEW             AND   
+                                                                                                                      POST_AUTHOR = @POST_AUTHOR              AND
                                                                                                                       DATA_ID=@DATA_ID"));
                         getdata.SelectCommand.Parameters.Add("@DATA_ID", SqlDbType.Int).Value = ID;
                         getdata.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
                         getdata.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
                         getdata.SelectCommand.Parameters.Add("@POST_EN_VIEW", SqlDbType.Bit).Value = true;
+                        getdata.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
 
 
                         DT = SQL.SELECT(getdata);
@@ -119,12 +123,14 @@ namespace PublicCouncilBackEnd.subsite
 
                                                                                                                 WHERE ISACTIVE     = @ISACTIVE                AND 
                                                                                                                       ISDELETE     = @ISDELETE                AND 
-                                                                                                                      POST_AZ_VIEW = @POST_AZ_VIEW            AND   
+                                                                                                                      POST_AZ_VIEW = @POST_AZ_VIEW             AND   
+                                                                                                                      POST_AUTHOR = @POST_AUTHOR              AND
                                                                                                                       DATA_ID=@DATA_ID"));
                         getdata.SelectCommand.Parameters.Add("@DATA_ID", SqlDbType.Int).Value = ID;
                         getdata.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
                         getdata.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
                         getdata.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
+                        getdata.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
 
 
                         DT = SQL.SELECT(getdata);
@@ -257,7 +263,7 @@ namespace PublicCouncilBackEnd.subsite
 
             try
             {
-                GetPost(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Page.RouteData.Values["postid"] as string);
+                GetPost(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Page.RouteData.Values["postid"] as string, Page.RouteData.Values["publiccouncil"] as string);
 
                 if (Convert.ToString(Page.RouteData.Values["language"]).ToLower() == "az")
                 {

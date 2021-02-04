@@ -31,7 +31,7 @@ namespace PublicCouncilBackEnd.subsite
 
                                                                             FROM PC_MEMBERS
 
-                                                                            WHERE ISDELETE     = @ISDELETE AND
+                                                                            WHERE PC_MEMBERS.ISDELETE     = @ISDELETE AND
                                                                                   PC_ID        = @PC_ID"));
 
                         getMembers.SelectCommand.Parameters.Add("@PC_ID", SqlDbType.Int).Value    = PC_ID;
@@ -53,7 +53,7 @@ namespace PublicCouncilBackEnd.subsite
 
                                                                             FROM PC_MEMBERS
 
-                                                                            WHERE ISDELETE     = @ISDELETE AND
+                                                                            WHERE PC_MEMBERS.ISDELETE     = @ISDELETE AND
                                                                                   PC_ID        = @PC_ID"));
 
                         getMembers.SelectCommand.Parameters.Add("@PC_ID", SqlDbType.Int).Value = PC_ID;
@@ -74,7 +74,7 @@ namespace PublicCouncilBackEnd.subsite
 
                                                                             FROM PC_MEMBERS
 
-                                                                            WHERE ISDELETE     = @ISDELETE AND
+                                                                            WHERE PC_MEMBERS.ISDELETE     = @ISDELETE AND
                                                                                   PC_ID        = @PC_ID"));
 
                         getMembers.SelectCommand.Parameters.Add("@PC_ID", SqlDbType.Int).Value = PC_ID;
@@ -86,7 +86,7 @@ namespace PublicCouncilBackEnd.subsite
                     }
             }
 
-            getMembers = null;
+           
         }
 
         private void GetMembers(string LANG, string PC_ID, bool ISDELETE, bool ISACTIVE,ListView LSV_AZ, ListView LSV_EN)
