@@ -123,7 +123,7 @@ namespace PublicCouncilBackEnd.subsite
                                                                                                         POST_AZ_VIEW        = @POST_AZ_VIEW  AND
                                                                                                         POST_AUTHOR         = @POST_AUTHOR
 
-                                                                                                        ORDER BY POST_DATE DESC
+                                                                                                         ORDER BY POST_DATE DESC
                                                                                                     "));
 
 

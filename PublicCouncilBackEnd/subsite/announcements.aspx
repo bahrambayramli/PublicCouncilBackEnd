@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/subsite/Subdomain.Master" AutoEventWireup="true" CodeBehind="announcements.aspx.cs" Inherits="PublicCouncilBackEnd.subsite.WebForm3" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="sublayout" runat="server">
     <asp:UpdatePanel ID="POSTS_PANEL" runat="server" class="container-fluid">
@@ -13,17 +13,17 @@
             <div class="row">
                 <asp:ListView ID="POSTLIST_AZ" runat="server" OnPagePropertiesChanging="POSTLIST_AZ_PagePropertiesChanging">
                     <ItemTemplate>
-                        <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch">
+                        <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch px-md-1">
 
-                            <div class="card mb-3 rounded post overflow-hidden">
+                            <div class="card mb-3 post overflow-hidden">
                                 <div class="post-header overflow-hidden">
-                                    <a href="/site/details/az/<%#Eval("DATA_ID")%>" class="d-block">
+                                    <a href="/<%#Eval("POST_AUTHOR")%>/details/az/<%#Eval("DATA_ID")%>" class="d-block">
                                         <img src="/images/<%#Eval("POST_IMG")%>" class="post-img" alt="<%#Eval("POST_SEOAZ")%>">
                                     </a>
                                 </div>
                                 <div class="d-flex justify-content-between py-2 px-2">
-                                    <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/announcements/az">
-                                         <%#Eval("POST_SITECATEGORYAZ")%>
+                                    <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/posts/az">
+                                        <%#Eval("POST_SITECATEGORYAZ")%>
                                     </a>
                                     <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
@@ -39,17 +39,17 @@
                 </asp:ListView>
                 <asp:ListView ID="POSTLIST_EN" runat="server" OnPagePropertiesChanging="POSTLIST_EN_PagePropertiesChanging">
                     <ItemTemplate>
-                        <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch">
+                        <article class="col-12 col-md-6 col-xl-4 d-flex align-items-stretch px-md-1">
 
-                            <div class="card mb-3 rounded post overflow-hidden">
+                            <div class="card mb-3 post overflow-hidden">
                                 <div class="post-header overflow-hidden">
-                                    <a href="/site/details/en/<%#Eval("DATA_ID")%>" class="d-block">
+                                    <a href="/<%#Eval("POST_AUTHOR")%>/details/en/<%#Eval("DATA_ID")%>" class="d-block">
                                         <img src="/images/<%#Eval("POST_IMG")%>" class="post-img" alt="<%#Eval("POST_SEOEN")%>">
                                     </a>
                                 </div>
                                 <div class="d-flex justify-content-between py-2 px-2">
-                                    <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/announcements/en">
-                                         <%#Eval("POST_SITECATEGORYEN")%>
+                                    <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/posts/en">
+                                        <%#Eval("POST_SITECATEGORYEN")%>
                                     </a>
                                     <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
@@ -115,9 +115,9 @@
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
-       <script>
-           document.addEventListener("DOMContentLoaded", () => {
-               changeLayout({ Id: "contentside", className: "col-12 content-side" }, { Id: "rightside", className: "d-none" });
-           });
-       </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            changeLayout({ Id: "contentside", className: "col-12 content-side" }, { Id: "rightside", className: "d-none" });
+        });
+    </script>
 </asp:Content>

@@ -46,3 +46,9 @@ The parameterized query '(@DATA_ID int)SELECT POST_VIEWCOUNT FROM PC_POSTS WHERE
 The parameterized query '(@DATA_ID int)SELECT POST_VIEWCOUNT FROM PC_POSTS WHERE DATA_ID=' expects the parameter '@DATA_ID', which was not supplied.
 The parameterized query '(@DATA_ID int)SELECT POST_VIEWCOUNT FROM PC_POSTS WHERE DATA_ID=' expects the parameter '@DATA_ID', which was not supplied.
 The parameterized query '(@DATA_ID int)SELECT POST_VIEWCOUNT FROM PC_POSTS WHERE DATA_ID=' expects the parameter '@DATA_ID', which was not supplied.
+Incorrect syntax near the keyword 'FROM'.
+Incorrect syntax near the keyword 'FROM'.
+Must declare the scalar variable "@POST_TYPE".
+Must declare the scalar variable "@POST_TYPE".
+Must declare the scalar variable "@POST_TYPE".
+Must declare the scalar variable "@POST_TYPE".

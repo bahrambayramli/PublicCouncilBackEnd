@@ -89,7 +89,7 @@ namespace PublicCouncilBackEnd
             routes.MapPageRoute("pcmemberdetail", "{publiccouncil}/memberdetail/{language}/{memberid}", "~/subsite/memberdetail.aspx");
             routes.MapPageRoute("pcmemberdetails", "{publiccouncil}/details/{language}/{postid}", "~/subsite/details.aspx");
 
-            routes.MapPageRoute("pchometest", "{publiccouncil}/home/{language}/", "~/subsite/details.aspx");
+            routes.MapPageRoute("pchometest", "{publiccouncil}", "~/subsite/home.aspx");
 
             #endregion
 
