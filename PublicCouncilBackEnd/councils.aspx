@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="councils.aspx.cs" Inherits="PublicCouncilBackEnd.WebForm12" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+        <style>
+        .design-by{
+            visibility:hidden;
+        }
+    </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
@@ -37,7 +42,7 @@
                         <div class="col-12 d-flex align-items-stretch px-md-1 mb-md-2">
                             <div class="h5 w-100 bg-white shadow font-weight-bold text-default text-wrap p-2 p-md-3 rounded ">
 
-                                <a href="http://<%#Eval("USER_PCDOMAIN")%>.ictimaishura.az" title="<%#Eval("PC_NAME")%>" target="_blank" class="d-block text-default">
+                                <a href="https://ictimaishura.az/<%#Eval("USER_PCDOMAIN")%>/home/az" title="<%#Eval("PC_NAME")%>" target="_blank" class="d-block text-default">
                                     <%#Eval("PC_NAME")%>
                                 </a>
 
@@ -73,7 +78,7 @@
                         <div class="col-12 d-flex align-items-stretch px-md-1 mb-md-2">
                             <div class="h5 w-100 bg-white shadow font-weight-bold text-default text-wrap p-2 p-md-3 rounded ">
 
-                                <a href="http://<%#Eval("USER_PCDOMAIN")%>.ictimaishura.az" title="<%#Eval("PC_NAME_EN")%>" target="_blank" class="d-block text-default">
+                                <a href="https://ictimaishura.az/<%#Eval("USER_PCDOMAIN")%>" title="<%#Eval("PC_NAME_EN")%>" target="_blank" class="d-block text-default">
                                     <%#Eval("PC_NAME_EN")%>
                                 </a>
 

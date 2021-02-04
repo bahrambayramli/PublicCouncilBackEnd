@@ -57,7 +57,7 @@ namespace PublicCouncilBackEnd.subsite
                     }
             }
 
-            GetUserInfo(Session["pcsubsite"] as string);
+            GetUserInfo(Page.RouteData.Values["publiccouncil"] as string);
         }
     }
 }

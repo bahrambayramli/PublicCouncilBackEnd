@@ -162,35 +162,35 @@ namespace PublicCouncilBackEnd.subsite
                             homeicon.Text = " <i class='fas fa-home text-danger mr-2'></i>";
                             _home.Controls.Add(homeicon);
                             _home.Controls.Add(home);
-                            _home.NavigateUrl = "/site/home/az";
+                            _home.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/home/az";
 
                             aboutus.Text = "HAQQIMIZDA";
                             aboutus.CssClass = "subnav-link-text";
                             aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2'></i>";
                             _aboutus.Controls.Add(aboutusicon);
                             _aboutus.Controls.Add(aboutus);
-                            _aboutus.NavigateUrl = "/site/aboutus/az";
+                            _aboutus.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/aboutus/az";
 
                             member.Text = "ŞURA ÜZVLƏRİ";
                             member.CssClass = "subnav-link-text";
                             membericon.Text = " <i class='fas fa-users text-danger mr-2'></i>";
                             _members.Controls.Add(membericon);
                             _members.Controls.Add(member);
-                            _members.NavigateUrl = "/site/members/az";
+                            _members.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/members/az";
 
                             news.Text = "XƏBƏRLƏR";
                             news.CssClass = "subnav-link-text";
                             newsicon.Text = " <i class='fas fa-newspaper text-danger mr-2'></i>";
                             _news.Controls.Add(newsicon);
                             _news.Controls.Add(news);
-                            _news.NavigateUrl = "/site/posts/az";
+                            _news.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/posts/az";
 
                             projects.Text = "ELANLAR";
                             projects.CssClass = "subnav-link-text";
                             projectsicon.Text = "<i class='fas fa-project-diagram text-danger mr-2'></i>";
                             _projects.Controls.Add(projectsicon);
                             _projects.Controls.Add(projects);
-                            _projects.NavigateUrl = "/site/announcements/az";
+                            _projects.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/announcements/az";
 
 
                             legislation.Text = "QANUNVERİCİLİK";
@@ -198,7 +198,7 @@ namespace PublicCouncilBackEnd.subsite
                             legislationicon.Text = " <i class='fas fa-gavel text-danger mr-2'></i>";
                             _legilations.Controls.Add(legislationicon);
                             _legilations.Controls.Add(legislation);
-                            _legilations.NavigateUrl = "/site/legislation/az";
+                            _legilations.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/legislation/az";
 
 
 
@@ -210,7 +210,7 @@ namespace PublicCouncilBackEnd.subsite
                             reportsicon.Text = " <i class='fas fa-flag text-danger mr-2'></i>";
                             _reports.Controls.Add(reportsicon);
                             _reports.Controls.Add(reports);
-                            _reports.NavigateUrl = "/site/reports/az";
+                            _reports.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/reports/az";
 
 
                             publications.Text = "NƏŞRLƏR";
@@ -218,7 +218,7 @@ namespace PublicCouncilBackEnd.subsite
                             publicationsicon.Text = " <i class='fas fa-book-open text-danger mr-2'></i>";
                             _publications.Controls.Add(publicationsicon);
                             _publications.Controls.Add(publications);
-                            _publications.NavigateUrl = "/site/publications/az";
+                            _publications.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/publications/az";
 
 
                             multimedia.Text = "MULTİMEDİA";
@@ -226,7 +226,7 @@ namespace PublicCouncilBackEnd.subsite
                             multimediaicon.Text = " <i class='fas fa-photo-video text-danger mr-2'></i>";
                             _multimedia.Controls.Add(multimediaicon);
                             _multimedia.Controls.Add(multimedia);
-                            _multimedia.NavigateUrl = "/site/multimedia/az";
+                            _multimedia.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/multimedia/az";
 
 
                             contactus.Text = "ƏLAQƏ";
@@ -234,7 +234,7 @@ namespace PublicCouncilBackEnd.subsite
                             contactusicon.Text = " <i class='fas fa-globe text-danger mr-2'></i>";
                             _contactus.Controls.Add(contactusicon);
                             _contactus.Controls.Add(contactus);
-                            _contactus.NavigateUrl = "/site/contactus/az";
+                            _contactus.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/contactus/az";
 
                         }
                         catch
@@ -252,14 +252,14 @@ namespace PublicCouncilBackEnd.subsite
                         homeicon.Text = " <i class='fas fa-home text-danger mr-2'></i>";
                         _home.Controls.Add(homeicon);
                         _home.Controls.Add(home);
-                        _home.NavigateUrl = "/site/home/en";
+                        _home.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/home/en";
 
                         aboutus.Text = "ABOUT US";
                         aboutus.CssClass = "subnav-link-text";
                         aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2'></i>";
                         _aboutus.Controls.Add(aboutusicon);
                         _aboutus.Controls.Add(aboutus);
-                        _aboutus.NavigateUrl = "/site/aboutus/en";
+                        _aboutus.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/aboutus/en";
 
 
                         member.Text = "Members";
@@ -267,21 +267,21 @@ namespace PublicCouncilBackEnd.subsite
                         membericon.Text = " <i class='fas fa-users text-danger mr-2'></i>";
                         _members.Controls.Add(membericon);
                         _members.Controls.Add(member);
-                        _members.NavigateUrl = "/site/members/en";
+                        _members.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/members/en";
 
                         news.Text = "NEWS";
                         news.CssClass = "subnav-link-text";
                         newsicon.Text = " <i class='fas fa-newspaper text-danger mr-2'></i>";
                         _news.Controls.Add(newsicon);
                         _news.Controls.Add(news);
-                        _news.NavigateUrl = "/site/posts/en";
+                        _news.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/posts/en";
 
                         projects.Text = "ANNOUNCEMENTS";
                         projects.CssClass = "subnav-link-text";
                         projectsicon.Text = "<i class='fas fa-project-diagram text-danger mr-2'></i>";
                         _projects.Controls.Add(projectsicon);
                         _projects.Controls.Add(projects);
-                        _projects.NavigateUrl = "/site/announcements/en";
+                        _projects.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/announcements/en";
 
 
                         legislation.Text = "LEGISLATION";
@@ -289,14 +289,14 @@ namespace PublicCouncilBackEnd.subsite
                         legislationicon.Text = " <i class='fas fa-gavel text-danger mr-2'></i>";
                         _legilations.Controls.Add(legislationicon);
                         _legilations.Controls.Add(legislation);
-                        _legilations.NavigateUrl = "/site/legislation/en";
+                        _legilations.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/legislation/en";
 
                         reports.Text = "REPORTS";
                         reports.CssClass = "subnav-link-text";
                         reportsicon.Text = " <i class='fas fa-flag text-danger mr-2'></i>";
                         _reports.Controls.Add(reportsicon);
                         _reports.Controls.Add(reports);
-                        _reports.NavigateUrl = "/site/reports/en";
+                        _reports.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/reports/en";
 
 
                         publications.Text = "PUBLICATIONS";
@@ -304,7 +304,7 @@ namespace PublicCouncilBackEnd.subsite
                         publicationsicon.Text = " <i class='fas fa-book-open text-danger mr-2'></i>";
                         _publications.Controls.Add(publicationsicon);
                         _publications.Controls.Add(publications);
-                        _publications.NavigateUrl = "/site/publications/en";
+                        _publications.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/publications/en";
 
 
                         multimedia.Text = "MULTIMEDIA";
@@ -312,7 +312,7 @@ namespace PublicCouncilBackEnd.subsite
                         multimediaicon.Text = " <i class='fas fa-photo-video text-danger mr-2'></i>";
                         _multimedia.Controls.Add(multimediaicon);
                         _multimedia.Controls.Add(multimedia);
-                        _multimedia.NavigateUrl = "/site/multimedia/en";
+                        _multimedia.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/multimedia/en";
 
 
 
@@ -321,7 +321,7 @@ namespace PublicCouncilBackEnd.subsite
                         contactusicon.Text = " <i class='fas fa-globe text-danger mr-2'></i>";
                         _contactus.Controls.Add(contactusicon);
                         _contactus.Controls.Add(contactus);
-                        _contactus.NavigateUrl = "/site/contactus/en";
+                        _contactus.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/contactus/en";
 
 
                         break;
@@ -336,35 +336,35 @@ namespace PublicCouncilBackEnd.subsite
                             homeicon.Text = " <i class='fas fa-home text-danger mr-2'></i>";
                             _home.Controls.Add(homeicon);
                             _home.Controls.Add(home);
-                            _home.NavigateUrl = "/site/home/az";
+                            _home.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/home/az";
 
                             aboutus.Text = "HAQQIMIZDA";
                             aboutus.CssClass = "subnav-link-text";
                             aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2'></i>";
                             _aboutus.Controls.Add(aboutusicon);
                             _aboutus.Controls.Add(aboutus);
-                            _aboutus.NavigateUrl = "/site/aboutus/az";
+                            _aboutus.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/aboutus/az";
 
                             member.Text = "ŞURA ÜZVLƏRİ";
                             member.CssClass = "subnav-link-text";
                             membericon.Text = " <i class='fas fa-users text-danger mr-2'></i>";
                             _members.Controls.Add(membericon);
                             _members.Controls.Add(member);
-                            _members.NavigateUrl = "/site/members/az";
+                            _members.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/members/az";
 
                             news.Text = "XƏBƏRLƏR";
                             news.CssClass = "subnav-link-text";
                             newsicon.Text = " <i class='fas fa-newspaper text-danger mr-2'></i>";
                             _news.Controls.Add(newsicon);
                             _news.Controls.Add(news);
-                            _news.NavigateUrl = "/site/posts/az";
+                            _news.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/posts/az";
 
                             projects.Text = "ELANLAR";
                             projects.CssClass = "subnav-link-text";
                             projectsicon.Text = "<i class='fas fa-project-diagram text-danger mr-2'></i>";
                             _projects.Controls.Add(projectsicon);
                             _projects.Controls.Add(projects);
-                            _projects.NavigateUrl = "/site/announcements/az";
+                            _projects.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/announcements/az";
 
 
                             legislation.Text = "QANUNVERİCİLİK";
@@ -372,7 +372,7 @@ namespace PublicCouncilBackEnd.subsite
                             legislationicon.Text = " <i class='fas fa-gavel text-danger mr-2'></i>";
                             _legilations.Controls.Add(legislationicon);
                             _legilations.Controls.Add(legislation);
-                            _legilations.NavigateUrl = "/site/legislation/az";
+                            _legilations.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/legislation/az";
 
 
 
@@ -384,7 +384,7 @@ namespace PublicCouncilBackEnd.subsite
                             reportsicon.Text = " <i class='fas fa-flag text-danger mr-2'></i>";
                             _reports.Controls.Add(reportsicon);
                             _reports.Controls.Add(reports);
-                            _reports.NavigateUrl = "/site/reports/az";
+                            _reports.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/reports/az";
 
 
                             publications.Text = "NƏŞRLƏR";
@@ -392,7 +392,7 @@ namespace PublicCouncilBackEnd.subsite
                             publicationsicon.Text = " <i class='fas fa-book-open text-danger mr-2'></i>";
                             _publications.Controls.Add(publicationsicon);
                             _publications.Controls.Add(publications);
-                            _publications.NavigateUrl = "/site/publications/az";
+                            _publications.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/publications/az";
 
 
                             multimedia.Text = "MULTİMEDİA";
@@ -400,7 +400,7 @@ namespace PublicCouncilBackEnd.subsite
                             multimediaicon.Text = " <i class='fas fa-photo-video text-danger mr-2'></i>";
                             _multimedia.Controls.Add(multimediaicon);
                             _multimedia.Controls.Add(multimedia);
-                            _multimedia.NavigateUrl = "/site/multimedia/az";
+                            _multimedia.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/multimedia/az";
 
 
                             contactus.Text = "ƏLAQƏ";
@@ -408,7 +408,7 @@ namespace PublicCouncilBackEnd.subsite
                             contactusicon.Text = " <i class='fas fa-globe text-danger mr-2'></i>";
                             _contactus.Controls.Add(contactusicon);
                             _contactus.Controls.Add(contactus);
-                            _contactus.NavigateUrl = "/site/contactus/az";
+                            _contactus.NavigateUrl = $"/{Page.RouteData.Values["publiccouncil"] as string}/contactus/az";
 
                         }
                         catch
@@ -662,10 +662,11 @@ namespace PublicCouncilBackEnd.subsite
         {
             try
             {
-                Session["pcsubsite"] =
-                     HttpContext.Current.Request.Url.ToString()
-                    .Substring(0, HttpContext.Current.Request.Url.ToString().IndexOf("."))
-                    .Replace("http://", string.Empty);
+              
+               // Session["pcsubsite"] = Page.RouteData.Values["publiccouncil"] as string;
+                //HttpContext.Current.Request.Url.ToString()
+                //    .Substring(0, HttpContext.Current.Request.Url.ToString().IndexOf("."))
+                //    .Replace("http://", string.Empty);
             }
             catch (Exception ex)
             {
@@ -674,13 +675,13 @@ namespace PublicCouncilBackEnd.subsite
 
             try
             {
-                GetUserInfo(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Session["pcsubsite"] as string);
+                GetUserInfo(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Page.RouteData.Values["publiccouncil"] as string);
                 GetLogos();
                 Navigation();
                 SiteLanguage();
                 GetNavigations(Page.RouteData.Values["language"] as string);
                 GetSponsors();
-                GetLatest(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "4", "news", false, true, Session["pcsubsite"] as string, LATEST_AZ, LATEST_EN);
+                GetLatest(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "4", "news", false, true, Page.RouteData.Values["publiccouncil"] as string, LATEST_AZ, LATEST_EN);
             }
             catch (Exception ex)
             {

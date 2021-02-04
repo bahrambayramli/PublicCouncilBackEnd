@@ -1,5 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="PublicCouncilBackEnd.WebForm10" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .design-by {
+            visibility: hidden;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
     <section class="site-login my-md-5">
@@ -10,7 +16,7 @@
 
                         <div class="card-header bg-transparent">
                             <div class="text-muted text-center mt-2 mb-2">
-                                <small class="h4">Daxil ol</small>   
+                                <small class="h4">Daxil ol</small>
                             </div>
                         </div>
 
@@ -21,7 +27,7 @@
                                         class="input-group input-group-merge input-group-alternative">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">
-                                               <i class="fas fa-user"></i>
+                                                <i class="fas fa-user"></i>
                                             </span>
                                         </div>
                                         <asp:TextBox ID="inputLogin" runat="server" CssClass="form-control" placeholder="login"></asp:TextBox>
@@ -36,7 +42,7 @@
                                                 <i class="fas fa-unlock-alt"></i>
                                             </span>
                                         </div>
-                                        
+
                                         <asp:TextBox ID="inputPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="şifrə"></asp:TextBox>
                                     </div>
                                 </div>
@@ -48,11 +54,11 @@
                                 </div>
 
                                 <div class="text-center">
-                                    <asp:Button ID="btnLogin" 
-                                        runat="server" 
-                                        Text="Daxil ol" 
-                                        CssClass="btn btn-default my-4 btn-round" 
-                                        OnClick="btnLogin_Click"/>
+                                    <asp:Button ID="btnLogin"
+                                        runat="server"
+                                        Text="Daxil ol"
+                                        CssClass="btn btn-default my-4 btn-round"
+                                        OnClick="btnLogin_Click" />
                                 </div>
                                 <asp:Literal ID="_errorMessage" runat="server"></asp:Literal>
                             </div>

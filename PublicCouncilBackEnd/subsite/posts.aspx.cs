@@ -166,7 +166,7 @@ namespace PublicCouncilBackEnd.subsite
                     }
 
             }
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "news", false, true, Session["pcsubsite"] as string, POSTLIST_AZ, POSTLIST_EN);
+            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "news", false, true, Page.RouteData.Values["publiccouncil"] as string, POSTLIST_AZ, POSTLIST_EN);
         }
 
         protected void POSTLIST_AZ_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
@@ -184,7 +184,7 @@ namespace PublicCouncilBackEnd.subsite
                 POSTLIST_AZ.Visible = false;
                 DataPager_EN.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
             }
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "news", false, true, Session["pcsubsite"] as string, POSTLIST_AZ, POSTLIST_EN);
+            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "news", false, true, Page.RouteData.Values["publiccouncil"] as string, POSTLIST_AZ, POSTLIST_EN);
         }
 
         protected void POSTLIST_EN_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
@@ -203,7 +203,7 @@ namespace PublicCouncilBackEnd.subsite
                 DataPager_EN.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
             }
 
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "news", false, true, Session["pcsubsite"] as string, POSTLIST_AZ, POSTLIST_EN);
+            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "news", false, true, Page.RouteData.Values["publiccouncil"] as string, POSTLIST_AZ, POSTLIST_EN);
 
 
         }

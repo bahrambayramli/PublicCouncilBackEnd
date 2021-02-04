@@ -22,7 +22,7 @@ namespace PublicCouncilBackEnd
 
         void RegisterRoutes(RouteCollection routes)
         {
-            #region(Site routes)
+            #region({publiccouncil} routes)
             
             routes.MapPageRoute("home", "home/{language}", "~/home.aspx");
             routes.MapPageRoute("legislation", "legislation/{language}", "~/legislation.aspx");
@@ -74,20 +74,23 @@ namespace PublicCouncilBackEnd
 
             #endregion
 
-            #region(SubSite routes)
-            routes.MapPageRoute("pchome", "site/home/{language}", "~/subsite/home.aspx");
-            routes.MapPageRoute("pcposts", "site/posts/{language}", "~/subsite/posts.aspx");
-            routes.MapPageRoute("pcannouncements", "site/announcements/{language}", "~/subsite/announcements.aspx");
-            routes.MapPageRoute("pclegislations", "site/legislation/{language}", "~/subsite/legislation.aspx");
-            routes.MapPageRoute("pcpublications", "site/publications/{language}", "~/subsite/publications.aspx");
-            routes.MapPageRoute("pcreports", "site/reports/{language}", "~/subsite/reports.aspx");
-            routes.MapPageRoute("pcmultimedia", "site/multimedia/{language}", "~/subsite/multimedia.aspx");
-            routes.MapPageRoute("pcmultimediaRoute", "site/multimedia/{directory}/{language}", "~/subsite/multimedia.aspx");
-            routes.MapPageRoute("pcaboutus", "site/aboutus/{language}", "~/subsite/aboutus.aspx");
-            routes.MapPageRoute("pccontactus", "site/contactus/{language}", "~/subsite/contactus.aspx");
-            routes.MapPageRoute("pcmembers", "site/members/{language}", "~/subsite/members.aspx");
-            routes.MapPageRoute("pcmemberdetail", "site/memberdetail/{language}/{memberid}", "~/subsite/memberdetail.aspx");
-            routes.MapPageRoute("pcmemberdetails", "site/details/{language}/{postid}", "~/subsite/details.aspx");
+            #region(subsite routes)
+            routes.MapPageRoute("pchome", "{publiccouncil}/home/{language}", "~/subsite/home.aspx");
+            routes.MapPageRoute("pcposts", "{publiccouncil}/posts/{language}", "~/subsite/posts.aspx");
+            routes.MapPageRoute("pcannouncements", "{publiccouncil}/announcements/{language}", "~/subsite/announcements.aspx");
+            routes.MapPageRoute("pclegislations", "{publiccouncil}/legislation/{language}", "~/subsite/legislation.aspx");
+            routes.MapPageRoute("pcpublications", "{publiccouncil}/publications/{language}", "~/subsite/publications.aspx");
+            routes.MapPageRoute("pcreports", "{publiccouncil}/reports/{language}", "~/subsite/reports.aspx");
+            routes.MapPageRoute("pcmultimedia", "{publiccouncil}/multimedia/{language}", "~/subsite/multimedia.aspx");
+            routes.MapPageRoute("pcmultimediaRoute", "{publiccouncil}/multimedia/{directory}/{language}", "~/subsite/multimedia.aspx");
+            routes.MapPageRoute("pcaboutus", "{publiccouncil}/aboutus/{language}", "~/subsite/aboutus.aspx");
+            routes.MapPageRoute("pccontactus", "{publiccouncil}/contactus/{language}", "~/subsite/contactus.aspx");
+            routes.MapPageRoute("pcmembers", "{publiccouncil}/members/{language}", "~/subsite/members.aspx");
+            routes.MapPageRoute("pcmemberdetail", "{publiccouncil}/memberdetail/{language}/{memberid}", "~/subsite/memberdetail.aspx");
+            routes.MapPageRoute("pcmemberdetails", "{publiccouncil}/details/{language}/{postid}", "~/subsite/details.aspx");
+
+            routes.MapPageRoute("pchometest", "{publiccouncil}/home/{language}/", "~/subsite/details.aspx");
+
             #endregion
 
         }

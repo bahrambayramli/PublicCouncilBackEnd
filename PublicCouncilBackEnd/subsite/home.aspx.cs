@@ -243,17 +243,17 @@ namespace PublicCouncilBackEnd.subsite
         {
             try
             {
-                Session["pcsubsite"] =
-                     HttpContext.Current.Request.Url.ToString()
-                    .Substring(0, HttpContext.Current.Request.Url.ToString().IndexOf("."))
-                    .Replace("http://", string.Empty);
+                //Session["pcsubsite"] = ;
+                // HttpContext.Current.Request.Url.ToString()
+                //.Substring(0, HttpContext.Current.Request.Url.ToString().IndexOf("."))
+                //.Replace("http://", string.Empty);
             }
             catch (Exception ex)
-            {
+            {  
                 Log.LogCreator(Server.MapPath("~/Log/logs.txt"), ex.Message);
             }
-            GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "", "Əsas", false, true, Session["pcsubsite"] as string, MAINSLIDER_AZ, MAINSLIDER_EN);
-            GetPosts(Page.RouteData.Values["language"] as string, "6", "news", "", "Sadə", false, true, Session["pcsubsite"] as string, SIMPLEPOSTS_AZ, SIMPLEPOSTS_EN);
+            GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "", "Əsas", false, true,Page.RouteData.Values["publiccouncil"] as string, MAINSLIDER_AZ, MAINSLIDER_EN);
+            GetPosts(Page.RouteData.Values["language"] as string, "6", "news", "", "Sadə", false, true, Page.RouteData.Values["publiccouncil"] as string, SIMPLEPOSTS_AZ, SIMPLEPOSTS_EN);
 
         }
     }

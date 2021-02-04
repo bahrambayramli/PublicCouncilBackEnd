@@ -1,5 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="contactus.aspx.cs" Inherits="PublicCouncilBackEnd.WebForm14" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+        <style>
+        .design-by{
+            visibility:hidden;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
     <div class="container-fluid p-0 mb-2">

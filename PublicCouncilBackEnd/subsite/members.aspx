@@ -61,7 +61,7 @@
                                     <p class="h4">
                                         <%#Eval("MEMBER_NAME_AZ")%>  <%#Eval("MEMBER_SURNAME_AZ")%>
                                     </p>
-                                    <a class="btn btn-outline-secondary btn-round btn-sm" href="/site/memberdetail/az/<%#Eval("MEMBER_ID")%>">Ətraflı</a>
+                                    <a class="btn btn-outline-secondary btn-round btn-sm" href="/<%#Eval("USER_PCDOMAIN")%>/memberdetail/az/<%#Eval("MEMBER_ID")%>">Ətraflı</a>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                                             <p class="h4">
                                                 <%#Eval("MEMBER_NAME_EN")%>  <%#Eval("MEMBER_SURNAME_EN")%>
                                             </p>
-                                            <a class="btn btn-outline-secondary btn-round btn-sm" href="/site/memberdetail/en/<%#Eval("MEMBER_ID")%>">Details</a>
+                                            <a class="btn btn-outline-secondary btn-round btn-sm" href="/<%#Eval("USER_PCDOMAIN")%>/memberdetail/en/<%#Eval("MEMBER_ID")%>">Details</a>
                                         </div>
                                     </div>
                                 </div>

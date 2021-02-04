@@ -1,5 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="elections.aspx.cs" Inherits="PublicCouncilBackEnd.WebForm4" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .design-by {
+            visibility: hidden;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
     <asp:UpdatePanel ID="POSTS_PANEL" runat="server" class="container-fluid p-0 mb-2">
@@ -22,7 +28,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between py-2 px-2">
                                     <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/elections/az">
-                                         <%#Eval("POST_SITECATEGORYAZ")%>
+                                        <%#Eval("POST_SITECATEGORYAZ")%>
                                     </a>
                                     <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>
@@ -48,7 +54,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between py-2 px-2">
                                     <a class="btn btn-sm btn-outline-default btn-round shadow-sm" href="/elections/en">
-                                         <%#Eval("POST_SITECATEGORYEN")%>
+                                        <%#Eval("POST_SITECATEGORYEN")%>
                                     </a>
                                     <a class="btn btn-sm btn-outline-danger btn-round shadow-sm" href="#">
                                         <%#Eval("POST_DATE").ToString().Substring(0, Eval("POST_DATE").ToString().Length - 3).Replace("/",".")%>

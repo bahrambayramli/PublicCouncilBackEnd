@@ -166,7 +166,7 @@ namespace PublicCouncilBackEnd.subsite
                         break;
                     }
             }
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "legislation", false, true, Session["pcsubsite"] as string, POSTLIST_AZ, POSTLIST_EN);
+            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "legislation", false, true, Page.RouteData.Values["publiccouncil"] as string, POSTLIST_AZ, POSTLIST_EN);
         }
 
         protected void POSTLIST_AZ_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)

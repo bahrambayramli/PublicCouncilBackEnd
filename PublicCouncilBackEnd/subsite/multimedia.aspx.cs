@@ -322,12 +322,12 @@ namespace PublicCouncilBackEnd.subsite
             }
             if (string.IsNullOrEmpty(Page.RouteData.Values["directory"] as string))
             {
-                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "multimedia", false, true, Session["pcsubsite"] as string, POSTLIST_AZ, POSTLIST_EN);
+                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "multimedia", false, true, Page.RouteData.Values["publiccouncil"] as string, POSTLIST_AZ, POSTLIST_EN);
 
             }
             else
             {
-                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "multimedia", Page.RouteData.Values["directory"] as string, false, true, Session["pcsubsite"] as string, POSTLIST_AZ, POSTLIST_EN);
+                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "multimedia", Page.RouteData.Values["directory"] as string, false, true, Page.RouteData.Values["publiccouncil"] as string, POSTLIST_AZ, POSTLIST_EN);
 
             }
         }

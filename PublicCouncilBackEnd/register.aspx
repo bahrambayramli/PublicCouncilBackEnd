@@ -1,10 +1,16 @@
-﻿<%@ Page Title="Qeydiyyat" 
-    Language="C#" 
+﻿<%@ Page Title="Qeydiyyat"
+    Language="C#"
     MasterPageFile="~/Main.Master"
     AutoEventWireup="true"
-    CodeBehind="register.aspx.cs" 
+    CodeBehind="register.aspx.cs"
     Inherits="PublicCouncilBackEnd.WebForm11" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .design-by {
+            visibility: hidden;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
 
@@ -205,9 +211,9 @@
             </div>
         </div>
     </section>
-    
+
     <script src="/scripts/plugins/jasny-bootstrap.min.js"></script>
-   
+
     <script>
         $('#contentside').removeData('col-md-9')
         $('#contentside').addClass('col-md-12');

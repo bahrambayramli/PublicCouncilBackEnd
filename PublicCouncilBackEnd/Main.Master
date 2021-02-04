@@ -355,7 +355,7 @@
                                                         </span>
                                                     </div>
                                                 </div>
-                                            
+
                                             </div>
                                         </div>
                                     </ItemTemplate>
@@ -680,8 +680,8 @@
                             </span>
                         </div>
                         <div class="col-12 col-md-4">
-                            <div class="text-center text-md-rght">
-                                Site By <a class="text-gray font-weight-300" target="_blank" rel="noopener" href="http://smartcode.az">SmartCode LLC</a>
+                            <div class="text-center text-md-right design-by">
+                                Design by <a class="text-gray font-weight-300" target="_blank" rel="noopener" href="http://smartcode.az">SmartCode LLC</a>
                             </div>
                         </div>
                     </div>

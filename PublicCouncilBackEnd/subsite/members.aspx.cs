@@ -105,12 +105,15 @@ namespace PublicCouncilBackEnd.subsite
                                                                                     MEMBER_NAME_AZ,
                                                                                     MEMBER_SURNAME_AZ,
                                                                                     MEMBER_IMAGE,
-                                                                                    MEMBER_POSITION_AZ
+                                                                                    MEMBER_POSITION_AZ,
+																					USER_PCDOMAIN
 
                                                                             FROM PC_MEMBERS
+																			LEFT JOIN PC_USERS
+																			ON PC_MEMBERS.PC_ID = PC_USERS.USER_ID
                                                                             WHERE
-                                                                            ISDELETE = @ISDELETE AND
-                                                                            ISACTIVE = @ISACTIVE AND
+                                                                            PC_MEMBERS.ISDELETE = @ISDELETE AND
+                                                                            PC_MEMBERS.ISACTIVE = @ISACTIVE AND
                                                                             PC_ID=@PC_ID ORDER BY MEMBER_ORDER_NUMBER"));
 
                         getMembers.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
@@ -133,10 +136,12 @@ namespace PublicCouncilBackEnd.subsite
                                                                                     MEMBER_NAME_EN,
                                                                                     MEMBER_SURNAME_EN,
                                                                                     MEMBER_IMAGE,
-                                                                                    MEMBER_POSITION_EN
-
+                                                                                    MEMBER_POSITION_EN,
+																					USER_PCDOMAIN
 
                                                                             FROM PC_MEMBERS
+																			LEFT JOIN PC_USERS
+																			ON PC_MEMBERS.PC_ID = PC_USERS.USER_ID
                                                                             WHERE
                                                                             ISDELETE = @ISDELETE AND
                                                                             ISACTIVE = @ISACTIVE AND
@@ -160,9 +165,12 @@ namespace PublicCouncilBackEnd.subsite
                                                                                     MEMBER_NAME_AZ,
                                                                                     MEMBER_SURNAME_AZ,
                                                                                     MEMBER_IMAGE,
-                                                                                    MEMBER_POSITION_AZ
+                                                                                    MEMBER_POSITION_AZ,
+																					USER_PCDOMAIN
 
                                                                             FROM PC_MEMBERS
+																			LEFT JOIN PC_USERS
+																			ON PC_MEMBERS.PC_ID = PC_USERS.USER_ID
                                                                             WHERE
                                                                             ISDELETE = @ISDELETE AND
                                                                             ISACTIVE = @ISACTIVE AND

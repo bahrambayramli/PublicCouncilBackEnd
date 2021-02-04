@@ -89,7 +89,7 @@ namespace PublicCouncilBackEnd.subsite
                     }
             }
 
-            GetUserInfo(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Session["pcsubsite"] as string);
+            GetUserInfo(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Page.RouteData.Values["publiccouncil"] as string);
         }
     }
 }
