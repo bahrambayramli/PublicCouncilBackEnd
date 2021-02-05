@@ -76,7 +76,7 @@ namespace PublicCouncilBackEnd
 
             #region(subsite routes)
             routes.MapPageRoute("pchome", "{publiccouncil}/home/{language}", "~/subsite/home.aspx");
-            routes.MapPageRoute("pchometest", "{publiccouncil}", "~/subsite/home.aspx");
+            //routes.MapPageRoute("pchometest", "{publiccouncil}", "~/subsite/home.aspx");
             routes.MapPageRoute("pcposts", "{publiccouncil}/posts/{language}", "~/subsite/posts.aspx");
             routes.MapPageRoute("pcannouncements", "{publiccouncil}/announcements/{language}", "~/subsite/announcements.aspx");
             routes.MapPageRoute("pclegislations", "{publiccouncil}/legislation/{language}", "~/subsite/legislation.aspx");
@@ -103,16 +103,16 @@ namespace PublicCouncilBackEnd
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            //HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
 
-            if (HttpContext.Current.Request.HttpMethod == "OPTIONS")
-            {
-                //These headers are handling the "pre-flight" OPTIONS call sent by the browser
-                HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-                HttpContext.Current.Response.AddHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
-                HttpContext.Current.Response.AddHeader("Access-Control-Max-Age", "1728000");
-                HttpContext.Current.Response.End();
-            }
+            //if (HttpContext.Current.Request.HttpMethod == "OPTIONS")
+            //{
+            //    These headers are handling the "pre-flight" OPTIONS call sent by the browser
+            //    HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+            //    HttpContext.Current.Response.AddHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
+            //    HttpContext.Current.Response.AddHeader("Access-Control-Max-Age", "1728000");
+            //    HttpContext.Current.Response.End();
+            //}
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)

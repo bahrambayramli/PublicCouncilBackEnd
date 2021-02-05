@@ -452,20 +452,20 @@ namespace PublicCouncilBackEnd
             {
                 case "az":
                     {
-                        allPosts.PostBackUrl = "/posts/az";
-                        allPosts.Text = "bütün xəbərlər";
+                        _allposts.PostBackUrl = "/posts/az";
+                        _allposts.Text = "bütün xəbərlər";
                         break;
                     }
                 case "en":
                     {
-                        allPosts.PostBackUrl = "/posts/en";
-                        allPosts.Text = "all news";
+                        _allposts.PostBackUrl = "/posts/en";
+                        _allposts.Text = "all news";
                         break;
                     }
                 default:
                     {
-                        allPosts.PostBackUrl = "/posts/az";
-                        allPosts.Text = "bütün xəbərlər";
+                        _allposts.PostBackUrl = "/posts/az";
+                        _allposts.Text = "bütün xəbərlər";
                         break;
                     }
 
@@ -477,5 +477,7 @@ namespace PublicCouncilBackEnd
             GetPosts(Page.RouteData.Values["language"] as string, "5", "publications", "", false, true, true, PUBLICATIONS_AZ, PUBLICATIONS_EN);
             GetPosts(Page.RouteData.Values["language"] as string, "6", "reports", "",  false, true, true, REPORTS_AZ, REPORTS_EN);
         }
+
+
     }
 }

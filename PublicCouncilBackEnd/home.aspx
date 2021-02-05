@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="home.aspx.cs" Inherits="PublicCouncilBackEnd.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
 
@@ -264,9 +265,10 @@
 
     <!-- All  Posts  -->
     <section class="all-news text-center mb-2">
-        <asp:LinkButton ID="allPosts" runat="server" CssClass="btn btn-outline-danger btn-round shadow-sm">
-            bütün Xeberler
-        </asp:LinkButton>
+       
+
+       <asp:LinkButton ID="_allposts" runat="server"  CssClass="btn btn-outline-danger btn-round shadow-sm" >LinkButton</asp:LinkButton>
+        
     </section>
 
     <!-- Publications -->

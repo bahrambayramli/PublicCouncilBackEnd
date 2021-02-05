@@ -87,13 +87,13 @@ namespace PublicCouncilBackEnd
         protected global::System.Web.UI.WebControls.ListView SIMPLEPOSTS_EN;
 
         /// <summary>
-        /// allPosts control.
+        /// _allposts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton allPosts;
+        protected global::System.Web.UI.WebControls.LinkButton _allposts;
 
         /// <summary>
         /// PUBLICATIONS_AZ control.
