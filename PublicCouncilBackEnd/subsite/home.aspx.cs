@@ -182,6 +182,7 @@ namespace PublicCouncilBackEnd.subsite
                                                                                                         POST_SUBCATEGORY,
                                                                                                         POST_IMG,
                                                                                                         POST_DATE,
+                                                                                                        POST_TYPE,
                                                                                                         POST_SEOAZ,
                                                                                                         POST_AUTHOR
                                                                                             FROM        PC_POSTS
@@ -189,7 +190,7 @@ namespace PublicCouncilBackEnd.subsite
                                                                                             WHERE       ISDELETE            = @ISDELETE      AND
                                                                                                         ISACTIVE            = @ISACTIVE      AND
                                                                                                         POST_CATEGORY       = @POST_CATEGORY AND
-                                                                                                        POST_TYPE           = @POST_TYPE     AND
+                                                                                                      
                                                                                                         POST_AZ_VIEW        = @POST_AZ_VIEW  AND
                                                                                                         POST_AUTHOR         = @POST_AUTHOR
 
@@ -208,7 +209,8 @@ namespace PublicCouncilBackEnd.subsite
                                                                                                         POST_SITESUBCATEGORYAZ,
                                                                                                         POST_SUBCATEGORY,
                                                                                                         POST_IMG,
-                                                                                                        POST_DATE,
+                                                                                                       POST_DATE,
+                                                                                                        POST_TYPE,
                                                                                                         POST_SEOAZ,
                                                                                                         POST_AUTHOR
                                                                                             FROM        PC_POSTS
@@ -235,7 +237,6 @@ namespace PublicCouncilBackEnd.subsite
 
                         break;
                     }
-
             }
         }
 

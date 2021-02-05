@@ -62,7 +62,8 @@ namespace PublicCouncilBackEnd.subsite
                     }
                 default:
                     {
-                        getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT USER_SERIAL ,PC_NAME, USER_ID , USER_PCDOMAIN FROM PC_USERS 
+
+                        getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT USER_SERIAL ,PC_NAME, PC_ACTIVITY_PERIOD, USER_ID , USER_PCDOMAIN FROM PC_USERS 
                                                                                                  WHERE 
                                                                                                  ISDELETE      = @ISDELETE AND 
                                                                                                  ISACTIVE      = @ISACTIVE AND
@@ -77,7 +78,6 @@ namespace PublicCouncilBackEnd.subsite
                         pcName.Text = dt.Rows[0]["PC_NAME"].ToString();
                         Session["PC_USER_ID"] = dt.Rows[0]["USER_ID"].ToString();
                         Session["SUBSITE_SERIAL"] = dt.Rows[0]["USER_SERIAL"].ToString();
-
                         Session["PC_ACTIVITY_PERIOD"] = dt.Rows[0]["PC_ACTIVITY_PERIOD"].ToString();
                         break;
                     }
@@ -531,7 +531,7 @@ namespace PublicCouncilBackEnd.subsite
                                                                                                         POST_IMG,
                                                                                                         POST_DATE,
                                                                                                         POST_SEOAZ,
-                                                                                                        POST_AUTHOR,
+                                                                                                        POST_AUTHOR
                                                                                                        
                                                                                             FROM        PC_POSTS
 
@@ -675,16 +675,19 @@ namespace PublicCouncilBackEnd.subsite
             {
                 Log.LogCreator(Server.MapPath("~/Log/logs.txt"), ex.Message);
             }
-
+           
             try
             {
+
+
                 GetUserInfo(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Page.RouteData.Values["publiccouncil"] as string);
-                GetLogos();
                 Navigation();
+                GetLogos();
                 SiteLanguage();
                 GetNavigations(Page.RouteData.Values["language"] as string);
                 GetSponsors();
                 GetLatest(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "4", "news", false, true, Page.RouteData.Values["publiccouncil"] as string, LATEST_AZ, LATEST_EN);
+
             }
             catch (Exception ex)
             {
