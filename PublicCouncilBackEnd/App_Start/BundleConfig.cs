@@ -30,8 +30,7 @@ namespace PublicCouncilBackEnd
             bundle.Add(new StyleBundle("~/bundles/sitebundlecss")
             .Include(
             "~/content/css/argon-design-system.min.css",
-            "~/content/css/owl.carousel.min.css",
-            "~/content/css/owl.theme.default.min.css",
+            "~/content/css/owl.min.css",
             "~/content/scss/style.css", 
             "~/content/scss/preloader.min.css"
             ));

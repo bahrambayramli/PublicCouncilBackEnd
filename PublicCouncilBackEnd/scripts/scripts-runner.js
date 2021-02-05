@@ -107,11 +107,11 @@ function addHeadLinksToNav() {
     let bodyWidth = width = document.body.offsetWidth;
     if (bodyWidth >1000) {
         document.getElementById("header-top-row").appendChild(document.getElementById("header-links"));
-        console.log(bodyWidth);
+      
     }
     if (bodyWidth <= 768) {
         document.getElementById("nav-list").appendChild(document.getElementById("header-links"));
-        console.log(bodyWidth);
+      
     }
    
 }

@@ -202,11 +202,14 @@
     <Content Include="content\css\material-kit.min.css" />
     <Content Include="content\css\owl.carousel.css" />
     <Content Include="content\css\owl.carousel.min.css" />
+    <Content Include="content\css\owl.css" />
+    <Content Include="content\css\owl.min.css">
+      <DependentUpon>owl.css</DependentUpon>
+    </Content>
     <Content Include="content\css\owl.theme.default.css" />
     <Content Include="content\css\owl.theme.default.min.css" />
     <Content Include="content\css\owl.theme.green.css" />
     <Content Include="content\css\owl.theme.green.min.css" />
-    <Content Include="content\css\style.css" />
     <Content Include="content\scss\preloader.css">
       <DependentUpon>preloader.scss</DependentUpon>
     </Content>
@@ -658,8 +661,8 @@
     <None Include="packages.config" />
     <Content Include="subsite\Subdomain.Master" />
     <Content Include="uploads\file.docx" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\shura.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

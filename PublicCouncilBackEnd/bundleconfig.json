@@ -4,5 +4,11 @@
     "inputFiles": [
       "scripts/scripts-runner.js"
     ]
+  },
+  {
+    "outputFileName": "content/css/owl.min.css",
+    "inputFiles": [
+      "content/css/owl.css"
+    ]
   }
 ]

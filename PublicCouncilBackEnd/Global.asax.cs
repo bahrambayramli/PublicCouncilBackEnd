@@ -75,8 +75,8 @@ namespace PublicCouncilBackEnd
             #endregion
 
             #region(subsite routes)
+            //routes.MapPageRoute("pchometest", "{publiccouncil}/", "~/subsite/home.aspx");
             routes.MapPageRoute("pchome", "{publiccouncil}/home/{language}", "~/subsite/home.aspx");
-            //routes.MapPageRoute("pchometest", "{publiccouncil}", "~/subsite/home.aspx");
             routes.MapPageRoute("pcposts", "{publiccouncil}/posts/{language}", "~/subsite/posts.aspx");
             routes.MapPageRoute("pcannouncements", "{publiccouncil}/announcements/{language}", "~/subsite/announcements.aspx");
             routes.MapPageRoute("pclegislations", "{publiccouncil}/legislation/{language}", "~/subsite/legislation.aspx");
