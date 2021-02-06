@@ -24,7 +24,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/images/ico/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/images/ico/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/ico/favicon-16x16.png">
-    <link rel="manifest" href="/images/ico/manifest.json">
+  <%--  <link rel="manifest" href="/images/ico/manifest.json">--%>
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/images/ico/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -54,9 +54,9 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body onload="hideLoading()">
-
-    <div id="preloader" class="loader">
+<body>
+    <%--  onload="hideLoading()" --%>
+    <%--<div id="preloader" class="loader">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: transparent; display: block;" width="150px" height="150px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
             <g transform="translate(20 50)">
                 <circle cx="0" cy="0" r="6" fill="#1d3f72">
@@ -74,7 +74,7 @@
                 </circle>
             </g>
         </svg>
-    </div>
+    </div>--%>
 
     <form id="masterForm" runat="server">
 

@@ -42,7 +42,7 @@
                         <div class="col-12 d-flex align-items-stretch px-md-1 mb-md-2">
                             <div class="h5 w-100 bg-white shadow font-weight-bold text-default text-wrap p-2 p-md-3 rounded ">
 
-                                <a href="https://ictimaishura.az/<%#Eval("USER_PCDOMAIN")%>/home/az" title="<%#Eval("PC_NAME")%>" target="_blank" class="d-block text-default">
+                                <a href="http://ictimaishura.az/<%#Eval("USER_PCDOMAIN")%>/home/az" title="<%#Eval("PC_NAME")%>" target="_blank" class="d-block text-default">
                                     <%#Eval("PC_NAME")%>
                                 </a>
 
@@ -78,7 +78,7 @@
                         <div class="col-12 d-flex align-items-stretch px-md-1 mb-md-2">
                             <div class="h5 w-100 bg-white shadow font-weight-bold text-default text-wrap p-2 p-md-3 rounded ">
 
-                                <a href="https://ictimaishura.az/<%#Eval("USER_PCDOMAIN")%>" title="<%#Eval("PC_NAME_EN")%>" target="_blank" class="d-block text-default">
+                                <a href="http://ictimaishura.az/<%#Eval("USER_PCDOMAIN")%>" title="<%#Eval("PC_NAME_EN")%>" target="_blank" class="d-block text-default">
                                     <%#Eval("PC_NAME_EN")%>
                                 </a>
 

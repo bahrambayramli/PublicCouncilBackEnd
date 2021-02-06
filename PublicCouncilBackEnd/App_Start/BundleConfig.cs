@@ -18,24 +18,25 @@ namespace PublicCouncilBackEnd
             "~/scripts/owl.carousel.js",
             "~/scripts/core/popper.min.js",
             "~/scripts/core/bootstrap.min.js",
-            "~/scripts/jquery-nice-scroll.js",
-            "~/scripts/preloader.js"
+            "~/scripts/jquery-nice-scroll.js"
+          
 
             ));
-             
-            
 
+
+            //"~/scripts/preloader.js"
 
             //wrapup all css in a bundle
             bundle.Add(new StyleBundle("~/bundles/sitebundlecss")
             .Include(
             "~/content/css/argon-design-system.min.css",
             "~/content/css/owl.min.css",
-            "~/content/scss/style.css", 
-            "~/content/scss/preloader.min.css"
+            "~/content/scss/style.css"
+           
             ));
             //  Include("~/Content/CSS/fonts/fontawesome-5.13.0/css/all.min.css", new CssRewriteUrlTransform())
             BundleTable.EnableOptimizations = true;
+            //"~/content/scss/preloader.min.css"
 
         }
     }
