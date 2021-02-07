@@ -105,8 +105,10 @@ $(document).ready(function () {
 
 function addHeadLinksToNav() {
     let bodyWidth = width = document.body.offsetWidth;
-    if (bodyWidth >1000) {
-        document.getElementById("header-top-row").appendChild(document.getElementById("header-links"));
+    if (bodyWidth > 1000) {
+
+        let headerLinks = document.getElementById("header-links");
+        document.getElementById("header-top-row").appendChild();
       
     }
     if (bodyWidth <= 768) {
