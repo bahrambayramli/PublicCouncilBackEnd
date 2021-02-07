@@ -18,11 +18,10 @@ namespace PublicCouncilBackEnd
             BundleTable.EnableOptimizations = true;
             BundleConfig.RegisterBundle(BundleTable.Bundles);
         }
-
-
+  
         void RegisterRoutes(RouteCollection routes)
         {
-            #region({publiccouncil} routes)
+            #region( Main routes)
             
             routes.MapPageRoute("home", "home/{language}", "~/home.aspx");
             routes.MapPageRoute("legislation", "legislation/{language}", "~/legislation.aspx");
@@ -89,9 +88,6 @@ namespace PublicCouncilBackEnd
             routes.MapPageRoute("pcmembers", "{publiccouncil}/members/{language}", "~/subsite/members.aspx");
             routes.MapPageRoute("pcmemberdetail", "{publiccouncil}/memberdetail/{language}/{memberid}", "~/subsite/memberdetail.aspx");
             routes.MapPageRoute("pcmemberdetails", "{publiccouncil}/details/{language}/{postid}", "~/subsite/details.aspx");
-
-
-
             #endregion
 
         }
@@ -103,16 +99,7 @@ namespace PublicCouncilBackEnd
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            //HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
-
-            //if (HttpContext.Current.Request.HttpMethod == "OPTIONS")
-            //{
-            //    These headers are handling the "pre-flight" OPTIONS call sent by the browser
-            //    HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-            //    HttpContext.Current.Response.AddHeader("Access-Control-Allow-Headers", "Content-Type, Accept");
-            //    HttpContext.Current.Response.AddHeader("Access-Control-Max-Age", "1728000");
-            //    HttpContext.Current.Response.End();
-            //}
+           
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
