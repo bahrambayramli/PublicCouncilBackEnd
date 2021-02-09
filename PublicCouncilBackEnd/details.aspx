@@ -1,9 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="details.aspx.cs" Inherits="PublicCouncilBackEnd.WebForm9" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <style>
-        .design-by{
-            visibility:hidden;
+    <style>
+        .design-by {
+            visibility: hidden;
+        }
+
+        strong {
+            font-weight: revert;
         }
     </style>
     <link href="/content/css/jquery.fancybox.min.css" rel="stylesheet" />

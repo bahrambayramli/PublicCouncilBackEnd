@@ -889,8 +889,12 @@ namespace PublicCouncilBackEnd.manage
 
         public string GetDate()
         {
-            SqlDataAdapter adapter = new SqlDataAdapter(new SqlCommand("SELECT FORMAT (SYSDATETIME() ,'dd/MM/yyyy HH:mm' ) as DataTime"));
-            return SQL.SELECT(adapter).Rows[0]["DataTime"].ToString();
+            //SqlDataAdapter adapter = new SqlDataAdapter(new SqlCommand("SELECT FORMAT (SYSDATETIME() ,'dd/MM/yyyy HH:mm' ) as DataTime"));
+            //return SQL.SELECT(adapter).Rows[0]["DataTime"].ToString();
+
+            DateTime today = DateTime.Now;
+            DateTime answer = today.AddDays(1).AddHours(-12);
+            return answer.ToString("dd/MM/yyyy HH:mm");
         }
 
         public string MakeSerial()
