@@ -12,11 +12,11 @@ namespace PublicCouncilBackEnd.subsite
     public partial class WebForm10 : System.Web.UI.Page
     {
 
-        private void GetMembers(String LANG, string PC_ID, bool ISDELETE, GridView GRID)
+        private void GetMembers(string LANG, string PC_ID, bool ISDELETE, GridView GRID)
         {
           
             SqlDataAdapter getMembers;
-
+            DataTable dt;
             switch (LANG)
             {
                 case "az":
@@ -24,43 +24,47 @@ namespace PublicCouncilBackEnd.subsite
                         getMembers = new SqlDataAdapter(new SqlCommand(@"SELECT ROW_NUMBER() OVER(ORDER BY MEMBER_ORDER_NUMBER ASC) AS '#' ,
 
                                                                                 
-                                                                                  MEMBER_NAME_AZ AS 'Ad',
-                                                                                  MEMBER_SURNAME_AZ AS 'Soyad',
+                                                                                  MEMBER_NAME_AZ     AS 'Ad',
+                                                                                  MEMBER_SURNAME_AZ  AS 'Soyad',
                                                                                   MEMBER_POSITION_AZ AS 'Vəzifə'
-
 
                                                                             FROM PC_MEMBERS
 
-                                                                            WHERE PC_MEMBERS.ISDELETE     = @ISDELETE AND
-                                                                                  PC_ID        = @PC_ID"));
+																			LEFT JOIN PC_USERS
+																			ON PC_MEMBERS.PC_ID = PC_USERS.USER_ID
 
-                        getMembers.SelectCommand.Parameters.Add("@PC_ID", SqlDbType.Int).Value    = PC_ID;
-                        getMembers.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
+																			WHERE 
+                                                                                  PC_USERS.USER_ID      = @PC_USER_ID AND
+                                                                                  PC_MEMBERS.ISDELETE   = 'FALSE'"));
 
-                        MemberList.DataSource = SQL.SELECT(getMembers);
-                        MemberList.DataBind();
+                        getMembers.SelectCommand.Parameters.Add("@PC_USER_ID", SqlDbType.Int).Value    = PC_ID;
+                        dt = SQL.SELECT(getMembers);
+                        GRID.DataSource = dt;
+                        GRID.DataBind();
                         break;
                     }
                 case "en":
                     {
                         getMembers = new SqlDataAdapter(new SqlCommand(@"SELECT ROW_NUMBER() OVER(ORDER BY MEMBER_ORDER_NUMBER ASC) AS '#' ,
 
-                                                                                 
-                                                                                  MEMBER_NAME_EN AS 'Name',
-                                                                                  MEMBER_SURNAME_EN AS 'Surname',
+                                                                                
+                                                                                  MEMBER_NAME_EN     AS 'Name',
+                                                                                  MEMBER_SURNAME_EN  AS 'Surname',
                                                                                   MEMBER_POSITION_EN AS 'Position'
-                                                                                 
 
                                                                             FROM PC_MEMBERS
 
-                                                                            WHERE PC_MEMBERS.ISDELETE     = @ISDELETE AND
-                                                                                  PC_ID        = @PC_ID"));
+																			LEFT JOIN PC_USERS
+																			ON PC_MEMBERS.PC_ID = PC_USERS.USER_ID
 
-                        getMembers.SelectCommand.Parameters.Add("@PC_ID", SqlDbType.Int).Value = PC_ID;
-                        getMembers.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
+																			WHERE 
+                                                                                  PC_USERS.USER_ID      = @PC_USER_ID AND
+                                                                                  PC_MEMBERS.ISDELETE   = 'FALSE'"));
 
-                        MemberList.DataSource = SQL.SELECT(getMembers);
-                        MemberList.DataBind();
+                        getMembers.SelectCommand.Parameters.Add("@PC_USER_ID", SqlDbType.Int).Value = PC_ID;
+                        dt = SQL.SELECT(getMembers);
+                        GRID.DataSource = dt;
+                        GRID.DataBind();
                         break;
                     }
                 default:
@@ -68,20 +72,23 @@ namespace PublicCouncilBackEnd.subsite
                         getMembers = new SqlDataAdapter(new SqlCommand(@"SELECT ROW_NUMBER() OVER(ORDER BY MEMBER_ORDER_NUMBER ASC) AS '#' ,
 
                                                                                 
-                                                                                  MEMBER_NAME_AZ AS 'Ad',
+                                                                                  MEMBER_NAME_AZ     AS 'Ad',
                                                                                   MEMBER_SURNAME_AZ  AS 'Soyad',
                                                                                   MEMBER_POSITION_AZ AS 'Vəzifə'
 
                                                                             FROM PC_MEMBERS
 
-                                                                            WHERE PC_MEMBERS.ISDELETE     = @ISDELETE AND
-                                                                                  PC_ID        = @PC_ID"));
+																			LEFT JOIN PC_USERS
+																			ON PC_MEMBERS.PC_ID = PC_USERS.USER_ID
 
-                        getMembers.SelectCommand.Parameters.Add("@PC_ID", SqlDbType.Int).Value = PC_ID;
-                        getMembers.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
+																			WHERE 
+                                                                                  PC_USERS.USER_ID      = @PC_USER_ID AND
+                                                                                  PC_MEMBERS.ISDELETE   = 'FALSE'"));
 
-                        MemberList.DataSource = SQL.SELECT(getMembers);
-                        MemberList.DataBind();
+                        getMembers.SelectCommand.Parameters.Add("@PC_USER_ID", SqlDbType.Int).Value = PC_ID;
+                        dt = SQL.SELECT(getMembers);
+                        GRID.DataSource = dt;
+                        GRID.DataBind();
                         break;
                     }
             }
@@ -223,7 +230,7 @@ namespace PublicCouncilBackEnd.subsite
             }
             catch (Exception ex)
             {
-                Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", ex.Message);
+                Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", ex.Message + Page.Title);
 
             }
 
@@ -233,7 +240,7 @@ namespace PublicCouncilBackEnd.subsite
             }
             catch (Exception ex)
             {
-                Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", ex.Message);
+                //Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", ex.Message + Page.Title);
 
             }
 
@@ -243,7 +250,7 @@ namespace PublicCouncilBackEnd.subsite
             }
             catch (Exception ex)
             {
-                Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", ex.Message);
+                Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", ex.Message + Page.Title);
 
             }
         }
@@ -296,14 +303,5 @@ namespace PublicCouncilBackEnd.subsite
             e.Row.Cells[2].Width = new Unit("200px");
         }
 
-        protected void MemberList_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-
-        }
-
-        protected void MemberList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

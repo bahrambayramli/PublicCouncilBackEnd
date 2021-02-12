@@ -27,10 +27,9 @@
                             ForeColor="#333333"
                             GridLines="None"
                             AllowPaging="True"
-                            OnPageIndexChanging="MemberList_PageIndexChanging"
-                            OnSelectedIndexChanged="MemberList_SelectedIndexChanged" PageSize="15">
+                          
+                            PageSize="15">
                             <AlternatingRowStyle BackColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
-
                             <EditRowStyle BackColor="#2461BF" HorizontalAlign="Center" VerticalAlign="Middle" />
                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                             <HeaderStyle BackColor="#32325d" Font-Bold="True" ForeColor="#ffffff" HorizontalAlign="Center" VerticalAlign="Middle" />

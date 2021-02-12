@@ -22,11 +22,10 @@ namespace PublicCouncilBackEnd
 
             try
             {
-                connection.Open();
-                adapter.SelectCommand.Connection = connection;
-                adapter.Fill(dataTable);
-                connection.Close();
-
+                 connection.Open();
+                 adapter.SelectCommand.Connection = connection;
+                 adapter.Fill(dataTable);
+                 connection.Close();
             }
             catch (Exception ex)
             {
