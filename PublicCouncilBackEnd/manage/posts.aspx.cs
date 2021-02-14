@@ -125,7 +125,7 @@ namespace PublicCouncilBackEnd.manage
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                Log.LogCreator(Server.MapPath("/Logs/logs.txt"), ex.Message);
             }
         }
 
@@ -147,8 +147,15 @@ namespace PublicCouncilBackEnd.manage
         {
 
             PostsList.PageIndex = e.NewPageIndex;
-            
-            GetPosts(pcSelectList.SelectedValue);
+
+            if (Session["USER_MEMBERSHIP_TYPE"] as string == "admin")
+            {
+                GetPosts(pcSelectList.SelectedValue);
+            }
+            else
+            {
+                GetPosts(Session["USER_ID"] as string);
+            }
         }
 
         protected void PostsList_SelectedIndexChanged(object sender, EventArgs e)

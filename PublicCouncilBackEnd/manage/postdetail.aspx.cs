@@ -139,19 +139,16 @@ namespace PublicCouncilBackEnd.manage
             GetCategory();
             foreach (ListItem item in category_list.Items)
             {
-
-
-
                 if (item.Value.ToString() == dataTable.Rows[0]["POST_CATEGORY"].ToString())
                 {
                     try
                     {
                         category_list.Items.FindByValue(item.Value.ToString()).Selected = true;
+                        break;
                     }
                     catch (Exception ex)
                     {
-
-                        Debug.WriteLine(ex.Message);
+                        Log.LogCreator(Server.MapPath("/Logs/logs.txt"), ex.Message);
                     }
                 }
             }
@@ -164,11 +161,11 @@ namespace PublicCouncilBackEnd.manage
                     try
                     {
                         subcategory_list.Items.FindByValue(item.Value.ToString()).Selected = true;
+                        break;
                     }
                     catch (Exception ex)
                     {
-
-                        Debug.WriteLine(ex.Message);
+                        Log.LogCreator(Server.MapPath("/Logs/logs.txt"), ex.Message);
                     }
                 }
             }
@@ -181,16 +178,23 @@ namespace PublicCouncilBackEnd.manage
                     try
                     {
                         pcSelectList.Items.FindByValue(item.Value.ToString()).Selected = true;
+                        break;
                     }
                     catch (Exception ex)
                     {
-
-                        Debug.WriteLine(ex.Message);
+                        Log.LogCreator(Server.MapPath("/Logs/logs.txt"), ex.Message);
                     }
                 }
             }
 
-            type_list.SelectedItem.Text = dataTable.Rows[0]["POST_TYPE"].ToString();
+            foreach (ListItem item in type_list.Items)
+            {
+                if (item.Text == dataTable.Rows[0]["POST_TYPE"].ToString())
+                {
+                    type_list.Items.FindByText(item.Text).Selected = true;
+                    break;
+                }
+            }
 
             posttitle_az.Text = dataTable.Rows[0]["POST_AZ_TITLE"].ToString();
             posttitle_en.Text = dataTable.Rows[0]["POST_EN_TITLE"].ToString();
@@ -704,7 +708,7 @@ namespace PublicCouncilBackEnd.manage
             //select nav querry
             //get cetegory language text
             //and insert category for diferent languages
-
+            #region(GET NAVIGATION AND SUB NAVIGATION)
             SqlDataAdapter getNav = new SqlDataAdapter(new SqlCommand(@"SELECT  DATA_ID,
                                                                            		NAV_AZ,
                                                                            		NAV_EN,                                                                         	
@@ -732,6 +736,7 @@ namespace PublicCouncilBackEnd.manage
                                                                            			ISACTIVE  = 'TRUE'"));
             getsubNav.SelectCommand.Parameters.Add("@NAV_VALUE", SqlDbType.NVarChar).Value = category_list.SelectedValue;
             getsubNav.SelectCommand.Parameters.Add("@SUBNAV_VALUE", SqlDbType.NVarChar).Value = subcategory_list.SelectedValue;
+
             DataTable SUBNAVDB = SQL.SELECT(getsubNav);
             if (SUBNAVDB.Rows.Count > 0)
             {
@@ -746,7 +751,7 @@ namespace PublicCouncilBackEnd.manage
                
             }
 
-          
+            #endregion
 
             SQL.COMMAND(updatedata);
 
@@ -1202,7 +1207,10 @@ namespace PublicCouncilBackEnd.manage
                         postConfirm.Text = "Dəyiş";
                         postConfirm.CssClass = "btn btn-warning";
                     }
-                    catch  { }
+                    catch (Exception ex)
+                    {
+                        Log.LogCreator(Server.MapPath("/Logs/logs.txt"), ex.Message);
+                    }
 
                 } else{ try{ labelTime.Text = GetDate();} catch { } }
 
@@ -1222,8 +1230,7 @@ namespace PublicCouncilBackEnd.manage
                             }
                             catch (Exception ex)
                             {
-
-                                Debug.WriteLine(ex.Message);
+                                Log.LogCreator(Server.MapPath("/Logs/logs.txt"), ex.Message);
                             }
                         }
                     }
@@ -1247,9 +1254,7 @@ namespace PublicCouncilBackEnd.manage
                 }
                 catch (Exception ex)
                 {
-
-                    Debug.WriteLine(ex.Message);
-                    // Literal1.Text = ex.Message.ToString();
+                    Log.LogCreator(Server.MapPath("/Logs/logs.txt"), ex.Message);
                 }
             }
             else
@@ -1260,9 +1265,7 @@ namespace PublicCouncilBackEnd.manage
                 }
                 catch (Exception ex)
                 {
-
-                    Debug.WriteLine(ex.Message);
-                    //Literal1.Text=ex.Message.ToString();
+                    Log.LogCreator(Server.MapPath("/Logs/logs.txt"), ex.Message);
                 }
             }
 
