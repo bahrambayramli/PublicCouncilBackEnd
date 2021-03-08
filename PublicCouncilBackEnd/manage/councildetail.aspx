@@ -98,8 +98,9 @@
                                     </div>
                                 </asp:Panel>
 
-                                <%-- PC login--%>
+                                <%-- PC LOGIN AND PASSWORD --%>
                                 <div class="row">
+                                    <%-- PC login--%>
                                     <asp:Panel ID="PC_LOGIN_BLOCK" runat="server" CssClass="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="mainlayout_inputLoginName">Login</label>
@@ -107,6 +108,7 @@
                                         </div>
 
                                     </asp:Panel>
+                                    <%-- PC password --%>
                                     <asp:Panel ID="PC_PASSWORD_BLOCK" runat="server" CssClass="col-12 col-md-6">
                                         <div class="form-group">
                                             <label for="mainlayout_inputPassword">Şifrə</label>
@@ -116,7 +118,7 @@
                                     </asp:Panel>
                                 </div>
 
-                                <%-- PC password --%>
+
 
                                 <div class="row">
                                     <div class="col-12">

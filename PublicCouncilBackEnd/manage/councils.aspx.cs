@@ -48,10 +48,10 @@ namespace PublicCouncilBackEnd.manage
         }
 
 
-        private void DeleteData(string POSTID)
+        private void DeleteData(string PC_ID)
         {
             SqlCommand deletePC = new SqlCommand(@"Update PC_USERS SET ISDELETE=@ISDELETE,ISACTIVE=@ISACTIVE WHERE USER_ID = @USER_ID");
-            deletePC.Parameters.Add("@USER_ID", SqlDbType.Int).Value = POSTID;
+            deletePC.Parameters.Add("@USER_ID", SqlDbType.Int).Value = PC_ID;
             deletePC.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = false;
             deletePC.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = true;
             SQL.COMMAND(deletePC);

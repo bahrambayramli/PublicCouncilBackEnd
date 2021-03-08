@@ -50,19 +50,19 @@ namespace PublicCouncilBackEnd
 
             if (dt.Rows.Count > 0)
             {
-                Session["ISLOGIN"] = "USERISEXIST";
-                Session["USER_ID"] = dt.Rows[0]["USER_ID"].ToString();
+                Session["ISLOGIN"]                      = "USERISEXIST";
+                Session["USER_ID"]                      = dt.Rows[0]["USER_ID"].ToString();
 
-                Session["USER_PCDOMAIN"] = dt.Rows[0]["USER_PCDOMAIN"].ToString();
+                Session["USER_PCDOMAIN"]                = dt.Rows[0]["USER_PCDOMAIN"].ToString();
 
-                Session["USER_SERIAL"] = dt.Rows[0]["USER_SERIAL"].ToString();
+                Session["USER_SERIAL"]                  = dt.Rows[0]["USER_SERIAL"].ToString();
 
-                Session["USER_NAME"] = dt.Rows[0]["USER_NAME"].ToString();
-                Session["USER_SURNAME"] = dt.Rows[0]["USER_SURNAME"].ToString();
+                Session["USER_NAME"]                    = dt.Rows[0]["USER_NAME"].ToString();
+                Session["USER_SURNAME"]                 = dt.Rows[0]["USER_SURNAME"].ToString();
                
-                Session["USER_MEMBERSHIP"] = dt.Rows[0]["USER_MEMBERSHIP"].ToString();
-                Session["USER_MEMBERSHIP_TYPE"] = dt.Rows[0]["USER_MEMBERSHIP_TYPE"].ToString();
-                Session["POST_AUTHOR"] = dt.Rows[0]["USER_PCDOMAIN"].ToString();
+                Session["USER_MEMBERSHIP"]              = dt.Rows[0]["USER_MEMBERSHIP"].ToString();
+                Session["USER_MEMBERSHIP_TYPE"]         = dt.Rows[0]["USER_MEMBERSHIP_TYPE"].ToString();
+                Session["POST_AUTHOR"]                  = dt.Rows[0]["USER_PCDOMAIN"].ToString();
 
                 Response.Redirect("/manage/dashboard");
             }

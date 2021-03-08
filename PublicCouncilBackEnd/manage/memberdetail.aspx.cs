@@ -20,8 +20,7 @@ namespace PublicCouncilBackEnd.manage
             string extension = Path.GetExtension(fileMember.FileName).ToLower();
             if ((extension != ".jpg") && (extension != ".jpeg") && (extension != ".bmp") &&
                 (extension != ".png") && (extension != ".gif")  && (extension != ".tif") &&
-                (extension != ".tiff")) return false;
-                                        else return true;
+                (extension != ".tiff")) return false; else return true;
         }
 
         #region(Image Maker)

@@ -403,7 +403,7 @@ namespace PublicCouncilBackEnd.manage
                                                          PC_WEBADDRESS         = @PC_WEBADDRESS         ,                                                      
                                                          PC_CITY               = @PC_CITY               ,
                                                          PC_CATEGORY           = @PC_CATEGORY           ,
-	                                                     PC_ABOUT_AZ              = @PC_ABOUT_AZ              ,
+	                                                     PC_ABOUT_AZ           = @PC_ABOUT_AZ           ,
                                                          PC_ORDER_NUMBER       = @PC_ORDER_NUMBER       ,
                                                          PC_NAME_EN            = @PC_NAME_EN            ,
                                                          USER_NAME_EN          = @USER_NAME_EN          ,
@@ -414,7 +414,7 @@ namespace PublicCouncilBackEnd.manage
                                                         
 	                                                	   ");
                 string pass = Crypto.MD5crypt(inputPassword.Text);
-                updateUser.Parameters.Add("@USER_PASSWORD", SqlDbType.NVarChar).Value = pass ;
+                updateUser.Parameters.Add("@USER_PASSWORD", SqlDbType.NVarChar).Value = pass;
             }
             else
             {
@@ -653,19 +653,16 @@ namespace PublicCouncilBackEnd.manage
                     }
                     catch (Exception ex)
                     {
-                        Log.LogCreator(HttpContext.Current.Server.MapPath("/Logs/logs.txt"), ex.Message);
-                        string exmm = ex.Message;
-                        Console.WriteLine(exmm);
+                        Log.LogCreator(Server.MapPath("~/Logs/logs.txt"), $"Log created:{DateTime.Now}, Log page is: {Page.Title}, Log:{ex.Message}");
                     }
-
                     try
                     {
                         btnConfirm.Text = "Dəyiş";
                         btnConfirm.CssClass = "btn btn-warning";
                     }
-                    catch 
+                    catch(Exception ex)
                     {
-                        
+                        Log.LogCreator(Server.MapPath("~/Logs/logs.txt"), $"Log created:{DateTime.Now}, Log page is: {Page.Title}, Log:{ex.Message}");
                     }
                 }
 
