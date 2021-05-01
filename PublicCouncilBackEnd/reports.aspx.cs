@@ -194,20 +194,21 @@ namespace PublicCouncilBackEnd
                         LSV_AZ.DataBind();
 
 
-                        getPost = new SqlDataAdapter(new SqlCommand(@"SELECT 
-                                                                                                        DATA_ID,
-                                                                                                        POST_EN_TITLE,
-                                                                                            	        POST_SITECATEGORYEN,
-                                                                                                        POST_IMG,
-                                                                                                        POST_DATE,
-                                                                                                        POST_SEOEN,
+                        getPost = new SqlDataAdapter(new SqlCommand(@"SELECT  
+                                                                                                        DATA_ID                     ,
+                                                                                                        POST_EN_TITLE               ,
+                                                                                            	        POST_SITECATEGORYEN         ,
+                                                                                                        POST_IMG                    ,
+                                                                                                        POST_DATE                   ,
+                                                                                                        POST_SEOEN
+                                                                                                       
                                                                                             FROM        PC_POSTS
 
                                                                                             WHERE       ISDELETE            = @ISDELETE      AND
                                                                                                         ISACTIVE            = @ISACTIVE      AND
                                                                                                         POST_CATEGORY       = @POST_CATEGORY AND                                                                                                   
                                                                                                         POST_EN_VIEW        = @POST_EN_VIEW  
-                                                                                                        
+                                                                                                    
 
                                                                                                         ORDER BY POST_DATE DESC
                                                                                                     "));
@@ -223,8 +224,7 @@ namespace PublicCouncilBackEnd
 
                         LSV_EN.DataSource = SQL.SELECT(getPost);
                         LSV_EN.DataBind();
-
-                        getPost = null;
+                      
                         break;
                     }
                 default:
@@ -261,7 +261,7 @@ namespace PublicCouncilBackEnd
 
                         LSV_AZ.DataSource = SQL.SELECT(getPost);
                         LSV_AZ.DataBind();
-                        getPost = null;
+                      
 
                         break;
                     }

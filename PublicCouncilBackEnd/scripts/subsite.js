@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const subsideBottom = document.getElementById("subsidebottom");
     toogleIcon.addEventListener("click", function () {
         subsideBottom.classList.toggle("submob-active");
+       
     });
 
 

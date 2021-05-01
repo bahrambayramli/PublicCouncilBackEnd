@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/subsite/Subdomain.Master" AutoEventWireup="true" CodeBehind="contactus.aspx.cs" Inherits="PublicCouncilBackEnd.subsite.WebForm8" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="sublayout" runat="server">
@@ -31,9 +32,9 @@
         </div>
 
     </div>
-       <script>
-           document.addEventListener("DOMContentLoaded", () => {
-               changeLayout({ Id: "contentside", className: "col-12 content-side" }, { Id: "rightside", className: "d-none" });
-           });
-       </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            changeLayout({ Id: "contentside", className: "col-12 content-side" }, { Id: "rightside", className: "d-none" });
+        });
+    </script>
 </asp:Content>

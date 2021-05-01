@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/subsite/Subdomain.Master" AutoEventWireup="true" CodeBehind="memberdetail.aspx.cs" Inherits="PublicCouncilBackEnd.subsite.WebForm11" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="sublayout" runat="server">
     <div class="container-fluid">
@@ -25,9 +25,9 @@
             </div>
         </div>
     </div>
-       <script>
-           document.addEventListener("DOMContentLoaded", () => {
-               changeLayout({ Id: "contentside", className: "col-12 content-side" }, { Id: "rightside", className: "d-none" });
-           });
-       </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            changeLayout({ Id: "contentside", className: "col-12 content-side" }, { Id: "rightside", className: "d-none" });
+        });
+    </script>
 </asp:Content>

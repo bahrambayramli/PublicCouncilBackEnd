@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/subsite/Subdomain.Master" AutoEventWireup="true" CodeBehind="members.aspx.cs" Inherits="PublicCouncilBackEnd.subsite.WebForm10" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="sublayout" runat="server">
@@ -27,7 +28,6 @@
                             ForeColor="#333333"
                             GridLines="None"
                             AllowPaging="True"
-                          
                             PageSize="15">
                             <AlternatingRowStyle BackColor="White" HorizontalAlign="Center" VerticalAlign="Middle" />
                             <EditRowStyle BackColor="#2461BF" HorizontalAlign="Center" VerticalAlign="Middle" />
@@ -69,21 +69,21 @@
                 <asp:ListView ID="MEMBERS_EN" runat="server" OnPagePropertiesChanging="MEMBERS_EN_PagePropertiesChanging">
                     <ItemTemplate>
                         <div class="member-card mb-md-2">
-                                    <div class="member-card-inner">
-                                        <div class="member-card-front">
-                                            <img src="/images/members/<%#Eval("MEMBER_IMAGE")%>" alt="Avatar" style="width: 300px; height: 300px;">
-                                        </div>
-                                        <div class="member-card-back">
-                                            <p>
-                                                <%#Eval("MEMBER_POSITION_EN")%>
-                                            </p>
-                                            <p class="h4">
-                                                <%#Eval("MEMBER_NAME_EN")%>  <%#Eval("MEMBER_SURNAME_EN")%>
-                                            </p>
-                                            <a class="btn btn-outline-secondary btn-round btn-sm" href="/<%#Eval("USER_PCDOMAIN")%>/memberdetail/en/<%#Eval("MEMBER_ID")%>">Details</a>
-                                        </div>
-                                    </div>
+                            <div class="member-card-inner">
+                                <div class="member-card-front">
+                                    <img src="/images/members/<%#Eval("MEMBER_IMAGE")%>" alt="Avatar" style="width: 300px; height: 300px;">
                                 </div>
+                                <div class="member-card-back">
+                                    <p>
+                                        <%#Eval("MEMBER_POSITION_EN")%>
+                                    </p>
+                                    <p class="h4">
+                                        <%#Eval("MEMBER_NAME_EN")%>  <%#Eval("MEMBER_SURNAME_EN")%>
+                                    </p>
+                                    <a class="btn btn-outline-secondary btn-round btn-sm" href="/<%#Eval("USER_PCDOMAIN")%>/memberdetail/en/<%#Eval("MEMBER_ID")%>">Details</a>
+                                </div>
+                            </div>
+                        </div>
                     </ItemTemplate>
                 </asp:ListView>
             </div>
@@ -138,9 +138,9 @@
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
-       <script>
-           document.addEventListener("DOMContentLoaded", () => {
-               changeLayout({ Id: "contentside", className: "col-12 content-side" }, { Id: "rightside", className: "d-none" });
-           });
-       </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            changeLayout({ Id: "contentside", className: "col-12 content-side" }, { Id: "rightside", className: "d-none" });
+        });
+    </script>
 </asp:Content>

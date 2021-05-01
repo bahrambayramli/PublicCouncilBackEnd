@@ -13,7 +13,7 @@
     <meta name="theme-color" content="#ffffff">
     <title>İctimai şura</title>
     <link rel="apple-touch-icon" sizes="57x57" href="/images/ico/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/images/ico/app/e-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="60x60" href= "aboutus.aspx">
     <link rel="apple-touch-icon" sizes="72x72" href="/images/ico/apple-i/on-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="/images/ico/apple-icon-/6x76.png">
     <link rel="apple-touch-icon" sizes="114x114" href="/images/ico/apple-icon-114x114.png">
@@ -149,8 +149,6 @@
                         </div>
                         <div id="subsidebottom" class="subside-bottom">
                             <nav id="subnav" class="sub-nav">
-
-
                                 <ul id="subnavul" class="subnav-ul">
 
                                     <li class="subnav-item">
@@ -196,7 +194,6 @@
                                         </asp:HyperLink>
                                     </li>
                                 </ul>
-
                             </nav>
                         </div>
                     </section>

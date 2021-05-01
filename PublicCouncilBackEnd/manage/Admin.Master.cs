@@ -16,7 +16,7 @@ namespace PublicCouncilBackEnd.manage
             {
                 Response.Redirect("/login");
             }
-            Session.Timeout = 30; //30 is number of minutes
+            Session.Timeout = 90; //30 is number of minutes
 
             if (Session["USER_MEMBERSHIP_TYPE"] as string == "admin")
             {

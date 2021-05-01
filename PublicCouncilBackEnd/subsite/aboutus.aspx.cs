@@ -70,24 +70,7 @@ namespace PublicCouncilBackEnd.subsite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            switch (Convert.ToString(Page.RouteData.Values["language"]).ToLower())
-            {
-                case "az":
-                    {
-                        pageName.Text = "Haqqımızda";
-                        break;
-                    }
-                case "en":
-                    {
-                        pageName.Text = "About Us";
-                        break;
-                    }
-                default:
-                    {
-                        pageName.Text = "Haqqımızda";
-                        break;
-                    }
-            }
+     
 
             GetUserInfo(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Page.RouteData.Values["publiccouncil"] as string);
         }

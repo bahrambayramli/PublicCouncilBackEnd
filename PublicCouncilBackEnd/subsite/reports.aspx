@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/subsite/Subdomain.Master" AutoEventWireup="true" CodeBehind="reports.aspx.cs" Inherits="PublicCouncilBackEnd.subsite.WebForm6" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="sublayout" runat="server">
@@ -102,9 +103,9 @@
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
-       <script>
-           document.addEventListener("DOMContentLoaded", () => {
-               changeLayout({ Id: "contentside", className: "col-12 content-side" }, { Id: "rightside", className: "d-none" });
-           });
-       </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            changeLayout({ Id: "contentside", className: "col-12 content-side" }, { Id: "rightside", className: "d-none" });
+        });
+    </script>
 </asp:Content>

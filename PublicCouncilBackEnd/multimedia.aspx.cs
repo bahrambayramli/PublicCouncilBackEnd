@@ -415,6 +415,7 @@ namespace PublicCouncilBackEnd
 
             }
         }
+
         private void changeLinksActiveStyle()
         {
             if (HttpContext.Current.Request.Url.ToString().Contains("/multimedia/photo/az") || HttpContext.Current.Request.Url.ToString().Contains("/multimedia/photo/en"))

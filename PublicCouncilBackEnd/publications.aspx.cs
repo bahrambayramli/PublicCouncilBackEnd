@@ -199,7 +199,7 @@ namespace PublicCouncilBackEnd
                                                                                             	        POST_SITECATEGORYEN,
                                                                                                         POST_IMG,
                                                                                                         POST_DATE,
-                                                                                                        POST_SEOEN,
+                                                                                                        POST_SEOEN
                                                                                             FROM        PC_POSTS
 
                                                                                             WHERE       ISDELETE            = @ISDELETE      AND
@@ -213,10 +213,10 @@ namespace PublicCouncilBackEnd
 
 
 
-                        getPost.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = POST_ISDELETE;
-                        getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
-                        getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
-                        getPost.SelectCommand.Parameters.Add("@POST_EN_VIEW", SqlDbType.Bit).Value = true;
+                        getPost.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value              = POST_ISDELETE;
+                        getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value              = POST_ISACTIVE;
+                        getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value    = POST_CATEGORY;
+                        getPost.SelectCommand.Parameters.Add("@POST_EN_VIEW", SqlDbType.Bit).Value          = true;
 
 
 
