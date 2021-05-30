@@ -32,7 +32,7 @@
                                         <SelectParameters>
                                             <asp:QueryStringParameter Name="ISACTIVE" QueryStringField="true" Type="Boolean" DefaultValue="true" />
                                             <asp:QueryStringParameter Name="ISDELETE" QueryStringField="false" Type="Boolean" DefaultValue="false" />
-                                           
+
                                         </SelectParameters>
                                     </asp:SqlDataSource>
                                 </div>

@@ -1000,25 +1000,26 @@ namespace PublicCouncilBackEnd
 
         protected void langAZ_Click(object sender, EventArgs e)
         {
-            string url = HttpContext.Current.Request.Url.ToString();
-            if (!url.Contains("home/"))
+            if (HttpContext.Current.Request.Url.ToString().Contains("/az") || HttpContext.Current.Request.Url.ToString().Contains("/en") || HttpContext.Current.Request.Url.ToString().Contains("/detail"))
+            {
+                Response.Redirect(HttpContext.Current.Request.Url.ToString().Substring(0, HttpContext.Current.Request.Url.ToString().Length - 2) + "az");
+            }
+            else
             {
                 Response.Redirect("/home/az");
             }
-            url = null;
-
-            Response.Redirect(Request.RawUrl.Replace("/en", "/az"));
         }
 
         protected void langEN_Click(object sender, EventArgs e)
         {
-            string url = HttpContext.Current.Request.Url.ToString();
-            if (!url.Contains("home/"))
+            if (HttpContext.Current.Request.Url.ToString().Contains("/en") || HttpContext.Current.Request.Url.ToString().Contains("/az") || HttpContext.Current.Request.Url.ToString().Contains("/detail"))
+            {
+                Response.Redirect(HttpContext.Current.Request.Url.ToString().Substring(0, HttpContext.Current.Request.Url.ToString().Length - 2) + "en");
+            }
+            else
             {
                 Response.Redirect("/home/en");
             }
-            url = null;
-            Response.Redirect(Request.RawUrl.Replace("/az", "/en"));
         }
 
         protected void signIN_Click(object sender, EventArgs e)

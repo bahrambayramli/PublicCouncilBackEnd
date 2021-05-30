@@ -501,6 +501,7 @@
 
         });
     </script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
 
@@ -550,6 +551,8 @@
             });
         });
     </script>
+
+
     <script>
         document.addEventListener("DOMContentLoaded", function (event) {
             let editor = CKEDITOR.replace('CKEditorControl1');
