@@ -1,16 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace PublicCouncilBackEnd.subsite
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        #region(SQL FUNCTIONS)
         private void GetPosts(string LANGUAGE, string POST_COUNT, string POST_CATEGORY, string POST_SUBCATEGORY, string POST_TYPE, bool POST_ISDELETE, bool POST_ISACTIVE, string POST_AUTHOR, ListView LSV_AZ, ListView LSV_EN)
         {
             switch (LANGUAGE)
@@ -239,22 +238,41 @@ namespace PublicCouncilBackEnd.subsite
                     }
             }
         }
+        #endregion
+
+        protected private void RunHome(string LANG, string PC_NAME)
+        {
+            try
+            {
+                GetPosts(LANG, "4", "news", "", "Əsas", false, true, PC_NAME, MAINSLIDER_AZ, MAINSLIDER_EN);
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> home.aspx page >> GetPosts >> MAIN_SLIDER, Log:{ex.Message}");
+            }
+
+            try
+            {
+                GetPosts(LANG, "6", "news", "", "Sadə", false, true, PC_NAME, SIMPLEPOSTS_AZ, SIMPLEPOSTS_EN);
+
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> home.aspx page >> GetPosts >> SIMPLEPOSTS, Log:{ex.Message}");
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    //Session["pcsubsite"] = ;
-            //    // HttpContext.Current.Request.Url.ToString()
-            //    //.Substring(0, HttpContext.Current.Request.Url.ToString().IndexOf("."))
-            //    //.Replace("http://", string.Empty);
-            //}
-            //catch (Exception ex)
-            //{  
-            //    Log.LogCreator(Server.MapPath("~/Log/logs.txt"), ex.Message);
-            //}
-            GetPosts(Page.RouteData.Values["language"] as string, "4", "news", "", "Əsas", false, true, Page.RouteData.Values["publiccouncil"] as string, MAINSLIDER_AZ, MAINSLIDER_EN);
-            GetPosts(Page.RouteData.Values["language"] as string, "6", "news", "", "Sadə", false, true, Page.RouteData.Values["publiccouncil"] as string, SIMPLEPOSTS_AZ, SIMPLEPOSTS_EN);
+
+            try
+            {
+                RunHome(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Convert.ToString(Page.RouteData.Values["publiccouncil"]).ToLower());
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> home.aspx page >> RunHome, Log:{ex.Message}");
+            }
 
         }
     }

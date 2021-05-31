@@ -664,7 +664,17 @@ namespace PublicCouncilBackEnd.subsite
         #region(CHANGE LANGUAGE BUTTON'S EVENTS)
         protected void langAZ_Click(object sender, EventArgs e)
         {
-            if (HttpContext.Current.Request.Url.ToString().Contains("/az") || HttpContext.Current.Request.Url.ToString().Contains("/en") || HttpContext.Current.Request.Url.ToString().Contains("/detail"))
+
+          
+            if(!string.IsNullOrEmpty(Page.RouteData.Values["postid"] as string))
+            {
+                Response.Redirect($"/{Page.RouteData.Values["publiccouncil"] as string}/details/az/{Page.RouteData.Values["postid"] as string}");
+            }
+            else if (!string.IsNullOrEmpty(Page.RouteData.Values["memberid"] as string))
+            {
+                Response.Redirect($"/{Page.RouteData.Values["publiccouncil"] as string}/memberdetail/az/{Page.RouteData.Values["memberid"] as string}");
+            }
+            else if(HttpContext.Current.Request.Url.ToString().Contains("/az") || HttpContext.Current.Request.Url.ToString().Contains("/en"))
             {
                 Response.Redirect(HttpContext.Current.Request.Url.ToString().Substring(0, HttpContext.Current.Request.Url.ToString().Length - 2) + "az");
             }
@@ -672,11 +682,21 @@ namespace PublicCouncilBackEnd.subsite
             {
                 Response.Redirect("/home/az");
             }
+
         }
 
         protected void langEN_Click(object sender, EventArgs e)
         {
-            if (HttpContext.Current.Request.Url.ToString().Contains("/en") || HttpContext.Current.Request.Url.ToString().Contains("/az") || HttpContext.Current.Request.Url.ToString().Contains("/detail"))
+
+            if (!string.IsNullOrEmpty(Page.RouteData.Values["postid"] as string))
+            {
+                Response.Redirect($"/{Page.RouteData.Values["publiccouncil"] as string}/details/en/{Page.RouteData.Values["postid"] as string}");
+            }
+            else if (!string.IsNullOrEmpty(Page.RouteData.Values["memberid"] as string))
+            {
+                Response.Redirect($"/{Page.RouteData.Values["publiccouncil"] as string}/memberdetail/en/{Page.RouteData.Values["memberid"] as string}");
+            }
+            else if (HttpContext.Current.Request.Url.ToString().Contains("/en") || HttpContext.Current.Request.Url.ToString().Contains("/az"))
             {
                 Response.Redirect(HttpContext.Current.Request.Url.ToString().Substring(0, HttpContext.Current.Request.Url.ToString().Length - 2) + "en");
             }

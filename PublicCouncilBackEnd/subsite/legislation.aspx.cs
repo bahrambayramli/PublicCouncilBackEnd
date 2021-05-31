@@ -1,18 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace PublicCouncilBackEnd.subsite
 {
     public partial class WebForm4 : System.Web.UI.Page
     {
-      
+        #region(HELPER FUNCTIONS)
+        private void ChangeLanguage(string LANG)
+        {
+            switch (LANG)
+            {
+                case "az":
+                    {
+                        postsName.Text = "qanunvericilik";
+                        break;
+                    }
+                case "en":
+                    {
+                        postsName.Text = "legislations";
+                        break;
+                    }
+                default:
+                    {
+                        postsName.Text = "qanunvericilik";
+                        break;
+                    }
+            }
+        }
+        #endregion
 
+        #region(SQL FUNCTIONS)
         private void GetPosts(string LANGUAGE, string POST_CATEGORY, bool POST_ISDELETE, bool POST_ISACTIVE, string POST_AUTHOR, ListView LSV_AZ, ListView LSV_EN)
         {
             switch (LANGUAGE)
@@ -145,67 +166,73 @@ namespace PublicCouncilBackEnd.subsite
 
             }
         }
+        #endregion
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            switch (Convert.ToString(Page.RouteData.Values["language"]).ToLower())
-            {
-                case "az":
-                    {
-                        postsName.Text = "qanunvericilik";
-                        break;
-                    }
-                case "en":
-                    {
-                        postsName.Text = "legislations";
-                        break;
-                    }
-                default:
-                    {
-                        postsName.Text = "qanunvericilik";
-                        break;
-                    }
-            }
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "legislation", false, true, Page.RouteData.Values["publiccouncil"] as string, POSTLIST_AZ, POSTLIST_EN);
-        }
-
+        #region(POST LIST LISTVIEW EVENTS)
         protected void POSTLIST_AZ_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
         {
-            if (Convert.ToString(Page.RouteData.Values["language"]).ToLower() == "az")
-            {
-                POSTLIST_AZ.Visible = true;
-                POSTLIST_EN.Visible = false;
-                DataPager_AZ.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+            DataPager_AZ.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
 
-            }
-            else if (Convert.ToString(Page.RouteData.Values["language"]).ToLower() == "en")
+            try
             {
-                POSTLIST_EN.Visible = true;
-                POSTLIST_AZ.Visible = false;
-                DataPager_EN.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "legislation", false, true, Convert.ToString(Page.RouteData.Values["publicocuncil"]).ToLower(), POSTLIST_AZ, POSTLIST_EN);
             }
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "legislation", false, true, Session["pcsubsite"] as string, POSTLIST_AZ, POSTLIST_EN);
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> legislation.aspx page >> GetPosts, Log:{ex.Message}");
+            }
         }
 
         protected void POSTLIST_EN_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
         {
-            if (Convert.ToString(Page.RouteData.Values["language"]).ToLower() == "az")
+            DataPager_EN.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+
+            try
             {
-                POSTLIST_AZ.Visible = true;
-                POSTLIST_EN.Visible = false;
-                DataPager_AZ.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
-
+                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "legislation", false, true, Convert.ToString(Page.RouteData.Values["publicocuncil"]).ToLower(), POSTLIST_AZ, POSTLIST_EN);
             }
-            else if (Convert.ToString(Page.RouteData.Values["language"]).ToLower() == "en")
+            catch (Exception ex)
             {
-                POSTLIST_AZ.Visible = false;
-                POSTLIST_EN.Visible = true;
-                DataPager_EN.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> legislation.aspx page >> GetPosts, Log:{ex.Message}");
             }
-
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "legislation", false, true, Session["pcsubsite"] as string, POSTLIST_AZ, POSTLIST_EN);
-
 
         }
+        #endregion
+
+        protected private void RunLegislation(string LANG, string PC_NAME)
+        {
+            try
+            {
+                ChangeLanguage(LANG);
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> legislation.aspx page >> ChangeLanguage, Log:{ex.Message}");
+            }
+
+            try
+            {
+                GetPosts(LANG, "legislation", false, true, PC_NAME, POSTLIST_AZ, POSTLIST_EN);
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> legislation.aspx page >> GetPosts, Log:{ex.Message}");
+            }
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+            try
+            {
+                RunLegislation(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Convert.ToString(Page.RouteData.Values["publiccouncil"]).ToLower());
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> legislation.aspx page >> RunLegislation, Log:{ex.Message}");
+            }
+
+        }
+        
     }
 }
