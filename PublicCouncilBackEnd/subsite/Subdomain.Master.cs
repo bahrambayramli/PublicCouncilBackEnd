@@ -1,17 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace PublicCouncilBackEnd.subsite
 {
     public partial class Subdomain : System.Web.UI.MasterPage
     {
 
+        #region(SQL FUNCTIONS)
         private void GetUserInfo(string LANG, string USER_PCDOMAIN)
         {
             SqlDataAdapter getSerial;
@@ -659,54 +659,14 @@ namespace PublicCouncilBackEnd.subsite
 
             }
         }
+        #endregion
 
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            try
-            {
-              
-               // Session["pcsubsite"] = Page.RouteData.Values["publiccouncil"] as string;
-                //HttpContext.Current.Request.Url.ToString()
-                //    .Substring(0, HttpContext.Current.Request.Url.ToString().IndexOf("."))
-                //    .Replace("http://", string.Empty);
-            }
-            catch (Exception ex)
-            {
-                Log.LogCreator(Server.MapPath("~/Log/logs.txt"), ex.Message);
-            }
-           
-            try
-            {
-
-
-                GetUserInfo(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Page.RouteData.Values["publiccouncil"] as string);
-                Navigation();
-                GetLogos();
-                SiteLanguage();
-                GetNavigations(Page.RouteData.Values["language"] as string);
-                GetSponsors();
-                GetLatest(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "4", "news", false, true, Page.RouteData.Values["publiccouncil"] as string, LATEST_AZ, LATEST_EN);
-
-            }
-            catch (Exception ex)
-            {
-
-                Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", ex.Message);
-                //string suburl = HttpContext.Current.Request.Url.ToString()
-                //    .Substring(0, HttpContext.Current.Request.Url.ToString().IndexOf("."))
-                //    .Replace("http://", string.Empty);
-                //Log.LogCreator(@"C:\inetpub\PublicCouncil\Logs\logs.txt", suburl);
-
-            }
-
-        }
-
+        #region(CHANGE LANGUAGE BUTTON'S EVENTS)
         protected void langAZ_Click(object sender, EventArgs e)
         {
             if (HttpContext.Current.Request.Url.ToString().Contains("/az") || HttpContext.Current.Request.Url.ToString().Contains("/en") || HttpContext.Current.Request.Url.ToString().Contains("/detail"))
             {
-                Response.Redirect(HttpContext.Current.Request.Url.ToString().Substring(0, HttpContext.Current.Request.Url.ToString().Length-2)+"az");
+                Response.Redirect(HttpContext.Current.Request.Url.ToString().Substring(0, HttpContext.Current.Request.Url.ToString().Length - 2) + "az");
             }
             else
             {
@@ -724,6 +684,89 @@ namespace PublicCouncilBackEnd.subsite
             {
                 Response.Redirect("/home/en");
             }
+        }
+        #endregion
+
+        protected private void RunSubMaster(string LANG,string PC_NAME)
+        {
+            try
+            {
+                GetUserInfo(LANG, PC_NAME);
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetUserInfo method, Log:{ex.Message}");
+            }
+
+            try
+            {
+                Navigation();
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> Navigation method, Log:{ex.Message}");
+            }
+
+            try
+            {
+                GetLogos();
+
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetLogos method, Log:{ex.Message}");
+            }
+
+            try
+            {
+                SiteLanguage();
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetLogos method, Log:{ex.Message}");
+            }
+
+            try
+            {
+                GetNavigations(LANG);
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetLogos method, Log:{ex.Message}");
+            }
+
+            try
+            {
+                GetSponsors();
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetSponsors method, Log:{ex.Message}");
+            }
+
+            try
+            {
+                GetLatest(LANG, "4", "news", false, true, PC_NAME, LATEST_AZ, LATEST_EN);
+
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetLatest method, Log:{ex.Message}");
+            }
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+            try
+            {
+                RunSubMaster(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Convert.ToString(Page.RouteData.Values["publiccouncil"]).ToLower());
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetLatest method, Log:{ex.Message}");
+            }
+
         }
 
         protected void signIN_Click(object sender, EventArgs e)
