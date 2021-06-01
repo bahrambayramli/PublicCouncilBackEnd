@@ -987,9 +987,13 @@ namespace PublicCouncilBackEnd
 
         protected void langAZ_Click(object sender, EventArgs e)
         {
-            if (HttpContext.Current.Request.Url.ToString().Contains("/az") || HttpContext.Current.Request.Url.ToString().Contains("/en") || HttpContext.Current.Request.Url.ToString().Contains("/detail"))
+            if (!string.IsNullOrEmpty(Page.RouteData.Values["postid"] as string))
             {
-                Response.Redirect(HttpContext.Current.Request.Url.ToString().Substring(0, HttpContext.Current.Request.Url.ToString().Length - 2) + "az");
+                Response.Redirect($"https://{Request.Url.Host}/details/az/{Page.RouteData.Values["postid"] as string}");
+            }
+            else if (HttpContext.Current.Request.Url.ToString().Contains("/az") || HttpContext.Current.Request.Url.ToString().Contains("/en"))
+            {
+                Response.Redirect($"https://{HttpContext.Current.Request.Url.ToString().Substring(0, HttpContext.Current.Request.Url.ToString().Length - 2).Replace("http://", "")}az");
             }
             else
             {
@@ -999,9 +1003,14 @@ namespace PublicCouncilBackEnd
 
         protected void langEN_Click(object sender, EventArgs e)
         {
-            if (HttpContext.Current.Request.Url.ToString().Contains("/en") || HttpContext.Current.Request.Url.ToString().Contains("/az") || HttpContext.Current.Request.Url.ToString().Contains("/detail"))
+            if (!string.IsNullOrEmpty(Page.RouteData.Values["postid"] as string))
             {
-                Response.Redirect(HttpContext.Current.Request.Url.ToString().Substring(0, HttpContext.Current.Request.Url.ToString().Length - 2) + "en");
+                Response.Redirect($"https://{Request.Url.Host}/details/en/{Page.RouteData.Values["postid"] as string}");
+            }
+            else if (HttpContext.Current.Request.Url.ToString().Contains("/az") || HttpContext.Current.Request.Url.ToString().Contains("/en"))
+            {
+               
+                Response.Redirect($"https://{HttpContext.Current.Request.Url.ToString().Substring(0, HttpContext.Current.Request.Url.ToString().Length - 2).Replace("http://", "")}en");   
             }
             else
             {
@@ -1158,13 +1167,14 @@ namespace PublicCouncilBackEnd
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //RunMainMaster
             try
             {
                 RunMainMaster(Convert.ToString(Page.RouteData.Values["language"]).ToLower());
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: main master >>  RunMainMaster method, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: Main master >>  RunMainMaster method, Log:{ex.Message}");
             }
         }
     }
