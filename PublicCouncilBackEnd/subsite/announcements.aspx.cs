@@ -179,7 +179,7 @@ namespace PublicCouncilBackEnd.subsite
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> announcements.aspx page >> GetPosts, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> announcements.aspx page >> GetPosts, Log:{ex.Message}");
             }
         }
 
@@ -193,7 +193,7 @@ namespace PublicCouncilBackEnd.subsite
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> announcements.aspx page >> GetPosts, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> announcements.aspx page >> GetPosts, Log:{ex.Message}");
             }
 
         }
@@ -207,7 +207,7 @@ namespace PublicCouncilBackEnd.subsite
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> announcements.aspx page >> ChangeLanguage, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> announcements.aspx page >> ChangeLanguage, Log:{ex.Message}");
             }
             try
             {
@@ -215,7 +215,7 @@ namespace PublicCouncilBackEnd.subsite
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> announcements.aspx page >> GetPosts, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> announcements.aspx page >> GetPosts, Log:{ex.Message}");
             }
         }
 
@@ -228,7 +228,7 @@ namespace PublicCouncilBackEnd.subsite
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> announcements.aspx page >> RunAnnouncements, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> announcements.aspx page >> RunAnnouncements, Log:{ex.Message}");
             }
 
         }

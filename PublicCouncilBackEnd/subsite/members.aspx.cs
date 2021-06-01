@@ -243,7 +243,14 @@ namespace PublicCouncilBackEnd.subsite
             DataPager_AZ.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
 
 
-            GetMembers(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Session["PC_USER_ID"] as string, false, true, MEMBERS_AZ, MEMBERS_EN);
+            try
+            {
+                 GetMembers(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), GetPcId(Page.RouteData.Values["publicocuncil"] as string), false, true, MEMBERS_AZ, MEMBERS_EN);
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> members.aspx page >> GetMembers method, Log:{ex.Message}");
+            }
 
         }
 
@@ -251,7 +258,14 @@ namespace PublicCouncilBackEnd.subsite
         {
             DataPager_EN.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
 
-            GetMembers(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Session["PC_USER_ID"] as string, false, true, MEMBERS_AZ, MEMBERS_EN);
+            try
+            {
+                GetMembers(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), GetPcId(Page.RouteData.Values["publicocuncil"] as string), false, true, MEMBERS_AZ, MEMBERS_EN);
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> members.aspx page >> GetMembers method, Log:{ex.Message}");
+            }
 
         }
 
@@ -265,31 +279,34 @@ namespace PublicCouncilBackEnd.subsite
 
         protected private void RunMembers(string LANG,string PC_NAME)
         {
+            //ChangeLanguage
             try
             {
                 ChangeLanguage(LANG);
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> members.aspx page >> ChangeLanguage, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> members.aspx page >> ChangeLanguage method, Log:{ex.Message}");
             }
 
+            //GetMembers
             try
             {
-                GetMembers(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), GetPcId(PC_NAME), false, MemberList);
+                GetMembers(LANG, GetPcId(PC_NAME), false, MemberList);
+            }
+            catch 
+            {
+               // Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> members.aspx page >> GetMembers method, Log:{ex.Message}");
+            }
+
+            //GetMembers
+            try
+            {
+                GetMembers(LANG, GetPcId(PC_NAME), false, true, MEMBERS_AZ, MEMBERS_EN);
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> members.aspx page >> GetMembers, Log:{ex.Message}");
-            }
-
-            try
-            {
-                GetMembers(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), GetPcId(PC_NAME), false, true, MEMBERS_AZ, MEMBERS_EN);
-            }
-            catch (Exception ex)
-            {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> members.aspx page >> GetMembers, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> members.aspx page >> GetMembers method, Log:{ex.Message}");
             }
         }
 
@@ -301,7 +318,7 @@ namespace PublicCouncilBackEnd.subsite
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> members.aspx page >> RunMembers, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> members.aspx page >> RunMembers, Log:{ex.Message}");
             }
         }
 

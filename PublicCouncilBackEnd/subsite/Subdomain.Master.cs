@@ -10,6 +10,40 @@ namespace PublicCouncilBackEnd.subsite
 {
     public partial class Subdomain : System.Web.UI.MasterPage
     {
+        #region(HELPER FUNCTIONS)
+        private void ChangeLanguage(string LANG)
+        {
+
+            switch (LANG)
+            {
+                case "az":
+                    {
+                        signIN.Text             = "Daxil ol";
+                        pageName.Text           = "İctimai şura";
+                        pageName.NavigateUrl    = "http://ictimaishura.az";
+                        siteRights.Text         = $"©Bütün hüquqlar qorunur {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
+                        break;
+                    }
+                case "en":
+                    {
+                        signIN.Text             = "Sign in";
+                        pageName.Text           = "Public council";
+                        pageName.NavigateUrl    = "http://ictimaishura.az";
+                        siteRights.Text         = $"© All rights reserved {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
+                        break;
+                    }
+                default:
+                    {
+                        signIN.Text             = "Daxil ol";
+                        pageName.Text           = "İctimai şura";
+                        pageName.NavigateUrl    = "http://ictimaishura.az";
+                        siteRights.Text         = $"©Bütün hüquqlar qorunur {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
+                        break;
+                    }
+            }
+
+        }
+        #endregion
 
         #region(SQL FUNCTIONS)
         private void GetUserInfo(string LANG, string USER_PCDOMAIN)
@@ -447,39 +481,6 @@ namespace PublicCouncilBackEnd.subsite
 
         }
 
-        private void SiteLanguage()
-        {
-
-            switch (Convert.ToString(Page.RouteData.Values["language"]).ToLower())
-            {
-                case "az":
-                    {
-                        signIN.Text = "Daxil ol";
-                        pageName.Text = "İctimai şura";
-                        pageName.NavigateUrl = "http://ictimaishura.az";
-                        siteRights.Text = $"©Bütün hüquqlar qorunur {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
-                        break;
-                    }
-                case "en":
-                    {
-                        signIN.Text = "Sign in";
-                        pageName.Text = "Public council";
-                        pageName.NavigateUrl = "http://ictimaishura.az";
-                        siteRights.Text = $"© All rights reserved {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
-                        break;
-                    }
-                default:
-                    {
-                        signIN.Text = "Daxil ol";
-                        pageName.Text = "İctimai şura";
-                        pageName.NavigateUrl = "http://ictimaishura.az";
-                        siteRights.Text = $"©Bütün hüquqlar qorunur {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
-                        break;
-                    }
-            }
-
-        }
-
         private void GetNavigations(string lang)
         {
             DataTable nav;
@@ -664,8 +665,6 @@ namespace PublicCouncilBackEnd.subsite
         #region(CHANGE LANGUAGE BUTTON'S EVENTS)
         protected void langAZ_Click(object sender, EventArgs e)
         {
-
-          
             if(!string.IsNullOrEmpty(Page.RouteData.Values["postid"] as string))
             {
                 Response.Redirect($"/{Page.RouteData.Values["publiccouncil"] as string}/details/az/{Page.RouteData.Values["postid"] as string}");
@@ -682,7 +681,6 @@ namespace PublicCouncilBackEnd.subsite
             {
                 Response.Redirect("/home/az");
             }
-
         }
 
         protected void langEN_Click(object sender, EventArgs e)
@@ -709,61 +707,67 @@ namespace PublicCouncilBackEnd.subsite
 
         protected private void RunSubMaster(string LANG,string PC_NAME)
         {
+            //GetUserInfo
             try
             {
                 GetUserInfo(LANG, PC_NAME);
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetUserInfo method, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetUserInfo method, Log:{ex.Message}");
             }
 
+            //Navigation
             try
             {
                 Navigation();
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> Navigation method, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> Navigation method, Log:{ex.Message}");
             }
 
+            //GetLogos
             try
             {
                 GetLogos();
-
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetLogos method, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetLogos method, Log:{ex.Message}");
             }
 
+            //ChangeLanguage
             try
             {
-                SiteLanguage();
+                ChangeLanguage(LANG);
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetLogos method, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetLogos method, Log:{ex.Message}");
             }
 
+            //GetNavigations
             try
             {
                 GetNavigations(LANG);
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetLogos method, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetLogos method, Log:{ex.Message}");
             }
 
+            //GetSponsors
             try
             {
                 GetSponsors();
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetSponsors method, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetSponsors method, Log:{ex.Message}");
             }
 
+            //GetLatest
             try
             {
                 GetLatest(LANG, "4", "news", false, true, PC_NAME, LATEST_AZ, LATEST_EN);
@@ -771,7 +775,7 @@ namespace PublicCouncilBackEnd.subsite
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetLatest method, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetLatest method, Log:{ex.Message}");
             }
         }
 
@@ -784,7 +788,7 @@ namespace PublicCouncilBackEnd.subsite
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetLatest method, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetLatest method, Log:{ex.Message}");
             }
 
         }

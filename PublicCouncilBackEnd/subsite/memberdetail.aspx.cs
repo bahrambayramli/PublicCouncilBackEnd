@@ -9,7 +9,6 @@ namespace PublicCouncilBackEnd.subsite
     public partial class WebForm11 : System.Web.UI.Page
     {
         #region(SQL FUNCTIONS)
-
         private string GetPcId(string PC_NAME)
         {
             SqlDataAdapter getPcId = new SqlDataAdapter(new SqlCommand(@"SELECT USER_ID FROM PC_USERS WHERE USER_PCDOMAIN = @USER_PCDOMAIN"));
@@ -19,6 +18,7 @@ namespace PublicCouncilBackEnd.subsite
             return SQL.SELECT(getPcId).Rows[0]["USER_ID"].ToString();
 
         }
+
         private void GetMemberInfo(string LANG, string MEMBER_ID, string PC_ID)
         {
             SqlDataAdapter getMember;
@@ -112,25 +112,27 @@ namespace PublicCouncilBackEnd.subsite
 
         protected private void RunMemberDetail(string LANG, string PC_NAME, string MEMBER_ID)
         {
+            //GetMemberInfo
             try
             {
                 GetMemberInfo(LANG, MEMBER_ID, GetPcId(PC_NAME));
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsute >> memberdetail.aspx page >> GetMemberInfo, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsute >> memberdetail.aspx page >> GetMemberInfo method, Log:{ex.Message}");
             }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //RunMemberDetail
             try
             {
                 RunMemberDetail(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Convert.ToString(Page.RouteData.Values["publiccouncil"]).ToLower(), Page.RouteData.Values["memberid"] as string);
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsute memberdetail.aspx page >> RunMemberDetail, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsute memberdetail.aspx page >> RunMemberDetail method, Log:{ex.Message}");
             }
 
         }

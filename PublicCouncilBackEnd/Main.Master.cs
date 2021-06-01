@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -9,30 +10,56 @@ namespace PublicCouncilBackEnd
 {
     public partial class Main : System.Web.UI.MasterPage
     {
-        protected DateTime GetCurrentTime()
+        #region(HELPER FUNCTIONS)
+
+        private void ChangeLanguage(string LANG)
         {
-            DateTime serverTime = DateTime.Now;
-            DateTime _localTime = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(serverTime, TimeZoneInfo.Local.Id, "Azerbaijan Standard Time");
-            return _localTime;
+            switch (LANG)
+            {
+                case "az":
+                    {
+                        signIN.Text = "Daxil ol";
+                        pageName.Text = "İctimai şura";
+                        pageName.NavigateUrl = "http://ictimaishura.az";
+                        siteRights.Text = $"© Bütün hüquqlar qorunur {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
+                        break;
+                    }
+                case "en":
+                    {
+                        signIN.Text = "Sign in";
+                        pageName.Text = "Public council";
+                        pageName.NavigateUrl = "http://ictimaishura.az";
+                        siteRights.Text = $"© All rights reserved {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
+                        break;
+                    }
+                default:
+                    {
+                        signIN.Text = "Daxil ol";
+                        pageName.Text = "İctimai şura";
+                        pageName.NavigateUrl = "http://ictimaishura.az";
+                        siteRights.Text = $"© Bütün hüquqlar qorunur {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
+                        break;
+                    }
+            }
         }
 
-        private void HeaderNav()
+        private void HeaderNav(string LANG)
         {
-           
+
             Label aboutus = new Label();
             Literal aboutusicon = new Literal();
             Label contactus = new Label();
             Literal contactusicon = new Literal();
             Label search = new Label();
             Literal searchIcon = new Literal();
-            switch (Convert.ToString(Page.RouteData.Values["language"]).ToLower())
+            switch (LANG)
             {
                 case "az":
                     {
                         try
                         {
 
-                           
+
                             aboutus.Text = "HAQQIMIZDA";
                             aboutus.CssClass = "subnav-link-text";
                             aboutusicon.Text = " <i class='fas fa-address-card text-danger mr-2 d-none d-md-inline'></i>";
@@ -132,9 +159,16 @@ namespace PublicCouncilBackEnd
                     }
             }
 
-
-
         }
+
+        protected DateTime GetCurrentTime()
+        {
+            DateTime serverTime = DateTime.Now;
+            DateTime _localTime = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(serverTime, TimeZoneInfo.Local.Id, "Azerbaijan Standard Time");
+            return _localTime;
+        }
+
+        #endregion
 
         #region(SQL FUNCTIONS)
         private void GetLogo()
@@ -949,54 +983,7 @@ namespace PublicCouncilBackEnd
         }
         #endregion
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            
-            Session["language"] = Convert.ToString(Page.RouteData.Values["language"]).ToLower();
-            GetLogo();
-            GetNavigations(Page.RouteData.Values["language"] as string);
-            GetPosts(Session["language"] as string, "4", "announcements", false, true, true, ANNOUNCMENTS_AZ, ANNOUNCMENTS_EN);
-            GetLatest(Session["language"] as string, "10", false, true, true, LATEST_AZ, LATEST_EN);
-          
-
-            HeaderNav();
-
-            if (!IsPostBack)
-            {
-                GetPosts(Session["language"] as string, "4", "election", false, true, true, COUNCILELECTION_AZ, COUNCILELECTION_EN);
-                GetPosts(Session["language"] as string, "10", "multimedia", "video", false, true, true, VIDEOS_AZ, VIDEOS_EN, false);
-                GetPartners(Session["language"] as string, "12", false, true, PARTNERS_AZ, PARTNERS_EN);
-                GetSponsors();
-                switch (Session["language"] as string)
-                {
-                    case "az":
-                        {
-                            signIN.Text = "Daxil ol";
-                            pageName.Text = "İctimai şura";
-                            pageName.NavigateUrl = "http://ictimaishura.az";
-                            siteRights.Text = $"© Bütün hüquqlar qorunur {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
-                            break;
-                        }
-                    case "en":
-                        {
-                            signIN.Text = "Sign in";
-                            pageName.Text = "Public council";
-                            pageName.NavigateUrl = "http://ictimaishura.az";
-                            siteRights.Text = $"© All rights reserved {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
-                            break;
-                        }
-                    default:
-                        {
-                            signIN.Text = "Daxil ol";
-                            pageName.Text = "İctimai şura";
-                            pageName.NavigateUrl = "http://ictimaishura.az";
-                            siteRights.Text = $"© Bütün hüquqlar qorunur {DateTime.Now.Year.ToString()}-{(DateTime.Now.Year + 1).ToString()}";
-                            break;
-                        }
-                }
-            }
-           
-        }
+        #region(CHANGE LANGUAGE BUTTON EVENTS)
 
         protected void langAZ_Click(object sender, EventArgs e)
         {
@@ -1021,6 +1008,10 @@ namespace PublicCouncilBackEnd
                 Response.Redirect("/home/en");
             }
         }
+
+        #endregion
+
+        #region(SIGN IN AND SEARCH BUTTON EVENTS)
 
         protected void signIN_Click(object sender, EventArgs e)
         {
@@ -1052,7 +1043,129 @@ namespace PublicCouncilBackEnd
                     }
             }
 
-          
+
+        }
+
+        #endregion
+
+        protected private void RunMainMaster(string LANG)
+        {
+            //ChangeLanguage
+            try
+            {
+                ChangeLanguage(LANG);
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: main master >>  ChangeLanguage method, Log:{ex.Message}");
+            }
+
+            //GetLogo
+            try
+            {
+                GetLogo();
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: main master >>  GetLogo method, Log:{ex.Message}");
+            }
+
+            //GetNavigations
+            try
+            {
+                GetNavigations(LANG);
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: main master >>  GetNavigations method, Log:{ex.Message}");
+            }
+
+            //GetPosts
+            try
+            {
+                GetPosts(LANG, "4", "announcements", false, true, true, ANNOUNCMENTS_AZ, ANNOUNCMENTS_EN);
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: main master >>  GetPosts method, Log:{ex.Message}");
+            }
+
+            //GetLatest
+            try
+            {
+                GetLatest(Session["language"] as string, "10", false, true, true, LATEST_AZ, LATEST_EN);
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: main master >>  GetLatest method, Log:{ex.Message}");
+            }
+
+            //
+            try
+            {
+                HeaderNav(LANG);
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: main master >>  HeaderNav method, Log:{ex.Message}");
+            }
+
+            if (!IsPostBack)
+            {
+                //GetPosts
+                try
+                {
+                    GetPosts(LANG, "4", "election", false, true, true, COUNCILELECTION_AZ, COUNCILELECTION_EN);
+                }
+                catch (Exception ex)
+                {
+                    Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: main master >>  GetPosts method, Log:{ex.Message}");
+                }
+
+                //GetPosts
+                try
+                {
+                    GetPosts(LANG, "10", "multimedia", "video", false, true, true, VIDEOS_AZ, VIDEOS_EN, false);
+                }
+                catch (Exception ex)
+                {
+                    Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: main master >>  GetPosts method, Log:{ex.Message}");
+                }
+
+                //GetPartners
+                try
+                {
+                    GetPartners(LANG, "12", false, true, PARTNERS_AZ, PARTNERS_EN);
+                }
+                catch (Exception ex)
+                {
+                    Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: main master >>  GetPartners method, Log:{ex.Message}");
+                }
+
+                //GetSponsors
+                try
+                {
+                    GetSponsors();
+                }
+                catch (Exception ex)
+                {
+                    Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: main master >>  GetSponsors method, Log:{ex.Message}");
+                }
+
+            }
+
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                RunMainMaster(Convert.ToString(Page.RouteData.Values["language"]).ToLower());
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: main master >>  RunMainMaster method, Log:{ex.Message}");
+            }
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,6 +12,33 @@ namespace PublicCouncilBackEnd.subsite
 {
     public partial class WebForm5 : System.Web.UI.Page
     {
+        #region(HELPER FUNCTIONS)
+
+        private void ChangeLanguage(string LANG)
+        {
+            switch (LANG)
+            {
+                case "az":
+                    {
+                        postsName.Text = "nəşrlər";
+                        break;
+                    }
+                case "en":
+                    {
+                        postsName.Text = "publicationss";
+                        break;
+                    }
+                default:
+                    {
+                        postsName.Text = "nəşrlər";
+                        break;
+                    }
+            }
+        }
+
+        #endregion
+
+        #region(SQL FUNCTIONS)
         private void GetPosts(string LANGUAGE, string POST_CATEGORY, bool POST_ISDELETE, bool POST_ISACTIVE, string POST_AUTHOR, ListView LSV_AZ, ListView LSV_EN)
         {
             switch (LANGUAGE)
@@ -45,11 +73,11 @@ namespace PublicCouncilBackEnd.subsite
 
 
 
-                        getPost.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = POST_ISDELETE;
-                        getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = POST_ISACTIVE;
-                        getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value = POST_CATEGORY;
-                        getPost.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value = true;
-                        getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value = POST_AUTHOR;
+                        getPost.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value              = POST_ISDELETE;
+                        getPost.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value              = POST_ISACTIVE;
+                        getPost.SelectCommand.Parameters.Add("@POST_CATEGORY", SqlDbType.NVarChar).Value    = POST_CATEGORY;
+                        getPost.SelectCommand.Parameters.Add("@POST_AZ_VIEW", SqlDbType.Bit).Value          = true;
+                        getPost.SelectCommand.Parameters.Add("@POST_AUTHOR", SqlDbType.NVarChar).Value      = POST_AUTHOR;
 
 
                         LSV_AZ.DataSource = SQL.SELECT(getPost);
@@ -143,67 +171,73 @@ namespace PublicCouncilBackEnd.subsite
 
             }
         }
+        #endregion
+
+
+        protected private void RunPublications(string LANG, string PC_NAME)
+        {
+            //ChangeLanguage
+            try
+            {
+                ChangeLanguage(LANG);
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> publications.aspx page >> ChangeLanguage method, Log:{ex.Message}");
+            }
+
+            //GetPosts
+            try
+            {
+                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "publications", false, true, Convert.ToString(Page.RouteData.Values["publiccouncil"]).ToLower(), POSTLIST_AZ, POSTLIST_EN);
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> publications.aspx page >> GetPosts method, Log:{ex.Message}");
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            switch (Convert.ToString(Page.RouteData.Values["language"]).ToLower())
+
+            //RunPublications
+            try
             {
-                case "az":
-                    {
-                        postsName.Text = "nəşrlər";
-                        break;
-                    }
-                case "en":
-                    {
-                        postsName.Text = "publicationss";
-                        break;
-                    }
-                default:
-                    {
-                        postsName.Text = "nəşrlər";
-                        break;
-                    }
+                RunPublications(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Convert.ToString(Page.RouteData.Values["publiccouncil"]).ToLower());
             }
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Session["pcsubsite"] as string, false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> publications.aspx page >> RunPublications method, Log:{ex.Message}");
+            }
+
         }
 
         protected void POSTLIST_AZ_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
         {
-            if (Convert.ToString(Page.RouteData.Values["language"]).ToLower() == "az")
-            {
-                POSTLIST_AZ.Visible = true;
-                POSTLIST_EN.Visible = false;
-                DataPager_AZ.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+            DataPager_AZ.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
 
-            }
-            else if (Convert.ToString(Page.RouteData.Values["language"]).ToLower() == "en")
+            try
             {
-                POSTLIST_EN.Visible = true;
-                POSTLIST_AZ.Visible = false;
-                DataPager_EN.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "publications",  false, true, Convert.ToString(Page.RouteData.Values["publiccouncil"]).ToLower(), POSTLIST_AZ, POSTLIST_EN);
             }
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Session["pcsubsite"] as string, false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> publications.aspx page >> GetPosts method, Log:{ex.Message}");
+            }
         }
 
         protected void POSTLIST_EN_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
         {
-            if (Convert.ToString(Page.RouteData.Values["language"]).ToLower() == "az")
+            DataPager_EN.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+
+            try
             {
-                POSTLIST_AZ.Visible = true;
-                POSTLIST_EN.Visible = false;
-                DataPager_AZ.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
-
+                GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), "publications", false, true, Convert.ToString(Page.RouteData.Values["publiccouncil"]).ToLower(), POSTLIST_AZ, POSTLIST_EN);
             }
-            else if (Convert.ToString(Page.RouteData.Values["language"]).ToLower() == "en")
+            catch (Exception ex)
             {
-                POSTLIST_AZ.Visible = false;
-                POSTLIST_EN.Visible = true;
-                DataPager_EN.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> publications.aspx page >> GetPosts method, Log:{ex.Message}");
             }
-
-            GetPosts(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Session["pcsubsite"] as string, false, true, "admin", POSTLIST_AZ, POSTLIST_EN);
-
-
         }
     }
 }

@@ -342,7 +342,7 @@ namespace PublicCouncilBackEnd.subsite
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite>> multimedia.aspx page >> ChangeLanguage, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> multimedia.aspx page >> ContentSwitcher method, Log:{ex.Message}");
             }
 
         }
@@ -357,7 +357,7 @@ namespace PublicCouncilBackEnd.subsite
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite>> multimedia.aspx page >> ChangeLanguage, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> multimedia.aspx page >> ContentSwitcher method, Log:{ex.Message}");
             }
 
         }
@@ -366,37 +366,37 @@ namespace PublicCouncilBackEnd.subsite
 
         private void RunMultmedia(string LANG)
         {
-            //CHANGE LANGUAGE
+            // ChangeLanguage
             try
             {
                 ChangeLanguage(LANG);
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite>> multimedia.aspx page >> ChangeLanguage, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> multimedia.aspx page >> ChangeLanguage method, Log:{ex.Message}");
             }
 
-            //CONTENT SWITCHER
+            //ContentSwitcher
             try
             {
                 ContentSwitcher(LANG, Convert.ToString(Page.RouteData.Values["directory"]).ToLower(), Convert.ToString(Page.RouteData.Values["publiccouncil"]).ToLower());
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite>> multimedia.aspx page >> ChangeLanguage, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> multimedia.aspx page >> ContentSwitcher method, Log:{ex.Message}");
             }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //RUN MULTIMEDIA
+            //RunMultmedia
             try
             {
                 RunMultmedia(Convert.ToString(Page.RouteData.Values["language"]).ToLower());
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite>> multimedia.aspx page >> RunMultmedia, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite>> multimedia.aspx page >> RunMultmedia method, Log:{ex.Message}");
             }
         }
 

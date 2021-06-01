@@ -179,7 +179,7 @@ namespace PublicCouncilBackEnd.subsite
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> legislation.aspx page >> GetPosts, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> legislation.aspx page >> GetPosts method, Log:{ex.Message}");
             }
         }
 
@@ -193,7 +193,7 @@ namespace PublicCouncilBackEnd.subsite
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> legislation.aspx page >> GetPosts, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> legislation.aspx page >> GetPosts method, Log:{ex.Message}");
             }
 
         }
@@ -201,35 +201,37 @@ namespace PublicCouncilBackEnd.subsite
 
         protected private void RunLegislation(string LANG, string PC_NAME)
         {
+            //ChangeLanguage
             try
             {
                 ChangeLanguage(LANG);
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> legislation.aspx page >> ChangeLanguage, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> legislation.aspx page >> ChangeLanguage method, Log:{ex.Message}");
             }
 
+            //GetPosts
             try
             {
                 GetPosts(LANG, "legislation", false, true, PC_NAME, POSTLIST_AZ, POSTLIST_EN);
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> legislation.aspx page >> GetPosts, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> legislation.aspx page >> GetPosts method, Log:{ex.Message}");
             }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //RunLegislation
             try
             {
                 RunLegislation(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Convert.ToString(Page.RouteData.Values["publiccouncil"]).ToLower());
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> legislation.aspx page >> RunLegislation, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> legislation.aspx page >> RunLegislation method, Log:{ex.Message}");
             }
 
         }

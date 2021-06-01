@@ -1,17 +1,55 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace PublicCouncilBackEnd.subsite
 {
     public partial class WebForm12 : System.Web.UI.Page
     {
+        #region(HELPER FUNCTIONS)
+        private void ChangeLanguage(string LANG)
+        {
+            switch (LANG)
+            {
+                case "az":
+                    {
+                        shareName.Text = "<span class='h5 text-default'>Paylaş</span>";
+                        break;
+                    }
+                case "en":
+                    {
+                        shareName.Text = "<span class='h5 text-default'>Share</span>";
+                        break;
+                    }
+                default:
+                    {
+                        shareName.Text = "<span class='h5 text-default'>Paylaş</span>";
+                        break;
+                    }
+            }
+        }
+
+        private void MetaTags()
+        {
+            HtmlMeta ogUrl          = new HtmlMeta { Name = "og:url"            , Content = "https://ictimaishura.az/details/" + RouteData.Values["postid"] as string };
+            HtmlMeta ogType         = new HtmlMeta { Name = "og:type"           , Content = "article" };
+            HtmlMeta ogTitle        = new HtmlMeta { Name = "og:title"          , Content = Page.Title };
+            HtmlMeta ogDescription  = new HtmlMeta { Name = "og:description"    , Content = Page.Title };
+            HtmlMeta ogImage        = new HtmlMeta { Name = "og:image"          , Content = "https://ictimaishura.az" + postImage.ImageUrl.ToString() };
+
+
+            Header.Controls.Add(ogUrl);
+            Header.Controls.Add(ogType);
+            Header.Controls.Add(ogTitle);
+            Header.Controls.Add(ogDescription);
+            Header.Controls.Add(ogImage);
+        }
+        #endregion
+
+        #region(SQL FUNCTIONS)
         public string GetViewCount(string POST_ID)
         {
             SqlDataAdapter getcount = new SqlDataAdapter(new SqlCommand("SELECT POST_VIEWCOUNT FROM PC_POSTS WHERE DATA_ID=@DATA_ID"));
@@ -156,7 +194,6 @@ namespace PublicCouncilBackEnd.subsite
             DT = null;
 
         }
-
         private void GetPostImages(string POSTSERIAL)
         {
             SqlDataAdapter getimages = new SqlDataAdapter(new SqlCommand(@"SELECT POST_IMG_NAME
@@ -256,48 +293,52 @@ namespace PublicCouncilBackEnd.subsite
 
 
         }
+        #endregion
+
+        protected private void RunDetails(string LANG, string PC_NAME)
+        {
+            //ChangeLanguage
+            try
+            {
+                ChangeLanguage(LANG);
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> postdetail.aspx page >> ChangeLanguage method, Log:{ex.Message}");
+            }
+
+            //GetPost
+            try
+            {
+                GetPost(LANG, Page.RouteData.Values["postid"] as string, PC_NAME);
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> postdetail.aspx page >> GetPost method, Log:{ex.Message}");
+            }
+
+            //MetaTags
+            try
+            {
+                MetaTags();
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> postdetail.aspx page >> MetaTags method, Log:{ex.Message}");
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
+            //RunDetails
             try
             {
-                GetPost(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Page.RouteData.Values["postid"] as string, Page.RouteData.Values["publiccouncil"] as string);
-
-                if (Convert.ToString(Page.RouteData.Values["language"]).ToLower() == "az")
-                {
-
-                    shareName.Text = "<span class='h5 text-default'>Paylaş</span>";
-                }
-                else if (Convert.ToString(Page.RouteData.Values["language"]).ToLower() == "en")
-                {
-
-                    shareName.Text = "<span class='h5 text-default'>Share</span>";
-                }
-                else
-                {
-                    shareName.Text = "<span class='h5 text-default'>Paylaş</span>";
-                }
+                RunDetails(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Convert.ToString(Page.RouteData.Values["publiccouncil"]).ToLower());
             }
-            catch
+            catch (Exception ex)
             {
-                
+                Log.LogCreator(Server.MapPath(Path.Combine("Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> postdetail.aspx page >> RunDetails method, Log:{ex.Message}");
             }
-
-
-            HtmlMeta ogUrl = new HtmlMeta { Name = "og:url", Content = "http://ictimaishura.az/details/" + RouteData.Values["postid"] as string };
-            HtmlMeta ogType = new HtmlMeta { Name = "og:type", Content = "article" };
-            HtmlMeta ogTitle = new HtmlMeta { Name = "og:title", Content = Page.Title };
-            HtmlMeta ogDescription = new HtmlMeta { Name = "og:description", Content = Page.Title };
-            HtmlMeta ogImage = new HtmlMeta { Name = "og:image", Content = "http://ictimaishura.az" + postImage.ImageUrl.ToString() };
-
-
-            Header.Controls.Add(ogUrl);
-            Header.Controls.Add(ogType);
-            Header.Controls.Add(ogTitle);
-            Header.Controls.Add(ogDescription);
-            Header.Controls.Add(ogImage);
         }
     }
 }

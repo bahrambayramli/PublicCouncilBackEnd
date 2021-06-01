@@ -248,7 +248,7 @@ namespace PublicCouncilBackEnd.subsite
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> home.aspx page >> GetPosts >> MAIN_SLIDER, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> home.aspx page >> GetPosts method >> MAIN_SLIDER, Log:{ex.Message}");
             }
 
             try
@@ -258,22 +258,21 @@ namespace PublicCouncilBackEnd.subsite
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> home.aspx page >> GetPosts >> SIMPLEPOSTS, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> home.aspx page >> GetPosts method >> SIMPLEPOSTS, Log:{ex.Message}");
             }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //RunHome
             try
             {
                 RunHome(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Convert.ToString(Page.RouteData.Values["publiccouncil"]).ToLower());
             }
             catch (Exception ex)
             {
-                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "log.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> home.aspx page >> RunHome, Log:{ex.Message}");
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite >> home.aspx page >> RunHome method, Log:{ex.Message}");
             }
-
         }
     }
 }
