@@ -67,11 +67,11 @@ namespace PublicCouncilBackEnd.subsite
 
                         dt = SQL.SELECT(getSerial);
 
-                        Page.Title = dt.Rows[0]["PC_NAME"].ToString();
-                        pcName.Text = dt.Rows[0]["PC_NAME"].ToString();
-                        Session["PC_USER_ID"] = dt.Rows[0]["USER_ID"].ToString();
-                        Session["SUBSITE_SERIAL"] = dt.Rows[0]["USER_SERIAL"].ToString();
-                        Session["PC_ACTIVITY_PERIOD"] = dt.Rows[0]["PC_ACTIVITY_PERIOD"].ToString();
+                        Page.Title                                              = dt.Rows[0]["PC_NAME"].ToString();
+                        pcName.Text                                             = dt.Rows[0]["PC_NAME"].ToString();
+                        Session["PC_USER_ID"]                                   = dt.Rows[0]["USER_ID"].ToString();
+                        Session["SUBSITE_SERIAL"]                               = dt.Rows[0]["USER_SERIAL"].ToString();
+                        Session["PC_ACTIVITY_PERIOD"]                           = dt.Rows[0]["PC_ACTIVITY_PERIOD"].ToString();
                         break;
                     }
                 case "en":
@@ -781,7 +781,6 @@ namespace PublicCouncilBackEnd.subsite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             try
             {
                 RunSubMaster(Convert.ToString(Page.RouteData.Values["language"]).ToLower(), Convert.ToString(Page.RouteData.Values["publiccouncil"]).ToLower());
@@ -790,7 +789,6 @@ namespace PublicCouncilBackEnd.subsite
             {
                 Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: subsite master >> GetLatest method, Log:{ex.Message}");
             }
-
         }
 
         protected void signIN_Click(object sender, EventArgs e)
