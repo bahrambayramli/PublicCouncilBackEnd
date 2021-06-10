@@ -133,7 +133,7 @@
 
                     <section id="subsidebar" class="subside-bar">
                         <div class="subside-header">
-                            <asp:ListView ID="logoPcMobile" runat="server">
+                            <asp:ListView ID="logoPc" runat="server">
                                 <LayoutTemplate>
                                     <a href="#sub-logo" class="d-inline d-md-block sub-logo">
                                         <asp:PlaceHolder ID="itemplaceholder" runat="server"></asp:PlaceHolder>

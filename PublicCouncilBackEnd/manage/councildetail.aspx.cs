@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
@@ -43,7 +40,7 @@ namespace PublicCouncilBackEnd.manage
 
             //chnaged the converted image size ----------------------------------
             Bitmap finalImage = new Bitmap(orginal, W, H);
-            finalImage.Save(Server.MapPath("/Images/logos/" + imgName), System.Drawing.Imaging.ImageFormat.Jpeg);//Jpeg formatina kecirdirem
+            finalImage.Save(Server.MapPath("/images/logos/" + imgName), System.Drawing.Imaging.ImageFormat.Jpeg);//Jpeg formatina kecirdirem
             finalImage.Dispose();
         }
 
@@ -367,11 +364,19 @@ namespace PublicCouncilBackEnd.manage
             SQL.COMMAND(insertUser);
             #endregion
 
-
             #region(Insert logo)
-            SqlDataAdapter getLastPcId = new SqlDataAdapter(new SqlCommand("SELECT TOP (1) USER_ID FROM PC_USERS WHERE ISACTIVE='TRUE' AND ISDELETE='FALSE' ORDER BY USER_ID DESC"));
-          
-            InsertLogo(Session["NEW_USER_SERIAL"] as string, SQL.SELECT(getLastPcId).Rows[0]["USER_ID"].ToString());
+            SqlDataAdapter getUserId = new SqlDataAdapter(new SqlCommand(@"SELECT 
+                                                                                    USER_ID 
+
+                                                                                    FROM PC_USERS 
+
+                                                                             WHERE  ISACTIVE    ='TRUE'         AND 
+                                                                                    ISDELETE    ='FALSE'        AND
+                                                                                    USER_SERIAL = @USER_SERIAL"));
+
+            getUserId.SelectCommand.Parameters.Add("@USER_SERIAL", SqlDbType.NVarChar).Value            = Session["NEW_USER_SERIAL"] as string;
+
+            InsertLogo(Session["NEW_USER_SERIAL"] as string, SQL.SELECT(getUserId).Rows[0]["USER_ID"].ToString());
             #endregion
 
         }
@@ -495,33 +500,29 @@ namespace PublicCouncilBackEnd.manage
         private void GetLogos(string LOGO_SERIAL, bool ISDELETE)
         {
             SqlDataAdapter getLogos = new SqlDataAdapter(new SqlCommand(@"SELECT 
-                                                                                   DATA_ID,
-                                                                                   USER_ID,
-                                                                                   LOGO_TITLE,
+                                                                                   DATA_ID              ,
+                                                                                   USER_ID              ,
+                                                                                   LOGO_TITLE           ,
                                                                                    LOGO_IMG
                                                                             FROM PC_SITELOGOS
-                                                                            WHERE ISDELETE          = @ISDELETE    AND
-                                                                                   LOGO_SERIAL      = @LOGO_SERIAL   
+
+                                                                            WHERE 
+                                                                                    ISDELETE            = @ISDELETE    AND
+                                                                                    LOGO_SERIAL         = @LOGO_SERIAL   
                                                                                  "));
 
+            getLogos.SelectCommand.Parameters.Add("@LOGO_SERIAL", SqlDbType.NVarChar).Value         = LOGO_SERIAL;
 
-            getLogos.SelectCommand.Parameters.Add("@LOGO_SERIAL", SqlDbType.NVarChar).Value = LOGO_SERIAL;
-
-            getLogos.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
+            getLogos.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value                 = ISDELETE;
 
             DataTable DT = SQL.SELECT(getLogos);
 
 
-            logoImage.ImageUrl = "/Images/logos/" + DT.Rows[0]["LOGO_IMG"].ToString();
-
-            //  Session["LOGOISACTIVE"] = DT.Rows[0]["ISACTIVE"].ToString();
+            logoImage.ImageUrl = "/images/logos/" + DT.Rows[0]["LOGO_IMG"].ToString();
         }
 
         private void InsertLogo(string USER_SERIAL, string USER_ID)
         {
-
-
-          
             string logoName = string.Empty;
             SqlCommand insertLogo = new SqlCommand(@"INSERT INTO PC_SITELOGOS
                                                                                     (
@@ -577,7 +578,6 @@ namespace PublicCouncilBackEnd.manage
             insertLogo.Parameters.Add("@LOGO_IMG", SqlDbType.NVarChar).Value        = logoName;
 
             SQL.COMMAND(insertLogo);
-           
 
         }
 
@@ -588,9 +588,14 @@ namespace PublicCouncilBackEnd.manage
             //2.Logo image
             //if the logo file input has files need to add the new image to /Uploads/logos folder and update in sql 
             //if the logo file input has not file need to update only logo text
+
+            SqlDataAdapter getRowCount = new SqlDataAdapter(new SqlCommand(@"SELECT LOGO_SERIAL FROM PC_SITELOGOS WHERE LOGO_SERIAL = @USER_SERIAL"));
+
+            getRowCount.SelectCommand.Parameters.Add("@USER_SERIAL", SqlDbType.NVarChar).Value = USER_SERIAL;
+
+            DataTable DT = SQL.SELECT(getRowCount);
            
-           
-            if (logoFile.HasFile)
+            if (logoFile.HasFile && DT.Rows.Count>0)
             {
                 string extension = Path.GetExtension(logoFile.FileName).ToLower();
                 if ((extension != ".jpg") &&
@@ -614,17 +619,21 @@ namespace PublicCouncilBackEnd.manage
                                                                   ");
 
               
-                updateLogo.Parameters.Add("@LOGO_IMG", SqlDbType.NVarChar).Value = logoName;
-                updateLogo.Parameters.Add("@LOGO_TITLE", SqlDbType.NVarChar).Value = logoFile.FileName;
+                updateLogo.Parameters.Add("@LOGO_IMG", SqlDbType.NVarChar).Value            = logoName;
+                updateLogo.Parameters.Add("@LOGO_TITLE", SqlDbType.NVarChar).Value          = logoFile.FileName;
                 
                 
-                updateLogo.Parameters.Add("@USER_ID", SqlDbType.Int).Value = USER_ID;
-                updateLogo.Parameters.Add("@USER_SERIAL", SqlDbType.NVarChar).Value = USER_SERIAL;
+                updateLogo.Parameters.Add("@USER_ID", SqlDbType.Int).Value                  = USER_ID;
+                updateLogo.Parameters.Add("@USER_SERIAL", SqlDbType.NVarChar).Value         = USER_SERIAL;
 
 
                 SQL.COMMAND(updateLogo);
 
                 MadeImage(logoFile, logoName, 460, 280);
+            }
+            else
+            {
+                InsertLogo(USER_SERIAL, USER_ID);
             }
             
         }

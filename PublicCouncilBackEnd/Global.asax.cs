@@ -89,7 +89,7 @@ namespace PublicCouncilBackEnd
 
         protected void Application_Error(object sender, EventArgs e)
         {
-           
+            Response.Redirect("/error.aspx");
         }
 
         protected void Session_End(object sender, EventArgs e)

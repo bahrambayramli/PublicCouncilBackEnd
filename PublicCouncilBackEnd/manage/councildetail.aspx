@@ -15,7 +15,7 @@
         }
     </style>
     <script src="/scripts/ckeditor/ckeditor.js"></script>
-    <script src="/scripts/ckfinder/ckfinder.js"></script>
+ 
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="managelayout" runat="server">

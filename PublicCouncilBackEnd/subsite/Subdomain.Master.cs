@@ -46,6 +46,16 @@ namespace PublicCouncilBackEnd.subsite
         #endregion
 
         #region(SQL FUNCTIONS)
+        private string GetPcSerial(string PC_DOMAIN_NAME)
+        {
+            SqlDataAdapter getSerial = new SqlDataAdapter(new SqlCommand(@"SELECT USER_SERIAL FROM PC_USERS WHERE ISDELETE = @ISDELETE AND ISACTIVE = @ISACTIVE AND USER_PCDOMAIN = @USER_PCDOMAIN"));
+
+            getSerial.SelectCommand.Parameters.Add(@"ISDELETE", SqlDbType.Bit).Value                = false;
+            getSerial.SelectCommand.Parameters.Add(@"ISACTIVE", SqlDbType.Bit).Value                = true;
+            getSerial.SelectCommand.Parameters.Add(@"USER_PCDOMAIN", SqlDbType.NVarChar).Value      = PC_DOMAIN_NAME;
+
+            return SQL.SELECT(getSerial).Rows[0]["USER_SERIAL"].ToString();
+        }
         private void GetUserInfo(string LANG, string USER_PCDOMAIN)
         {
             SqlDataAdapter getSerial;
@@ -139,9 +149,8 @@ namespace PublicCouncilBackEnd.subsite
 
         }
 
-        private void GetLogos()
+        private void GetLogos(string PC_SERIAL)
         {
-
             /*
             //we have a pc domain name
             //1. getting USER SERIAL code using pc domain name
@@ -154,12 +163,8 @@ namespace PublicCouncilBackEnd.subsite
 
             //Get Sub PC logo
 
-            logoPcMobile.DataSource = GetLogo(Session["SUBSITE_SERIAL"] as string);
-            logoPcMobile.DataBind();
-
-
-
-
+            logoPc.DataSource = GetLogo(PC_SERIAL);
+            logoPc.DataBind();
         }
 
         private void Navigation()
@@ -730,7 +735,7 @@ namespace PublicCouncilBackEnd.subsite
             //GetLogos
             try
             {
-                GetLogos();
+                GetLogos(GetPcSerial(PC_NAME));
             }
             catch (Exception ex)
             {
