@@ -135,10 +135,10 @@ namespace PublicCouncilBackEnd.subsite
 
         private DataTable GetLogo(string USER_SERIAL)
         {
-            SqlDataAdapter getLogo = new SqlDataAdapter(new SqlCommand(@"SELECT LOGO_TITLE , LOGO_IMG FROM PC_SITELOGOS
+            SqlDataAdapter getLogo = new SqlDataAdapter(new SqlCommand(@"SELECT TOP 1 LOGO_TITLE , LOGO_IMG FROM PC_SITELOGOS
                                                                                 WHERE 
-                                                                                            ISDELETE = @ISDELETE AND
-                                                                                            ISACTIVE = @ISACTIVE AND
+                                                                                            ISDELETE    = @ISDELETE AND
+                                                                                            ISACTIVE    = @ISACTIVE AND
                                                                                             LOGO_SERIAL = @LOGO_SERIAL"));
 
             getLogo.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
