@@ -139,7 +139,7 @@ namespace PublicCouncilBackEnd.subsite
                                                                                 WHERE 
                                                                                             ISDELETE    = @ISDELETE AND
                                                                                             ISACTIVE    = @ISACTIVE AND
-                                                                                            LOGO_SERIAL = @LOGO_SERIAL"));
+                                                                                            LOGO_SERIAL = @LOGO_SERIAL ORDER BY DATA_ID DESC"));
 
             getLogo.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
             getLogo.SelectCommand.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
