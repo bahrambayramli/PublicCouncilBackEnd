@@ -55,7 +55,7 @@ namespace PublicCouncilBackEnd
 
             #region(subsite routes)
             //routes.MapPageRoute("pchometest", "{publiccouncil}/", "~/subsite/home.aspx");
-            routes.MapPageRoute("pchomemain"            , "{publiccouncil}"                                     , "~/subsite/home.aspx");
+            //routes.MapPageRoute("pchomemain"            , "{publiccouncil}"                                     , "~/subsite/home.aspx");
             routes.MapPageRoute("pchome"                , "{publiccouncil}/home/{language}"                     , "~/subsite/home.aspx");
             routes.MapPageRoute("pcposts"               , "{publiccouncil}/posts/{language}"                    , "~/subsite/posts.aspx");
             routes.MapPageRoute("pcannouncements"       , "{publiccouncil}/announcements/{language}"            , "~/subsite/announcements.aspx");
@@ -89,7 +89,7 @@ namespace PublicCouncilBackEnd
 
         protected void Application_Error(object sender, EventArgs e)
         {
-            Response.Redirect("/error.aspx");
+           // Response.Redirect("/error.aspx");
         }
 
         protected void Session_End(object sender, EventArgs e)

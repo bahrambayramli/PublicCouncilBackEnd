@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -8,7 +6,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Drawing;
-using System.Diagnostics;
 
 namespace PublicCouncilBackEnd.manage
 {
@@ -915,14 +912,14 @@ namespace PublicCouncilBackEnd.manage
 
         public string SetName(string fileExtension)
         {
-            string fileName = Guid.NewGuid().ToString().Replace("-", "") +
-                                                DateTime.Now.Day.ToString() +
-                                                DateTime.Now.Month.ToString() +
-                                                DateTime.Now.Year.ToString() +
-                                                DateTime.Now.Minute.ToString() +
-                                                DateTime.Now.Second.ToString() +
-                                                DateTime.Now.Millisecond + fileExtension;
-            return fileName;
+            
+            return Guid.NewGuid().ToString().Replace("-", "")                   +
+                                                DateTime.Now.Day.ToString()     +
+                                                DateTime.Now.Month.ToString()   +
+                                                DateTime.Now.Year.ToString()    +
+                                                DateTime.Now.Minute.ToString()  +
+                                                DateTime.Now.Second.ToString()  +
+                                                DateTime.Now.Millisecond        + fileExtension; ;
         }
 
         private void GetCategory()
@@ -1184,8 +1181,6 @@ namespace PublicCouncilBackEnd.manage
             GetDocs(Session["POSTSERIAL"] as string);
         }
         #endregion
-
-
 
         protected void Page_Load(object sender, EventArgs e)
         {

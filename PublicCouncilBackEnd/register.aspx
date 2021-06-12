@@ -1,9 +1,4 @@
-﻿<%@ Page Title="Qeydiyyat"
-    Language="C#"
-    MasterPageFile="~/Main.Master"
-    AutoEventWireup="true"
-    CodeBehind="register.aspx.cs"
-    Inherits="PublicCouncilBackEnd.WebForm11" %>
+﻿<%@ Page Title="Qeydiyyat" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="register.aspx.cs" Inherits="PublicCouncilBackEnd.WebForm11" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
@@ -13,7 +8,6 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="mainlayout" runat="server">
-
     <section class="site-register bg-white rounded shadow-sm">
         <div class="container-fluid">
             <div class="row">
@@ -25,45 +19,64 @@
                 <div class="col-12 col-md-6">
                     <div class="form-group">
                         <label for="mainlayout_inputLoginName">Login</label>
-                        <asp:TextBox ID="inputLoginName" runat="server" CssClass="form-control" required></asp:TextBox>
+                        <asp:TextBox ID="inputLoginName" runat="server" CssClass="form-control" autocomplete="off"></asp:TextBox>
+                        <div class="text-danger">
+                            <asp:RequiredFieldValidator ID="loginvalidator" runat="server" ControlToValidate="inputLoginName" ErrorMessage="zəhmət olmasa xananı doldurun"></asp:RequiredFieldValidator>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="form-group">
                         <label for="mainlayout_inputPassword">Şifrə</label>
-                        <asp:TextBox ID="inputPassword" runat="server" CssClass="form-control" TextMode="Password" required>
-
-                        </asp:TextBox>
+                        <asp:TextBox ID="inputPassword" runat="server" CssClass="form-control" TextMode="Password" autocomplete="off"></asp:TextBox>
+                        <div class="text-danger">
+                            <asp:RequiredFieldValidator ID="passwordvalidator" runat="server" ControlToValidate="inputPassword" ErrorMessage="zəhmət olmasa xananı doldurun"></asp:RequiredFieldValidator>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="form-group">
                         <label for="mainlayout_inputName">Ad</label>
-                        <asp:TextBox ID="inputName" runat="server" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox ID="inputName" runat="server" CssClass="form-control" autocomplete="off"></asp:TextBox>
+                        <div class="text-danger">
+                            <asp:RequiredFieldValidator ID="namevalidator" runat="server" ControlToValidate="inputName" ErrorMessage="zəhmət olmasa xananı doldurun"></asp:RequiredFieldValidator>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="form-group">
                         <label for="mainlayout_inputSurname">Soyad</label>
-                        <asp:TextBox ID="inputSurname" runat="server" CssClass="form-control" required></asp:TextBox>
+                        <asp:TextBox ID="inputSurname" runat="server" CssClass="form-control" autocomplete="off"></asp:TextBox>
+                        <div class="text-danger">
+                            <asp:RequiredFieldValidator ID="surnamevalidator" runat="server" ControlToValidate="inputSurname" ErrorMessage="zəhmət olmasa xananı doldurun"></asp:RequiredFieldValidator>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="form-group">
                         <label for="mainlayout_inputPCname">İctimai şuranın adı</label>
-                        <asp:TextBox ID="inputPCname" runat="server" CssClass="form-control" required></asp:TextBox>
+                        <asp:TextBox ID="inputPCname" runat="server" CssClass="form-control" autocomplete="off"></asp:TextBox>
+                        <div class="text-danger">
+                            <asp:RequiredFieldValidator ID="pcnamevalidator" runat="server" ControlToValidate="inputPCname" ErrorMessage="zəhmət olmasa xananı doldurun"></asp:RequiredFieldValidator>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="form-group">
                         <label for="mainlayout_inputPCdomain">İctimai şuranın domain adı</label>
-                        <asp:TextBox ID="inputPCdomain" runat="server" CssClass="form-control" placeholder="domain.ictimaishura.az" required></asp:TextBox>
+                        <asp:TextBox ID="inputPCdomain" runat="server" CssClass="form-control" placeholder="domain.ictimaishura.az" autocomplete="off"></asp:TextBox>
+                        <div class="text-danger">
+                            <asp:RequiredFieldValidator ID="pcdomainvalidator" runat="server" ControlToValidate="inputPCdomain" ErrorMessage="zəhmət olmasa xananı doldurun"></asp:RequiredFieldValidator>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="form-group">
                         <label for="mainlayout_inputEmail">İctimai şuranın e-poçt ünvanı</label>
                         <asp:TextBox ID="inputEmail" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>
+                        <div class="text-danger">
+                            <asp:RequiredFieldValidator ID="emailvalidator" runat="server" ControlToValidate="inputEmail" ErrorMessage="zəhmət olmasa xananı doldurun"></asp:RequiredFieldValidator>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
@@ -76,6 +89,9 @@
                     <div class="form-group">
                         <label for="mainlayout_inputMobile">Mobil</label>
                         <asp:TextBox ID="inputMobile" runat="server" CssClass="form-control"></asp:TextBox>
+                        <div class="text-danger">
+                            <asp:RequiredFieldValidator ID="mobilevalidator" runat="server" ControlToValidate="inputMobile" ErrorMessage="zəhmət olmasa xananı doldurun"></asp:RequiredFieldValidator>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
@@ -213,7 +229,6 @@
     </section>
 
     <script src="/scripts/plugins/jasny-bootstrap.min.js"></script>
-
     <script>
         $('#contentside').removeData('col-md-9')
         $('#contentside').addClass('col-md-12');

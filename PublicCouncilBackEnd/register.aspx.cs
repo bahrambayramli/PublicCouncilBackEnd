@@ -5,49 +5,78 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Net;
+using System.Net.Mail;
+using System.Configuration;
 
 namespace PublicCouncilBackEnd
 {
     public partial class WebForm11 : System.Web.UI.Page
     {
-        #region(Helper functions)
-        public void MadeImage(FileUpload fl, string imgName, int width, int height)
+        #region(HELPER FUNCTIONS)
+        public string SetName(string FILE_EXTENSION)
         {
 
-            //gave the sizes
-            int W = width;      //Widht
-            int H = height;    //Height
+            return Guid.NewGuid().ToString().Replace("-", "") +
+                                                DateTime.Now.Day.ToString() +
+                                                DateTime.Now.Month.ToString() +
+                                                DateTime.Now.Year.ToString() +
+                                                DateTime.Now.Minute.ToString() +
+                                                DateTime.Now.Second.ToString() +
+                                                DateTime.Now.Millisecond + FILE_EXTENSION;
+        }
+        private void SendEmail(string SENDER_MAIL, string SENDER_PASSWORD, string RECEVIER_MAIL, string PC_NAME, string EMAIL_MESSAGE)
+        {
+            MailMessage mail = new MailMessage();
+
+            //set the addresses 
+            mail.From                           = new MailAddress(SENDER_MAIL); //IMPORTANT: This must be same as your smtp authentication address.
+            mail.To.Add(RECEVIER_MAIL);
+
+            //set the content 
+            mail.Subject                        = "Yeni İctimai Şura";
+            mail.Body                           = $"'{PC_NAME}' {EMAIL_MESSAGE}";
+            //send the message 
+            SmtpClient smtp                     = new SmtpClient("mail5018.site4now.net");
+
+            //IMPORANT:  Your smtp login email MUST be same as your FROM address. 
+            NetworkCredential Credentials       = new NetworkCredential(SENDER_MAIL, SENDER_PASSWORD);
+            smtp.UseDefaultCredentials          = false;
+            smtp.Credentials                    = Credentials;
+            smtp.Port                           = 8889;    //alternative port number is 8889
+            smtp.EnableSsl                      = false;
+            smtp.Send(mail);
+        }
+
+        private bool CheckImageValidation(string IMAGE_EXT)
+        {
+            bool isValid = true;
 
 
-            //check the image extrension type  ---------------------------------------------------
-            string extension = Path.GetExtension(fl.FileName).ToLower();
-            if ((extension != ".jpg") &&
-                (extension != ".jpeg") &&
-                (extension != ".bmp") &&
-                (extension != ".png") &&
-                (extension != ".gif") &&
-                (extension != ".tif") &&
-                (extension != ".tiff")) return;
+            if (IMAGE_EXT != ".jpg" && IMAGE_EXT != ".jpeg" && IMAGE_EXT != ".bmp" && IMAGE_EXT != ".png" && IMAGE_EXT != ".gif" && IMAGE_EXT != ".tif" && IMAGE_EXT != ".tiff")
+            {
+                isValid = false;
+            }
 
+            return isValid;
+            
+        }
 
-
-            //  ------------------------------------------
-            System.Drawing.Image orginal = System.Drawing.Image.FromStream(fl.PostedFile.InputStream);
-            //int newH = (orginal.Height * W) / orginal.Width;
-            //if (newH > H) { W = (W * H) / newH; newH = H; }
-            //H = newH;
-
-            //chnaged the converted image size ----------------------------------
-            Bitmap finalImage = new Bitmap(orginal, W, H);
-            finalImage.Save(Server.MapPath("/images/logos/" + imgName), System.Drawing.Imaging.ImageFormat.Jpeg);//Jpeg formatina kecirdirem
+        public void MadeImage(FileUpload FL, string IMAGE_NAME, int WIDTH, int HEIGHT)
+        {
+            //check the image extrension type
+            string extension                        = Path.GetExtension(FL.FileName).ToLower();
+            System.Drawing.Image orginal            = System.Drawing.Image.FromStream(FL.PostedFile.InputStream);
+            //chnaged the converted image size
+            Bitmap finalImage                       = new Bitmap(orginal, WIDTH, HEIGHT);
+            finalImage.Save(Server.MapPath("/images/logos/" + IMAGE_NAME), System.Drawing.Imaging.ImageFormat.Jpeg);//Convert to JPEG format
             finalImage.Dispose();
         }
 
-        public void SaveEmptyPCImage(string imageName, string imageText, string SaveDirectory)
+        public void SaveEmptyPCImage(string IMAGE_NAME, string IMAGE_TEXT, string SAVE_DIRECOTORY)
         {
-
             System.Drawing.Image bitmap = (System.Drawing.Image)Bitmap.FromFile(Server.MapPath("/images/Untitled.png"));
-            // set image     
+            //set image     
             //draw the image object using a Graphics object    
             Graphics graphicsImage = Graphics.FromImage(bitmap);
 
@@ -59,20 +88,18 @@ namespace PublicCouncilBackEnd
             //Set the font color/format/size etc..      
 
             Color StringColor = System.Drawing.ColorTranslator.FromHtml("#933eea");//direct color adding    
-            string Str_TextOnImage = imageText;//Your Text On Image    
-
+            string Str_TextOnImage = IMAGE_TEXT;//Your Text On Image    
 
             graphicsImage.DrawString(Str_TextOnImage, new Font("arial", 16, FontStyle.Regular), new SolidBrush(StringColor), new Point(230, 130), stringformat);
 
-
-            bitmap.Save(Server.MapPath(SaveDirectory + imageName), ImageFormat.Jpeg);
+            bitmap.Save(Server.MapPath(SAVE_DIRECOTORY + IMAGE_NAME), ImageFormat.Jpeg);
+            bitmap.Dispose();
         }
         #endregion
 
         #region(SQL FUNCTIONS)
         private bool CheckAccount(string login, string subdomain,bool ISDELETE)
         {
-
             SqlDataAdapter checkAccount = new SqlDataAdapter(new SqlCommand(@"
                                                                                 SELECT	
                                                                                 		USER_LOGIN,                                                                             		
@@ -86,10 +113,9 @@ namespace PublicCouncilBackEnd
                                                                                         ISDELETE       = @ISDELETE       
                                                                                 		 "));
 
-            checkAccount.SelectCommand.Parameters.Add("@USER_LOGIN", SqlDbType.NVarChar).Value = login;
-            checkAccount.SelectCommand.Parameters.Add("@USER_PCDOMAIN", SqlDbType.NVarChar).Value = subdomain;
-            checkAccount.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
-
+            checkAccount.SelectCommand.Parameters.Add("@USER_LOGIN", SqlDbType.NVarChar).Value          = login;
+            checkAccount.SelectCommand.Parameters.Add("@USER_PCDOMAIN", SqlDbType.NVarChar).Value       = subdomain;
+            checkAccount.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value                 = ISDELETE;
 
             DataTable dt = SQL.SELECT(checkAccount);
 
@@ -102,18 +128,70 @@ namespace PublicCouncilBackEnd
                 return false; //is not
             }
 
-
         }
+
         private string GetDate()
         {
-            SqlDataAdapter adapter = new SqlDataAdapter(new SqlCommand("SELECT FORMAT (SYSDATETIME() ,'dd/MM/yyyy HH:mm' ) as DataTime"));
-            return SQL.SELECT(adapter).Rows[0]["DataTime"].ToString();
+            return DateTime.Now.AddDays(1).AddHours(-12).ToString("dd/MM/yyyy HH:mm");
         }
+
+        private void InsertLogo(string USER_SERIAL, string USER_ID)
+        {
+            string LOGO_NAME        = string.Empty;
+            SqlCommand insertLogo   = new SqlCommand(@"INSERT INTO PC_SITELOGOS
+                                                                                    (
+	                                                                                 ISDELETE           ,
+                                                                                     ISACTIVE           ,
+                                                                                     LOGO_TITLE         ,
+                                                                                     LOGO_IMG           ,
+                                                                                     LOGO_SERIAL        ,
+                                                                                     USER_ID
+	                                                                                )
+                                                                              VALUES
+                                                                                    (
+	                                                                            	 @ISDELETE          ,
+                                                                                     @ISACTIVE          ,
+                                                                                     @LOGO_TITLE        ,
+                                                                                     @LOGO_IMG          ,
+                                                                                     @LOGO_SERIAL       ,
+                                                                                     @USER_ID
+	                                                                            	)
+                                                                                    ");
+
+            if (logoUpload.HasFile)
+            {
+                string extension                                                        = Path.GetExtension(logoUpload.FileName).ToLower();
+                if (CheckImageValidation(extension))
+                {
+                    LOGO_NAME = SetName(extension);
+
+                    insertLogo.Parameters.Add("@LOGO_TITLE", SqlDbType.NVarChar).Value  = logoUpload.FileName;
+
+                    MadeImage(logoUpload, LOGO_NAME, 460, 280);
+                }
+            }
+            else
+            {
+                LOGO_NAME                                                               = SetName(".jpg");
+                insertLogo.Parameters.Add("@LOGO_TITLE", SqlDbType.NVarChar).Value      = inputPCname.Text;
+                SaveEmptyPCImage(LOGO_NAME, inputPCname.Text, "/images/logos/");
+            }
+
+            insertLogo.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value                 = false;
+            insertLogo.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value                 = true;
+            insertLogo.Parameters.Add("@LOGO_SERIAL", SqlDbType.NVarChar).Value         = USER_SERIAL;
+            insertLogo.Parameters.Add("@USER_ID", SqlDbType.Int).Value                  = USER_ID;
+            insertLogo.Parameters.Add("@LOGO_IMG", SqlDbType.NVarChar).Value            = LOGO_NAME;
+
+            SQL.COMMAND(insertLogo);
+
+        }
+
         private void InsertUser()
         {
             Session["USER_REGISTER_SERIAL"] = Helper.MakeSerial();
 
-            #region(Register)
+            #region(REGISTER INTO SQL BASE)
 
             SqlCommand insertUser = new SqlCommand(@"INSERT INTO PC_USERS
                                                         (
@@ -164,9 +242,9 @@ namespace PublicCouncilBackEnd
                                                         
 	                                                	   )");
 
-            insertUser.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = false;
-            insertUser.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = false;
-            insertUser.Parameters.Add("@ISONLINE", SqlDbType.Bit).Value = false;
+            insertUser.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value                                 = false;
+            insertUser.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value                                 = false;
+            insertUser.Parameters.Add("@ISONLINE", SqlDbType.Bit).Value                                 = false;
             insertUser.Parameters.Add("@USER_MEMBERSHIP", SqlDbType.NVarChar).Value                     = "pc";
             insertUser.Parameters.Add("@USER_MEMBERSHIP_TYPE", SqlDbType.NVarChar).Value                = "user";
             insertUser.Parameters.Add("@USER_LOGIN", SqlDbType.NVarChar).Value                          = inputLoginName.Text;
@@ -182,7 +260,7 @@ namespace PublicCouncilBackEnd
             insertUser.Parameters.Add("@PC_WEBADDRESS", SqlDbType.NVarChar).Value                       = inputWeb.Text;
             insertUser.Parameters.Add("@PC_COUNTRY", SqlDbType.NVarChar).Value                          = "Azərbaycan";
             insertUser.Parameters.Add("@PC_CITY", SqlDbType.NVarChar).Value                             = inputCity.SelectedItem.Text;
-            DateTime createdDate = DateTime.ParseExact(GetDate(), "dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
+            DateTime createdDate = DateTime.ParseExact(GetDate()                                        ,"dd/MM/yyyy HH:mm", System.Globalization.CultureInfo.InvariantCulture);
             insertUser.Parameters.Add("@CREATED_DATE", SqlDbType.Date).Value                            = createdDate.ToString(); ;
             insertUser.Parameters.Add("@PC_CATEGORY", SqlDbType.NVarChar).Value                         = categorySelect.SelectedValue;
 
@@ -197,66 +275,6 @@ namespace PublicCouncilBackEnd
 
             InsertLogo(Session["USER_REGISTER_SERIAL"] as string, DT.Rows[0]["USER_ID"].ToString());
         }
-
-        private void InsertLogo(string USER_SERIAL, string USER_ID)
-        {
-            string logoName = string.Empty;
-            SqlCommand insertLogo = new SqlCommand(@"INSERT INTO PC_SITELOGOS
-                                                                                    (
-	                                                                                 ISDELETE,
-                                                                                     ISACTIVE,
-                                                                                     LOGO_TITLE,
-                                                                                     LOGO_IMG,
-                                                                                     LOGO_SERIAL,
-                                                                                     USER_ID
-	                                                                                )
-                                                                              VALUES
-                                                                                    (
-	                                                                            	 @ISDELETE,
-                                                                                     @ISACTIVE,
-                                                                                     @LOGO_TITLE,
-                                                                                     @LOGO_IMG,
-                                                                                     @LOGO_SERIAL,
-                                                                                     @USER_ID
-
-	                                                                            	)
-                                                                                    ");
-
-            if (logoUpload.HasFile)
-            {
-                string extension = Path.GetExtension(logoUpload.FileName).ToLower();
-                if ((extension != ".jpg") &&
-                    (extension != ".jpeg") &&
-                    (extension != ".bmp") &&
-                    (extension != ".png") &&
-                    (extension != ".gif") &&
-                    (extension != ".tif") &&
-                    (extension != ".tiff")) return;
-
-
-                logoName = Helper.SetName(extension);
-
-                insertLogo.Parameters.Add("@LOGO_TITLE", SqlDbType.NVarChar).Value = logoUpload.FileName;
-
-                MadeImage(logoUpload, logoName, 460, 280);
-
-            }
-            else
-            {
-                logoName = Helper.SetName(".jpg");
-                insertLogo.Parameters.Add("@LOGO_TITLE", SqlDbType.NVarChar).Value = inputPCname.Text;
-                SaveEmptyPCImage(logoName, inputPCname.Text, "/images/logos/");
-            }
-
-            insertLogo.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value             = false;
-            insertLogo.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value             = true;
-            insertLogo.Parameters.Add("@LOGO_SERIAL", SqlDbType.NVarChar).Value     = USER_SERIAL;
-            insertLogo.Parameters.Add("@USER_ID", SqlDbType.Int).Value              = USER_ID;
-            insertLogo.Parameters.Add("@LOGO_IMG", SqlDbType.NVarChar).Value        = logoName;
-
-            SQL.COMMAND(insertLogo);
-
-        }
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -266,13 +284,54 @@ namespace PublicCouncilBackEnd
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
+            //CheckAccount
             if (CheckAccount(inputLoginName.Text, inputPCdomain.Text, false))
             {
                 errorLiteral.Text = @"<div class='text-danger'>Bu istifadəçi artıq bazada mövcuddur.</div>";
                 return;
             }
 
-            InsertUser();
+            //Send email to admin
+            try
+            {
+                SendEmail(
+                    ConfigurationManager.AppSettings["SmarterEmail"].ToString()     ,
+                    ConfigurationManager.AppSettings["SmarterPassword"].ToString()  ,
+                    "behrambayramli999@gmail.com",
+                    inputPCname.Text,
+                    "adlı ictimai şura qeydiyyatdan keçmidir."
+                    );
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: Main master >> register.aspx >> SendEmail method >> Admin, Log:{ex.Message}");
+            }
+
+            //Send email to Public Council
+            try
+            {
+                SendEmail(
+                        ConfigurationManager.AppSettings["SmarterEmail"].ToString(),
+                        ConfigurationManager.AppSettings["SmarterPassword"].ToString(),
+                        inputEmail.Text,
+                        inputPCname.Text,
+                        "qeydiyyatdan keçdiyiniz üçün təşəkkür edirik."
+                        );
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: Main master >> register.aspx >> SendEmail method >> PC, Log:{ex.Message}");
+            }
+
+            //InsertUser
+            try
+            {
+                InsertUser();
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: Main master >> register.aspx >> InsertUser method, Log:{ex.Message}");
+            }
 
             Session["USER_REGISTER_SERIAL"] = null;
 

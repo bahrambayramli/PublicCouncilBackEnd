@@ -33,6 +33,15 @@ namespace PublicCouncilBackEnd
         protected global::System.Web.UI.WebControls.TextBox inputLoginName;
 
         /// <summary>
+        /// loginvalidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator loginvalidator;
+
+        /// <summary>
         /// inputPassword control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace PublicCouncilBackEnd
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox inputPassword;
+
+        /// <summary>
+        /// passwordvalidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator passwordvalidator;
 
         /// <summary>
         /// inputName control.
@@ -51,6 +69,15 @@ namespace PublicCouncilBackEnd
         protected global::System.Web.UI.WebControls.TextBox inputName;
 
         /// <summary>
+        /// namevalidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator namevalidator;
+
+        /// <summary>
         /// inputSurname control.
         /// </summary>
         /// <remarks>
@@ -58,6 +85,15 @@ namespace PublicCouncilBackEnd
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox inputSurname;
+
+        /// <summary>
+        /// surnamevalidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator surnamevalidator;
 
         /// <summary>
         /// inputPCname control.
@@ -69,6 +105,15 @@ namespace PublicCouncilBackEnd
         protected global::System.Web.UI.WebControls.TextBox inputPCname;
 
         /// <summary>
+        /// pcnamevalidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator pcnamevalidator;
+
+        /// <summary>
         /// inputPCdomain control.
         /// </summary>
         /// <remarks>
@@ -78,6 +123,15 @@ namespace PublicCouncilBackEnd
         protected global::System.Web.UI.WebControls.TextBox inputPCdomain;
 
         /// <summary>
+        /// pcdomainvalidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator pcdomainvalidator;
+
+        /// <summary>
         /// inputEmail control.
         /// </summary>
         /// <remarks>
@@ -85,6 +139,15 @@ namespace PublicCouncilBackEnd
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox inputEmail;
+
+        /// <summary>
+        /// emailvalidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator emailvalidator;
 
         /// <summary>
         /// inputWeb control.
@@ -103,6 +166,15 @@ namespace PublicCouncilBackEnd
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox inputMobile;
+
+        /// <summary>
+        /// mobilevalidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator mobilevalidator;
 
         /// <summary>
         /// inputTelephone control.

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manage/Admin.Master" AutoEventWireup="true" CodeBehind="postdetail.aspx.cs" Inherits="PublicCouncilBackEnd.manage.WebForm3" %>
 
 <%@ Register Assembly="CKEditor.NET" Namespace="CKEditor.NET" TagPrefix="CKEditor" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         img {
@@ -21,8 +22,8 @@
         }
     </style>
     <script src="/scripts/ckeditor/ckeditor.js"></script>
-    <script src="/scripts/ckfinder/ckfinder.js"></script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="managelayout" runat="server">
 
     <div class="card my-md-2">
@@ -153,7 +154,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="" class="h4 text-primary">Post Başlıq:Az </label>
-                                                <CKEditor:CKEditorControl ID="posttitle_az" runat="server" Height="100px"></CKEditor:CKEditorControl>
+                                                <CKEditor:CKEditorControl ID="posttitle_az" runat="server" Height="100px" BasePath="~/scripts/ckeditor" />
                                             </div>
                                             <div class="form-group ">
                                                 <label for="managelayout_az_view" class="h4 text-primary">
@@ -163,7 +164,7 @@
                                                     <asp:ListItem Value="yes">Bəli</asp:ListItem>
                                                     <asp:ListItem Value="no">Xeyr</asp:ListItem>
                                                 </asp:DropDownList>
-                                                <CKEditor:CKEditorControl ID="post_az" runat="server" Height="300px"></CKEditor:CKEditorControl>
+                                                <CKEditor:CKEditorControl ID="post_az" runat="server" Height="300px" BasePath="~/scripts/ckeditor" />
                                             </div>
 
                                         </div>
@@ -176,7 +177,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="managelayout_posttitle_en" class="h4 text-primary">Post Başlıq:En</label>
-                                                <CKEditor:CKEditorControl ID="posttitle_en" runat="server"></CKEditor:CKEditorControl>
+                                                <CKEditor:CKEditorControl ID="posttitle_en" runat="server" BasePath="~/scripts/ckeditor" />
                                             </div>
                                             <div class="form-group ">
                                                 <label for="managelayout_en_view" class="h4 text-primary">
@@ -186,7 +187,7 @@
                                                     <asp:ListItem Value="no">Xeyr</asp:ListItem>
                                                     <asp:ListItem Value="yes">Bəli</asp:ListItem>
                                                 </asp:DropDownList>
-                                                <CKEditor:CKEditorControl ID="post_en" runat="server" Height="300px"></CKEditor:CKEditorControl>
+                                                <CKEditor:CKEditorControl ID="post_en" runat="server" Height="300px" BasePath="~/scripts/ckeditor" />
                                             </div>
                                         </div>
                                     </div>
@@ -474,7 +475,6 @@
             </div>
         </div>
     </div>
-
     <script>
         $(function () {
             $('.datetimepicker').datetimepicker({
@@ -495,13 +495,12 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            let newsDate = document.getElementById("managelayout_post_date");
-            let hiddenDate = document.getElementById("managelayout_labelTime");
-            newsDate.value = hiddenDate.innerText;
+            let newsDate    = document.getElementById("managelayout_post_date");
+            let hiddenDate  = document.getElementById("managelayout_labelTime");
+            newsDate.value  = hiddenDate.innerText;
 
         });
     </script>
-
     <script>
         document.addEventListener("DOMContentLoaded", function () {
 
@@ -549,17 +548,6 @@
                 e.preventDefault();
                 inputFiles.click();
             });
-        });
-    </script>
-
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function (event) {
-            let editor = CKEDITOR.replace('CKEditorControl1');
-            CKFinder.setupCKEditor(editor, './js/ckfinder/');
-        });
-        CKEDITOR.replace('CKEditorControl1', {
-            htmlEncodeOutput: true
         });
     </script>
 
