@@ -188,6 +188,8 @@ form {
   .main .post-block-title {
     font-weight: 500;
     font-size: 1.2rem; }
+  .main .post-details ol {
+    padding: 0rem 2rem; }
 
 .footer {
   flex-shrink: 0; }
