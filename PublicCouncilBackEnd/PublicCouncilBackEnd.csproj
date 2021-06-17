@@ -282,6 +282,7 @@
     <Content Include="manage\memberdetail.aspx" />
     <Content Include="manage\tags.aspx" />
     <Content Include="manage\tagdetail.aspx" />
+    <Content Include="manage\archiv.aspx" />
     <Content Include="scripts\ckeditor\adapters\jquery.js" />
     <Content Include="scripts\ckeditor\CHANGES.html" />
     <Content Include="scripts\ckeditor\ckeditor.asp" />
@@ -1064,6 +1065,13 @@
     </Compile>
     <Compile Include="manage\tagdetail.aspx.designer.cs">
       <DependentUpon>tagdetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\archiv.aspx.cs">
+      <DependentUpon>archiv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\archiv.aspx.designer.cs">
+      <DependentUpon>archiv.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\Crypto.cs" />
     <Compile Include="Model\error.cs" />
