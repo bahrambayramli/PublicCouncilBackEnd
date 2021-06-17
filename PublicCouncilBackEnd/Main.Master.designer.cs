@@ -285,6 +285,15 @@ namespace PublicCouncilBackEnd
         protected global::System.Web.UI.WebControls.ListView FOOTER_NAVS_EN;
 
         /// <summary>
+        /// SITE_SOCIAL_FOOTER control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView SITE_SOCIAL_FOOTER;
+
+        /// <summary>
         /// siteRights control.
         /// </summary>
         /// <remarks>

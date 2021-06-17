@@ -428,6 +428,8 @@
     <Content Include="manage\tags.aspx" />
     <Content Include="manage\tagdetail.aspx" />
     <Content Include="manage\archiv.aspx" />
+    <Content Include="manage\sociallinks.aspx" />
+    <Content Include="manage\sociallinkdetail.aspx" />
     <Content Include="scripts\ckeditor\adapters\jquery.js" />
     <Content Include="scripts\ckeditor\CHANGES.html" />
     <Content Include="scripts\ckeditor\ckeditor.asp" />
@@ -1217,6 +1219,20 @@
     </Compile>
     <Compile Include="manage\archiv.aspx.designer.cs">
       <DependentUpon>archiv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\sociallinks.aspx.cs">
+      <DependentUpon>sociallinks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\sociallinks.aspx.designer.cs">
+      <DependentUpon>sociallinks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\sociallinkdetail.aspx.cs">
+      <DependentUpon>sociallinkdetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\sociallinkdetail.aspx.designer.cs">
+      <DependentUpon>sociallinkdetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\Crypto.cs" />
     <Compile Include="Model\error.cs" />

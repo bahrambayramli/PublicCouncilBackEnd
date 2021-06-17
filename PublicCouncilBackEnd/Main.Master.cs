@@ -171,6 +171,33 @@ namespace PublicCouncilBackEnd
         #endregion
 
         #region(SQL FUNCTIONS)
+        private void GetSocialLinks()
+        {
+            SqlDataAdapter getSocialLinks = new SqlDataAdapter(new SqlCommand(@"
+
+                                                                            SELECT 
+                                                                                   
+                                                                                    SOCIAL_LINK_NAME		,
+                                                                                    SOCIAL_LINK_URL         ,
+                                                                                    SOCIAL_LINK_ICON
+
+                                                                            FROM PC_SOCIAL_LINKS
+
+                                                                            WHERE 
+                                                                                    SOCIAL_LINK_ISDELETE = @SOCIAL_LINK_ISDELETE AND
+                                                                                    SOCIAL_LINK_ISACTIVE = @SOCIAL_LINK_ISACTIVE
+                                                                                                                                "));
+
+            getSocialLinks.SelectCommand.Parameters.Add("@SOCIAL_LINK_ISDELETE", SqlDbType.Bit).Value = false;
+            getSocialLinks.SelectCommand.Parameters.Add("@SOCIAL_LINK_ISACTIVE", SqlDbType.Bit).Value = true;
+
+            DataTable DT = SQL.SELECT(getSocialLinks);
+
+
+            SITE_SOCIAL_FOOTER.DataSource = DT;
+            SITE_SOCIAL_FOOTER.DataBind();
+
+        }
         private void GetLogo()
         {
             DataTable dtLogo = new DataTable();
@@ -187,6 +214,7 @@ namespace PublicCouncilBackEnd
 
             dtLogo = null;
         }
+
         private void GetNavigations(string lang)
         {
             DataTable nav;
@@ -354,6 +382,7 @@ namespace PublicCouncilBackEnd
 
             }
         }
+       
         private void GetPosts(string LANGUAGE, string POST_COUNT, string POST_CATEGORY,string POST_TYPE, bool POST_ISDELETE, bool POST_ISACTIVE, string POSTMAIN_VIEW, ListView LSV_AZ, ListView LSV_EN)
         {
             switch (LANGUAGE)
@@ -492,6 +521,7 @@ namespace PublicCouncilBackEnd
 
             }
         }
+        
         private void GetPosts(string LANGUAGE, string POST_COUNT, string POST_CATEGORY, string POST_SUBCATEGORY, bool POST_ISDELETE, bool POST_ISACTIVE, bool POSTMAIN_VIEW, ListView LSV_AZ, ListView LSV_EN,bool notuse)
         {
             SqlDataAdapter getPost;
@@ -1163,6 +1193,15 @@ namespace PublicCouncilBackEnd
 
             }
 
+            //GetSocialLinks
+            try
+            {
+                GetSocialLinks();
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: Main master >>  GetSocialLinks method, Log:{ex.Message}");
+            }
         }
 
         protected void Page_Load(object sender, EventArgs e)

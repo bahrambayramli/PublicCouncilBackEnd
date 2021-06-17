@@ -128,6 +128,13 @@
                             </li>
 
                             <li class="nav-item">
+                                <asp:HyperLink ID="managesocial" runat="server" CssClass="nav-link" NavigateUrl="/manage/sociallinks">
+                                   <i class="ni ni-world text-primary"></i>
+                                    <span class="nav-link-text">Sosial şəbəkələr</span>
+                                </asp:HyperLink>
+                            </li>
+
+                            <li class="nav-item">
                                 <asp:HyperLink ID="managearchive" runat="server" CssClass="nav-link" NavigateUrl="/manage/archiv">
                                    <i class="ni ni-box-2 text-warning"></i>
                                     <span class="nav-link-text">Arxiv</span>

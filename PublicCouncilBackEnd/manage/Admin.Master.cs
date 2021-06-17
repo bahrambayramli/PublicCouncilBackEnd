@@ -24,6 +24,8 @@ namespace PublicCouncilBackEnd.manage
                 managesponsors.Visible  = false;
                 managepages.Visible     = false;
                 managearchive.Visible   = false;
+                manageLogo.Visible      = false;
+                managesocial.Visible    = false;
             }
             else
             {

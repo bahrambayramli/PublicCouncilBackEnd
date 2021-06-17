@@ -34,3 +34,4 @@ Log created:13.06.2021 01:02:33, Log page is: subsite master >> GetUserInfo meth
 Log created:13.06.2021 01:02:33, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
 Log created:13.06.2021 01:02:35, Log page is: subsite master >> GetUserInfo method, Log:There is no row at position 0.
 Log created:13.06.2021 01:02:35, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
+Log created:17.06.2021 18:07:02, Log page is: Main Master >> archiv.aspx >> RunArchive method, Log:Thread was being aborted.

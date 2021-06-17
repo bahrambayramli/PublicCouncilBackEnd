@@ -28,12 +28,12 @@ namespace PublicCouncilBackEnd.manage
 
             using (ZipFile zip = new ZipFile())
             {
-                zip.Password = ConfigurationManager.AppSettings["SQLPASSWORD"].ToString();
-                zip.CompressionLevel = (Ionic.Zlib.CompressionLevel)CompressionLevel.NoCompression;
+                zip.Password            = ConfigurationManager.AppSettings["SQLPASSWORD"].ToString();
+                zip.CompressionLevel    = (Ionic.Zlib.CompressionLevel)CompressionLevel.NoCompression;
                 zip.AddSelectedFiles("*", Server.MapPath("~/images/"), "images", true);
                 zip.AddFiles(Directory.GetFiles(Server.MapPath("~/uploads/")), "uploads");
                 zip.AddFiles(Directory.GetFiles(Server.MapPath("~/logs/")), "logs");
-                zip.Save(Server.MapPath($"~/ngositeacrch/{ARCHIVE_NAME}"));
+                zip.Save(Server.MapPath($"~/pcsiteacrch/{ARCHIVE_NAME}"));
             }
         }
 
@@ -330,7 +330,14 @@ namespace PublicCouncilBackEnd.manage
 
             hosting_back_up.Enabled = true;
 
-            GetSiteAchives();
+            try
+            {
+                GetSiteAchives();
+            }
+            catch (Exception ex)
+            {
+                Log.LogCreator(Server.MapPath(Path.Combine("~/Logs", "logs.txt")), $"Log created:{DateTime.Now}, Log page is: Manage Master >> archiv.aspx >> GetSiteAchives method , Log:{ex.Message}");
+            }
 
         }
 

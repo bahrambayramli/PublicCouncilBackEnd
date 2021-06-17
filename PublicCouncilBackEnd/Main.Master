@@ -633,21 +633,15 @@
                                 <a href="#" class="text-white">İctimai Şura</a>
                             </div>
                             <ul class="social-buttons text-right align-self-end">
-                                <li>
-                                    <a href="#" target="_blank" rel="noopener" class="btn btn-icon btn-twitter btn-sm">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank" rel="noopener" class="btn btn-icon btn-facebook btn-sm">
-                                        <i class="fab fa-facebook-square"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank" rel="noopener" class="btn btn-icon btn-instagram btn-sm">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </li>
+                                <asp:ListView ID="SITE_SOCIAL_FOOTER" runat="server">
+                                    <ItemTemplate>
+                                        <li>
+                                            <a href="<%#Eval("SOCIAL_LINK_URL")%>" target="_blank"  rel="noopener" class="btn btn-icon btn-danger btn-sm" title="<%#Eval("SOCIAL_LINK_NAME")%>">
+                                                <i class="<%#Eval("SOCIAL_LINK_ICON")%>"></i>
+                                            </a>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:ListView>
                             </ul>
                         </div>
                     </div>
