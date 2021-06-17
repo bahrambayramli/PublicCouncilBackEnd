@@ -18,35 +18,21 @@ namespace PublicCouncilBackEnd.manage
             }
             Session.Timeout = 90; //30 is number of minutes
 
-            if (Session["USER_MEMBERSHIP_TYPE"] as string == "admin")
+            if (Session["USER_MEMBERSHIP_TYPE"] as string != "admin")
             {
-                //pcnameLink.NavigateUrl = "http://publiccouncil.ml";
-               // pcNameText.Text = "publiccouncil.ml";
-              
-
-            }
-            else if (Session["USER_MEMBERSHIP_TYPE"] as string == "user")
-            {
-              //  pcnameLink.NavigateUrl = $"http://{ Session["USER_PCDOMAIN"] as string}.publiccouncil.ml";
-             //    pcNameText.Text = ($"{Session["USER_PCDOMAIN"] as string}.publiccouncil.ml").ToLower();
-                
-                managepartners.Visible   = false;
-                managesponsors.Visible   = false;
-               // managepcouncils.Visible  = false;
-                managepages.Visible      = false;
+                managepartners.Visible  = false;
+                managesponsors.Visible  = false;
+                managepages.Visible     = false;
+                managearchive.Visible   = false;
             }
             else
             {
-
-                managepartners.Visible = false;
-                managesponsors.Visible = false;
-               // managepcouncils.Visible = false;
-                managepages.Visible = false;
+                //managepartners.Visible  = false;
+                //managesponsors.Visible  = false;
+                //managepages.Visible     = false;
+                //managearchive.Visible   = false;
             }
-
             userName.Text = $"{Session["USER_NAME"] as string} {Session["USER_SURNAME"]}";
-         
-           
         }
 
         protected void manageExit_Click(object sender, EventArgs e)

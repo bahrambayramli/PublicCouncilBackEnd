@@ -114,6 +114,15 @@ namespace PublicCouncilBackEnd.manage
         protected global::System.Web.UI.WebControls.HyperLink managepcouncils;
 
         /// <summary>
+        /// managearchive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink managearchive;
+
+        /// <summary>
         /// manageExit control.
         /// </summary>
         /// <remarks>

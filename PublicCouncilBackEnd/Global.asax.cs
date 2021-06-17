@@ -51,6 +51,7 @@ namespace PublicCouncilBackEnd
             routes.MapPageRoute("managepages"                   , "manage/pages/"               , "~/manage/pages.aspx");
             routes.MapPageRoute("managemembers"                 , "manage/members/"             , "~/manage/members.aspx");
             routes.MapPageRoute("managememberdetail"            , "manage/memberdetail/"        , "~/manage/memberdetail.aspx");
+            routes.MapPageRoute("managearchiv"                  , "manage/archiv/"              , "~/manage/archiv.aspx");
             #endregion
 
             #region(subsite routes)
