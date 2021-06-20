@@ -401,7 +401,7 @@ namespace PublicCouncilBackEnd
                                                                                             	        POST_SITECATEGORYAZ,
                                                                                                         POST_SITESUBCATEGORYAZ,
                                                                                                         POST_IMG,
-                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_DATE,
                                                                                                         POST_SEOAZ,
                                                                                                         POST_AUTHOR
                                                                                             FROM        PC_POSTS
@@ -445,7 +445,7 @@ namespace PublicCouncilBackEnd
                                                                                             	        POST_SITECATEGORYEN,
                                                                                                         POST_SITESUBCATEGORYEN,
                                                                                                         POST_IMG,
-                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_DATE,
                                                                                                         POST_SEOEN,
                                                                                                         POSTMAIN_VIEW
                                                                                             FROM        PC_POSTS
@@ -488,7 +488,7 @@ namespace PublicCouncilBackEnd
                                                                                             	        POST_SITECATEGORYAZ,
                                                                                                         POST_SITESUBCATEGORYAZ,
                                                                                                         POST_IMG,
-                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_DATE,
                                                                                                         POST_SEOAZ,
                                                                                                         POSTMAIN_VIEW
                                                                                             FROM        PC_POSTS
@@ -1132,7 +1132,7 @@ namespace PublicCouncilBackEnd
             //GetLatest
             try
             {
-                GetLatest(Session["language"] as string, "10", false, true, true, LATEST_AZ, LATEST_EN);
+                GetLatest(LANG, "10", false, true, true, LATEST_AZ, LATEST_EN);
             }
             catch (Exception ex)
             {
