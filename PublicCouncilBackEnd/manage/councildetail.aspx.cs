@@ -83,14 +83,14 @@ namespace PublicCouncilBackEnd.manage
                                                                                  FROM   PC_USERS
 
                                                                                  WHERE	
-                                                                                        USER_LOGIN     = @USER_LOGIN      AND
-                                                                                        USER_PCDOMAIN  = @USER_PCDOMAIN   AND
+                                                                                        (USER_LOGIN     = @USER_LOGIN     OR
+                                                                                        USER_PCDOMAIN  = @USER_PCDOMAIN)   AND
                                                                                         ISDELETE       = @ISDELETE       
                                                                                 		 "));
 
-            checkAccount.SelectCommand.Parameters.Add("@USER_LOGIN", SqlDbType.NVarChar).Value = login;
-            checkAccount.SelectCommand.Parameters.Add("@USER_PCDOMAIN", SqlDbType.NVarChar).Value = subdomain;
-            checkAccount.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value = ISDELETE;
+            checkAccount.SelectCommand.Parameters.Add("@USER_LOGIN", SqlDbType.NVarChar).Value      = login;
+            checkAccount.SelectCommand.Parameters.Add("@USER_PCDOMAIN", SqlDbType.NVarChar).Value   = subdomain;
+            checkAccount.SelectCommand.Parameters.Add("@ISDELETE", SqlDbType.Bit).Value             = ISDELETE;
 
 
             DataTable dt = SQL.SELECT(checkAccount);
@@ -381,7 +381,7 @@ namespace PublicCouncilBackEnd.manage
 
         }
 
-        private void UpdateUser(string USER_SERIAL,string USER_ID)
+        private void UpdateUserByAdmin(string USER_SERIAL,string USER_ID)
         {
            
             #region(Update)
@@ -491,6 +491,102 @@ namespace PublicCouncilBackEnd.manage
             #endregion
 
             UpdateLogo(USER_SERIAL,USER_ID);
+        }
+
+        private void UpdateByUser(string USER_SERIAL, string USER_ID) 
+        {
+          
+            SqlCommand updateUser;
+
+            if (!string.IsNullOrEmpty(inputPassword.Text))
+            {
+                updateUser = new SqlCommand(@"UPDATE PC_USERS SET 
+                                                        
+		                                               
+                                                         USER_PASSWORD         = @USER_PASSWORD         ,
+                                                         USER_NAME             = @USER_NAME             ,
+                                                         USER_SURNAME          = @USER_SURNAME          ,
+                                                         USER_MOBILE           = @USER_MOBILE           ,
+                                                         PC_NAME               = @PC_NAME               ,
+                                                         PC_TELEPHONE          = @PC_TELEPHONE          ,
+                                                         PC_EMAIL              = @PC_EMAIL              ,
+                                                         PC_WEBADDRESS         = @PC_WEBADDRESS         ,                                                      
+                                                         PC_CITY               = @PC_CITY               ,
+                                                         PC_CATEGORY           = @PC_CATEGORY           ,
+	                                                     PC_ABOUT_AZ           = @PC_ABOUT_AZ           ,
+                                                         PC_ORDER_NUMBER       = @PC_ORDER_NUMBER       ,
+                                                         PC_NAME_EN            = @PC_NAME_EN            ,
+                                                         USER_NAME_EN          = @USER_NAME_EN          ,
+                                                         USER_SURNAME_EN       = @USER_SURNAME_EN
+
+
+                                                         WHERE USER_ID         = @USER_ID
+                                                        
+	                                                	   ");
+                string pass = Crypto.MD5crypt(inputPassword.Text);
+                updateUser.Parameters.Add("@USER_PASSWORD", SqlDbType.NVarChar).Value = pass;
+            }
+            else
+            {
+                updateUser = new SqlCommand(@"UPDATE PC_USERS SET 
+                                                        
+		                                               
+                                                         USER_NAME             = @USER_NAME             ,
+                                                         USER_SURNAME          = @USER_SURNAME          ,
+                                                         USER_MOBILE           = @USER_MOBILE           ,
+                                                         PC_NAME               = @PC_NAME               ,
+                                                         PC_TELEPHONE          = @PC_TELEPHONE          ,
+                                                         PC_EMAIL              = @PC_EMAIL              ,
+                                                         PC_WEBADDRESS         = @PC_WEBADDRESS         ,                                                      
+                                                         PC_CITY               = @PC_CITY               ,                                                       
+                                                         PC_CATEGORY           = @PC_CATEGORY           ,
+	                                                     PC_ABOUT_AZ           = @PC_ABOUT_AZ           ,
+	                                                     PC_ABOUT_EN           = @PC_ABOUT_EN           ,
+                                                         PC_ORDER_NUMBER       = @PC_ORDER_NUMBER       ,
+                                                         PC_NAME_EN            = @PC_NAME_EN            ,
+                                                         USER_NAME_EN          = @USER_NAME_EN          ,
+                                                         USER_SURNAME_EN       = @USER_SURNAME_EN       ,
+                                                         PC_ACTIVITY_PERIOD    = @PC_ACTIVITY_PERIOD       
+
+                                                         WHERE USER_ID = @USER_ID
+                                                        
+	                                                	   ");
+            }
+
+
+            updateUser.Parameters.Add("@USER_ID", SqlDbType.Int).Value = USER_ID;
+
+            if (inputISACTIVE.SelectedItem.Text == "Bəli")
+            {
+                updateUser.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = true;
+            }
+            else
+            {
+                updateUser.Parameters.Add("@ISACTIVE", SqlDbType.Bit).Value = false;
+            }
+
+          
+            updateUser.Parameters.Add("@PC_ORDER_NUMBER", SqlDbType.Int).Value                          = inputOrderNumber.Text;
+            updateUser.Parameters.Add("@USER_NAME", SqlDbType.NVarChar).Value                           = inputName.Text;
+            updateUser.Parameters.Add("@USER_SURNAME", SqlDbType.NVarChar).Value                        = inputSurname.Text;
+            updateUser.Parameters.Add("@PC_NAME", SqlDbType.NVarChar).Value                             = inputPCname.Text;
+            updateUser.Parameters.Add("@PC_TELEPHONE", SqlDbType.NVarChar).Value                        = inputTelephone.Text;
+            updateUser.Parameters.Add("@USER_MOBILE", SqlDbType.NVarChar).Value                         = inputMobile.Text;
+            updateUser.Parameters.Add("@PC_EMAIL", SqlDbType.NVarChar).Value                            = inputEmail.Text;
+            updateUser.Parameters.Add("@PC_WEBADDRESS", SqlDbType.NVarChar).Value                       = inputWeb.Text;
+            updateUser.Parameters.Add("@PC_CITY", SqlDbType.NVarChar).Value                             = inputCity.SelectedItem.Text;
+            updateUser.Parameters.Add("@PC_CATEGORY", SqlDbType.NVarChar).Value                         = categorySelect.SelectedValue;
+            updateUser.Parameters.Add("@PC_ABOUT_AZ", SqlDbType.NVarChar).Value                         = inputAboutUs_Az.Text;
+            updateUser.Parameters.Add("@PC_ABOUT_EN", SqlDbType.NVarChar).Value                         = inputAboutUs_En.Text;
+            updateUser.Parameters.Add("@PC_NAME_EN", SqlDbType.NVarChar).Value                          = inputPCname_En.Text;
+            updateUser.Parameters.Add("@USER_NAME_EN", SqlDbType.NVarChar).Value                        = inputName_En.Text;
+            updateUser.Parameters.Add("@USER_SURNAME_EN", SqlDbType.NVarChar).Value                     = inputSurname_En.Text;
+            updateUser.Parameters.Add("@PC_ACTIVITY_PERIOD", SqlDbType.NVarChar).Value                  = inputActivityPeriod.Text;
+
+            SQL.COMMAND(updateUser);
+          
+
+            UpdateLogo(USER_SERIAL, USER_ID);
         }
 
         #endregion
@@ -683,7 +779,16 @@ namespace PublicCouncilBackEnd.manage
         {
             if (Session["PC"] as string == "SELECTED")
             {
-                UpdateUser(Session["PC_SERIAL"] as string, Session["PC_ID"] as string);
+              
+
+                if(Convert.ToString(Session["USER_MEMBERSHIP_TYPE"]).ToLower() == "admin")
+                {
+                    UpdateUserByAdmin(Session["PC_SERIAL"] as string, Session["PC_ID"] as string);
+                }
+                else
+                {
+                    UpdateByUser(Session["PC_SERIAL"] as string, Session["PC_ID"] as string);
+                }
             }
             else
             {
@@ -696,10 +801,10 @@ namespace PublicCouncilBackEnd.manage
                 InsertUser();
             }
 
-            Session["PC"] = null;
-            Session["PC_ID"] = null;
-            Session["PC_SERIAL"] = null;
-            Session["NEW_USER_SERIAL"] = null;
+            Session["PC"]                   = null;
+            Session["PC_ID"]                = null;
+            Session["PC_SERIAL"]            = null;
+            Session["NEW_USER_SERIAL"]      = null;
 
             Response.Redirect("/manage/councils");
         }
