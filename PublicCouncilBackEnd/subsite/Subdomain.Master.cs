@@ -56,6 +56,7 @@ namespace PublicCouncilBackEnd.subsite
 
             return SQL.SELECT(getSerial).Rows[0]["USER_SERIAL"].ToString();
         }
+
         private void GetUserInfo(string LANG, string USER_PCDOMAIN)
         {
             SqlDataAdapter getSerial;

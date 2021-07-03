@@ -1,37 +1,16 @@
-﻿Log created:13.06.2021 01:00:59, Log page is: subsite master >> GetUserInfo method, Log:There is no row at position 0.
-Log created:13.06.2021 01:00:59, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
-Log created:13.06.2021 01:01:01, Log page is: subsite master >> GetUserInfo method, Log:There is no row at position 0.
-Log created:13.06.2021 01:01:02, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
-Log created:13.06.2021 01:01:03, Log page is: subsite master >> GetUserInfo method, Log:There is no row at position 0.
-Log created:13.06.2021 01:01:04, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
-Log created:13.06.2021 01:01:14, Log page is: subsite master >> GetUserInfo method, Log:There is no row at position 0.
-Log created:13.06.2021 01:01:14, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
-Log created:13.06.2021 01:01:16, Log page is: subsite master >> GetUserInfo method, Log:There is no row at position 0.
-Log created:13.06.2021 01:01:16, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
-Log created:13.06.2021 01:01:18, Log page is: subsite master >> GetUserInfo method, Log:There is no row at position 0.
-Log created:13.06.2021 01:01:18, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
-Log created:13.06.2021 01:01:27, Log page is: subsite master >> GetUserInfo method, Log:There is no row at position 0.
-Log created:13.06.2021 01:01:28, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
-Log created:13.06.2021 01:01:29, Log page is: subsite master >> GetUserInfo method, Log:There is no row at position 0.
-Log created:13.06.2021 01:01:30, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
-Log created:13.06.2021 01:01:31, Log page is: subsite master >> GetUserInfo method, Log:There is no row at position 0.
-Log created:13.06.2021 01:01:32, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
-Log created:13.06.2021 01:02:06, Log page is: subsite master >> GetUserInfo method, Log:There is no row at position 0.
-Log created:13.06.2021 01:02:06, Log page is: subsite master >> GetUserInfo method, Log:There is no row at position 0.
-Log created:13.06.2021 01:02:06, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
-Log created:13.06.2021 01:02:06, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
-Log created:13.06.2021 01:02:07, Log page is: subsite master >> GetUserInfo method, Log:There is no row at position 0.
-Log created:13.06.2021 01:02:07, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
-Log created:13.06.2021 01:02:12, Log page is: subsite master >> GetUserInfo method, Log:There is no row at position 0.
-Log created:13.06.2021 01:02:13, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
-Log created:13.06.2021 01:02:17, Log page is: subsite master >> GetUserInfo method, Log:There is no row at position 0.
-Log created:13.06.2021 01:02:17, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
-Log created:13.06.2021 01:02:20, Log page is: subsite master >> GetUserInfo method, Log:There is no row at position 0.
-Log created:13.06.2021 01:02:20, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
-Log created:13.06.2021 01:02:31, Log page is: subsite master >> GetUserInfo method, Log:There is no row at position 0.
-Log created:13.06.2021 01:02:31, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
-Log created:13.06.2021 01:02:33, Log page is: subsite master >> GetUserInfo method, Log:There is no row at position 0.
-Log created:13.06.2021 01:02:33, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
-Log created:13.06.2021 01:02:35, Log page is: subsite master >> GetUserInfo method, Log:There is no row at position 0.
-Log created:13.06.2021 01:02:35, Log page is: subsite master >> GetLogos method, Log:There is no row at position 0.
-Log created:17.06.2021 18:07:02, Log page is: Main Master >> archiv.aspx >> RunArchive method, Log:Thread was being aborted.
+﻿Must declare the scalar variable "@ISDELETE".
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)

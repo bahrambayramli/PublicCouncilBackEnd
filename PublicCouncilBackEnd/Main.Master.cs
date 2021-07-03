@@ -198,6 +198,7 @@ namespace PublicCouncilBackEnd
             SITE_SOCIAL_FOOTER.DataBind();
 
         }
+
         private void GetLogo()
         {
             DataTable dtLogo = new DataTable();
@@ -310,7 +311,7 @@ namespace PublicCouncilBackEnd
                                                                                             	        POST_SITECATEGORYEN,
                                                                                                         POST_SITESUBCATEGORYEN,
                                                                                                         POST_IMG,
-                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_DATE,
                                                                                                         POST_SEOEN,
                                                                                                         POST_AUTHOR
                                                                                             FROM        PC_POSTS
@@ -319,9 +320,9 @@ namespace PublicCouncilBackEnd
                                                                                                         ISACTIVE            = @ISACTIVE      AND
                                                                                                         POST_CATEGORY       = @POST_CATEGORY AND                                                                                                   
                                                                                                         POST_EN_VIEW        = @POST_EN_VIEW  AND
-                                                                                                        POSTMAIN_VIEW         = @POSTMAIN_VIEW
+                                                                                                        POSTMAIN_VIEW       = @POSTMAIN_VIEW
 
-                                                                                                        ORDER BY POST_DATE DESC
+                                                                                                       ORDER BY POST_DATE DESC
                                                                                                     "));
 
 
@@ -351,7 +352,7 @@ namespace PublicCouncilBackEnd
                                                                                             	        POST_SITECATEGORYAZ,
                                                                                                         POST_SITESUBCATEGORYAZ,
                                                                                                         POST_IMG,
-                                                                                                        CONVERT(VARCHAR(10), CONVERT(DATETIME, POST_DATE),103) + ' ' + CONVERT(VARCHAR(8), CONVERT(DATETIME, POST_DATE),108) AS 'POST_DATE',
+                                                                                                        POST_DATE,
                                                                                                         POST_SEOAZ,
                                                                                                         POST_AUTHOR
                                                                                             FROM        PC_POSTS
@@ -989,6 +990,7 @@ namespace PublicCouncilBackEnd
 
            
         }
+       
         private void GetSponsors()
         {
             SqlDataAdapter getSponsors = new SqlDataAdapter(new SqlCommand(@"SELECT 

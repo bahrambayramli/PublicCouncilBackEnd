@@ -15,15 +15,6 @@ namespace PublicCouncilBackEnd.manage
     {
 
         /// <summary>
-        /// PostsUpdatePanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel PostsUpdatePanel;
-
-        /// <summary>
         /// new_pc control.
         /// </summary>
         /// <remarks>
@@ -33,6 +24,33 @@ namespace PublicCouncilBackEnd.manage
         protected global::System.Web.UI.WebControls.LinkButton new_pc;
 
         /// <summary>
+        /// pcList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink pcList;
+
+        /// <summary>
+        /// pcDeleted control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink pcDeleted;
+
+        /// <summary>
+        /// UpdatePanel_PC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel_PC;
+
+        /// <summary>
         /// PCLists control.
         /// </summary>
         /// <remarks>
@@ -40,5 +58,23 @@ namespace PublicCouncilBackEnd.manage
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView PCLists;
+
+        /// <summary>
+        /// UpdatePanel_DELETED control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel_DELETED;
+
+        /// <summary>
+        /// PC_DELETED control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView PC_DELETED;
     }
 }
