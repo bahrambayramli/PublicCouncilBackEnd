@@ -106,9 +106,10 @@ namespace PublicCouncilBackEnd.manage
             try { e.Row.Cells[1].Visible = false; } catch { }
             try { e.Row.Cells[2].Visible = false; } catch { }
             try { e.Row.Cells[7].Visible = false; } catch { }
-            if (Session["USER_MEMBERSHIP_TYPE"] as string != "admin")
+
+            if (Convert.ToString(Session["USER_MEMBERSHIP_TYPE"]).ToLower()!= "admin")
             {
-                try { e.Row.Cells[9].Visible = false; } catch { }
+                try { e.Row.Cells[10].Visible = false; } catch { }
             }
         }
 
